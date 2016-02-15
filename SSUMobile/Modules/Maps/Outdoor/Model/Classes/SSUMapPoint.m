@@ -3,7 +3,7 @@
 //  SSUMobile
 //
 //  Created by Main on 4/16/14.
-//  Copyright (c) 2014 Computer Science. All rights reserved.
+//  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
 #import "SSUMapPoint.h"

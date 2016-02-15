@@ -3,7 +3,7 @@
 //  SSUMobile
 //
 //  Created by Eric Amorde on 2/26/14.
-//  Copyright (c) 2014 Computer Science. All rights reserved.
+//  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
 #import "SSUSchoolViewController.h"

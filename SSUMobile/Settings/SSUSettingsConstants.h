@@ -3,7 +3,7 @@
 //  SSUMobile
 //
 //  Created by Andrew Huss on 2/12/13.
-//  Copyright (c) 2013 Computer Science. All rights reserved.
+//  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
