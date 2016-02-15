@@ -17,6 +17,7 @@
 #import "SSUBuilding.h"
 
 #import "SSULogging.h"
+#import "SSUDebugCredentials.h"
 
 #import "MBProgressHUD.h"
 
@@ -35,6 +36,7 @@
     [super viewDidLoad];
     self.context = [[SSUDirectoryModule sharedInstance] context];
     [self updateUI];
+    [SSUDebugCredentials requestCredentials];
 }
 
 - (NSMutableDictionary *) departmentDictionary {
@@ -191,7 +193,8 @@
     [self.department setValuesForKeysWithDictionary:self.departmentDictionary];
     SSULogDebug(@"%@",self.department);
     NSURL * url = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"modifyDepartment"]];
-    NSDictionary * params = [self departmentData];
+    NSMutableDictionary * params = [[self departmentData] mutableCopy];
+    params[@"key"] = [SSUDebugCredentials token];
     
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     [SSUMoonlightCommunicator postURL:url parameters:params completionHandler:^(NSData *data, NSError *error) {
