@@ -190,7 +190,7 @@
 - (void) submit {
     [self.department setValuesForKeysWithDictionary:self.departmentDictionary];
     SSULogDebug(@"%@",self.department);
-    NSURL * url = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"modifyDepartment.py"]];
+    NSURL * url = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"modifyDepartment"]];
     NSDictionary * params = [self departmentData];
     
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];

@@ -87,7 +87,7 @@
 - (void) updatePoints:(void (^)())completion {
     NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsPointsUpdatedDate];
     NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
-    [SSUMoonlightCommunicator getJSONFromPath:@"points.py" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"points" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Map points: %@", error);
             if (completion) {
@@ -109,7 +109,7 @@
 - (void) updatePerimeters:(void (^)())completion {
     NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsPerimetersUpdatedDate];
     NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
-    [SSUMoonlightCommunicator getJSONFromPath:@"perimeters.py" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"perimeters" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Map perimeters: %@", error);
             if (completion) {
@@ -130,7 +130,7 @@
 - (void) updateConnections:(void (^)())completion {
     NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsConnectionsUpdatedDate];
     NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
-    [SSUMoonlightCommunicator getJSONFromPath:@"connections.py" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"connections" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Map connections: %@", error);
             if (completion) {

@@ -81,7 +81,7 @@
     SSULogDebug(@"Update Directory NEW");
     NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsDirectoryUpdatedDate];
     NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory.py" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory: %@", error);
             if (completion) {

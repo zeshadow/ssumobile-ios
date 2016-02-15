@@ -62,7 +62,7 @@
     SSULogDebug(@"Update Calendar NEW");
     NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsCalendarUpdatedDate];
     NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
-    [SSUMoonlightCommunicator getJSONFromPath:@"calendar.py" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"calendar" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Calendar: %@", error);
             if (completion) {

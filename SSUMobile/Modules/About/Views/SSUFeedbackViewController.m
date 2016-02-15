@@ -93,7 +93,7 @@ static NSTimeInterval WAIT_PERIOD = 60.0;
         return;
     }
     self.submitting = YES;
-    NSString * baseURL = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createFeedback.py"];
+    NSString * baseURL = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createFeedback"];
     NSString * version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     id params = @{
                   @"content" : content,

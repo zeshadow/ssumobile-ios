@@ -62,7 +62,7 @@
     SSULogDebug(@"Update News NEW");
     NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsNewsUpdatedDate];
     NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
-    [SSUMoonlightCommunicator getJSONFromPath:@"news.py" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"news" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update News: %@", error);
             if (completion) {

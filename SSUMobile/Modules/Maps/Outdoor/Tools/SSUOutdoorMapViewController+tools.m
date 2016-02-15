@@ -169,7 +169,7 @@ const CGFloat accuracy = 0.000000001;
 
 - (void) createPointFromCoordinate:(CLLocationCoordinate2D)coordinate buildingID:(NSString*)buildingID index:(NSString*)index completionHandler:(void(^)(SSUMapPoint* point, NSError* error))completionBlock {
     SSULogDebug(@"Will Create Point");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createPoint.py"];
+    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createPoint"];
     NSURL* url = nil;
     NSMutableDictionary * params = [@{
                                      @"latitude" : @(coordinate.latitude),
@@ -215,7 +215,7 @@ const CGFloat accuracy = 0.000000001;
 
 - (void) modifyPoint:(SSUMapPoint*)point {
     SSULogDebug(@"Will Modify Point");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"modifyPoint.py"];
+    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"modifyPoint"];
     NSDictionary * params = @{
                               @"pID" : point.id,
                               @"latitude" : point.latitude,
@@ -252,7 +252,7 @@ const CGFloat accuracy = 0.000000001;
 
 - (void) deletePoint:(SSUMapPoint*)point {
     SSULogDebug(@"Will Delete Point");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"deletePoint.py"];
+    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"deletePoint"];
     NSDictionary * params = @{
                               @"pID" : point.id,
                               @"key" : [SSUDebugCredentials token]
@@ -280,7 +280,7 @@ const CGFloat accuracy = 0.000000001;
 
 - (void) createConnectionFromA:(SSUMapPoint*)pointA toB:(SSUMapPoint*)pointB {
     SSULogDebug(@"Will Create Connection");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createConnection.py"];
+    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createConnection"];
     NSDictionary * params = @{
                               @"aID" : pointA.id,
                               @"bID" : pointB.id,
@@ -327,7 +327,7 @@ const CGFloat accuracy = 0.000000001;
 
 - (void) deleteConnectionFromA:(SSUMapPoint*)pointA toB:(SSUMapPoint*)pointB {
     SSULogDebug(@"Will Delete Connection");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"deleteConnection.py"];
+    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"deleteConnection"];
     NSDictionary * params = @{
                               @"aID" : pointA.id,
                               @"bID" : pointB.id,
