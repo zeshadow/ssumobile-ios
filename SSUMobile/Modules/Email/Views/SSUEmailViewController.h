@@ -1,0 +1,21 @@
+//
+//  SSUEmailViewController.h
+//  SSUMobile
+//
+//  Created by Eric Amorde on 2/7/15.
+//  Copyright (c) 2015 Computer Science. All rights reserved.
+//
+
+@import UIKit;
+
+typedef NS_ENUM(NSInteger, SSUEmailViewControllerMode) {
+    SSUEmailViewControllerModeExchange,
+    SSUEmailViewControllerModeGmail, //TODO: Remove
+    SSUEmailViewControllerModeGoogleDocs,
+};
+
+@interface SSUEmailViewController : UIViewController
+
+@property (nonatomic) SSUEmailViewControllerMode mode;
+
+@end

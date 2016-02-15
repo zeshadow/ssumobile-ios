@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kfe-PN-kbL">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--KSUN Radio-->
+        <scene sceneID="sdQ-20-R1t">
+            <objects>
+                <viewController title="KSUN Radio" id="kfe-PN-kbL" customClass="SSURadioViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nVH-tL-Llx"/>
+                        <viewControllerLayoutGuide type="bottom" id="ddv-cM-GId"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="rvU-vd-YAs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="radio_background" translatesAutoresizingMaskIntoConstraints="NO" id="2gB-wb-MPD">
+                                <rect key="frame" x="-840" y="0.0" width="2000" height="504"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="radio_logo" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-xx-zHI">
+                                <rect key="frame" x="20" y="8" width="280" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="Kiv-At-vKh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.75000000000000022" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-5w-rEB">
+                                <rect key="frame" x="143" y="182" width="34" height="16"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="radio_volume" translatesAutoresizingMaskIntoConstraints="NO" id="Dqz-91-bOM">
+                                <rect key="frame" x="20" y="466" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="0Qe-9i-h7A"/>
+                                    <constraint firstAttribute="height" constant="30" id="Lyf-zq-Zni"/>
+                                </constraints>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="7Zv-lA-JcS">
+                                <rect key="frame" x="18" y="206" width="284" height="31"/>
+                                <connections>
+                                    <action selector="sliderFinished:" destination="kfe-PN-kbL" eventType="touchUpOutside" id="J5j-Kp-Egn"/>
+                                    <action selector="sliderFinished:" destination="kfe-PN-kbL" eventType="touchUpInside" id="Rav-GL-4hB"/>
+                                    <action selector="sliderMoved:" destination="kfe-PN-kbL" eventType="valueChanged" id="SW8-CT-JJV"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9K-EL-obD">
+                                <rect key="frame" x="138" y="244" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="czv-Db-LSy"/>
+                                    <constraint firstAttribute="height" constant="45" id="iv5-Lc-fRF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Play" image="radio_play">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="kfe-PN-kbL" eventType="touchUpInside" id="uUz-x1-OcQ"/>
+                                </connections>
+                            </button>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwo-6r-O0T">
+                                <rect key="frame" x="50" y="474" width="221" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bwo-6r-O0T" firstAttribute="centerX" secondItem="g9K-EL-obD" secondAttribute="centerX" id="CWa-8h-94n"/>
+                            <constraint firstItem="ddv-cM-GId" firstAttribute="top" secondItem="Dqz-91-bOM" secondAttribute="bottom" constant="8" symbolic="YES" id="F2K-1p-umY"/>
+                            <constraint firstAttribute="centerX" secondItem="g9K-EL-obD" secondAttribute="centerX" id="GdM-Tf-Hut"/>
+                            <constraint firstAttribute="centerX" secondItem="YuN-5w-rEB" secondAttribute="centerX" id="MWx-rG-r0W"/>
+                            <constraint firstItem="7Zv-lA-JcS" firstAttribute="top" secondItem="YuN-5w-rEB" secondAttribute="bottom" constant="8" symbolic="YES" id="Md7-9q-73X"/>
+                            <constraint firstAttribute="trailing" secondItem="WRK-xx-zHI" secondAttribute="trailing" constant="20" symbolic="YES" id="Mhh-Rh-fdQ"/>
+                            <constraint firstItem="WRK-xx-zHI" firstAttribute="leading" secondItem="rvU-vd-YAs" secondAttribute="leading" constant="20" symbolic="YES" id="NWr-yJ-m6i"/>
+                            <constraint firstItem="Bwo-6r-O0T" firstAttribute="top" secondItem="Dqz-91-bOM" secondAttribute="top" constant="8" id="UcA-3Y-0Lf"/>
+                            <constraint firstAttribute="bottom" secondItem="2gB-wb-MPD" secondAttribute="bottom" id="cH0-BW-Gyh"/>
+                            <constraint firstItem="2gB-wb-MPD" firstAttribute="top" secondItem="nVH-tL-Llx" secondAttribute="bottom" id="d29-Kn-DtV"/>
+                            <constraint firstItem="YuN-5w-rEB" firstAttribute="top" secondItem="WRK-xx-zHI" secondAttribute="bottom" constant="8" symbolic="YES" id="fXf-US-ri3"/>
+                            <constraint firstItem="Bwo-6r-O0T" firstAttribute="leading" secondItem="Dqz-91-bOM" secondAttribute="trailing" id="hts-8h-wI5"/>
+                            <constraint firstItem="Dqz-91-bOM" firstAttribute="leading" secondItem="rvU-vd-YAs" secondAttribute="leading" constant="20" symbolic="YES" id="it8-5K-iOP"/>
+                            <constraint firstItem="WRK-xx-zHI" firstAttribute="top" secondItem="nVH-tL-Llx" secondAttribute="bottom" constant="8" symbolic="YES" id="nW7-Pz-slM"/>
+                            <constraint firstAttribute="centerX" secondItem="2gB-wb-MPD" secondAttribute="centerX" id="oJ9-fQ-5hI"/>
+                            <constraint firstAttribute="trailing" secondItem="7Zv-lA-JcS" secondAttribute="trailing" constant="20" symbolic="YES" id="rFR-XO-K07"/>
+                            <constraint firstItem="Dqz-91-bOM" firstAttribute="bottom" secondItem="Bwo-6r-O0T" secondAttribute="bottom" constant="-8" id="tUa-AX-T6B"/>
+                            <constraint firstItem="7Zv-lA-JcS" firstAttribute="leading" secondItem="rvU-vd-YAs" secondAttribute="leading" constant="20" symbolic="YES" id="u7J-SU-X21"/>
+                            <constraint firstItem="g9K-EL-obD" firstAttribute="top" secondItem="7Zv-lA-JcS" secondAttribute="bottom" constant="8" symbolic="YES" id="uie-16-TpK"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="button" destination="g9K-EL-obD" id="f0c-Ym-MGQ"/>
+                        <outlet property="elapsedLabel" destination="YuN-5w-rEB" id="aB2-DJ-2br"/>
+                        <outlet property="mainImage" destination="WRK-xx-zHI" id="eoo-He-kYY"/>
+                        <outlet property="progressSlider" destination="7Zv-lA-JcS" id="YPX-Z0-b0Z"/>
+                        <outlet property="speakerImage" destination="Dqz-91-bOM" id="NQA-9S-v0k"/>
+                        <outlet property="volumeSlider" destination="Bwo-6r-O0T" id="y9l-Y2-vQS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bGM-gy-Sal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="radio_background" width="1000" height="303"/>
+        <image name="radio_logo" width="332" height="156"/>
+        <image name="radio_play" width="64" height="64"/>
+        <image name="radio_volume" width="50" height="50"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

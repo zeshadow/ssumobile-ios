@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SSUBuilding" representedClassName="SSUBuilding" parentEntity="SSUDirectoryObject" elementID="Building" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="departments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="building" inverseEntity="SSUDepartment" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="building" inverseEntity="SSUPerson" syncable="YES"/>
+        <relationship name="schools" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUSchool" inverseName="building" inverseEntity="SSUSchool" syncable="YES"/>
+    </entity>
+    <entity name="SSUDepartment" representedClassName="SSUDepartment" parentEntity="SSUDirectoryObject" elementID="Department" syncable="YES">
+        <attribute name="fax" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="office" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ac" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="ac_department" inverseEntity="SSUPerson" syncable="YES"/>
+        <relationship name="building" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSUBuilding" inverseName="departments" inverseEntity="SSUBuilding" syncable="YES"/>
+        <relationship name="chair" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="chair_department" inverseEntity="SSUPerson" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="department" inverseEntity="SSUPerson" syncable="YES"/>
+        <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUSchool" inverseName="departments" inverseEntity="SSUSchool" syncable="YES"/>
+    </entity>
+    <entity name="SSUDirectoryObject" representedClassName="SSUDirectoryObject" isAbstract="YES" elementID="DirectoryObject" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="sectionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="term" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SSUPerson" representedClassName="SSUPerson" parentEntity="SSUDirectoryObject" elementID="Person" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="office" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ac_department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="ac" inverseEntity="SSUDepartment" syncable="YES"/>
+        <relationship name="admin_school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUSchool" inverseName="admin" inverseEntity="SSUSchool" syncable="YES"/>
+        <relationship name="assistant_school" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUSchool" inverseName="assistant" inverseEntity="SSUSchool" syncable="YES"/>
+        <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUBuilding" inverseName="people" inverseEntity="SSUBuilding" syncable="YES"/>
+        <relationship name="chair_department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="chair" inverseEntity="SSUDepartment" syncable="YES"/>
+        <relationship name="dean_school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUSchool" inverseName="dean" inverseEntity="SSUSchool" syncable="YES"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="people" inverseEntity="SSUDepartment" syncable="YES"/>
+    </entity>
+    <entity name="SSUSchool" representedClassName="SSUSchool" parentEntity="SSUDirectoryObject" elementID="School" syncable="YES">
+        <attribute name="id" attributeType="Integer 32" minValueString="1" indexed="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="admin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="admin_school" inverseEntity="SSUPerson" syncable="YES"/>
+        <relationship name="assistant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="assistant_school" inverseEntity="SSUPerson" syncable="YES"/>
+        <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUBuilding" inverseName="schools" inverseEntity="SSUBuilding" syncable="YES"/>
+        <relationship name="dean" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="dean_school" inverseEntity="SSUPerson" syncable="YES"/>
+        <relationship name="departments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="school" inverseEntity="SSUDepartment" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SSUBuilding" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="SSUDepartment" positionX="0" positionY="0" width="128" height="225"/>
+        <element name="SSUDirectoryObject" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="SSUPerson" positionX="0" positionY="0" width="128" height="270"/>
+        <element name="SSUSchool" positionX="0" positionY="0" width="128" height="150"/>
+    </elements>
+</model>

@@ -1,0 +1,13 @@
+//
+// Prefix header for all source files of the 'SSUMobile' target in the 'SSUMobile' project
+//
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import "SSUSharedUtilities.h"
+
+#endif

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SSUMapBuildingPerimeter" representedClassName="SSUMapBuildingPerimeter" parentEntity="SSUMapPolygon" elementID="BuildingPerimeter" syncable="YES">
+        <attribute name="buildingID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buildingName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SSUMapLocation" representedClassName="SSUMapLocation" elementID="Location" syncable="YES">
+        <attribute name="latitude" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SSUMapPoint" representedClassName="SSUMapPoint" parentEntity="SSUMapLocation" elementID="MapPoint" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="connections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUMapPoint" inverseName="connections" inverseEntity="SSUMapPoint" syncable="YES"/>
+        <relationship name="polygon" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSUMapPolygon" inverseName="locations" inverseEntity="SSUMapPolygon" syncable="YES"/>
+    </entity>
+    <entity name="SSUMapPolygon" representedClassName="SSUMapPolygon" elementID="Polygon" syncable="YES">
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="SSUMapPoint" inverseName="polygon" inverseEntity="SSUMapPoint" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SSUMapBuildingPerimeter" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="SSUMapLocation" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="SSUMapPoint" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="SSUMapPolygon" positionX="0" positionY="0" width="128" height="60"/>
+    </elements>
+</model>

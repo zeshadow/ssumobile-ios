@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qGK-qH-XfT">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Campus Map-->
+        <scene sceneID="5dW-XF-ax4">
+            <objects>
+                <viewController id="qGK-qH-XfT" customClass="SSUOutdoorMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ls7-O0-jyX"/>
+                        <viewControllerLayoutGuide type="bottom" id="BcN-zz-GzH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lJW-NP-f34">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDH-aa-QDh">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ydq-z5-4un"/>
+                                    <barButtonItem title="End Directions" id="stu-Cp-0Eb">
+                                        <connections>
+                                            <action selector="endDirectionsTapped:" destination="qGK-qH-XfT" id="ocN-ge-WN4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="a86-Ca-sRk"/>
+                                    <barButtonItem title="SSU" id="bqf-ZC-CWU">
+                                        <connections>
+                                            <action selector="schoolTapped:" destination="qGK-qH-XfT" id="L1o-0W-NGv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.078431372549019607" green="0.23137254901960785" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" translatesAutoresizingMaskIntoConstraints="NO" id="pIR-9u-qqq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="qGK-qH-XfT" id="EJI-kP-w3e"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pIR-9u-qqq" firstAttribute="top" secondItem="ls7-O0-jyX" secondAttribute="bottom" id="Bun-pw-Bb5"/>
+                            <constraint firstItem="pIR-9u-qqq" firstAttribute="leading" secondItem="lJW-NP-f34" secondAttribute="leading" id="Jsf-JC-h3e"/>
+                            <constraint firstItem="uDH-aa-QDh" firstAttribute="top" secondItem="pIR-9u-qqq" secondAttribute="bottom" id="RBo-16-rp7"/>
+                            <constraint firstItem="BcN-zz-GzH" firstAttribute="top" secondItem="uDH-aa-QDh" secondAttribute="bottom" id="Vy4-P1-wDW"/>
+                            <constraint firstItem="pIR-9u-qqq" firstAttribute="trailing" secondItem="lJW-NP-f34" secondAttribute="trailing" id="Z1b-gU-J1n"/>
+                            <constraint firstItem="uDH-aa-QDh" firstAttribute="leading" secondItem="lJW-NP-f34" secondAttribute="leading" id="btN-E1-IXf"/>
+                            <constraint firstAttribute="trailing" secondItem="uDH-aa-QDh" secondAttribute="trailing" id="nqw-Tx-reu"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Campus Map" id="RYz-W9-NgT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="d8q-p8-2H2">
+                            <connections>
+                                <action selector="browseTapped:" destination="qGK-qH-XfT" id="as3-my-3Yt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="endDirectionsButton" destination="stu-Cp-0Eb" id="9Tw-dm-g6b"/>
+                        <outlet property="mapView" destination="pIR-9u-qqq" id="So0-UM-Yp1"/>
+                        <outlet property="toolbar" destination="uDH-aa-QDh" id="S8L-Uc-W1H"/>
+                        <segue destination="zuz-bl-uCb" kind="custom" identifier="Building" customClass="RBStoryboardPushSegue" id="h22-I0-vaA"/>
+                        <segue destination="vNm-aH-kOf" kind="push" identifier="BuildingsSelector" id="0uR-of-bFb"/>
+                        <segue destination="I1U-u7-mOm" kind="custom" identifier="Department" customClass="RBStoryboardPushSegue" id="kJk-na-i4k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17H-Yr-DXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2377" y="-64"/>
+        </scene>
+        <!--Map Popover Content Controller-->
+        <scene sceneID="3MY-UT-UvD">
+            <objects>
+                <tableViewController storyboardIdentifier="Popover" id="MQT-Ey-EMO" customClass="SSUMapPopoverContentController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="f4l-U9-scw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Object" textLabel="OPb-ax-r3O" style="IBUITableViewCellStyleDefault" id="lma-qP-8L1">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lma-qP-8L1" id="b25-6k-I1e">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OPb-ax-r3O">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="MQT-Ey-EMO" id="2eF-lR-7cg"/>
+                            <outlet property="delegate" destination="MQT-Ey-EMO" id="LzQ-vv-LWo"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9fe-a8-iPe">
+                        <barButtonItem key="rightBarButtonItem" title="Directions" id="TBj-nK-uGx">
+                            <connections>
+                                <action selector="directionsButtonPressed:" destination="MQT-Ey-EMO" id="bMG-tm-NYw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPn-pR-NYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1963" y="648"/>
+        </scene>
+        <!--Directions Tool-->
+        <scene sceneID="cnm-pO-szB">
+            <objects>
+                <viewController storyboardIdentifier="DirectionTool" id="4nR-9g-GcD" customClass="SSUOutdoorDirectionToolViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vUg-py-y1d"/>
+                        <viewControllerLayoutGuide type="bottom" id="9js-5p-nKV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t5H-es-Ib2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FY2-AA-fmU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="4nR-9g-GcD" id="ePq-d6-gdJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="be2-FU-kCm" appends="YES" id="cwq-dp-4ur"/>
+                                    <outletCollection property="gestureRecognizers" destination="Lu3-bp-U7v" appends="YES" id="YdF-i2-LW7"/>
+                                </connections>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-js-rbA">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="JPM-Im-z8w">
+                                        <connections>
+                                            <action selector="actionButtonTapped:" destination="4nR-9g-GcD" id="hmg-RV-KU8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MR5-js-rbA" secondAttribute="trailing" id="1i2-B6-RuV"/>
+                            <constraint firstItem="FY2-AA-fmU" firstAttribute="trailing" secondItem="t5H-es-Ib2" secondAttribute="trailing" id="DBu-27-gRO"/>
+                            <constraint firstItem="MR5-js-rbA" firstAttribute="leading" secondItem="t5H-es-Ib2" secondAttribute="leading" id="DI5-M9-n96"/>
+                            <constraint firstItem="FY2-AA-fmU" firstAttribute="leading" secondItem="t5H-es-Ib2" secondAttribute="leading" id="Evn-j6-qd6"/>
+                            <constraint firstItem="FY2-AA-fmU" firstAttribute="top" secondItem="t5H-es-Ib2" secondAttribute="top" id="JyA-61-bjg"/>
+                            <constraint firstItem="9js-5p-nKV" firstAttribute="top" secondItem="MR5-js-rbA" secondAttribute="bottom" id="WwM-hq-8aJ"/>
+                            <constraint firstItem="FY2-AA-fmU" firstAttribute="bottom" secondItem="t5H-es-Ib2" secondAttribute="bottom" id="Yx3-mw-wOr"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Directions Tool" id="76T-AQ-00X">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="ihq-5m-GBX">
+                            <connections>
+                                <action selector="didTapFilter:" destination="4nR-9g-GcD" id="KIa-cJ-bEe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="FY2-AA-fmU" id="pzW-7s-Em7"/>
+                        <segue destination="zuz-bl-uCb" kind="push" identifier="Building" id="JiS-TH-Lfz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bE-PX-OaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="be2-FU-kCm">
+                    <connections>
+                        <action selector="handleLongPress:" destination="4nR-9g-GcD" id="Qah-q0-CnV"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="Lu3-bp-U7v">
+                    <connections>
+                        <action selector="mapViewTapped:" destination="4nR-9g-GcD" id="L2e-yp-rml"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1769" y="-930"/>
+        </scene>
+        <!--Path Point Tool-->
+        <scene sceneID="2G1-Le-xpk">
+            <objects>
+                <viewController storyboardIdentifier="PathPointTool" id="x4x-bA-DtC" customClass="SSUOutdoorPathPointToolViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zSp-1q-Xm8"/>
+                        <viewControllerLayoutGuide type="bottom" id="U3f-0w-TF4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zd1-rk-PX0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qmZ-47-MyR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="x4x-bA-DtC" id="0jc-3X-UMb"/>
+                                    <outletCollection property="gestureRecognizers" destination="T9X-m0-mwS" appends="YES" id="zUp-xh-RZU"/>
+                                </connections>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8q-5t-Gc4">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="uvk-dm-t2m">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" id="gBO-5f-dXt">
+                                            <rect key="frame" x="16" y="6" width="182" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Create"/>
+                                                <segment title="Edit"/>
+                                                <segment title="Off"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="didChangeModeValue:" destination="x4x-bA-DtC" eventType="valueChanged" id="6fe-6u-cUn"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WjB-WM-ptW"/>
+                                    <barButtonItem enabled="NO" title="Delete" id="WNN-an-Lrj">
+                                        <connections>
+                                            <action selector="didTapDeleteButton:" destination="x4x-bA-DtC" id="hG2-CM-i5F"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qmZ-47-MyR" firstAttribute="top" secondItem="Zd1-rk-PX0" secondAttribute="top" id="5wz-oR-DTW"/>
+                            <constraint firstItem="qmZ-47-MyR" firstAttribute="bottom" secondItem="Zd1-rk-PX0" secondAttribute="bottom" id="RKN-2d-7Lm"/>
+                            <constraint firstItem="qmZ-47-MyR" firstAttribute="trailing" secondItem="Zd1-rk-PX0" secondAttribute="trailing" id="nOo-Yq-Mbv"/>
+                            <constraint firstItem="A8q-5t-Gc4" firstAttribute="leading" secondItem="Zd1-rk-PX0" secondAttribute="leading" id="nlL-Jv-UF9"/>
+                            <constraint firstItem="A8q-5t-Gc4" firstAttribute="bottom" secondItem="Zd1-rk-PX0" secondAttribute="bottom" id="x8c-rb-XET"/>
+                            <constraint firstItem="A8q-5t-Gc4" firstAttribute="trailing" secondItem="Zd1-rk-PX0" secondAttribute="trailing" id="xhe-gy-gcV"/>
+                            <constraint firstItem="qmZ-47-MyR" firstAttribute="leading" secondItem="Zd1-rk-PX0" secondAttribute="leading" id="zXX-qY-RNo"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Path Point Tool" id="KS0-fk-J5l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4zv-rK-YLc">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="x4x-bA-DtC" id="c43-CQ-XcT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="deleteButton" destination="WNN-an-Lrj" id="UK8-uJ-fiN"/>
+                        <outlet property="mapView" destination="qmZ-47-MyR" id="x6h-4I-agx"/>
+                        <outlet property="modeSegmentedControl" destination="gBO-5f-dXt" id="fd2-BH-53J"/>
+                        <segue destination="zuz-bl-uCb" kind="push" identifier="Building" id="WAz-pZ-U7A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eT2-q0-SCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="T9X-m0-mwS">
+                    <connections>
+                        <action selector="handleLongPress:" destination="x4x-bA-DtC" id="ZUa-Cg-OD7"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1184" y="-930"/>
+        </scene>
+        <!--Path Connect Tool-->
+        <scene sceneID="6VW-yZ-DZd">
+            <objects>
+                <viewController storyboardIdentifier="PathConnectTool" id="WYd-yV-lgM" customClass="SSUOutdoorPathConnectToolViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fa0-P7-YUd"/>
+                        <viewControllerLayoutGuide type="bottom" id="58f-Bx-VNB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OZW-Jy-qJ2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-jB-Zb7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="WYd-yV-lgM" id="Aqu-Sn-HSh"/>
+                                    <outletCollection property="gestureRecognizers" destination="NQW-9x-EGW" appends="YES" id="R1s-o1-Jma"/>
+                                </connections>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jko-4d-2E2">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="Rft-55-raT">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" id="7ru-10-KuN">
+                                            <rect key="frame" x="16" y="6" width="189" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Create"/>
+                                                <segment title="Remove"/>
+                                                <segment title="Off"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="didChangeMode:" destination="WYd-yV-lgM" eventType="valueChanged" id="gpC-h0-FuE"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8ih-9H-bFq"/>
+                                    <barButtonItem enabled="NO" title="Deselect" id="aQ2-eq-efR">
+                                        <connections>
+                                            <action selector="didTapCancel:" destination="WYd-yV-lgM" id="tIF-pO-wCW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jko-4d-2E2" firstAttribute="bottom" secondItem="OZW-Jy-qJ2" secondAttribute="bottom" id="2fp-ej-FlN"/>
+                            <constraint firstItem="Uwz-jB-Zb7" firstAttribute="bottom" secondItem="OZW-Jy-qJ2" secondAttribute="bottom" id="8KJ-dM-Lps"/>
+                            <constraint firstItem="Uwz-jB-Zb7" firstAttribute="top" secondItem="OZW-Jy-qJ2" secondAttribute="top" id="cUs-Tk-ANJ"/>
+                            <constraint firstItem="Uwz-jB-Zb7" firstAttribute="leading" secondItem="OZW-Jy-qJ2" secondAttribute="leading" id="go7-KO-GXs"/>
+                            <constraint firstItem="Jko-4d-2E2" firstAttribute="trailing" secondItem="OZW-Jy-qJ2" secondAttribute="trailing" id="kVH-H9-otP"/>
+                            <constraint firstItem="Jko-4d-2E2" firstAttribute="leading" secondItem="OZW-Jy-qJ2" secondAttribute="leading" id="l1J-rO-tsh"/>
+                            <constraint firstItem="Uwz-jB-Zb7" firstAttribute="trailing" secondItem="OZW-Jy-qJ2" secondAttribute="trailing" id="xKX-7m-S5f"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Path Connect Tool" id="mZX-ZK-ucr">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="JiH-9q-Px6">
+                            <connections>
+                                <action selector="didTapFilter:" destination="WYd-yV-lgM" id="ZZN-Or-BHP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="aQ2-eq-efR" id="Urw-lI-tGI"/>
+                        <outlet property="mapView" destination="Uwz-jB-Zb7" id="eNd-0M-Gq5"/>
+                        <outlet property="modeSegmentedControl" destination="7ru-10-KuN" id="KL8-77-og4"/>
+                        <segue destination="zuz-bl-uCb" kind="push" identifier="Building" id="r2j-QV-jxZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEb-RJ-dvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="NQW-9x-EGW"/>
+            </objects>
+            <point key="canvasLocation" x="-2377" y="-930"/>
+        </scene>
+        <!--Directory/Building-->
+        <scene sceneID="638-PB-8Vn">
+            <objects>
+                <viewController id="zuz-bl-uCb" customClass="RBStoryboardLink" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Directory/Building" id="waV-gE-91z"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Directory_iPhone"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="Building"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wfS-Fo-ICV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1352" y="-106"/>
+        </scene>
+        <!--Storyboard Link-->
+        <scene sceneID="0vI-ZT-4Mj">
+            <objects>
+                <viewController id="I1U-u7-mOm" customClass="RBStoryboardLink" sceneMemberID="viewController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Directory_iPhone"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="Department"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8XB-bM-rJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1533" y="633"/>
+        </scene>
+        <!--Classes-->
+        <scene sceneID="U1E-uv-RD2">
+            <objects>
+                <tableViewController storyboardIdentifier="classSearch" id="yjA-ZE-0Mi" customClass="SSUClassSearchTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XKy-vT-WMT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="kJA-1L-Hm2">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="yjA-ZE-0Mi" id="T7p-0f-mEV"/>
+                            </connections>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="yjA-ZE-0Mi" id="FAe-4O-rHo"/>
+                            <outlet property="delegate" destination="yjA-ZE-0Mi" id="kF9-q4-2k1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Classes" id="Ibs-Qk-OOj">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="SSk-8A-Q64">
+                            <connections>
+                                <action selector="cancelTapped:" destination="yjA-ZE-0Mi" id="5FF-e6-hvt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="DPC-N8-7ku" id="EIY-cF-hao"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pNW-ZZ-y82" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="DPC-N8-7ku">
+                    <connections>
+                        <outlet property="delegate" destination="yjA-ZE-0Mi" id="zqq-re-Lqc"/>
+                        <outlet property="searchBar" destination="kJA-1L-Hm2" id="nwm-Fy-fKk"/>
+                        <outlet property="searchContentsController" destination="yjA-ZE-0Mi" id="74D-cg-MhK"/>
+                        <outlet property="searchResultsDataSource" destination="yjA-ZE-0Mi" id="NWa-0I-o9r"/>
+                        <outlet property="searchResultsDelegate" destination="yjA-ZE-0Mi" id="9ha-18-6oU"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-2377" y="648"/>
+        </scene>
+        <!--Boundary Tool-->
+        <scene sceneID="Fjs-Te-wMe">
+            <objects>
+                <viewController storyboardIdentifier="BoundaryTool" id="Er5-mn-QHb" customClass="SSUOutdoorBoundaryToolMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qXd-3S-Fms"/>
+                        <viewControllerLayoutGuide type="bottom" id="yd9-eE-sUO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7LM-pi-YYo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-Cw-AKS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="Er5-mn-QHb" id="MiL-jB-ltu"/>
+                                    <outletCollection property="gestureRecognizers" destination="yl4-hx-Fh2" appends="YES" id="2h1-Pa-8co"/>
+                                </connections>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9q-Au-Lb3">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="QiI-rf-8Ot">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="73t-4B-1wa">
+                                            <rect key="frame" x="16" y="7" width="120" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Create"/>
+                                                <segment title="Edit"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="didChangeMode:" destination="Er5-mn-QHb" eventType="valueChanged" id="Kyk-70-rez"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2h8-Eh-trY"/>
+                                    <barButtonItem enabled="NO" title="Delete" id="LQc-h1-fna">
+                                        <connections>
+                                            <action selector="didTapDelete:" destination="Er5-mn-QHb" id="IO0-xG-Kki"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u9q-Au-Lb3" firstAttribute="bottom" secondItem="7LM-pi-YYo" secondAttribute="bottom" id="4fg-ov-Ppz"/>
+                            <constraint firstItem="ueT-Cw-AKS" firstAttribute="trailing" secondItem="7LM-pi-YYo" secondAttribute="trailing" id="D3r-7k-7xw"/>
+                            <constraint firstItem="u9q-Au-Lb3" firstAttribute="trailing" secondItem="7LM-pi-YYo" secondAttribute="trailing" id="LEy-QV-4vr"/>
+                            <constraint firstItem="ueT-Cw-AKS" firstAttribute="top" secondItem="7LM-pi-YYo" secondAttribute="top" id="MRg-Gc-3ja"/>
+                            <constraint firstItem="ueT-Cw-AKS" firstAttribute="bottom" secondItem="7LM-pi-YYo" secondAttribute="bottom" id="aF2-je-Njz"/>
+                            <constraint firstItem="ueT-Cw-AKS" firstAttribute="leading" secondItem="7LM-pi-YYo" secondAttribute="leading" id="ky4-LV-AIh"/>
+                            <constraint firstItem="u9q-Au-Lb3" firstAttribute="leading" secondItem="7LM-pi-YYo" secondAttribute="leading" id="zAg-m2-E6N"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Boundary Tool" id="W3O-2r-JHh">
+                        <barButtonItem key="rightBarButtonItem" title="Set" id="jyE-3U-n0D">
+                            <connections>
+                                <action selector="didTapSet:" destination="Er5-mn-QHb" id="2cW-CX-92y"/>
+                                <segue destination="vNm-aH-kOf" kind="push" identifier="BuildingsSelector" id="u42-3k-Mfp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="deleteButton" destination="LQc-h1-fna" id="JjZ-ys-0iO"/>
+                        <outlet property="mapView" destination="ueT-Cw-AKS" id="bYS-jd-OpH"/>
+                        <outlet property="modeSegmentedControl" destination="73t-4B-1wa" id="gpU-hF-H6d"/>
+                        <outlet property="setButton" destination="jyE-3U-n0D" id="o9I-qk-mbm"/>
+                        <segue destination="zuz-bl-uCb" kind="push" identifier="Building" id="Cyu-pd-Wi4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QAf-z2-gOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000004" id="yl4-hx-Fh2">
+                    <connections>
+                        <action selector="handleLongPress:" destination="Er5-mn-QHb" id="aeY-uv-BMQ"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-682" y="-930"/>
+        </scene>
+        <!--Boundary Building Selector View Controller-->
+        <scene sceneID="aPN-Jy-zDZ">
+            <objects>
+                <tableViewController id="vNm-aH-kOf" customClass="SSUBoundaryBuildingSelectorViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8MR-fo-XeY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="gOd-i8-fUG">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gOd-i8-fUG" id="Vee-uH-aEp">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vNm-aH-kOf" id="bln-7K-yHg"/>
+                            <outlet property="delegate" destination="vNm-aH-kOf" id="dgQ-Yu-smi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="MZr-Fw-MoR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sEs-AZ-047" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-682" y="-251"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="0uR-of-bFb"/>
+        <segue reference="r2j-QV-jxZ"/>
+    </inferredMetricsTieBreakers>
+</document>

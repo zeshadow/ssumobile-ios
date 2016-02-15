@@ -1,0 +1,40 @@
+PODS:
+  - CocoaLumberjack (2.1.0):
+    - CocoaLumberjack/Default (= 2.1.0)
+    - CocoaLumberjack/Extensions (= 2.1.0)
+  - CocoaLumberjack/Core (2.1.0)
+  - CocoaLumberjack/Default (2.1.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.1.0):
+    - CocoaLumberjack/Default
+  - Masonry (0.6.2)
+  - MBProgressHUD (0.9.1)
+  - MJDijkstra (1.0.0)
+  - PDTSimpleCalendar (0.9.1)
+  - RBStoryboardLink (0.1.0)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
+  - SimpleKeychain (0.7.0)
+
+DEPENDENCIES:
+  - CocoaLumberjack (~> 2.0)
+  - Masonry
+  - MBProgressHUD (~> 0.9.1)
+  - MJDijkstra (~> 1.0.0)
+  - PDTSimpleCalendar (~> 0.9.0)
+  - RBStoryboardLink (~> 0.1.0)
+  - SDWebImage (~> 3.7.1)
+  - SimpleKeychain (~> 0.6)
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: d6627e7ad42e14d41a4fa2e6c7ae42489d5f3e8b
+  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJDijkstra: ecc733843aae475a22ddcf3ac236245a7000ffdd
+  PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
+  RBStoryboardLink: 438a56a29ef5a433d33d2f045533d6ca8d1f7755
+  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
+
+COCOAPODS: 0.39.0

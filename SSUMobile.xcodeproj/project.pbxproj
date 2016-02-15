@@ -1,0 +1,1967 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070A3A681BAA960100B0E67C /* SSUDebugModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A671BAA960100B0E67C /* SSUDebugModule.m */; };
+		070A3A6A1BAA969100B0E67C /* Debug.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070A3A691BAA969100B0E67C /* Debug.xcassets */; };
+		070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
+		07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07155A2F18BE06B300226502 /* SSUSchoolViewController.m */; };
+		071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E237719E2380B00483138 /* SSUResourcesViewController.m */; };
+		071E237A19E2398500483138 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
+		071E239E19E241BD00483138 /* SSUResourcesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E239D19E241BD00483138 /* SSUResourcesCell.m */; };
+		071E23A119E25B6300483138 /* SSUEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E23A019E25B6300483138 /* SSUEvent.m */; };
+		071E23A619E284F400483138 /* licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 071E23A419E284F400483138 /* licenses.txt */; };
+		071FE0DC1BE0836800CC3DCD /* SSULogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 071FE0DB1BE0836800CC3DCD /* SSULogging.m */; };
+		0741C9521A871D73000B7BC6 /* SSUEmailConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */; };
+		0741C9551A8727BA000B7BC6 /* SSUEmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */; };
+		074D135A1BA703B20002899F /* Directory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 074D13581BA703B20002899F /* Directory.xcdatamodeld */; };
+		074D135E1BA703FB0002899F /* Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 074D135C1BA703FB0002899F /* Calendar.xcdatamodeld */; };
+		074E853B1BCF76740016E8A6 /* SSUBuildingMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074E853A1BCF76740016E8A6 /* SSUBuildingMapViewCell.m */; };
+		074F530D1B707DA700F97BCA /* SSUBuildingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F530C1B707DA700F97BCA /* SSUBuildingTableViewCell.m */; };
+		074F53101B70807B00F97BCA /* SSUSchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F530F1B70807B00F97BCA /* SSUSchoolTableViewCell.m */; };
+		0760DC331A5FD060001D04F9 /* SSUDirectoryDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760DC321A5FD060001D04F9 /* SSUDirectoryDetailController.m */; };
+		0762BE1F1B6C778500525E04 /* SSUDirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0762BE1E1B6C778500525E04 /* SSUDirectoryTableViewCell.m */; };
+		0766F1871B4BA404003BD52C /* SSUMapBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F1861B4BA404003BD52C /* SSUMapBuilder.m */; };
+		0766F18B1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F18A1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m */; };
+		0766F18E1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F18D1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m */; };
+		0766F1901B4E4DCC003BD52C /* Directory_Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0766F18F1B4E4DCC003BD52C /* Directory_Debug.storyboard */; };
+		0766F1931B4F83A2003BD52C /* SSUSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F1921B4F83A2003BD52C /* SSUSelectionController.m */; };
+		07689530198A165600C233B3 /* SSUHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0768952F198A165600C233B3 /* SSUHomeViewController.m */; };
+		076CBF541B6F350C00364B36 /* SSUPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF531B6F350C00364B36 /* SSUPersonTableViewCell.m */; };
+		076CBF571B6F375000364B36 /* SSUDepartmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF561B6F375000364B36 /* SSUDepartmentTableViewCell.m */; };
+		077475701A6CA5ED0094EB15 /* SSUMapPopoverContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0774756F1A6CA5ED0094EB15 /* SSUMapPopoverContentController.m */; };
+		0778E5D81A28272800BA13B0 /* SSUFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */; };
+		077B458618F54AEA00899344 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077B458518F54AEA00899344 /* AddressBook.framework */; };
+		077B458818F54AF000899344 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077B458718F54AF000899344 /* AddressBookUI.framework */; };
+		078000F819CFAA0D00FD1E2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078000F719CFAA0D00FD1E2A /* Images.xcassets */; };
+		0780016D19CFE45D00FD1E2A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0780016C19CFE45D00FD1E2A /* MediaPlayer.framework */; };
+		0780016F19CFE46800FD1E2A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0780016E19CFE46800FD1E2A /* AVFoundation.framework */; };
+		0780018819D00CA100FD1E2A /* SSURadioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0780018719D00CA100FD1E2A /* SSURadioStreamer.m */; };
+		0780FFF719CF950B00FD1E2A /* SSUCalendarEventDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0780FFEC19CF950A00FD1E2A /* SSUCalendarEventDetail.m */; };
+		0783A2141A1039760004982F /* SSUCalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0783A2131A1039760004982F /* SSUCalendarEventCell.m */; };
+		0785A3A21A1D92DC0088193E /* Resources.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3A01A1D92DC0088193E /* Resources.xcdatamodeld */; };
+		0785A3AC1A1D97570088193E /* SSUResourcesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3AB1A1D97570088193E /* SSUResourcesBuilder.m */; };
+		0785A3B81A1D988B0088193E /* SSUResourcesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3B71A1D988B0088193E /* SSUResourcesSection.m */; };
+		0785A3BB1A1D988C0088193E /* SSUResourcesEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BA1A1D988C0088193E /* SSUResourcesEntry.m */; };
+		0785A3BE1A1D99A30088193E /* SSUResourcesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BD1A1D99A30088193E /* SSUResourcesConstants.m */; };
+		079489091B6606E600BD5E1E /* SSUEmailPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */; };
+		079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */; };
+		07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */; };
+		07AFDFD719D917550027D0F1 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AFDFD619D917550027D0F1 /* EventKitUI.framework */; };
+		07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
+		07B78B641B9EA4EA00FFB2FE /* SSUDirectoryModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */; };
+		07B78B671B9EA83C00FFB2FE /* SSUModuleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B661B9EA83C00FFB2FE /* SSUModuleBase.m */; };
+		07B78B6A1B9EB46400FFB2FE /* SSUCoreDataModuleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B691B9EB46400FFB2FE /* SSUCoreDataModuleBase.m */; };
+		07B78B6D1B9EF63000FFB2FE /* SSUCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6C1B9EF63000FFB2FE /* SSUCalendarModule.m */; };
+		07B78B701B9F2B0E00FFB2FE /* SSUNewsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */; };
+		07B78B731B9F2D1100FFB2FE /* SSURadioModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B721B9F2D1100FFB2FE /* SSURadioModule.m */; };
+		07B78B761B9F2DB100FFB2FE /* SSUResourcesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B751B9F2DB100FFB2FE /* SSUResourcesModule.m */; };
+		07B78B791B9F2F6900FFB2FE /* SSUMapModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */; };
+		07B78B7C1B9F320300FFB2FE /* SSUEmailModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */; };
+		07B78B7F1B9F326900FFB2FE /* SSUAboutModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */; };
+		07B98B411C687D3F00973AD7 /* NSString+html.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B98B401C687D3F00973AD7 /* NSString+html.m */; };
+		07B98B441C6880BD00973AD7 /* SSUDebugCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */; };
+		07BFB3061B44E840002BF411 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BFB3051B44E840002BF411 /* Debug.storyboard */; };
+		07C13CE41B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C13CE31B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m */; };
+		07C2FE0E19C6C5120016349C /* SSURadioConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE0D19C6C5120016349C /* SSURadioConstants.m */; };
+		07C2FE1219C6C5AF0016349C /* SSURadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE1019C6C5AF0016349C /* SSURadioViewController.m */; };
+		07C2FE1519C6C5D00016349C /* Radio_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C2FE1419C6C5D00016349C /* Radio_iPhone.storyboard */; };
+		07C5A4E41A87159B004DC819 /* SSUEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A4E31A87159B004DC819 /* SSUEmailViewController.m */; };
+		07C5A4E71A87168D004DC819 /* SSULDAPCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A4E61A87168D004DC819 /* SSULDAPCredentials.m */; };
+		07C997D01A87119900534A1C /* Email.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C997CF1A87119900534A1C /* Email.storyboard */; };
+		07CD3BFE1BBBB8E60075ADE8 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */; };
+		07CD3C001BBBB8F70075ADE8 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */; };
+		07CD3C021BBBB91E0075ADE8 /* Calendar.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3C011BBBB91E0075ADE8 /* Calendar.sqlite */; };
+		07CD3C041BBBB92C0075ADE8 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3C031BBBB92C0075ADE8 /* Map.sqlite */; };
+		07D090E01BCB8B560022B364 /* SSUSegmentedTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D090DF1BCB8B560022B364 /* SSUSegmentedTableHeaderView.m */; };
+		07D1A35E18E2D52500B98565 /* SSUPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A35D18E2D52500B98565 /* SSUPerson.m */; };
+		07D1A36118E2D52600B98565 /* SSUSchool.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36018E2D52600B98565 /* SSUSchool.m */; };
+		07D1A36418E2D52600B98565 /* SSUBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36318E2D52600B98565 /* SSUBuilding.m */; };
+		07D1A36718E2D52600B98565 /* SSUDirectoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36618E2D52600B98565 /* SSUDirectoryObject.m */; };
+		07D1A36A18E2D52600B98565 /* SSUDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36918E2D52600B98565 /* SSUDepartment.m */; };
+		07DE5DA71B9C83F6005B38CB /* SSUCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */; };
+		07DFB6CB1B94511A00014CD0 /* SSUDepartment+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */; };
+		07DFB6CE1B9453C200014CD0 /* SSUTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CD1B9453C200014CD0 /* SSUTableHeaderView.m */; };
+		07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */; };
+		07ED578C1BA9477B00B6ECDF /* SSUConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ED578B1BA9477B00B6ECDF /* SSUConfiguration.m */; };
+		07F84D8119F5885B0046D148 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F84D8019F5885B0046D148 /* About.storyboard */; };
+		07F84D8419F589A30046D148 /* SSUAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F84D8319F589A30046D148 /* SSUAboutViewController.m */; };
+		07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FC1BA02EBE005C38DD /* Directory.xcassets */; };
+		07FD09001BA08132005C38DD /* Email.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FF1BA08132005C38DD /* Email.xcassets */; };
+		07FD09031BA082AE005C38DD /* Calendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09021BA082AE005C38DD /* Calendar.xcassets */; };
+		07FD09051BA0833E005C38DD /* AppPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09041BA0833E005C38DD /* AppPicker.xcassets */; };
+		07FD09081BA08448005C38DD /* Radio.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09071BA08448005C38DD /* Radio.xcassets */; };
+		07FD090B1BA084B0005C38DD /* News.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090A1BA084B0005C38DD /* News.xcassets */; };
+		07FD090E1BA084E1005C38DD /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090D1BA084E1005C38DD /* Resources.xcassets */; };
+		07FD09111BA08548005C38DD /* Map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09101BA08548005C38DD /* Map.xcassets */; };
+		07FD09141BA09A56005C38DD /* SSUCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FD09131BA09A56005C38DD /* SSUCommunicator.m */; };
+		573BBDDFE50B5F830B101682 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7498147B54ADC312BAD34773 /* libPods.a */; };
+		7801C3C116E6FE4600119B63 /* SSUMapBuildingPerimeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C3C016E6FE4600119B63 /* SSUMapBuildingPerimeter.m */; };
+		7801C3D316E8233900119B63 /* SSUMapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C3D216E8233700119B63 /* SSUMapLocation.m */; };
+		7841E5FD16E6C589007A8F95 /* Map.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7841E5FB16E6C589007A8F95 /* Map.xcdatamodeld */; };
+		784315F216D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784315F116D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m */; };
+		784315F516D1DF2900B8552F /* Map_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784315F416D1DF2800B8552F /* Map_iPhone.storyboard */; };
+		784315F916D1E06400B8552F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784315F816D1E06400B8552F /* MapKit.framework */; };
+		784315FB16D1E44300B8552F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784315FA16D1E44300B8552F /* CoreLocation.framework */; };
+		7843160C16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7843160B16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m */; };
+		7847DF6016E18165001B3CB7 /* SSUPerson+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7847DF5F16E18164001B3CB7 /* SSUPerson+properties.m */; };
+		785DD35716E688D1009188CC /* SSUOutdoorMapConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DD35616E688D1009188CC /* SSUOutdoorMapConstants.m */; };
+		78708BE016C48B2000226EA9 /* SSUNewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 78708BDF16C48B2000226EA9 /* SSUNewsObject.m */; };
+		787AD41C16CDBD53001BB4A0 /* SSUAppPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787AD41B16CDBD53001BB4A0 /* SSUAppPickerViewController.m */; };
+		7881D9D016E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9CF16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m */; };
+		7881D9D816E2822B001DC30F /* SSUOutdoorMapViewController+tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9D716E2822B001DC30F /* SSUOutdoorMapViewController+tools.m */; };
+		7881D9DC16E28858001DC30F /* SSUOutdoorPathConnectToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9DB16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.m */; };
+		7881D9DF16E28863001DC30F /* SSUOutdoorPathPointToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9DE16E28862001DC30F /* SSUOutdoorPathPointToolViewController.m */; };
+		7893FFE417260B8A009251F4 /* SSUNewsArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */; };
+		78A190B61717A0AA00D8768C /* SSUMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B51717A0AA00D8768C /* SSUMapPoint.m */; };
+		78A190B91718ADCD00D8768C /* SSUMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B81718ADCD00D8768C /* SSUMapPolygon.m */; };
+		78A190BD171B3D0600D8768C /* SSUPointsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190BC171B3D0600D8768C /* SSUPointsBuilder.m */; };
+		78A190C6171B3F9900D8768C /* SSUConnectionsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190C5171B3F9700D8768C /* SSUConnectionsBuilder.m */; };
+		78A190C9171B3FBF00D8768C /* SSUBuildingPerimetersBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190C8171B3FBE00D8768C /* SSUBuildingPerimetersBuilder.m */; };
+		78A190E1171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190E0171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m */; };
+		78A5EDD416E6E0B40078FBB0 /* MapPoint+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDD316E6E0B40078FBB0 /* MapPoint+properties.m */; };
+		78A5EDE716E6E4B70078FBB0 /* Location+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE616E6E4B70078FBB0 /* Location+properties.m */; };
+		78A5EDEA16E6E5D30078FBB0 /* BuildingPerimeter+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE916E6E5D20078FBB0 /* BuildingPerimeter+properties.m */; };
+		78A5EE1816E6EB330078FBB0 /* Polygon+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EE1716E6EB330078FBB0 /* Polygon+properties.m */; };
+		78A8E15016C74BDE00898596 /* SSUDirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A8E14F16C74BDE00898596 /* SSUDirectoryViewController.m */; };
+		78AD220C171731F600FB89F0 /* SSUDirectoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995B2616B127A400168521 /* SSUDirectoryBuilder.m */; };
+		78BD865616FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BD865516FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m */; };
+		78FE792816C9D04500626462 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78FE792716C9D04500626462 /* Settings.bundle */; };
+		78FE792C16CAA30B00626462 /* SSUSettingsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */; };
+		AA08DD53190F1E0B00141224 /* SSUArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08DD52190F1E0B00141224 /* SSUArticle.m */; };
+		AA61EA36192422DA00D82CB5 /* SSUClassSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */; };
+		AAB5DA6D1924935F002DC260 /* SSUWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */; };
+		AAC88A041900FDCE00E6863F /* SSUSharedUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC88A031900FDCE00E6863F /* SSUSharedUtilities.m */; };
+		AAEF4F5B18FFAB6C0006276D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */; };
+		AAEF4FAB1900AC130006276D /* SSUOutdoorMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF4FAA1900AC130006276D /* SSUOutdoorMapViewController.m */; };
+		C40035A116B9C6BC00B27F93 /* SSUPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40035A016B9C6BC00B27F93 /* SSUPersonViewController.m */; };
+		C40035AF16B9DFAF00B27F93 /* SSUPersonContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40035AE16B9DFAF00B27F93 /* SSUPersonContainerViewController.m */; };
+		C42D1BD616BB5D19003AE10B /* News_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */; };
+		C42D1BD816BB5D7F003AE10B /* Calendar_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */; };
+		C46E1E5116BB55370040435C /* Directory_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */; };
+		C4995AE016B1274200168521 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995ADF16B1274200168521 /* UIKit.framework */; };
+		C4995AE216B1274200168521 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE116B1274200168521 /* Foundation.framework */; };
+		C4995AE416B1274200168521 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE316B1274200168521 /* CoreGraphics.framework */; };
+		C4995AE616B1274200168521 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE516B1274200168521 /* CoreData.framework */; };
+		C4995AEC16B1274200168521 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4995AEA16B1274200168521 /* InfoPlist.strings */; };
+		C4995AEE16B1274200168521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AED16B1274200168521 /* main.m */; };
+		C4995AF216B1274200168521 /* SSUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AF116B1274200168521 /* SSUAppDelegate.m */; };
+		C4995AFB16B1274200168521 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4995AF916B1274200168521 /* MainStoryboard_iPhone.storyboard */; };
+		C4995B1016B1274300168521 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995ADF16B1274200168521 /* UIKit.framework */; };
+		C4995B1116B1274300168521 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE116B1274200168521 /* Foundation.framework */; };
+		C4995B1216B1274300168521 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE516B1274200168521 /* CoreData.framework */; };
+		C4995B1A16B1274300168521 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4995B1816B1274300168521 /* InfoPlist.strings */; };
+		C4995B3916B127A400168521 /* SSUMoonlightCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995B2D16B127A400168521 /* SSUMoonlightCommunicator.m */; };
+		C4A7BE5D16B9F19600B919F0 /* SSUDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE5C16B9F19600B919F0 /* SSUDepartmentViewController.m */; };
+		C4A7BE6316BA139100B919F0 /* SSUDirectoryConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */; };
+		C4A7BE6716BA241900B919F0 /* SSUBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE6616BA241900B919F0 /* SSUBuildingViewController.m */; };
+		C4A7BE7B16BA336100B919F0 /* SSUNewsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */; };
+		C4A7BE8116BA344C00B919F0 /* SSUMoonlightBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE8016BA344C00B919F0 /* SSUMoonlightBuilder.m */; };
+		C4FBF74016BB8C0400BE95E3 /* SSUNewsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */; };
+		C4FBF74516BB8C5C00BE95E3 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF74316BB8C5C00BE95E3 /* News.xcdatamodeld */; };
+		C4FBF75116BB903D00BE95E3 /* SSUCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75016BB903D00BE95E3 /* SSUCalendarConstants.m */; };
+		C4FBF75416BB90A600BE95E3 /* SSUCalendarBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75316BB90A600BE95E3 /* SSUCalendarBuilder.m */; };
+		C4FBF75716BB914400BE95E3 /* SSUDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75616BB914300BE95E3 /* SSUDetailTableViewController.m */; };
+		C4FBF77F16BC615300BE95E3 /* SSUNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C4995B1316B1274300168521 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4995AD216B1274200168521 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4995ADA16B1274200168521;
+			remoteInfo = SSUMobile;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		070A3A661BAA960100B0E67C /* SSUDebugModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDebugModule.h; sourceTree = "<group>"; };
+		070A3A671BAA960100B0E67C /* SSUDebugModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDebugModule.m; sourceTree = "<group>"; };
+		070A3A691BAA969100B0E67C /* Debug.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Debug.xcassets; sourceTree = "<group>"; };
+		070A3A6C1BAA992D00B0E67C /* SSUAppPickerModuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUAppPickerModuleCell.h; sourceTree = "<group>"; };
+		070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUAppPickerModuleCell.m; sourceTree = "<group>"; };
+		07155A2E18BE06B300226502 /* SSUSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSchoolViewController.h; sourceTree = "<group>"; };
+		07155A2F18BE06B300226502 /* SSUSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSchoolViewController.m; sourceTree = "<group>"; };
+		071E237619E2380B00483138 /* SSUResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesViewController.h; sourceTree = "<group>"; };
+		071E237719E2380B00483138 /* SSUResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesViewController.m; sourceTree = "<group>"; };
+		071E237919E2398500483138 /* Resources.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
+		071E239C19E241BD00483138 /* SSUResourcesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesCell.h; sourceTree = "<group>"; };
+		071E239D19E241BD00483138 /* SSUResourcesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesCell.m; sourceTree = "<group>"; };
+		071E239F19E25B6300483138 /* SSUEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEvent.h; sourceTree = "<group>"; };
+		071E23A019E25B6300483138 /* SSUEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEvent.m; sourceTree = "<group>"; };
+		071E23A419E284F400483138 /* licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = licenses.txt; sourceTree = "<group>"; };
+		071FE0DA1BE0836800CC3DCD /* SSULogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSULogging.h; sourceTree = "<group>"; };
+		071FE0DB1BE0836800CC3DCD /* SSULogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSULogging.m; sourceTree = "<group>"; };
+		0741C9501A871D73000B7BC6 /* SSUEmailConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailConstants.h; sourceTree = "<group>"; };
+		0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailConstants.m; sourceTree = "<group>"; };
+		0741C9531A8727BA000B7BC6 /* SSUEmailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailLoginViewController.h; sourceTree = "<group>"; };
+		0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailLoginViewController.m; sourceTree = "<group>"; };
+		074D13541BA69F0A0002899F /* SSUDirectoryModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryModels.h; sourceTree = "<group>"; };
+		074D13561BA6A0620002899F /* SSUMapModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUMapModels.h; sourceTree = "<group>"; };
+		074D13591BA703B20002899F /* Directory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Directory.xcdatamodel; sourceTree = "<group>"; };
+		074D135D1BA703FB0002899F /* Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calendar.xcdatamodel; sourceTree = "<group>"; };
+		074E85391BCF76740016E8A6 /* SSUBuildingMapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUBuildingMapViewCell.h; sourceTree = "<group>"; };
+		074E853A1BCF76740016E8A6 /* SSUBuildingMapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUBuildingMapViewCell.m; sourceTree = "<group>"; };
+		074F530B1B707DA700F97BCA /* SSUBuildingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUBuildingTableViewCell.h; sourceTree = "<group>"; };
+		074F530C1B707DA700F97BCA /* SSUBuildingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUBuildingTableViewCell.m; sourceTree = "<group>"; };
+		074F530E1B70807B00F97BCA /* SSUSchoolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSchoolTableViewCell.h; sourceTree = "<group>"; };
+		074F530F1B70807B00F97BCA /* SSUSchoolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSchoolTableViewCell.m; sourceTree = "<group>"; };
+		0760DC311A5FD060001D04F9 /* SSUDirectoryDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryDetailController.h; sourceTree = "<group>"; };
+		0760DC321A5FD060001D04F9 /* SSUDirectoryDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryDetailController.m; sourceTree = "<group>"; };
+		0762BE1D1B6C778500525E04 /* SSUDirectoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryTableViewCell.h; sourceTree = "<group>"; };
+		0762BE1E1B6C778500525E04 /* SSUDirectoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryTableViewCell.m; sourceTree = "<group>"; };
+		0766F1851B4BA404003BD52C /* SSUMapBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapBuilder.h; sourceTree = "<group>"; };
+		0766F1861B4BA404003BD52C /* SSUMapBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapBuilder.m; sourceTree = "<group>"; };
+		0766F1891B4E4BF1003BD52C /* SSUDirectoryToolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryToolsViewController.h; sourceTree = "<group>"; };
+		0766F18A1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryToolsViewController.m; sourceTree = "<group>"; };
+		0766F18C1B4E4DA8003BD52C /* SSUEditDepartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEditDepartmentViewController.h; sourceTree = "<group>"; };
+		0766F18D1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEditDepartmentViewController.m; sourceTree = "<group>"; };
+		0766F18F1B4E4DCC003BD52C /* Directory_Debug.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Directory_Debug.storyboard; sourceTree = "<group>"; };
+		0766F1911B4F83A2003BD52C /* SSUSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSelectionController.h; sourceTree = "<group>"; };
+		0766F1921B4F83A2003BD52C /* SSUSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSelectionController.m; sourceTree = "<group>"; };
+		0768952E198A165600C233B3 /* SSUHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUHomeViewController.h; sourceTree = "<group>"; };
+		0768952F198A165600C233B3 /* SSUHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUHomeViewController.m; sourceTree = "<group>"; };
+		076CBF521B6F350C00364B36 /* SSUPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUPersonTableViewCell.h; sourceTree = "<group>"; };
+		076CBF531B6F350C00364B36 /* SSUPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUPersonTableViewCell.m; sourceTree = "<group>"; };
+		076CBF551B6F375000364B36 /* SSUDepartmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDepartmentTableViewCell.h; sourceTree = "<group>"; };
+		076CBF561B6F375000364B36 /* SSUDepartmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDepartmentTableViewCell.m; sourceTree = "<group>"; };
+		0774756E1A6CA5ED0094EB15 /* SSUMapPopoverContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapPopoverContentController.h; sourceTree = "<group>"; };
+		0774756F1A6CA5ED0094EB15 /* SSUMapPopoverContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapPopoverContentController.m; sourceTree = "<group>"; };
+		0778E5D61A28272800BA13B0 /* SSUFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUFeedbackViewController.h; sourceTree = "<group>"; };
+		0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUFeedbackViewController.m; sourceTree = "<group>"; };
+		077B458518F54AEA00899344 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		077B458718F54AF000899344 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		077C6A2F19F6765200CE99A9 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		078000F719CFAA0D00FD1E2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0780016A19CFE45500FD1E2A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0780016C19CFE45D00FD1E2A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0780016E19CFE46800FD1E2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0780018619D00CA100FD1E2A /* SSURadioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSURadioStreamer.h; sourceTree = "<group>"; };
+		0780018719D00CA100FD1E2A /* SSURadioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSURadioStreamer.m; sourceTree = "<group>"; };
+		0780FFEB19CF950A00FD1E2A /* SSUCalendarEventDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCalendarEventDetail.h; sourceTree = "<group>"; };
+		0780FFEC19CF950A00FD1E2A /* SSUCalendarEventDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCalendarEventDetail.m; sourceTree = "<group>"; };
+		0783A2121A1039760004982F /* SSUCalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCalendarEventCell.h; sourceTree = "<group>"; };
+		0783A2131A1039760004982F /* SSUCalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCalendarEventCell.m; sourceTree = "<group>"; };
+		0785A3A11A1D92DC0088193E /* Resources.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Resources.xcdatamodel; sourceTree = "<group>"; };
+		0785A3AA1A1D97570088193E /* SSUResourcesBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesBuilder.h; sourceTree = "<group>"; };
+		0785A3AB1A1D97570088193E /* SSUResourcesBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesBuilder.m; sourceTree = "<group>"; };
+		0785A3B61A1D988B0088193E /* SSUResourcesSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesSection.h; sourceTree = "<group>"; };
+		0785A3B71A1D988B0088193E /* SSUResourcesSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesSection.m; sourceTree = "<group>"; };
+		0785A3B91A1D988C0088193E /* SSUResourcesEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesEntry.h; sourceTree = "<group>"; };
+		0785A3BA1A1D988C0088193E /* SSUResourcesEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesEntry.m; sourceTree = "<group>"; };
+		0785A3BC1A1D99A30088193E /* SSUResourcesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesConstants.h; sourceTree = "<group>"; };
+		0785A3BD1A1D99A30088193E /* SSUResourcesConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesConstants.m; sourceTree = "<group>"; };
+		079489071B6606E600BD5E1E /* SSUEmailPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailPickerViewController.h; sourceTree = "<group>"; };
+		079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailPickerViewController.m; sourceTree = "<group>"; };
+		079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map_Building.storyboard; sourceTree = "<group>"; };
+		07A1486D19F653CA006B708F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		07AFDEA319D8E7DB0027D0F1 /* SSUCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCalendarViewController.h; sourceTree = "<group>"; };
+		07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCalendarViewController.m; sourceTree = "<group>"; };
+		07AFDFD619D917550027D0F1 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSUCalendarEventCell.xib; sourceTree = "<group>"; };
+		07B78B621B9EA4EA00FFB2FE /* SSUDirectoryModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryModule.h; sourceTree = "<group>"; };
+		07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryModule.m; sourceTree = "<group>"; };
+		07B78B651B9EA83C00FFB2FE /* SSUModuleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUModuleBase.h; sourceTree = "<group>"; };
+		07B78B661B9EA83C00FFB2FE /* SSUModuleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUModuleBase.m; sourceTree = "<group>"; };
+		07B78B681B9EB46400FFB2FE /* SSUCoreDataModuleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCoreDataModuleBase.h; sourceTree = "<group>"; };
+		07B78B691B9EB46400FFB2FE /* SSUCoreDataModuleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCoreDataModuleBase.m; sourceTree = "<group>"; };
+		07B78B6B1B9EF63000FFB2FE /* SSUCalendarModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCalendarModule.h; sourceTree = "<group>"; };
+		07B78B6C1B9EF63000FFB2FE /* SSUCalendarModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCalendarModule.m; sourceTree = "<group>"; };
+		07B78B6E1B9F2B0E00FFB2FE /* SSUNewsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsModule.h; sourceTree = "<group>"; };
+		07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsModule.m; sourceTree = "<group>"; };
+		07B78B711B9F2D1100FFB2FE /* SSURadioModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSURadioModule.h; sourceTree = "<group>"; };
+		07B78B721B9F2D1100FFB2FE /* SSURadioModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSURadioModule.m; sourceTree = "<group>"; };
+		07B78B741B9F2DB100FFB2FE /* SSUResourcesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesModule.h; sourceTree = "<group>"; };
+		07B78B751B9F2DB100FFB2FE /* SSUResourcesModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesModule.m; sourceTree = "<group>"; };
+		07B78B771B9F2F6900FFB2FE /* SSUMapModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapModule.h; sourceTree = "<group>"; };
+		07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapModule.m; sourceTree = "<group>"; };
+		07B78B7A1B9F320300FFB2FE /* SSUEmailModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailModule.h; sourceTree = "<group>"; };
+		07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailModule.m; sourceTree = "<group>"; };
+		07B78B7D1B9F326900FFB2FE /* SSUAboutModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUAboutModule.h; sourceTree = "<group>"; };
+		07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUAboutModule.m; sourceTree = "<group>"; };
+		07B98B3F1C687D3F00973AD7 /* NSString+html.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+html.h"; sourceTree = "<group>"; };
+		07B98B401C687D3F00973AD7 /* NSString+html.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+html.m"; sourceTree = "<group>"; };
+		07B98B421C6880BD00973AD7 /* SSUDebugCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDebugCredentials.h; sourceTree = "<group>"; };
+		07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDebugCredentials.m; sourceTree = "<group>"; };
+		07BFB3051B44E840002BF411 /* Debug.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Debug.storyboard; sourceTree = "<group>"; };
+		07C13CE21B935740007AEE34 /* SSUCollectionViewCellSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCollectionViewCellSeparatorView.h; sourceTree = "<group>"; };
+		07C13CE31B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCollectionViewCellSeparatorView.m; sourceTree = "<group>"; };
+		07C2FE0C19C6C5120016349C /* SSURadioConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSURadioConstants.h; sourceTree = "<group>"; };
+		07C2FE0D19C6C5120016349C /* SSURadioConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSURadioConstants.m; sourceTree = "<group>"; };
+		07C2FE0F19C6C5AF0016349C /* SSURadioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSURadioViewController.h; sourceTree = "<group>"; };
+		07C2FE1019C6C5AF0016349C /* SSURadioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSURadioViewController.m; sourceTree = "<group>"; };
+		07C2FE1419C6C5D00016349C /* Radio_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Radio_iPhone.storyboard; sourceTree = "<group>"; };
+		07C5A4E21A87159B004DC819 /* SSUEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailViewController.h; sourceTree = "<group>"; };
+		07C5A4E31A87159B004DC819 /* SSUEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailViewController.m; sourceTree = "<group>"; };
+		07C5A4E51A87168D004DC819 /* SSULDAPCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSULDAPCredentials.h; sourceTree = "<group>"; };
+		07C5A4E61A87168D004DC819 /* SSULDAPCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSULDAPCredentials.m; sourceTree = "<group>"; };
+		07C997CF1A87119900534A1C /* Email.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Email.storyboard; sourceTree = "<group>"; };
+		07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Resources.sqlite; sourceTree = "<group>"; };
+		07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Directory.sqlite; sourceTree = "<group>"; };
+		07CD3C011BBBB91E0075ADE8 /* Calendar.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Calendar.sqlite; sourceTree = "<group>"; };
+		07CD3C031BBBB92C0075ADE8 /* Map.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Map.sqlite; sourceTree = "<group>"; };
+		07D090DE1BCB8B560022B364 /* SSUSegmentedTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSegmentedTableHeaderView.h; sourceTree = "<group>"; };
+		07D090DF1BCB8B560022B364 /* SSUSegmentedTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSegmentedTableHeaderView.m; sourceTree = "<group>"; };
+		07D1A35C18E2D52500B98565 /* SSUPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUPerson.h; sourceTree = "<group>"; };
+		07D1A35D18E2D52500B98565 /* SSUPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUPerson.m; sourceTree = "<group>"; };
+		07D1A35F18E2D52600B98565 /* SSUSchool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSchool.h; sourceTree = "<group>"; };
+		07D1A36018E2D52600B98565 /* SSUSchool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSchool.m; sourceTree = "<group>"; };
+		07D1A36218E2D52600B98565 /* SSUBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUBuilding.h; sourceTree = "<group>"; };
+		07D1A36318E2D52600B98565 /* SSUBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUBuilding.m; sourceTree = "<group>"; };
+		07D1A36518E2D52600B98565 /* SSUDirectoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryObject.h; sourceTree = "<group>"; };
+		07D1A36618E2D52600B98565 /* SSUDirectoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryObject.m; sourceTree = "<group>"; };
+		07D1A36818E2D52600B98565 /* SSUDepartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDepartment.h; sourceTree = "<group>"; };
+		07D1A36918E2D52600B98565 /* SSUDepartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDepartment.m; sourceTree = "<group>"; };
+		07DE5DA51B9C83F6005B38CB /* SSUCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCoreDataTableViewController.h; sourceTree = "<group>"; };
+		07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCoreDataTableViewController.m; sourceTree = "<group>"; };
+		07DFB6C91B94511A00014CD0 /* SSUDepartment+properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSUDepartment+properties.h"; sourceTree = "<group>"; };
+		07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSUDepartment+properties.m"; sourceTree = "<group>"; };
+		07DFB6CC1B9453C200014CD0 /* SSUTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUTableHeaderView.h; sourceTree = "<group>"; };
+		07DFB6CD1B9453C200014CD0 /* SSUTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUTableHeaderView.m; sourceTree = "<group>"; };
+		07EC53B71BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapBuildingDetailViewController.h; sourceTree = "<group>"; };
+		07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapBuildingDetailViewController.m; sourceTree = "<group>"; };
+		07ED578A1BA9477B00B6ECDF /* SSUConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUConfiguration.h; sourceTree = "<group>"; };
+		07ED578B1BA9477B00B6ECDF /* SSUConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUConfiguration.m; sourceTree = "<group>"; };
+		07F84D8019F5885B0046D148 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		07F84D8219F589A30046D148 /* SSUAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUAboutViewController.h; sourceTree = "<group>"; };
+		07F84D8319F589A30046D148 /* SSUAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUAboutViewController.m; sourceTree = "<group>"; };
+		07FD08FC1BA02EBE005C38DD /* Directory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Directory.xcassets; sourceTree = "<group>"; };
+		07FD08FF1BA08132005C38DD /* Email.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Email.xcassets; sourceTree = "<group>"; };
+		07FD09021BA082AE005C38DD /* Calendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Calendar.xcassets; sourceTree = "<group>"; };
+		07FD09041BA0833E005C38DD /* AppPicker.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppPicker.xcassets; sourceTree = "<group>"; };
+		07FD09071BA08448005C38DD /* Radio.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Radio.xcassets; sourceTree = "<group>"; };
+		07FD090A1BA084B0005C38DD /* News.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = News.xcassets; sourceTree = "<group>"; };
+		07FD090D1BA084E1005C38DD /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
+		07FD09101BA08548005C38DD /* Map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Map.xcassets; sourceTree = "<group>"; };
+		07FD09121BA09A56005C38DD /* SSUCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCommunicator.h; sourceTree = "<group>"; };
+		07FD09131BA09A56005C38DD /* SSUCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCommunicator.m; sourceTree = "<group>"; };
+		7498147B54ADC312BAD34773 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7801C3BF16E6FE4600119B63 /* SSUMapBuildingPerimeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapBuildingPerimeter.h; sourceTree = "<group>"; };
+		7801C3C016E6FE4600119B63 /* SSUMapBuildingPerimeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapBuildingPerimeter.m; sourceTree = "<group>"; };
+		7801C3D116E8233600119B63 /* SSUMapLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapLocation.h; sourceTree = "<group>"; };
+		7801C3D216E8233700119B63 /* SSUMapLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapLocation.m; sourceTree = "<group>"; };
+		7841E5FC16E6C589007A8F95 /* Map.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Map.xcdatamodel; sourceTree = "<group>"; };
+		784315F016D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorMapSuperViewController.h; sourceTree = "<group>"; };
+		784315F116D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorMapSuperViewController.m; sourceTree = "<group>"; };
+		784315F416D1DF2800B8552F /* Map_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map_iPhone.storyboard; sourceTree = "<group>"; };
+		784315F816D1E06400B8552F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		784315FA16D1E44300B8552F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7843160A16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorBuildingOverlay.h; sourceTree = "<group>"; };
+		7843160B16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorBuildingOverlay.m; sourceTree = "<group>"; };
+		7847DF5E16E18163001B3CB7 /* SSUPerson+properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSUPerson+properties.h"; sourceTree = "<group>"; };
+		7847DF5F16E18164001B3CB7 /* SSUPerson+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSUPerson+properties.m"; sourceTree = "<group>"; };
+		785DD35516E688D1009188CC /* SSUOutdoorMapConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorMapConstants.h; sourceTree = "<group>"; };
+		785DD35616E688D1009188CC /* SSUOutdoorMapConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorMapConstants.m; sourceTree = "<group>"; };
+		78708BDE16C48B2000226EA9 /* SSUNewsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsObject.h; sourceTree = "<group>"; };
+		78708BDF16C48B2000226EA9 /* SSUNewsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsObject.m; sourceTree = "<group>"; };
+		787AD41A16CDBD53001BB4A0 /* SSUAppPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUAppPickerViewController.h; sourceTree = "<group>"; };
+		787AD41B16CDBD53001BB4A0 /* SSUAppPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUAppPickerViewController.m; sourceTree = "<group>"; };
+		7881D9CE16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorBoundaryToolMapViewController.h; sourceTree = "<group>"; };
+		7881D9CF16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorBoundaryToolMapViewController.m; sourceTree = "<group>"; };
+		7881D9D516E1C5E0001DC30F /* SSUOutdoorMapSuperViewController_tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorMapSuperViewController_tools.h; sourceTree = "<group>"; };
+		7881D9D616E2822B001DC30F /* SSUOutdoorMapViewController+tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSUOutdoorMapViewController+tools.h"; sourceTree = "<group>"; };
+		7881D9D716E2822B001DC30F /* SSUOutdoorMapViewController+tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSUOutdoorMapViewController+tools.m"; sourceTree = "<group>"; };
+		7881D9DA16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorPathConnectToolViewController.h; sourceTree = "<group>"; };
+		7881D9DB16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorPathConnectToolViewController.m; sourceTree = "<group>"; };
+		7881D9DD16E28862001DC30F /* SSUOutdoorPathPointToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorPathPointToolViewController.h; sourceTree = "<group>"; };
+		7881D9DE16E28862001DC30F /* SSUOutdoorPathPointToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorPathPointToolViewController.m; sourceTree = "<group>"; };
+		7893FFE217260B8A009251F4 /* SSUNewsArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsArticleTableViewCell.h; sourceTree = "<group>"; };
+		7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsArticleTableViewCell.m; sourceTree = "<group>"; };
+		78A190B41717A0AA00D8768C /* SSUMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapPoint.h; sourceTree = "<group>"; };
+		78A190B51717A0AA00D8768C /* SSUMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapPoint.m; sourceTree = "<group>"; };
+		78A190B71718ADCD00D8768C /* SSUMapPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapPolygon.h; sourceTree = "<group>"; };
+		78A190B81718ADCD00D8768C /* SSUMapPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapPolygon.m; sourceTree = "<group>"; };
+		78A190BB171B3D0600D8768C /* SSUPointsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUPointsBuilder.h; sourceTree = "<group>"; };
+		78A190BC171B3D0600D8768C /* SSUPointsBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUPointsBuilder.m; sourceTree = "<group>"; };
+		78A190C4171B3F9700D8768C /* SSUConnectionsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUConnectionsBuilder.h; sourceTree = "<group>"; };
+		78A190C5171B3F9700D8768C /* SSUConnectionsBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUConnectionsBuilder.m; sourceTree = "<group>"; };
+		78A190C7171B3FBE00D8768C /* SSUBuildingPerimetersBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUBuildingPerimetersBuilder.h; sourceTree = "<group>"; };
+		78A190C8171B3FBE00D8768C /* SSUBuildingPerimetersBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUBuildingPerimetersBuilder.m; sourceTree = "<group>"; };
+		78A190DF171BC59300D8768C /* SSUBoundaryBuildingSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUBoundaryBuildingSelectorViewController.h; sourceTree = "<group>"; };
+		78A190E0171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUBoundaryBuildingSelectorViewController.m; sourceTree = "<group>"; };
+		78A5EDD216E6E0B40078FBB0 /* MapPoint+properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MapPoint+properties.h"; sourceTree = "<group>"; };
+		78A5EDD316E6E0B40078FBB0 /* MapPoint+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MapPoint+properties.m"; sourceTree = "<group>"; };
+		78A5EDE516E6E4B70078FBB0 /* Location+properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+properties.h"; sourceTree = "<group>"; };
+		78A5EDE616E6E4B70078FBB0 /* Location+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+properties.m"; sourceTree = "<group>"; };
+		78A5EDE816E6E5D20078FBB0 /* BuildingPerimeter+properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BuildingPerimeter+properties.h"; sourceTree = "<group>"; };
+		78A5EDE916E6E5D20078FBB0 /* BuildingPerimeter+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BuildingPerimeter+properties.m"; sourceTree = "<group>"; };
+		78A5EE1616E6EB330078FBB0 /* Polygon+properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Polygon+properties.h"; sourceTree = "<group>"; };
+		78A5EE1716E6EB330078FBB0 /* Polygon+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Polygon+properties.m"; sourceTree = "<group>"; };
+		78A8E14E16C74BDE00898596 /* SSUDirectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryViewController.h; sourceTree = "<group>"; };
+		78A8E14F16C74BDE00898596 /* SSUDirectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryViewController.m; sourceTree = "<group>"; };
+		78BD865416FD5E710055A257 /* SSUOutdoorDirectionToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorDirectionToolViewController.h; sourceTree = "<group>"; };
+		78BD865516FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorDirectionToolViewController.m; sourceTree = "<group>"; };
+		78FE792716C9D04500626462 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		78FE792A16CAA30B00626462 /* SSUSettingsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSettingsConstants.h; sourceTree = "<group>"; };
+		78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSettingsConstants.m; sourceTree = "<group>"; };
+		A02A232B2B44BC1BB6F62CA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AA08DD51190F1E0B00141224 /* SSUArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUArticle.h; sourceTree = "<group>"; };
+		AA08DD52190F1E0B00141224 /* SSUArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUArticle.m; sourceTree = "<group>"; };
+		AA61EA34192422DA00D82CB5 /* SSUClassSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUClassSearchTableViewController.h; sourceTree = "<group>"; };
+		AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUClassSearchTableViewController.m; sourceTree = "<group>"; };
+		AA72986C1905D17500A63F99 /* Path_TuscanyToSalazar.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Path_TuscanyToSalazar.gpx; sourceTree = "<group>"; };
+		AAB5DA6B1924935F002DC260 /* SSUWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUWebViewController.h; sourceTree = "<group>"; };
+		AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUWebViewController.m; sourceTree = "<group>"; };
+		AAC88A031900FDCE00E6863F /* SSUSharedUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSharedUtilities.m; sourceTree = "<group>"; };
+		AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AAEF4F6218FFAC830006276D /* Loc_GreenMusicCenter.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Loc_GreenMusicCenter.gpx; sourceTree = "<group>"; };
+		AAEF4F6318FFAC830006276D /* Loc_Tuscany.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Loc_Tuscany.gpx; sourceTree = "<group>"; };
+		AAEF4F6618FFADC10006276D /* Loc_Verdot.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Loc_Verdot.gpx; sourceTree = "<group>"; };
+		AAEF4F6718FFB0B20006276D /* Path_TuscanyToDarwin.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Path_TuscanyToDarwin.gpx; sourceTree = "<group>"; };
+		AAEF4FA91900AC130006276D /* SSUOutdoorMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorMapViewController.h; sourceTree = "<group>"; };
+		AAEF4FAA1900AC130006276D /* SSUOutdoorMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorMapViewController.m; sourceTree = "<group>"; };
+		BECFB3C29DF587AA0CC0BCC3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C400359F16B9C6BC00B27F93 /* SSUPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUPersonViewController.h; sourceTree = "<group>"; };
+		C40035A016B9C6BC00B27F93 /* SSUPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUPersonViewController.m; sourceTree = "<group>"; };
+		C40035AD16B9DFAF00B27F93 /* SSUPersonContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUPersonContainerViewController.h; sourceTree = "<group>"; };
+		C40035AE16B9DFAF00B27F93 /* SSUPersonContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUPersonContainerViewController.m; sourceTree = "<group>"; };
+		C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News_iPhone.storyboard; sourceTree = "<group>"; };
+		C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar_iPhone.storyboard; sourceTree = "<group>"; };
+		C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Directory_iPhone.storyboard; sourceTree = "<group>"; };
+		C4995ADB16B1274200168521 /* SSUMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSUMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4995ADF16B1274200168521 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C4995AE116B1274200168521 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C4995AE316B1274200168521 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C4995AE516B1274200168521 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C4995AE916B1274200168521 /* SSUMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SSUMobile-Info.plist"; sourceTree = "<group>"; };
+		C4995AEB16B1274200168521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4995AED16B1274200168521 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C4995AEF16B1274200168521 /* SSUMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSUMobile-Prefix.pch"; sourceTree = "<group>"; };
+		C4995AF016B1274200168521 /* SSUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUAppDelegate.h; sourceTree = "<group>"; };
+		C4995AF116B1274200168521 /* SSUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSUAppDelegate.m; sourceTree = "<group>"; };
+		C4995AFA16B1274200168521 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		C4995B0D16B1274300168521 /* SSUMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSUMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4995B1716B1274300168521 /* SSUMobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SSUMobileTests-Info.plist"; sourceTree = "<group>"; };
+		C4995B1916B1274300168521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4995B2616B127A400168521 /* SSUDirectoryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryBuilder.m; sourceTree = "<group>"; };
+		C4995B2C16B127A400168521 /* SSUDirectoryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryBuilder.h; sourceTree = "<group>"; };
+		C4995B2D16B127A400168521 /* SSUMoonlightCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMoonlightCommunicator.m; sourceTree = "<group>"; };
+		C4995B2E16B127A400168521 /* SSUMoonlightCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMoonlightCommunicator.h; sourceTree = "<group>"; };
+		C4A7BE5B16B9F19600B919F0 /* SSUDepartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDepartmentViewController.h; sourceTree = "<group>"; };
+		C4A7BE5C16B9F19600B919F0 /* SSUDepartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDepartmentViewController.m; sourceTree = "<group>"; };
+		C4A7BE6116BA139000B919F0 /* SSUDirectoryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectoryConstants.h; sourceTree = "<group>"; };
+		C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryConstants.m; sourceTree = "<group>"; };
+		C4A7BE6516BA241800B919F0 /* SSUBuildingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUBuildingViewController.h; sourceTree = "<group>"; };
+		C4A7BE6616BA241900B919F0 /* SSUBuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUBuildingViewController.m; sourceTree = "<group>"; };
+		C4A7BE7916BA336100B919F0 /* SSUNewsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsBuilder.h; sourceTree = "<group>"; };
+		C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsBuilder.m; sourceTree = "<group>"; };
+		C4A7BE7F16BA344C00B919F0 /* SSUMoonlightBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMoonlightBuilder.h; sourceTree = "<group>"; };
+		C4A7BE8016BA344C00B919F0 /* SSUMoonlightBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMoonlightBuilder.m; sourceTree = "<group>"; };
+		C4FBF73B16BB827900BE95E3 /* SSUSharedUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUSharedUtilities.h; sourceTree = "<group>"; };
+		C4FBF73E16BB8C0400BE95E3 /* SSUNewsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsConstants.h; sourceTree = "<group>"; };
+		C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsConstants.m; sourceTree = "<group>"; };
+		C4FBF74416BB8C5C00BE95E3 /* News.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = News.xcdatamodel; sourceTree = "<group>"; };
+		C4FBF74F16BB903D00BE95E3 /* SSUCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCalendarConstants.h; sourceTree = "<group>"; };
+		C4FBF75016BB903D00BE95E3 /* SSUCalendarConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCalendarConstants.m; sourceTree = "<group>"; };
+		C4FBF75216BB90A600BE95E3 /* SSUCalendarBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCalendarBuilder.h; sourceTree = "<group>"; };
+		C4FBF75316BB90A600BE95E3 /* SSUCalendarBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCalendarBuilder.m; sourceTree = "<group>"; };
+		C4FBF75516BB914300BE95E3 /* SSUDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDetailTableViewController.h; sourceTree = "<group>"; };
+		C4FBF75616BB914300BE95E3 /* SSUDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDetailTableViewController.m; sourceTree = "<group>"; };
+		C4FBF77D16BC615300BE95E3 /* SSUNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsViewController.h; sourceTree = "<group>"; };
+		C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4995AD816B1274200168521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07AFDFD719D917550027D0F1 /* EventKitUI.framework in Frameworks */,
+				0780016F19CFE46800FD1E2A /* AVFoundation.framework in Frameworks */,
+				0780016D19CFE45D00FD1E2A /* MediaPlayer.framework in Frameworks */,
+				AAEF4F5B18FFAB6C0006276D /* QuartzCore.framework in Frameworks */,
+				077B458818F54AF000899344 /* AddressBookUI.framework in Frameworks */,
+				077B458618F54AEA00899344 /* AddressBook.framework in Frameworks */,
+				784315FB16D1E44300B8552F /* CoreLocation.framework in Frameworks */,
+				784315F916D1E06400B8552F /* MapKit.framework in Frameworks */,
+				C4995AE016B1274200168521 /* UIKit.framework in Frameworks */,
+				C4995AE216B1274200168521 /* Foundation.framework in Frameworks */,
+				C4995AE416B1274200168521 /* CoreGraphics.framework in Frameworks */,
+				C4995AE616B1274200168521 /* CoreData.framework in Frameworks */,
+				573BBDDFE50B5F830B101682 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4995B0916B1274300168521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4995B1016B1274300168521 /* UIKit.framework in Frameworks */,
+				C4995B1116B1274300168521 /* Foundation.framework in Frameworks */,
+				C4995B1216B1274300168521 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		070A3A6B1BAA969B00B0E67C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				070A3A691BAA969100B0E67C /* Debug.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07155A2D18BE068400226502 /* School */ = {
+			isa = PBXGroup;
+			children = (
+				07155A2E18BE06B300226502 /* SSUSchoolViewController.h */,
+				07155A2F18BE06B300226502 /* SSUSchoolViewController.m */,
+			);
+			path = School;
+			sourceTree = "<group>";
+		};
+		071E237419E237E300483138 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0785A3BC1A1D99A30088193E /* SSUResourcesConstants.h */,
+				0785A3BD1A1D99A30088193E /* SSUResourcesConstants.m */,
+				07B78B741B9F2DB100FFB2FE /* SSUResourcesModule.h */,
+				07B78B751B9F2DB100FFB2FE /* SSUResourcesModule.m */,
+				0785A39F1A1D92CC0088193E /* Model */,
+				071E237519E237F200483138 /* Views */,
+				07FD090C1BA084D1005C38DD /* Resources */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		071E237519E237F200483138 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				071E237919E2398500483138 /* Resources.storyboard */,
+				071E239C19E241BD00483138 /* SSUResourcesCell.h */,
+				071E239D19E241BD00483138 /* SSUResourcesCell.m */,
+				071E237619E2380B00483138 /* SSUResourcesViewController.h */,
+				071E237719E2380B00483138 /* SSUResourcesViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		074D13571BA6EC980002899F /* Shared Views */ = {
+			isa = PBXGroup;
+			children = (
+				0766F1911B4F83A2003BD52C /* SSUSelectionController.h */,
+				0766F1921B4F83A2003BD52C /* SSUSelectionController.m */,
+				07DFB6CC1B9453C200014CD0 /* SSUTableHeaderView.h */,
+				07DFB6CD1B9453C200014CD0 /* SSUTableHeaderView.m */,
+				07D090DE1BCB8B560022B364 /* SSUSegmentedTableHeaderView.h */,
+				07D090DF1BCB8B560022B364 /* SSUSegmentedTableHeaderView.m */,
+				C4FBF75516BB914300BE95E3 /* SSUDetailTableViewController.h */,
+				C4FBF75616BB914300BE95E3 /* SSUDetailTableViewController.m */,
+				07DE5DA51B9C83F6005B38CB /* SSUCoreDataTableViewController.h */,
+				07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */,
+				AAB5DA6B1924935F002DC260 /* SSUWebViewController.h */,
+				AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */,
+			);
+			path = "Shared Views";
+			sourceTree = "<group>";
+		};
+		07651AE918EC1F150098FD2C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				078000F719CFAA0D00FD1E2A /* Images.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0766F1881B4E4BC5003BD52C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				0766F18F1B4E4DCC003BD52C /* Directory_Debug.storyboard */,
+				0766F1891B4E4BF1003BD52C /* SSUDirectoryToolsViewController.h */,
+				0766F18A1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m */,
+				0766F18C1B4E4DA8003BD52C /* SSUEditDepartmentViewController.h */,
+				0766F18D1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		076CBF581B6F384400364B36 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0762BE1D1B6C778500525E04 /* SSUDirectoryTableViewCell.h */,
+				0762BE1E1B6C778500525E04 /* SSUDirectoryTableViewCell.m */,
+				076CBF521B6F350C00364B36 /* SSUPersonTableViewCell.h */,
+				076CBF531B6F350C00364B36 /* SSUPersonTableViewCell.m */,
+				076CBF551B6F375000364B36 /* SSUDepartmentTableViewCell.h */,
+				076CBF561B6F375000364B36 /* SSUDepartmentTableViewCell.m */,
+				074F530B1B707DA700F97BCA /* SSUBuildingTableViewCell.h */,
+				074F530C1B707DA700F97BCA /* SSUBuildingTableViewCell.m */,
+				074F530E1B70807B00F97BCA /* SSUSchoolTableViewCell.h */,
+				074F530F1B70807B00F97BCA /* SSUSchoolTableViewCell.m */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		0785A39F1A1D92CC0088193E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0785A3AA1A1D97570088193E /* SSUResourcesBuilder.h */,
+				0785A3AB1A1D97570088193E /* SSUResourcesBuilder.m */,
+				0785A3A01A1D92DC0088193E /* Resources.xcdatamodeld */,
+				0785A3A91A1D971F0088193E /* Classes */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0785A3A91A1D971F0088193E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0785A3B91A1D988C0088193E /* SSUResourcesEntry.h */,
+				0785A3BA1A1D988C0088193E /* SSUResourcesEntry.m */,
+				0785A3B61A1D988B0088193E /* SSUResourcesSection.h */,
+				0785A3B71A1D988B0088193E /* SSUResourcesSection.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		079E2F0F1BB4BF5500754A52 /* Building */ = {
+			isa = PBXGroup;
+			children = (
+				079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */,
+				07EC53B71BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.h */,
+				07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */,
+				074E85391BCF76740016E8A6 /* SSUBuildingMapViewCell.h */,
+				074E853A1BCF76740016E8A6 /* SSUBuildingMapViewCell.m */,
+			);
+			path = Building;
+			sourceTree = "<group>";
+		};
+		07ADC65B19E2304C008E8075 /* Initial Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Initial Data";
+			sourceTree = "<group>";
+		};
+		07C2FE0A19C6C4E40016349C /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				07C2FE0C19C6C5120016349C /* SSURadioConstants.h */,
+				07C2FE0D19C6C5120016349C /* SSURadioConstants.m */,
+				07B78B711B9F2D1100FFB2FE /* SSURadioModule.h */,
+				07B78B721B9F2D1100FFB2FE /* SSURadioModule.m */,
+				0780018619D00CA100FD1E2A /* SSURadioStreamer.h */,
+				0780018719D00CA100FD1E2A /* SSURadioStreamer.m */,
+				07C2FE0B19C6C4F20016349C /* Views */,
+				07FD09061BA0843D005C38DD /* Resources */,
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
+		07C2FE0B19C6C4F20016349C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07C2FE1419C6C5D00016349C /* Radio_iPhone.storyboard */,
+				07C2FE0F19C6C5AF0016349C /* SSURadioViewController.h */,
+				07C2FE1019C6C5AF0016349C /* SSURadioViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07C997CB1A87114300534A1C /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				0741C9501A871D73000B7BC6 /* SSUEmailConstants.h */,
+				0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */,
+				07B78B7A1B9F320300FFB2FE /* SSUEmailModule.h */,
+				07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */,
+				07C5A4E51A87168D004DC819 /* SSULDAPCredentials.h */,
+				07C5A4E61A87168D004DC819 /* SSULDAPCredentials.m */,
+				07C997CC1A87115F00534A1C /* Views */,
+				07FD08FE1BA08117005C38DD /* Resources */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		07C997CC1A87115F00534A1C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07C997CF1A87119900534A1C /* Email.storyboard */,
+				079489071B6606E600BD5E1E /* SSUEmailPickerViewController.h */,
+				079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */,
+				07C5A4E21A87159B004DC819 /* SSUEmailViewController.h */,
+				07C5A4E31A87159B004DC819 /* SSUEmailViewController.m */,
+				0741C9531A8727BA000B7BC6 /* SSUEmailLoginViewController.h */,
+				0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07ED57891BA944C700B6ECDF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				07B98B3F1C687D3F00973AD7 /* NSString+html.h */,
+				07B98B401C687D3F00973AD7 /* NSString+html.m */,
+				C4FBF73B16BB827900BE95E3 /* SSUSharedUtilities.h */,
+				AAC88A031900FDCE00E6863F /* SSUSharedUtilities.m */,
+				07ED578A1BA9477B00B6ECDF /* SSUConfiguration.h */,
+				07ED578B1BA9477B00B6ECDF /* SSUConfiguration.m */,
+				071FE0DA1BE0836800CC3DCD /* SSULogging.h */,
+				071FE0DB1BE0836800CC3DCD /* SSULogging.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		07F84D7E19F5883E0046D148 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				07B78B7D1B9F326900FFB2FE /* SSUAboutModule.h */,
+				07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */,
+				07F84D7F19F588430046D148 /* Views */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		07F84D7F19F588430046D148 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07F84D8019F5885B0046D148 /* About.storyboard */,
+				07F84D8219F589A30046D148 /* SSUAboutViewController.h */,
+				07F84D8319F589A30046D148 /* SSUAboutViewController.m */,
+				0778E5D61A28272800BA13B0 /* SSUFeedbackViewController.h */,
+				0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07FD08FB1BA02EA4005C38DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07FD08FC1BA02EBE005C38DD /* Directory.xcassets */,
+				07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07FD08FE1BA08117005C38DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07FD08FF1BA08132005C38DD /* Email.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07FD09011BA08294005C38DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07FD09021BA082AE005C38DD /* Calendar.xcassets */,
+				07CD3C011BBBB91E0075ADE8 /* Calendar.sqlite */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07FD09061BA0843D005C38DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07FD09071BA08448005C38DD /* Radio.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07FD09091BA084A3005C38DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07FD090A1BA084B0005C38DD /* News.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07FD090C1BA084D1005C38DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07FD090D1BA084E1005C38DD /* Resources.xcassets */,
+				07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07FD090F1BA0853F005C38DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07FD09101BA08548005C38DD /* Map.xcassets */,
+				07CD3C031BBBB92C0075ADE8 /* Map.sqlite */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		784315ED16D1CFE600B8552F /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				070A3A661BAA960100B0E67C /* SSUDebugModule.h */,
+				070A3A671BAA960100B0E67C /* SSUDebugModule.m */,
+				07B98B421C6880BD00973AD7 /* SSUDebugCredentials.h */,
+				07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */,
+				07BFB3051B44E840002BF411 /* Debug.storyboard */,
+				787AD41A16CDBD53001BB4A0 /* SSUAppPickerViewController.h */,
+				787AD41B16CDBD53001BB4A0 /* SSUAppPickerViewController.m */,
+				070A3A6B1BAA969B00B0E67C /* Resources */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		784315F316D1DDE000B8552F /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				07B78B771B9F2F6900FFB2FE /* SSUMapModule.h */,
+				07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */,
+				78F0C7391707B4B700D8DB67 /* Outdoor */,
+				07FD090F1BA0853F005C38DD /* Resources */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		7847DF6116E18234001B3CB7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7847DF5E16E18163001B3CB7 /* SSUPerson+properties.h */,
+				7847DF5F16E18164001B3CB7 /* SSUPerson+properties.m */,
+				07DFB6C91B94511A00014CD0 /* SSUDepartment+properties.h */,
+				07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		785DD35816E68900009188CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				079E2F0F1BB4BF5500754A52 /* Building */,
+				784315F416D1DF2800B8552F /* Map_iPhone.storyboard */,
+				784315F016D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.h */,
+				784315F116D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m */,
+				AAEF4FA91900AC130006276D /* SSUOutdoorMapViewController.h */,
+				AAEF4FAA1900AC130006276D /* SSUOutdoorMapViewController.m */,
+				AA61EA34192422DA00D82CB5 /* SSUClassSearchTableViewController.h */,
+				AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */,
+				0774756E1A6CA5ED0094EB15 /* SSUMapPopoverContentController.h */,
+				0774756F1A6CA5ED0094EB15 /* SSUMapPopoverContentController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		785DD35C16E68939009188CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				074D13561BA6A0620002899F /* SSUMapModels.h */,
+				7841E5FB16E6C589007A8F95 /* Map.xcdatamodeld */,
+				78A190BA171B3CEE00D8768C /* Builders */,
+				785DD35D16E68944009188CC /* Classes */,
+				78A5EDD516E6E0BB0078FBB0 /* Categories */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		785DD35D16E68944009188CC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				78A190B71718ADCD00D8768C /* SSUMapPolygon.h */,
+				78A190B81718ADCD00D8768C /* SSUMapPolygon.m */,
+				78A190B41717A0AA00D8768C /* SSUMapPoint.h */,
+				78A190B51717A0AA00D8768C /* SSUMapPoint.m */,
+				7801C3D116E8233600119B63 /* SSUMapLocation.h */,
+				7801C3D216E8233700119B63 /* SSUMapLocation.m */,
+				7801C3BF16E6FE4600119B63 /* SSUMapBuildingPerimeter.h */,
+				7801C3C016E6FE4600119B63 /* SSUMapBuildingPerimeter.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		785DD35E16E68977009188CC /* App Picker */ = {
+			isa = PBXGroup;
+			children = (
+				C4995AF916B1274200168521 /* MainStoryboard_iPhone.storyboard */,
+				C4995AEA16B1274200168521 /* InfoPlist.strings */,
+				0768952E198A165600C233B3 /* SSUHomeViewController.h */,
+				0768952F198A165600C233B3 /* SSUHomeViewController.m */,
+				070A3A6C1BAA992D00B0E67C /* SSUAppPickerModuleCell.h */,
+				070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */,
+				07FD09041BA0833E005C38DD /* AppPicker.xcassets */,
+			);
+			path = "App Picker";
+			sourceTree = "<group>";
+		};
+		7881D9D116E1C19E001DC30F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7843160A16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.h */,
+				7843160B16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m */,
+				7881D9D616E2822B001DC30F /* SSUOutdoorMapViewController+tools.h */,
+				7881D9D716E2822B001DC30F /* SSUOutdoorMapViewController+tools.m */,
+				7881D9D516E1C5E0001DC30F /* SSUOutdoorMapSuperViewController_tools.h */,
+				7881D9E016E2892E001DC30F /* Boundary */,
+				7881D9E216E2893D001DC30F /* Point */,
+				7881D9E116E28936001DC30F /* Connect */,
+				78BD865716FD5E750055A257 /* Directions */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		7881D9E016E2892E001DC30F /* Boundary */ = {
+			isa = PBXGroup;
+			children = (
+				7881D9CE16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.h */,
+				7881D9CF16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m */,
+				78A190DF171BC59300D8768C /* SSUBoundaryBuildingSelectorViewController.h */,
+				78A190E0171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m */,
+			);
+			path = Boundary;
+			sourceTree = "<group>";
+		};
+		7881D9E116E28936001DC30F /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				7881D9DA16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.h */,
+				7881D9DB16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.m */,
+			);
+			path = Connect;
+			sourceTree = "<group>";
+		};
+		7881D9E216E2893D001DC30F /* Point */ = {
+			isa = PBXGroup;
+			children = (
+				7881D9DD16E28862001DC30F /* SSUOutdoorPathPointToolViewController.h */,
+				7881D9DE16E28862001DC30F /* SSUOutdoorPathPointToolViewController.m */,
+			);
+			path = Point;
+			sourceTree = "<group>";
+		};
+		78A190BA171B3CEE00D8768C /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				0766F1851B4BA404003BD52C /* SSUMapBuilder.h */,
+				0766F1861B4BA404003BD52C /* SSUMapBuilder.m */,
+				78A190BB171B3D0600D8768C /* SSUPointsBuilder.h */,
+				78A190BC171B3D0600D8768C /* SSUPointsBuilder.m */,
+				78A190C4171B3F9700D8768C /* SSUConnectionsBuilder.h */,
+				78A190C5171B3F9700D8768C /* SSUConnectionsBuilder.m */,
+				78A190C7171B3FBE00D8768C /* SSUBuildingPerimetersBuilder.h */,
+				78A190C8171B3FBE00D8768C /* SSUBuildingPerimetersBuilder.m */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		78A5EDD516E6E0BB0078FBB0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				78A5EDD216E6E0B40078FBB0 /* MapPoint+properties.h */,
+				78A5EDD316E6E0B40078FBB0 /* MapPoint+properties.m */,
+				78A5EDE516E6E4B70078FBB0 /* Location+properties.h */,
+				78A5EDE616E6E4B70078FBB0 /* Location+properties.m */,
+				78A5EDE816E6E5D20078FBB0 /* BuildingPerimeter+properties.h */,
+				78A5EDE916E6E5D20078FBB0 /* BuildingPerimeter+properties.m */,
+				78A5EE1616E6EB330078FBB0 /* Polygon+properties.h */,
+				78A5EE1716E6EB330078FBB0 /* Polygon+properties.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		78BD865716FD5E750055A257 /* Directions */ = {
+			isa = PBXGroup;
+			children = (
+				78BD865416FD5E710055A257 /* SSUOutdoorDirectionToolViewController.h */,
+				78BD865516FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m */,
+			);
+			path = Directions;
+			sourceTree = "<group>";
+		};
+		78F0C7391707B4B700D8DB67 /* Outdoor */ = {
+			isa = PBXGroup;
+			children = (
+				785DD35516E688D1009188CC /* SSUOutdoorMapConstants.h */,
+				785DD35616E688D1009188CC /* SSUOutdoorMapConstants.m */,
+				785DD35C16E68939009188CC /* Model */,
+				785DD35816E68900009188CC /* Views */,
+				7881D9D116E1C19E001DC30F /* Tools */,
+			);
+			path = Outdoor;
+			sourceTree = "<group>";
+		};
+		78FE792916CAA2E700626462 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				78FE792716C9D04500626462 /* Settings.bundle */,
+				78FE792A16CAA30B00626462 /* SSUSettingsConstants.h */,
+				78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		8068F7AC4829952286B66361 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BECFB3C29DF587AA0CC0BCC3 /* Pods.debug.xcconfig */,
+				A02A232B2B44BC1BB6F62CA0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AAEF4F6118FFAC830006276D /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				AAEF4F6718FFB0B20006276D /* Path_TuscanyToDarwin.gpx */,
+				AA72986C1905D17500A63F99 /* Path_TuscanyToSalazar.gpx */,
+				AAEF4F6218FFAC830006276D /* Loc_GreenMusicCenter.gpx */,
+				AAEF4F6618FFADC10006276D /* Loc_Verdot.gpx */,
+				AAEF4F6318FFAC830006276D /* Loc_Tuscany.gpx */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		C42D1BD916BB7779003AE10B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4995B2C16B127A400168521 /* SSUDirectoryBuilder.h */,
+				C4995B2616B127A400168521 /* SSUDirectoryBuilder.m */,
+				074D13541BA69F0A0002899F /* SSUDirectoryModels.h */,
+				074D13581BA703B20002899F /* Directory.xcdatamodeld */,
+				C42D1BDA16BB77BF003AE10B /* Classes */,
+				7847DF6116E18234001B3CB7 /* Categories */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C42D1BDA16BB77BF003AE10B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				07D1A35C18E2D52500B98565 /* SSUPerson.h */,
+				07D1A35D18E2D52500B98565 /* SSUPerson.m */,
+				07D1A35F18E2D52600B98565 /* SSUSchool.h */,
+				07D1A36018E2D52600B98565 /* SSUSchool.m */,
+				07D1A36218E2D52600B98565 /* SSUBuilding.h */,
+				07D1A36318E2D52600B98565 /* SSUBuilding.m */,
+				07D1A36518E2D52600B98565 /* SSUDirectoryObject.h */,
+				07D1A36618E2D52600B98565 /* SSUDirectoryObject.m */,
+				07D1A36818E2D52600B98565 /* SSUDepartment.h */,
+				07D1A36918E2D52600B98565 /* SSUDepartment.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C42D1BDE16BB7869003AE10B /* News */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBF73E16BB8C0400BE95E3 /* SSUNewsConstants.h */,
+				C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */,
+				07B78B6E1B9F2B0E00FFB2FE /* SSUNewsModule.h */,
+				07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */,
+				C4FBF74216BB8C2800BE95E3 /* Model */,
+				C4FBF74116BB8C1C00BE95E3 /* Views */,
+				07FD09091BA084A3005C38DD /* Resources */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		C42D1BDF16BB7870003AE10B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBF74F16BB903D00BE95E3 /* SSUCalendarConstants.h */,
+				C4FBF75016BB903D00BE95E3 /* SSUCalendarConstants.m */,
+				07B78B6B1B9EF63000FFB2FE /* SSUCalendarModule.h */,
+				07B78B6C1B9EF63000FFB2FE /* SSUCalendarModule.m */,
+				C4995B3C16B1287F00168521 /* Model */,
+				C4FBF74716BB8C9F00BE95E3 /* Views */,
+				07FD09011BA08294005C38DD /* Resources */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		C4995AD016B1274200168521 = {
+			isa = PBXGroup;
+			children = (
+				07A1486D19F653CA006B708F /* Podfile */,
+				077C6A2F19F6765200CE99A9 /* Podfile.lock */,
+				AAEF4F6118FFAC830006276D /* Locations */,
+				C4995AE716B1274200168521 /* SSUMobile */,
+				C4995B1516B1274300168521 /* SSUMobileTests */,
+				C4995ADE16B1274200168521 /* Frameworks */,
+				C4995ADC16B1274200168521 /* Products */,
+				8068F7AC4829952286B66361 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		C4995ADC16B1274200168521 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4995ADB16B1274200168521 /* SSUMobile.app */,
+				C4995B0D16B1274300168521 /* SSUMobileTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4995ADE16B1274200168521 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07AFDFD619D917550027D0F1 /* EventKitUI.framework */,
+				0780016E19CFE46800FD1E2A /* AVFoundation.framework */,
+				0780016C19CFE45D00FD1E2A /* MediaPlayer.framework */,
+				0780016A19CFE45500FD1E2A /* AudioToolbox.framework */,
+				AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */,
+				077B458718F54AF000899344 /* AddressBookUI.framework */,
+				077B458518F54AEA00899344 /* AddressBook.framework */,
+				784315FA16D1E44300B8552F /* CoreLocation.framework */,
+				C4995ADF16B1274200168521 /* UIKit.framework */,
+				C4995AE116B1274200168521 /* Foundation.framework */,
+				C4995AE316B1274200168521 /* CoreGraphics.framework */,
+				C4995AE516B1274200168521 /* CoreData.framework */,
+				784315F816D1E06400B8552F /* MapKit.framework */,
+				7498147B54ADC312BAD34773 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4995AE716B1274200168521 /* SSUMobile */ = {
+			isa = PBXGroup;
+			children = (
+				07ED57891BA944C700B6ECDF /* Core */,
+				C4995AF016B1274200168521 /* SSUAppDelegate.h */,
+				C4995AF116B1274200168521 /* SSUAppDelegate.m */,
+				074D13571BA6EC980002899F /* Shared Views */,
+				785DD35E16E68977009188CC /* App Picker */,
+				C4DE941116B1CE6B00EEF142 /* Moonlight */,
+				C4FBF74E16BB8FFD00BE95E3 /* Modules */,
+				C4995AE816B1274200168521 /* Supporting Files */,
+				78FE792916CAA2E700626462 /* Settings */,
+			);
+			path = SSUMobile;
+			sourceTree = "<group>";
+		};
+		C4995AE816B1274200168521 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				071E23A419E284F400483138 /* licenses.txt */,
+				07ADC65B19E2304C008E8075 /* Initial Data */,
+				07651AE918EC1F150098FD2C /* Images */,
+				C4995AE916B1274200168521 /* SSUMobile-Info.plist */,
+				C4995AED16B1274200168521 /* main.m */,
+				C4995AEF16B1274200168521 /* SSUMobile-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4995B1516B1274300168521 /* SSUMobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4995B1616B1274300168521 /* Supporting Files */,
+			);
+			path = SSUMobileTests;
+			sourceTree = "<group>";
+		};
+		C4995B1616B1274300168521 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4995B1716B1274300168521 /* SSUMobileTests-Info.plist */,
+				C4995B1816B1274300168521 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4995B3C16B1287F00168521 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBF75216BB90A600BE95E3 /* SSUCalendarBuilder.h */,
+				C4FBF75316BB90A600BE95E3 /* SSUCalendarBuilder.m */,
+				074D135C1BA703FB0002899F /* Calendar.xcdatamodeld */,
+				C4FBF74B16BB8CBB00BE95E3 /* Classes */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4A7BE5A16B9F16A00B919F0 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				C400359F16B9C6BC00B27F93 /* SSUPersonViewController.h */,
+				C40035A016B9C6BC00B27F93 /* SSUPersonViewController.m */,
+				C40035AD16B9DFAF00B27F93 /* SSUPersonContainerViewController.h */,
+				C40035AE16B9DFAF00B27F93 /* SSUPersonContainerViewController.m */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		C4A7BE5E16BA05B700B919F0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0760DC311A5FD060001D04F9 /* SSUDirectoryDetailController.h */,
+				0760DC321A5FD060001D04F9 /* SSUDirectoryDetailController.m */,
+				C4A7BE5A16B9F16A00B919F0 /* Person */,
+				C4A7BE6416BA1E4F00B919F0 /* Department */,
+				C4A7BE6816BA241D00B919F0 /* Building */,
+				07155A2D18BE068400226502 /* School */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		C4A7BE6416BA1E4F00B919F0 /* Department */ = {
+			isa = PBXGroup;
+			children = (
+				C4A7BE5B16B9F19600B919F0 /* SSUDepartmentViewController.h */,
+				C4A7BE5C16B9F19600B919F0 /* SSUDepartmentViewController.m */,
+			);
+			path = Department;
+			sourceTree = "<group>";
+		};
+		C4A7BE6816BA241D00B919F0 /* Building */ = {
+			isa = PBXGroup;
+			children = (
+				C4A7BE6516BA241800B919F0 /* SSUBuildingViewController.h */,
+				C4A7BE6616BA241900B919F0 /* SSUBuildingViewController.m */,
+			);
+			path = Building;
+			sourceTree = "<group>";
+		};
+		C4A7BE8216BA34B500B919F0 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				C4A7BE7F16BA344C00B919F0 /* SSUMoonlightBuilder.h */,
+				C4A7BE8016BA344C00B919F0 /* SSUMoonlightBuilder.m */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		C4DE941116B1CE6B00EEF142 /* Moonlight */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBF74C16BB8CFE00BE95E3 /* Communicator */,
+				C4A7BE8216BA34B500B919F0 /* Builder */,
+			);
+			path = Moonlight;
+			sourceTree = "<group>";
+		};
+		C4DE941216B1CE7700EEF142 /* Directory */ = {
+			isa = PBXGroup;
+			children = (
+				C4A7BE6116BA139000B919F0 /* SSUDirectoryConstants.h */,
+				C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */,
+				07B78B621B9EA4EA00FFB2FE /* SSUDirectoryModule.h */,
+				07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */,
+				C42D1BD916BB7779003AE10B /* Model */,
+				C4F7DCA416B4DFB600D81777 /* Views */,
+				0766F1881B4E4BC5003BD52C /* Tools */,
+				07FD08FB1BA02EA4005C38DD /* Resources */,
+			);
+			path = Directory;
+			sourceTree = "<group>";
+		};
+		C4F7DCA416B4DFB600D81777 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */,
+				78A8E14E16C74BDE00898596 /* SSUDirectoryViewController.h */,
+				78A8E14F16C74BDE00898596 /* SSUDirectoryViewController.m */,
+				076CBF581B6F384400364B36 /* Table View Cells */,
+				C4A7BE5E16BA05B700B919F0 /* Detail */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4FBF74116BB8C1C00BE95E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */,
+				C4FBF77D16BC615300BE95E3 /* SSUNewsViewController.h */,
+				C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */,
+				7893FFE217260B8A009251F4 /* SSUNewsArticleTableViewCell.h */,
+				7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4FBF74216BB8C2800BE95E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4A7BE7916BA336100B919F0 /* SSUNewsBuilder.h */,
+				C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */,
+				C4FBF74316BB8C5C00BE95E3 /* News.xcdatamodeld */,
+				C4FBF74616BB8C6300BE95E3 /* Classes */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4FBF74616BB8C6300BE95E3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AA08DD51190F1E0B00141224 /* SSUArticle.h */,
+				AA08DD52190F1E0B00141224 /* SSUArticle.m */,
+				78708BDE16C48B2000226EA9 /* SSUNewsObject.h */,
+				78708BDF16C48B2000226EA9 /* SSUNewsObject.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C4FBF74716BB8C9F00BE95E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */,
+				0783A2121A1039760004982F /* SSUCalendarEventCell.h */,
+				0783A2131A1039760004982F /* SSUCalendarEventCell.m */,
+				07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */,
+				0780FFEB19CF950A00FD1E2A /* SSUCalendarEventDetail.h */,
+				0780FFEC19CF950A00FD1E2A /* SSUCalendarEventDetail.m */,
+				07AFDEA319D8E7DB0027D0F1 /* SSUCalendarViewController.h */,
+				07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */,
+				07C13CE21B935740007AEE34 /* SSUCollectionViewCellSeparatorView.h */,
+				07C13CE31B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4FBF74B16BB8CBB00BE95E3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				071E239F19E25B6300483138 /* SSUEvent.h */,
+				071E23A019E25B6300483138 /* SSUEvent.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C4FBF74C16BB8CFE00BE95E3 /* Communicator */ = {
+			isa = PBXGroup;
+			children = (
+				07FD09121BA09A56005C38DD /* SSUCommunicator.h */,
+				07FD09131BA09A56005C38DD /* SSUCommunicator.m */,
+				C4995B2E16B127A400168521 /* SSUMoonlightCommunicator.h */,
+				C4995B2D16B127A400168521 /* SSUMoonlightCommunicator.m */,
+			);
+			path = Communicator;
+			sourceTree = "<group>";
+		};
+		C4FBF74E16BB8FFD00BE95E3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				07B78B651B9EA83C00FFB2FE /* SSUModuleBase.h */,
+				07B78B661B9EA83C00FFB2FE /* SSUModuleBase.m */,
+				07B78B681B9EB46400FFB2FE /* SSUCoreDataModuleBase.h */,
+				07B78B691B9EB46400FFB2FE /* SSUCoreDataModuleBase.m */,
+				784315ED16D1CFE600B8552F /* Debug */,
+				07F84D7E19F5883E0046D148 /* About */,
+				071E237419E237E300483138 /* Resources */,
+				07C2FE0A19C6C4E40016349C /* Radio */,
+				C4DE941216B1CE7700EEF142 /* Directory */,
+				C42D1BDE16BB7869003AE10B /* News */,
+				C42D1BDF16BB7870003AE10B /* Calendar */,
+				784315F316D1DDE000B8552F /* Maps */,
+				07C997CB1A87114300534A1C /* Email */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4995ADA16B1274200168521 /* SSUMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4995B2016B1274300168521 /* Build configuration list for PBXNativeTarget "SSUMobile" */;
+			buildPhases = (
+				DB3AF3420858ECD41EAB757A /* Check Pods Manifest.lock */,
+				C4995AD716B1274200168521 /* Sources */,
+				C4995AD816B1274200168521 /* Frameworks */,
+				C4995AD916B1274200168521 /* Resources */,
+				7D39AA43D5CBAD3D304D372D /* Copy Pods Resources */,
+				9D7977BD4A1FEE1F2F776F85 /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSUMobile;
+			productName = SSUMobile;
+			productReference = C4995ADB16B1274200168521 /* SSUMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C4995B0C16B1274300168521 /* SSUMobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4995B2316B1274300168521 /* Build configuration list for PBXNativeTarget "SSUMobileTests" */;
+			buildPhases = (
+				C4995B0816B1274300168521 /* Sources */,
+				C4995B0916B1274300168521 /* Frameworks */,
+				C4995B0A16B1274300168521 /* Resources */,
+				C4995B0B16B1274300168521 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4995B1416B1274300168521 /* PBXTargetDependency */,
+			);
+			name = SSUMobileTests;
+			productName = SSUMobileTests;
+			productReference = C4995B0D16B1274300168521 /* SSUMobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4995AD216B1274200168521 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SSU;
+				LastTestingUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Sonoma State University Department of Computer Science";
+				TargetAttributes = {
+					C4995ADA16B1274200168521 = {
+						DevelopmentTeam = 43828X7VU8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = C4995AD516B1274200168521 /* Build configuration list for PBXProject "SSUMobile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C4995AD016B1274200168521;
+			productRefGroup = C4995ADC16B1274200168521 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4995ADA16B1274200168521 /* SSUMobile */,
+				C4995B0C16B1274300168521 /* SSUMobileTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4995AD916B1274200168521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07F84D8119F5885B0046D148 /* About.storyboard in Resources */,
+				C4995AEC16B1274200168521 /* InfoPlist.strings in Resources */,
+				07FD09031BA082AE005C38DD /* Calendar.xcassets in Resources */,
+				071E23A619E284F400483138 /* licenses.txt in Resources */,
+				07CD3C041BBBB92C0075ADE8 /* Map.sqlite in Resources */,
+				07C997D01A87119900534A1C /* Email.storyboard in Resources */,
+				07C2FE1519C6C5D00016349C /* Radio_iPhone.storyboard in Resources */,
+				07CD3C021BBBB91E0075ADE8 /* Calendar.sqlite in Resources */,
+				078000F819CFAA0D00FD1E2A /* Images.xcassets in Resources */,
+				C4995AFB16B1274200168521 /* MainStoryboard_iPhone.storyboard in Resources */,
+				079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */,
+				07FD09051BA0833E005C38DD /* AppPicker.xcassets in Resources */,
+				07BFB3061B44E840002BF411 /* Debug.storyboard in Resources */,
+				07CD3BFE1BBBB8E60075ADE8 /* Resources.sqlite in Resources */,
+				C46E1E5116BB55370040435C /* Directory_iPhone.storyboard in Resources */,
+				C42D1BD616BB5D19003AE10B /* News_iPhone.storyboard in Resources */,
+				C42D1BD816BB5D7F003AE10B /* Calendar_iPhone.storyboard in Resources */,
+				07FD09001BA08132005C38DD /* Email.xcassets in Resources */,
+				071E237A19E2398500483138 /* Resources.storyboard in Resources */,
+				07CD3C001BBBB8F70075ADE8 /* Directory.sqlite in Resources */,
+				07FD090E1BA084E1005C38DD /* Resources.xcassets in Resources */,
+				07FD09111BA08548005C38DD /* Map.xcassets in Resources */,
+				78FE792816C9D04500626462 /* Settings.bundle in Resources */,
+				784315F516D1DF2900B8552F /* Map_iPhone.storyboard in Resources */,
+				0766F1901B4E4DCC003BD52C /* Directory_Debug.storyboard in Resources */,
+				07FD09081BA08448005C38DD /* Radio.xcassets in Resources */,
+				07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */,
+				07FD090B1BA084B0005C38DD /* News.xcassets in Resources */,
+				070A3A6A1BAA969100B0E67C /* Debug.xcassets in Resources */,
+				07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4995B0A16B1274300168521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4995B1A16B1274300168521 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D39AA43D5CBAD3D304D372D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D7977BD4A1FEE1F2F776F85 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4995B0B16B1274300168521 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		DB3AF3420858ECD41EAB757A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4995AD716B1274200168521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0766F1871B4BA404003BD52C /* SSUMapBuilder.m in Sources */,
+				071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */,
+				07C5A4E71A87168D004DC819 /* SSULDAPCredentials.m in Sources */,
+				076CBF541B6F350C00364B36 /* SSUPersonTableViewCell.m in Sources */,
+				07DE5DA71B9C83F6005B38CB /* SSUCoreDataTableViewController.m in Sources */,
+				07B78B731B9F2D1100FFB2FE /* SSURadioModule.m in Sources */,
+				AA61EA36192422DA00D82CB5 /* SSUClassSearchTableViewController.m in Sources */,
+				78AD220C171731F600FB89F0 /* SSUDirectoryBuilder.m in Sources */,
+				071E23A119E25B6300483138 /* SSUEvent.m in Sources */,
+				C4995AEE16B1274200168521 /* main.m in Sources */,
+				C4995AF216B1274200168521 /* SSUAppDelegate.m in Sources */,
+				07C5A4E41A87159B004DC819 /* SSUEmailViewController.m in Sources */,
+				07F84D8419F589A30046D148 /* SSUAboutViewController.m in Sources */,
+				0785A3AC1A1D97570088193E /* SSUResourcesBuilder.m in Sources */,
+				0785A3BB1A1D988C0088193E /* SSUResourcesEntry.m in Sources */,
+				C4995B3916B127A400168521 /* SSUMoonlightCommunicator.m in Sources */,
+				07B78B6D1B9EF63000FFB2FE /* SSUCalendarModule.m in Sources */,
+				077475701A6CA5ED0094EB15 /* SSUMapPopoverContentController.m in Sources */,
+				C40035A116B9C6BC00B27F93 /* SSUPersonViewController.m in Sources */,
+				07B98B411C687D3F00973AD7 /* NSString+html.m in Sources */,
+				07B98B441C6880BD00973AD7 /* SSUDebugCredentials.m in Sources */,
+				C40035AF16B9DFAF00B27F93 /* SSUPersonContainerViewController.m in Sources */,
+				0741C9551A8727BA000B7BC6 /* SSUEmailLoginViewController.m in Sources */,
+				07FD09141BA09A56005C38DD /* SSUCommunicator.m in Sources */,
+				0778E5D81A28272800BA13B0 /* SSUFeedbackViewController.m in Sources */,
+				07D1A36118E2D52600B98565 /* SSUSchool.m in Sources */,
+				C4A7BE5D16B9F19600B919F0 /* SSUDepartmentViewController.m in Sources */,
+				0780FFF719CF950B00FD1E2A /* SSUCalendarEventDetail.m in Sources */,
+				C4A7BE6316BA139100B919F0 /* SSUDirectoryConstants.m in Sources */,
+				07B78B641B9EA4EA00FFB2FE /* SSUDirectoryModule.m in Sources */,
+				07D090E01BCB8B560022B364 /* SSUSegmentedTableHeaderView.m in Sources */,
+				074F530D1B707DA700F97BCA /* SSUBuildingTableViewCell.m in Sources */,
+				07B78B671B9EA83C00FFB2FE /* SSUModuleBase.m in Sources */,
+				076CBF571B6F375000364B36 /* SSUDepartmentTableViewCell.m in Sources */,
+				AA08DD53190F1E0B00141224 /* SSUArticle.m in Sources */,
+				07B78B701B9F2B0E00FFB2FE /* SSUNewsModule.m in Sources */,
+				C4A7BE6716BA241900B919F0 /* SSUBuildingViewController.m in Sources */,
+				C4A7BE7B16BA336100B919F0 /* SSUNewsBuilder.m in Sources */,
+				C4A7BE8116BA344C00B919F0 /* SSUMoonlightBuilder.m in Sources */,
+				0783A2141A1039760004982F /* SSUCalendarEventCell.m in Sources */,
+				074F53101B70807B00F97BCA /* SSUSchoolTableViewCell.m in Sources */,
+				07B78B761B9F2DB100FFB2FE /* SSUResourcesModule.m in Sources */,
+				074D135A1BA703B20002899F /* Directory.xcdatamodeld in Sources */,
+				07689530198A165600C233B3 /* SSUHomeViewController.m in Sources */,
+				C4FBF74016BB8C0400BE95E3 /* SSUNewsConstants.m in Sources */,
+				C4FBF74516BB8C5C00BE95E3 /* News.xcdatamodeld in Sources */,
+				C4FBF75116BB903D00BE95E3 /* SSUCalendarConstants.m in Sources */,
+				C4FBF75416BB90A600BE95E3 /* SSUCalendarBuilder.m in Sources */,
+				07C2FE1219C6C5AF0016349C /* SSURadioViewController.m in Sources */,
+				07ED578C1BA9477B00B6ECDF /* SSUConfiguration.m in Sources */,
+				C4FBF75716BB914400BE95E3 /* SSUDetailTableViewController.m in Sources */,
+				07C2FE0E19C6C5120016349C /* SSURadioConstants.m in Sources */,
+				C4FBF77F16BC615300BE95E3 /* SSUNewsViewController.m in Sources */,
+				07DFB6CB1B94511A00014CD0 /* SSUDepartment+properties.m in Sources */,
+				78708BE016C48B2000226EA9 /* SSUNewsObject.m in Sources */,
+				78A8E15016C74BDE00898596 /* SSUDirectoryViewController.m in Sources */,
+				0741C9521A871D73000B7BC6 /* SSUEmailConstants.m in Sources */,
+				78FE792C16CAA30B00626462 /* SSUSettingsConstants.m in Sources */,
+				787AD41C16CDBD53001BB4A0 /* SSUAppPickerViewController.m in Sources */,
+				07D1A36418E2D52600B98565 /* SSUBuilding.m in Sources */,
+				071E239E19E241BD00483138 /* SSUResourcesCell.m in Sources */,
+				784315F216D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m in Sources */,
+				071FE0DC1BE0836800CC3DCD /* SSULogging.m in Sources */,
+				7843160C16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m in Sources */,
+				7847DF6016E18165001B3CB7 /* SSUPerson+properties.m in Sources */,
+				07D1A36718E2D52600B98565 /* SSUDirectoryObject.m in Sources */,
+				7881D9D016E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m in Sources */,
+				07D1A35E18E2D52500B98565 /* SSUPerson.m in Sources */,
+				0785A3A21A1D92DC0088193E /* Resources.xcdatamodeld in Sources */,
+				0766F18E1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m in Sources */,
+				7881D9D816E2822B001DC30F /* SSUOutdoorMapViewController+tools.m in Sources */,
+				074E853B1BCF76740016E8A6 /* SSUBuildingMapViewCell.m in Sources */,
+				7881D9DC16E28858001DC30F /* SSUOutdoorPathConnectToolViewController.m in Sources */,
+				7881D9DF16E28863001DC30F /* SSUOutdoorPathPointToolViewController.m in Sources */,
+				0762BE1F1B6C778500525E04 /* SSUDirectoryTableViewCell.m in Sources */,
+				07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */,
+				785DD35716E688D1009188CC /* SSUOutdoorMapConstants.m in Sources */,
+				07B78B6A1B9EB46400FFB2FE /* SSUCoreDataModuleBase.m in Sources */,
+				7841E5FD16E6C589007A8F95 /* Map.xcdatamodeld in Sources */,
+				78A5EDD416E6E0B40078FBB0 /* MapPoint+properties.m in Sources */,
+				079489091B6606E600BD5E1E /* SSUEmailPickerViewController.m in Sources */,
+				78A5EDE716E6E4B70078FBB0 /* Location+properties.m in Sources */,
+				070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */,
+				07B78B791B9F2F6900FFB2FE /* SSUMapModule.m in Sources */,
+				07B78B7F1B9F326900FFB2FE /* SSUAboutModule.m in Sources */,
+				07DFB6CE1B9453C200014CD0 /* SSUTableHeaderView.m in Sources */,
+				0760DC331A5FD060001D04F9 /* SSUDirectoryDetailController.m in Sources */,
+				78A5EDEA16E6E5D30078FBB0 /* BuildingPerimeter+properties.m in Sources */,
+				07B78B7C1B9F320300FFB2FE /* SSUEmailModule.m in Sources */,
+				78A5EE1816E6EB330078FBB0 /* Polygon+properties.m in Sources */,
+				07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */,
+				7801C3C116E6FE4600119B63 /* SSUMapBuildingPerimeter.m in Sources */,
+				7801C3D316E8233900119B63 /* SSUMapLocation.m in Sources */,
+				78BD865616FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m in Sources */,
+				0785A3BE1A1D99A30088193E /* SSUResourcesConstants.m in Sources */,
+				0785A3B81A1D988B0088193E /* SSUResourcesSection.m in Sources */,
+				AAEF4FAB1900AC130006276D /* SSUOutdoorMapViewController.m in Sources */,
+				074D135E1BA703FB0002899F /* Calendar.xcdatamodeld in Sources */,
+				AAC88A041900FDCE00E6863F /* SSUSharedUtilities.m in Sources */,
+				AAB5DA6D1924935F002DC260 /* SSUWebViewController.m in Sources */,
+				78A190B61717A0AA00D8768C /* SSUMapPoint.m in Sources */,
+				78A190B91718ADCD00D8768C /* SSUMapPolygon.m in Sources */,
+				78A190BD171B3D0600D8768C /* SSUPointsBuilder.m in Sources */,
+				0766F18B1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m in Sources */,
+				0766F1931B4F83A2003BD52C /* SSUSelectionController.m in Sources */,
+				78A190C6171B3F9900D8768C /* SSUConnectionsBuilder.m in Sources */,
+				78A190C9171B3FBF00D8768C /* SSUBuildingPerimetersBuilder.m in Sources */,
+				07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */,
+				0780018819D00CA100FD1E2A /* SSURadioStreamer.m in Sources */,
+				78A190E1171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m in Sources */,
+				07C13CE41B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m in Sources */,
+				7893FFE417260B8A009251F4 /* SSUNewsArticleTableViewCell.m in Sources */,
+				07D1A36A18E2D52600B98565 /* SSUDepartment.m in Sources */,
+				070A3A681BAA960100B0E67C /* SSUDebugModule.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4995B0816B1274300168521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4995B1416B1274300168521 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4995ADA16B1274200168521 /* SSUMobile */;
+			targetProxy = C4995B1316B1274300168521 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C4995AEA16B1274200168521 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4995AEB16B1274200168521 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C4995AF916B1274200168521 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4995AFA16B1274200168521 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		C4995B1816B1274300168521 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4995B1916B1274300168521 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4995B1E16B1274300168521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4995B1F16B1274300168521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4995B2116B1274300168521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECFB3C29DF587AA0CC0BCC3 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2.0.1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSUMobile/Supporting Files/SSUMobile-Prefix.pch";
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SSU.SSUMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobile/SSUMobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$SRCROOT/Pods/Headers/Public/**/**";
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C4995B2216B1274300168521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A02A232B2B44BC1BB6F62CA0 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2.0.1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"SSUDirectoryTools*",
+					SSUEditDepartmentViewController,
+					"*_Debug.storyboard",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSUMobile/Supporting Files/SSUMobile-Prefix.pch";
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SSU.SSUMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobile/SSUMobile-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$SRCROOT/Pods/Headers/Public/**/**";
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C4995B2416B1274300168521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSUMobile.app/SSUMobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSUMobile/SSUMobile-Prefix.pch";
+				INFOPLIST_FILE = "SSUMobileTests/SSUMobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		C4995B2516B1274300168521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSUMobile.app/SSUMobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSUMobile/SSUMobile-Prefix.pch";
+				INFOPLIST_FILE = "SSUMobileTests/SSUMobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4995AD516B1274200168521 /* Build configuration list for PBXProject "SSUMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4995B1E16B1274300168521 /* Debug */,
+				C4995B1F16B1274300168521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4995B2016B1274300168521 /* Build configuration list for PBXNativeTarget "SSUMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4995B2116B1274300168521 /* Debug */,
+				C4995B2216B1274300168521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4995B2316B1274300168521 /* Build configuration list for PBXNativeTarget "SSUMobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4995B2416B1274300168521 /* Debug */,
+				C4995B2516B1274300168521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		074D13581BA703B20002899F /* Directory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				074D13591BA703B20002899F /* Directory.xcdatamodel */,
+			);
+			currentVersion = 074D13591BA703B20002899F /* Directory.xcdatamodel */;
+			path = Directory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		074D135C1BA703FB0002899F /* Calendar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				074D135D1BA703FB0002899F /* Calendar.xcdatamodel */,
+			);
+			currentVersion = 074D135D1BA703FB0002899F /* Calendar.xcdatamodel */;
+			path = Calendar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		0785A3A01A1D92DC0088193E /* Resources.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0785A3A11A1D92DC0088193E /* Resources.xcdatamodel */,
+			);
+			currentVersion = 0785A3A11A1D92DC0088193E /* Resources.xcdatamodel */;
+			path = Resources.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		7841E5FB16E6C589007A8F95 /* Map.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7841E5FC16E6C589007A8F95 /* Map.xcdatamodel */,
+			);
+			currentVersion = 7841E5FC16E6C589007A8F95 /* Map.xcdatamodel */;
+			path = Map.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		C4FBF74316BB8C5C00BE95E3 /* News.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C4FBF74416BB8C5C00BE95E3 /* News.xcdatamodel */,
+			);
+			currentVersion = C4FBF74416BB8C5C00BE95E3 /* News.xcdatamodel */;
+			path = News.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C4995AD216B1274200168521 /* Project object */;
+}

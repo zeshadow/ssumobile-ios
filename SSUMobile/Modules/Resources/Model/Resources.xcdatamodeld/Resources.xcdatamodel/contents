@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SSUResourcesEntry" representedClassName="SSUResourcesEntry" elementID="Resource" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUResourcesSection" inverseName="resources" inverseEntity="SSUResourcesSection" syncable="YES"/>
+    </entity>
+    <entity name="SSUResourcesSection" representedClassName="SSUResourcesSection" elementID="Section" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="resources" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUResourcesEntry" inverseName="section" inverseEntity="SSUResourcesEntry" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SSUResourcesEntry" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="SSUResourcesSection" positionX="0" positionY="0" width="128" height="105"/>
+    </elements>
+</model>
