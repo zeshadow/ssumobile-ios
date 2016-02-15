@@ -9,8 +9,6 @@
 #import "SSUMoonlightCommunicator.h"
 #import "SSULogging.h"
 
-NSString* const SSUMoonlightBaseURL = @"https://moonlight.cs.sonoma.edu/ssumobile/1_0/";
-
 static NSString* const SSUMoonlightCommunicatorErrorDomain = @"SSUMoonlightCommunicatorErrorDomain";
 
 @interface SSUMoonlightCommunicator()

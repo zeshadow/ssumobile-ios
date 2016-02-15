@@ -18,4 +18,5 @@
 extern NSString * const kSSUErrorDomain;
 extern const NSInteger kSSUGenericErrorCode;
 extern NSString * const SSUAppIsFirstLaunchKey;
+extern NSString * const SSUMoonlightBaseURL;
 

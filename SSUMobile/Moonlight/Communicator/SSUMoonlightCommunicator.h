@@ -13,8 +13,6 @@ extern NSString* const SSUMoonlightManagerKeyCreated;
 extern NSString* const SSUMoonlightManagerKeyModified;
 extern NSString* const SSUMoonlightManagerKeyDeleted;
 
-extern NSString* const SSUMoonlightBaseURL;
-
 typedef void(^DownloadCompletion)(id json, NSError * error);
 
 @interface SSUMoonlightCommunicator : NSObject
