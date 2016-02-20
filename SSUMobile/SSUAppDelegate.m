@@ -11,6 +11,7 @@
 #import "SSURadioStreamer.h"
 #import "SSUModuleBase.h"
 #import "SSULogging.h"
+#import "SSUConfiguration.h"
 
 #import <SDWebImage/SDImageCache.h>
 
@@ -27,7 +28,7 @@
     if ([self isFirstLaunchForCurrentVersion]) {
         SSULogDebug(@"First launch");
         [self clearLocalDatabases];
-        [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:[self firstLaunchKey]];
+        [[SSUConfiguration sharedInstance] setBool:NO forKey:[self firstLaunchKey]];
         [self setupAll];
     }
     else {

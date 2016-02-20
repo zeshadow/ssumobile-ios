@@ -29,5 +29,7 @@
 - (void) setURL:(NSURL *)value forKey:(NSString *)key;
 
 - (void) removeObjectForKey:(NSString *)key;
+- (void) loadDictionary:(NSDictionary *)data;
+- (void) loadFromURL:(NSURL *)url;
 
 @end
