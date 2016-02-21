@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SSULogging setupLogging];
-    [self registerUserDefaults];
+    [self setupConfiguration];
     [self setupStyles];
     
     SSULogDebug(@"%@",[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
@@ -120,14 +120,23 @@
 
 }
 
-- (void) registerUserDefaults {
+- (void) setupConfiguration {
+    // Defaults not present in the JSON files
     NSDictionary *userDefaults = @{
                                    SSUDirectorySortOrderKey: @(kSSUFirstLast),
                                    SSUDirectoryDisplayOrderKey: @(kSSUFirstLast),
                                    [self firstLaunchKey] : @(YES)
                                    };
     
-    [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaults];
+    [[SSUConfiguration sharedInstance] registerDefaults:userDefaults];
+    // Load JSON defaults included in app bundle
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"defaults.json" ofType:nil];
+    [[SSUConfiguration sharedInstance] loadDefaultsFromFilePath:path];
+    // Load settings from moonlight
+    NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"settings"]];
+    [[SSUConfiguration sharedInstance] loadFromURL:configURL completion:^(NSError *error) {
+        SSULogDebug(@"After loading from moonlight: %@", [[SSUConfiguration sharedInstance] dictionaryRepresentation]);
+    }];
 }
 
 - (NSString *) firstLaunchKey {
@@ -139,7 +148,7 @@
 }
 
 - (BOOL) isFirstLaunchForCurrentVersion {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:[self firstLaunchKey]];
+    return [[SSUConfiguration sharedInstance] boolForKey:[self firstLaunchKey]];
 }
 
 /**

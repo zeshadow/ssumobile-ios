@@ -12,6 +12,8 @@
 
 + (instancetype) sharedInstance;
 
+#pragma mark - Getters
+
 - (id) objectForKey:(NSString *)key;
 - (NSArray *) stringArrayForKey:(NSString *)key;
 - (NSInteger) integerForKey:(NSString *)key;
@@ -19,7 +21,9 @@
 - (double) doubleForKey:(NSString *)key;
 - (BOOL) boolForKey:(NSString *)key;
 - (NSURL *) URLForKey:(NSString *)key;
+- (NSDictionary *) dictionaryRepresentation;
 
+#pragma mark - Setters
 
 - (void) setObject:(id)value forKey:(NSString *)key;
 - (void) setInteger:(NSInteger)value forKey:(NSString *)key;
@@ -27,9 +31,13 @@
 - (void) setDouble:(double)value forKey:(NSString *)key;
 - (void) setBool:(BOOL)value forKey:(NSString *)key;
 - (void) setURL:(NSURL *)value forKey:(NSString *)key;
-
 - (void) removeObjectForKey:(NSString *)key;
+
+#pragma mark - Helper
+
+- (void) registerDefaults:(NSDictionary *)defaults;
 - (void) loadDictionary:(NSDictionary *)data;
-- (void) loadFromURL:(NSURL *)url;
+- (void) loadFromURL:(NSURL *)url completion:(void(^)(NSError * error))completion;
+- (void) loadDefaultsFromFilePath:(NSString *)filePath;
 
 @end

@@ -9,6 +9,8 @@
 #import "SSUConfiguration.h"
 #import "SSULogging.h"
 
+static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
+
 @interface SSUConfiguration()
 
 @property (nonatomic, strong) NSUserDefaults * userDefaults;
@@ -36,26 +38,35 @@
 
 #pragma mark - Helper
 
-- (void) loadFromURL:(NSURL *)url {
+- (void) loadFromURL:(NSURL *)url completion:(void (^)(NSError *))completion {
     NSURLSession * session = [NSURLSession sharedSession];
-    [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask * task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             SSULogError(@"Error while attempting to load settings from remote url: %@", error);
+            if (completion)
+                completion(error);
         }
         else {
             NSError * jsonError;
             NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
             if (jsonError) {
                 SSULogError(@"Error while decoding JSON from remote url: %@", jsonError);
+                if (completion)
+                    completion(jsonError);
             }
             else if (![json isKindOfClass:[NSDictionary class]]) {
                 SSULogError(@"Expected dictionary from JSON, got %@ instead", NSStringFromClass([json class]));
+                if (completion)
+                    completion(nil);
             }
             else {
                 [self loadDictionary:json];
+                if (completion)
+                    completion(nil);
             }
         }
     }];
+    [task resume];
 }
 
 - (void) loadDictionary:(NSDictionary *)data {
@@ -70,7 +81,19 @@
     }];
 }
 
-- (void) setDefaults:(NSDictionary *)defaults {
+- (void) loadDefaultsFromFilePath:(NSString *)filePath {
+    NSData * defaultsData = [NSData dataWithContentsOfFile:filePath];
+    NSError * error;
+    NSDictionary * defaults = [NSJSONSerialization JSONObjectWithData:defaultsData options:0 error:&error];
+    if (error) {
+        SSULogError(@"Error while loading JSON for defaults: %@", error);
+    }
+    else {
+        [self registerDefaults:defaults];
+    }
+}
+
+- (void) registerDefaults:(NSDictionary *)defaults {
     [self.userDefaults registerDefaults:defaults];
 }
 
@@ -118,6 +141,17 @@
 
 - (NSURL *) URLForKey:(NSString *)key {
     return [self.userDefaults URLForKey:key];
+}
+
+- (NSDictionary *) dictionaryRepresentation {
+    NSDictionary * fullDictionary = [self.userDefaults dictionaryRepresentation];
+    NSMutableDictionary * result = [NSMutableDictionary new];
+    [fullDictionary enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([key rangeOfString:kSSUConfigKeyPrefix].location != NSNotFound) {
+            result[key] = obj;
+        }
+    }];
+    return result;
 }
 
 #pragma mark - Setters

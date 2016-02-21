@@ -51,6 +51,7 @@
 		0785A3BE1A1D99A30088193E /* SSUResourcesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BD1A1D99A30088193E /* SSUResourcesConstants.m */; };
 		079489091B6606E600BD5E1E /* SSUEmailPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */; };
 		079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */; };
+		07AB76D31C786E43006352C5 /* defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = 07AB76D21C786E43006352C5 /* defaults.json */; };
 		07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */; };
 		07AFDFD719D917550027D0F1 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AFDFD619D917550027D0F1 /* EventKitUI.framework */; };
 		07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
@@ -261,6 +262,7 @@
 		079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailPickerViewController.m; sourceTree = "<group>"; };
 		079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map_Building.storyboard; sourceTree = "<group>"; };
 		07A1486D19F653CA006B708F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		07AB76D21C786E43006352C5 /* defaults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaults.json; sourceTree = "<group>"; };
 		07AFDEA319D8E7DB0027D0F1 /* SSUCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUCalendarViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUCalendarViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07AFDFD619D917550027D0F1 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
@@ -1136,6 +1138,7 @@
 			isa = PBXGroup;
 			children = (
 				071E23A419E284F400483138 /* licenses.txt */,
+				07AB76D21C786E43006352C5 /* defaults.json */,
 				07ADC65B19E2304C008E8075 /* Initial Data */,
 				07651AE918EC1F150098FD2C /* Images */,
 				C4995AE916B1274200168521 /* SSUMobile-Info.plist */,
@@ -1443,6 +1446,7 @@
 				071E23A619E284F400483138 /* licenses.txt in Resources */,
 				07CD3C041BBBB92C0075ADE8 /* Map.sqlite in Resources */,
 				07C997D01A87119900534A1C /* Email.storyboard in Resources */,
+				07AB76D31C786E43006352C5 /* defaults.json in Resources */,
 				07C2FE1519C6C5D00016349C /* Radio_iPhone.storyboard in Resources */,
 				07CD3C021BBBB91E0075ADE8 /* Calendar.sqlite in Resources */,
 				078000F819CFAA0D00FD1E2A /* Images.xcassets in Resources */,
