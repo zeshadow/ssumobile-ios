@@ -72,6 +72,10 @@
     return NO;
 }
 
+- (BOOL) shouldNavigateToModule {
+    return YES;
+}
+
 - (UIView *) viewForHomeScreen {
     return nil;
 }

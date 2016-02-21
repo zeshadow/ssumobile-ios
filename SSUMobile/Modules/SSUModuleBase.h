@@ -29,6 +29,12 @@
 /** The module's initial view controller */
 - (UIViewController *) initialViewController;
 
+/** 
+ Return YES if your module is available, or NO if the functionality is not available or you do not
+ need to present a view controller to the user (ex. just going to open a link in Safari
+ */
+- (BOOL) shouldNavigateToModule;
+
 /** If YES, this module's `viewForHomeScreen` view will be set as the navigation item's rightBarButtonItem */
 - (BOOL) showModuleInNavigationBar;
 /** The view that shows up on the homescreen and navigates to this module */
