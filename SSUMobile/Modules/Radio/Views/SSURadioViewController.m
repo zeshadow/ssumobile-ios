@@ -9,14 +9,16 @@
 #import "SSURadioViewController.h"
 #import "SSULogging.h"
 #import "SSURadioConstants.h"
-#import <MediaPlayer/MediaPlayer.h>
-#import <AVFoundation/AVFoundation.h>
+#import "SSUConfiguration.h"
+
+@import MediaPlayer;
+@import AVFoundation;
 
 static NSString * SSURadioPlayerReadyMessage = @"Press play to start streaming";
 static NSString * SSURadioPlayerLoadingMessage = @"Loading...";
 
-static NSString * SSURadioButtonImagePlay = @"play.png";
-static NSString * SSURadioButtonImagePause = @"pause.png";
+static NSString * SSURadioButtonImagePlay = @"radio_play";
+static NSString * SSURadioButtonImagePause = @"radio_pause";
 
 static NSString * SSURadioWebPageURL = @"http://www.ksunradio.com";
 
@@ -33,6 +35,22 @@ static NSString * SSURadioWebPageURL = @"http://www.ksunradio.com";
 	[super viewDidLoad];
 	self.elapsedLabel.text = SSURadioPlayerReadyMessage;
     self.title = @"KSUN Radio";
+    
+    if (![[SSUConfiguration sharedInstance] boolForKey:SSURadioStreamEnabledKey]) {
+        /**
+         KSUN radio has switched their streaming service to one which does not support
+         mobile play. Unfortunately there is nothing we can do about this.
+         So we will inform the user of this and go back
+         */
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"KSUN Currently Unavailable on Mobile"
+                                                         message:@"KSUN Radio has switched to a streaming service which does not support mobile play, as it requires Adobe Flash. SSUMobile has no control over this. If you are interested in getting this functionality back, please contact KSUN Radio with your concerns."
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Done"
+                                               otherButtonTitles:nil];
+        [alert show];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return;
+    }
 	
 	// System Volume slider
 	MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:self.volumeSlider.bounds];

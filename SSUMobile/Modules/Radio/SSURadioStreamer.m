@@ -8,12 +8,14 @@
 
 #import "SSURadioStreamer.h"
 #import "SSULogging.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import "SSUConfiguration.h"
+
+@import MediaPlayer;
 
 static NSString * SSURadioNowPlayingSongTitle = @"KSUN Radio";
 static NSString * SSURadioNowPlayingSongAlbum = @"Sonoma State University";
 static NSString * SSURadioNowPlayingSongArtist = @"KSUN Radio";
-static NSString * SSURadioNowPlayingAlbumArt = @"ksunalbumart.png";
+static NSString * SSURadioNowPlayingAlbumArt = @"radio_album";
 
 
 static SSURadioStreamer * _sharedInstance = nil;
@@ -35,7 +37,8 @@ static SSURadioStreamer * _sharedInstance = nil;
 + (SSURadioStreamer *) sharedInstance
 {
     if (!_sharedInstance) {
-        _sharedInstance = [[SSURadioStreamer alloc] initWithURL:[NSURL URLWithString:SSURadioStreamURL]];
+        NSString * urlString = [[SSUConfiguration sharedInstance] objectForKey:SSURadioStreamURLKey];
+        _sharedInstance = [[SSURadioStreamer alloc] initWithURL:[NSURL URLWithString:urlString]];
     }
     return _sharedInstance;
 }

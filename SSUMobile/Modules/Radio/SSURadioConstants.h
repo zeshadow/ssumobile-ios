@@ -6,4 +6,5 @@
 //  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-extern NSString * SSURadioStreamURL;
+extern NSString * SSURadioStreamURLKey;
+extern NSString * SSURadioStreamEnabledKey;
