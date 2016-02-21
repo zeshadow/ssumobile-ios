@@ -9,8 +9,7 @@
 @import UIKit;
 
 typedef NS_ENUM(NSInteger, SSUEmailViewControllerMode) {
-    SSUEmailViewControllerModeExchange,
-    SSUEmailViewControllerModeGmail, //TODO: Remove
+    SSUEmailViewControllerModeEmail,
     SSUEmailViewControllerModeGoogleDocs,
 };
 

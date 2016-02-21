@@ -10,7 +10,6 @@
 #import "SSUEmailViewController.h"
 
 static NSString * const kExchangeSegue = @"exchange";
-static NSString * const kGmailSegue = @"gmail";
 static NSString * const kGoogleDocsSegue = @"gdocs";
 
 @interface SSUEmailPickerViewController ()
@@ -28,10 +27,7 @@ static NSString * const kGoogleDocsSegue = @"gdocs";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     SSUEmailViewController * emailViewController = segue.destinationViewController;
     if ([segue.identifier isEqualToString:kExchangeSegue]) {
-        emailViewController.mode = SSUEmailViewControllerModeExchange;
-    }
-    else if ([segue.identifier isEqualToString:kGmailSegue]) {
-        emailViewController.mode = SSUEmailViewControllerModeGmail;
+        emailViewController.mode = SSUEmailViewControllerModeEmail;
     }
     else if ([segue.identifier isEqualToString:kGoogleDocsSegue]) {
         emailViewController.mode = SSUEmailViewControllerModeGoogleDocs;

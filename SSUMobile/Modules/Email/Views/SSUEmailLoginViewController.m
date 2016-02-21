@@ -45,10 +45,8 @@
 }
 
 - (void) sanitize {
-    // Remove "@seawolf.sonoma.edu" or "@sonoma.edu" from the username, if it's there
-    NSString * emailSuffix = [NSString stringWithFormat:@"@%@",SSUEmailGmailDomain];
-    self.usernameTextField.text = [self.usernameTextField.text stringByReplacingOccurrencesOfString:emailSuffix withString:@""];
-    emailSuffix = [NSString stringWithFormat:@"@%@",SSUEmailExchangeDomain];
+    // Remove "@sonoma.edu" from the username, if it's there
+    NSString * emailSuffix = [NSString stringWithFormat:@"@%@",SSUEmailDomain];
     self.usernameTextField.text = [self.usernameTextField.text stringByReplacingOccurrencesOfString:emailSuffix withString:@""];
 }
 

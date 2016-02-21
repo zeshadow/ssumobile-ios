@@ -8,21 +8,19 @@
 
 @import Foundation;
 
-extern NSString * SSUEmailExchangeDomain;
-extern NSString * SSUEmailGmailDomain;
-extern NSString * SSUEmailDomain;
+extern NSString * const SSUEmailLDAPURL;
+extern NSString * const SSUEmailLDAPLoginURL;
+extern NSString * const SSUEmailMailURL;
+extern NSString * const SSUEmailGoogleDocsURL;
 
-extern NSString * SSUEmailLDAPURL;
-extern NSString * SSUEmailGmailURL;
-extern NSString * SSUEmailExchangeURL;
-extern NSString * SSUEmailGoogleDocsURL;
+extern NSString * const SSUEmailDomain;
 
-extern NSString * SSUEmailMySSULinkRange;
+extern NSString * const SSUEmailMySSULinkRange;
 
-extern NSString * SSUEmailSessionIDRange;
+extern NSString * const SSUEmailSessionIDRange;
 extern const NSInteger SSUEmailSessionIDLength;
 
-extern NSString * SSUEmailLoginTokenRange;
+extern NSString * const SSUEmailLoginTokenRange;
 extern const NSInteger SSUEmailLoginTokenLength;
 
-extern NSString * SSUEmailCookieNameSessionID;
+extern NSString * const SSUEmailCookieNameSessionID;

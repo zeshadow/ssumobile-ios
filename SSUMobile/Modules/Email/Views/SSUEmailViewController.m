@@ -79,12 +79,8 @@ static NSString * SharedLoginToken = nil;
 
 - (void) setMode:(SSUEmailViewControllerMode)mode {
     _mode = mode;
-    if (mode == SSUEmailViewControllerModeExchange) {
-        self.emailURL = [NSURL URLWithString:SSUEmailExchangeURL];
-        self.inboxButton.title = @"Inbox";
-    }
-    else if (mode == SSUEmailViewControllerModeGmail) {
-        self.emailURL = [NSURL URLWithString:SSUEmailGmailURL];
+    if (mode == SSUEmailViewControllerModeEmail) {
+        self.emailURL = [NSURL URLWithString:SSUEmailMailURL];
         self.inboxButton.title = @"Inbox";
     }
     else if (mode == SSUEmailViewControllerModeGoogleDocs)  {
@@ -172,33 +168,14 @@ static NSString * SharedLoginToken = nil;
             }
         }
         else {
-            NSString * responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSRange sessionIdRange = [responseString rangeOfString:SSUEmailSessionIDRange];
-            
-            //If sessionId is found
-            if (sessionIdRange.location != NSNotFound) {
-                sessionIdRange.location += sessionIdRange.length; //Consume/displace past the 'sessionid=' to the token
-                sessionIdRange.length = SSUEmailSessionIDLength;
-                
-                self.sessionId = [responseString substringWithRange:sessionIdRange];
-                SSULogInfo(@"Successfully retrieved session");
-                SSULogDebug(@"SessionID: %@", _sessionId);
+            NSArray * cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+            for (NSHTTPCookie * cookie in cookies) {
+                if ([cookie.name isEqualToString:SSUEmailCookieNameSessionID]) {
+                    self.sessionId = cookie.value;
+                }
             }
-            
-            NSRange loginTokenRange = [responseString rangeOfString:SSUEmailLoginTokenRange];
-            
-            //If loginToken found in response
-            if (loginTokenRange.location != NSNotFound) {
-                loginTokenRange.location += loginTokenRange.length;
-                loginTokenRange.length = SSUEmailLoginTokenLength;
-                
-                self.loginToken = [responseString substringWithRange:loginTokenRange];
-                SSULogInfo(@"Successfully retrieved login token");
-                SSULogDebug(@"Login Token: %@", _loginToken);
-            }
-            
-            if (completion) {
-                completion();
+            if (self.sessionId == nil) {
+                SSULogError(@"Unable to retrieve session id");
             }
         }
     }];
@@ -213,17 +190,19 @@ static NSString * SharedLoginToken = nil;
     self.loggingIn = YES;
     self.loadingText = @"Logging in";
     [self showLoadingView];
-    NSURL *url = [NSURL URLWithString:SSUEmailLDAPURL];
+    NSURL *url = [NSURL URLWithString:SSUEmailLDAPLoginURL];
     NSMutableDictionary * params = [@{
-                                      @"username" : username,
-                                      @"password" : password,
-                                      @"_eventId" : @"submit",
+                                      @"j_username" : username,
+                                      @"j_password" : password,
+                                      @"_eventId_proceed" : @"Login",
                                       } mutableCopy];
     if (self.loginToken) {
         params[@"lt"] = self.loginToken;
     }
-
-    [SSUMoonlightCommunicator postURL:url parameters:params completionHandler:^(NSData *data, NSError *error) {
+    
+    NSURLSession * session = [NSURLSession sharedSession];
+    NSURLRequest * request = [SSUMoonlightCommunicator postRequestWithURL:url parameters:params];
+    NSURLSessionTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         [self hideLoadingView];
         if (error) {
             self.loggedIn = NO;
@@ -252,6 +231,7 @@ static NSString * SharedLoginToken = nil;
             }
         }
     }];
+    [task resume];
 }
 
 // Starts loading of email web page request in a webview
