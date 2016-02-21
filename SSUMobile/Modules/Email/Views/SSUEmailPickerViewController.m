@@ -8,6 +8,7 @@
 
 #import "SSUEmailPickerViewController.h"
 #import "SSUEmailViewController.h"
+#import "SSUEmailConstants.h"
 
 static NSString * const kExchangeSegue = @"exchange";
 static NSString * const kGoogleDocsSegue = @"gdocs";
@@ -20,6 +21,16 @@ static NSString * const kGoogleDocsSegue = @"gdocs";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Email login isn't working since the backend has changed.
+    // Since this can happen at any time in the future, for now we
+    // are just going to open the login in Safari
+    
+    NSArray * subviews = self.view.subviews;
+    for (UIView * subview in subviews) {
+        [subview removeFromSuperview];
+    }
+    NSURL * loginURL = [NSURL URLWithString:SSUEmailLDAPURL];
+    [[UIApplication sharedApplication] openURL:loginURL];
 }
 
 #pragma mark - Navigation
