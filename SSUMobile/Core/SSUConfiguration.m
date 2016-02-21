@@ -160,6 +160,10 @@ static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
     [self.userDefaults setObject:value forKey:key];
 }
 
+- (void) setString:(NSString *)string forKey:(NSString *)key {
+    [self setObject:string forKey:key];
+}
+
 - (void) setInteger:(NSInteger)value forKey:(NSString *)key {
     [self.userDefaults setInteger:value forKey:key];
 }
