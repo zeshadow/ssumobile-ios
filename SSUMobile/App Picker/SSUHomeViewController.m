@@ -133,13 +133,6 @@ static NSInteger BLANK_CELL_INDEX = 7;
     return cell;
 }
 
-- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-    id<SSUModuleUI> module = self.modules[indexPath.item];
-    UIViewController * viewController = [module initialViewController];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
 - (CGSize) collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout *)layout
    sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -148,8 +141,10 @@ static NSInteger BLANK_CELL_INDEX = 7;
 
 - (void) moduleCellWasSelected:(SSUAppPickerModuleCell *)cell {
     id<SSUModuleUI> module = cell.module;
-    UIViewController * viewController = [module initialViewController];
-    [self.navigationController pushViewController:viewController animated:YES];
+    if ([module shouldNavigateToModule]) {
+        UIViewController * viewController = [module initialViewController];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 #pragma mark - Button Actions
