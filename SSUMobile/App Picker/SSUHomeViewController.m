@@ -33,6 +33,10 @@ static NSInteger BLANK_CELL_INDEX = 7;
     self.blankCellIndexPath = [NSIndexPath indexPathForItem:7 inSection:0];
     
     [self loadModules];
+    [[NSNotificationCenter defaultCenter] addObserverForName:SSUModulesDidLoadNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [self loadModules];
+        [self.collectionView reloadData];
+    }];
 }
 
 - (void) viewWillAppear:(BOOL)animated
