@@ -66,18 +66,4 @@
 - (void) updateData:(void (^)())completion {}
 - (void) clearCachedData {}
 
-//MARK: Defualt implementations for SSUModuleUI
-
-- (BOOL) showModuleInNavigationBar {
-    return NO;
-}
-
-- (BOOL) shouldNavigateToModule {
-    return YES;
-}
-
-- (UIView *) viewForHomeScreen {
-    return nil;
-}
-
 @end

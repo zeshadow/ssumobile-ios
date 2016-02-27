@@ -43,4 +43,8 @@
     return NO;
 }
 
+- (BOOL) shouldNavigateToModule {
+    return YES;
+}
+
 @end

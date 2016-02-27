@@ -50,6 +50,10 @@
     return NO;
 }
 
+- (BOOL) shouldNavigateToModule {
+    return YES;
+}
+
 - (void) selectHomeScreenView:(UIView *)view {
     UIButton * button = (UIButton *)view;
     [button setHighlighted:YES];

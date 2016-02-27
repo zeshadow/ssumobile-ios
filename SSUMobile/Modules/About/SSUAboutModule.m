@@ -39,6 +39,10 @@
     return YES;
 }
 
+- (BOOL) shouldNavigateToModule {
+    return YES;
+}
+
 - (UIViewController *) initialViewController {
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"About"
                                                           bundle:[NSBundle bundleForClass:[self class]]];

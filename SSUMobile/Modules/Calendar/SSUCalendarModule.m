@@ -58,6 +58,10 @@
     return NO;
 }
 
+- (BOOL) shouldNavigateToModule {
+    return YES;
+}
+
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Calendar NEW");
     NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsCalendarUpdatedDate];

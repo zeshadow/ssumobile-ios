@@ -49,6 +49,10 @@
     return NO;
 }
 
+- (BOOL) shouldNavigateToModule {
+    return YES;
+}
+
 - (void) setup {
     NSManagedObjectModel * model = [self modelWithName:@"Map"];
     NSPersistentStoreCoordinator * coordinator = [self persistentStoreCoordinatorWithName:@"Map" model:model];
