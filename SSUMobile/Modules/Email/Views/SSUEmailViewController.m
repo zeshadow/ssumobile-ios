@@ -16,8 +16,6 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 static NSString * kLoginSegue = @"login";
-static NSString * SharedSessionID = nil;
-static NSString * SharedLoginToken = nil;
 
 @interface SSUEmailViewController() <UIWebViewDelegate,UIAlertViewDelegate,SSUEmailLoginDelegate>
 
@@ -26,8 +24,9 @@ static NSString * SharedLoginToken = nil;
 @property (nonatomic) BOOL loggingIn;
 @property (nonatomic) BOOL loggedIn;
 @property (nonatomic) BOOL canceled;
-@property (nonatomic) NSString * loginToken;
 @property (nonatomic) NSString * sessionId;
+
+@property (nonatomic) BOOL showLoadingProgress;
 @property (nonatomic) NSInteger requestCount;
 @property (nonatomic) NSInteger requestsCompleted;
 
@@ -51,15 +50,11 @@ static NSString * SharedLoginToken = nil;
     self.loggedIn = NO;
     self.loggingIn = NO;
     
-    self.requestCount = 0;
-    self.requestsCompleted = 0;
+    self.showLoadingProgress = NO;
     
-    self.sessionId = nil;
-    self.loginToken = nil;
+    [self checkForExistingSession];
     
-//    NSArray * cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-//    SSULogDebug(@"%@",cookies);
-//    [self checkForExistingSession];
+    SSULogDebug(@"%@",[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]);
     
     [self checkForStoredCredentials];
 
@@ -74,6 +69,9 @@ static NSString * SharedLoginToken = nil;
     
     if (!self.loggedIn && !self.loggingIn && !self.canceled) {
         [self showLoginController];
+    }
+    else {
+        [self loadEmail];
     }
 }
 
@@ -132,14 +130,21 @@ static NSString * SharedLoginToken = nil;
 
 #pragma mark - LDAP Auth
 
-//- (void) checkForExistingSession {
-//    NSArray * cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-//    for (NSHTTPCookie * cookie in cookies) {
-//        if ([cookie.name isEqualToString:SSUEmailCookieNameSessionID]) {
-//            self.sessionId = cookie.value;
-//        }
-//    }
-//}
+- (void) checkForExistingSession {
+    NSArray * cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    for (NSHTTPCookie * cookie in cookies) {
+        if ([cookie.name isEqualToString:SSUEmailCookieNameSessionID] && ![self cookieIsExpired:cookie]) {
+            self.sessionId = cookie.value;
+        }
+    }
+    if (self.sessionId != nil) {
+        self.loggedIn = YES;
+    }
+}
+
+- (BOOL) cookieIsExpired:(NSHTTPCookie *)cookie {
+    return (cookie.expiresDate != nil && [cookie.expiresDate compare:[NSDate date]] == NSOrderedAscending);
+}
 
 - (void) checkForStoredCredentials {
     if ([[SSULDAPCredentials sharedInstance] rememberLogin]) {
@@ -196,9 +201,6 @@ static NSString * SharedLoginToken = nil;
                                       @"j_password" : password,
                                       @"_eventId_proceed" : @"Login",
                                       } mutableCopy];
-    if (self.loginToken) {
-        params[@"lt"] = self.loginToken;
-    }
     
     NSURLSession * session = [NSURLSession sharedSession];
     NSURLRequest * request = [SSUMoonlightCommunicator postRequestWithURL:url parameters:params];
@@ -212,9 +214,6 @@ static NSString * SharedLoginToken = nil;
         else {
             //Check to see if login failed/ was not brought to proper logged in LDAP page
             NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSRange notFound;
-            notFound.location = NSNotFound;
-            notFound.length = 0;
             
             if ([response rangeOfString:SSUEmailMySSULinkRange].location == NSNotFound) {
                 SSULogInfo(@"LDAP auth failed!");
@@ -328,6 +327,9 @@ static NSString * SharedLoginToken = nil;
 #pragma mark - UIWebView Progress
 
 - (void) updateProgress {
+    if (!self.showLoadingProgress) {
+        return;
+    }
     self.progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
     [self.progressHUD show:YES];
     float progress = 0.0f;
@@ -384,10 +386,16 @@ static NSString * SharedLoginToken = nil;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.requestsCompleted++;
+    if (!self.showLoadingProgress) {
+        [self hideLoadingView];
+    }
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     self.requestCount++;
+    if (!self.showLoadingProgress) {
+        [self showLoadingView];
+    }
 }
 
 @end

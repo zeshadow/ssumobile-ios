@@ -9,7 +9,7 @@
 #import "SSUEmailConstants.h"
 
 NSString * const SSUEmailLDAPURL = @"https://login.sonoma.edu/";
-NSString * const SSUEmailLDAPLoginURL = @"https://login.sonoma.edu/idp/profile/cas/login?execution=e3s1";
+NSString * const SSUEmailLDAPLoginURL = @"https://login.sonoma.edu/idp/profile/cas/login?execution=e1s1";
 NSString * const SSUEmailMailURL = @"https://ldaps.sonoma.edu/portal/redir_exchange.cgi";
 NSString * const SSUEmailGoogleDocsURL = @"https://drive.google.com/a/sonoma.edu";
 
