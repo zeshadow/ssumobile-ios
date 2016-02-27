@@ -48,7 +48,7 @@
     
     for (NSDictionary * eventData in events) {
         SSUMoonlightDataMode mode = [self modeFromJSONData:eventData];
-        NSNumber * eventId = [NSNumber numberWithInteger:[eventData[SSUCalendarEventKeyID] integerValue]];
+        NSNumber * eventId = @([eventData[SSUCalendarEventKeyID] integerValue]);
         SSUEvent * event = [SSUCalendarBuilder eventWithID:eventId inContext:self.context];
         if (event == nil) {
             continue;

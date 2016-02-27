@@ -62,7 +62,7 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
             parameters = [parameters stringByAppendingFormat:@"&%@", parameters];
         }
         components.query = parameters;
-        fullURL = [components URL];
+        fullURL = components.URL;
     }
     return [NSMutableURLRequest requestWithURL:fullURL
                                    cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData

@@ -52,7 +52,7 @@ static SSURadioStreamer * _sharedInstance = nil;
 #pragma mark -
 #pragma mark - Init
 
-- (id) init
+- (instancetype) init
 {
     self = [super init];
     if (self) {
@@ -73,7 +73,7 @@ static SSURadioStreamer * _sharedInstance = nil;
  
  @param URL the URL of KSUN's live stream
  */
-- (id) initWithURL:(NSURL *)URL
+- (instancetype) initWithURL:(NSURL *)URL
 {
     self = [self init];
     if (self) {

@@ -22,7 +22,7 @@
                                                          context:context
                                                 entityWasCreated:&created];
     if (created) {
-        [resource setId:ID];
+        resource.id = ID;
     }
     return resource;
 }
@@ -37,7 +37,7 @@
                                                       context:context
                                              entityWasCreated:&created];
     if (created) {
-        [section setId:ID];
+        section.id = ID;
     }
     return section;
 }
@@ -54,7 +54,7 @@
     for (NSDictionary * resourceData in resources) {
         SSUMoonlightDataMode mode = [self modeFromJSONData:resourceData];
         
-        NSNumber * resourceID = [NSNumber numberWithInteger:[resourceData[SSUMoonlightManagerKeyID] integerValue]];
+        NSNumber * resourceID = @([resourceData[SSUMoonlightManagerKeyID] integerValue]);
         SSUResourcesEntry * resource = [SSUResourcesBuilder resourceWithID:resourceID inContext:self.context];
         if (resource == nil)
             continue;
@@ -68,7 +68,7 @@
         resource.phone = resourceData[SSUResourcesResourceKeyPhone];
         resource.imageURL = resourceData[SSUResourcesResourceKeyImageURL];
         
-        NSNumber * sectionID = [NSNumber numberWithInteger:[resourceData[SSUResourcesResourceKeySectionID] integerValue]];
+        NSNumber * sectionID = @([resourceData[SSUResourcesResourceKeySectionID] integerValue]);
         SSUResourcesSection * section = [SSUResourcesBuilder sectionWithID:sectionID inContext:self.context];
         resource.section = section;
     }
@@ -82,7 +82,7 @@
     for (NSDictionary * sectionData in sections) {
         SSUMoonlightDataMode mode = [self modeFromJSONData:sectionData];
         
-        NSNumber * sectionID = [NSNumber numberWithInteger:[sectionData[SSUMoonlightManagerKeyID] integerValue]];
+        NSNumber * sectionID = @([sectionData[SSUMoonlightManagerKeyID] integerValue]);
         SSUResourcesSection * section = [SSUResourcesBuilder sectionWithID:sectionID inContext:self.context];
         if (section == nil)
             continue;
@@ -92,7 +92,7 @@
         }
         
         section.name = sectionData[SSUResourcesSectionKeyName];
-        section.position = [NSNumber numberWithInteger:[sectionData[SSUResourcesSectionKeyPosition] integerValue]];
+        section.position = @([sectionData[SSUResourcesSectionKeyPosition] integerValue]);
     }
     
     SSULogDebug(@"Finished sections: %f", [[NSDate date] timeIntervalSinceDate:start]);

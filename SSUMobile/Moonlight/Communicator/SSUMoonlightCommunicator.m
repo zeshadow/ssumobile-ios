@@ -51,11 +51,11 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
     if (_dateFormatter) return _dateFormatter;
     
     _dateFormatter = [[NSDateFormatter alloc] init];
-    [_dateFormatter setDateStyle:NSDateFormatterNoStyle];
-    [_dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
-    [_dateFormatter setLocale:[NSLocale currentLocale]];
-    [_dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    _dateFormatter.dateStyle = NSDateFormatterNoStyle;
+    _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    _dateFormatter.locale = [NSLocale currentLocale];
+    _dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     
     return _dateFormatter;
 }
@@ -224,9 +224,9 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
 - (void) connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response {
     self.receivedData = nil;
     NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-    if ([httpResponse statusCode] != 200) {
+    if (httpResponse.statusCode != 200) {
         NSError* error = [NSError errorWithDomain:SSUMoonlightCommunicatorErrorDomain
-                                             code:[httpResponse statusCode]
+                                             code:httpResponse.statusCode
                                          userInfo:@{
                                                     @"URL" : response.URL
                                                     }];

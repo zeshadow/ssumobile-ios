@@ -37,8 +37,8 @@
 #pragma mark -
 #pragma mark - Initializers
 
-- (id) init;
-- (id) initWithURL:(NSURL *)URL;
+- (instancetype) init;
+- (instancetype) initWithURL:(NSURL *)URL;
 
 #pragma mark -
 #pragma mark - Instance Methods
@@ -49,8 +49,8 @@
 - (void) togglePlayer;
 - (void) seekToTime:(CMTime)time;
 
-- (CMTime) currentTime;
-- (CMTime) duration;
+@property (nonatomic, readonly) CMTime currentTime;
+@property (nonatomic, readonly) CMTime duration;
 
 #pragma mark -
 #pragma mark - Static Methods

@@ -124,7 +124,7 @@
         if (person == nil)
             continue;
         if (mode == SSUMoonlightDataModeDeleted) {
-            if ([person isInserted]) {
+            if (person.inserted) {
                 [self.context deleteObject:person];
             }
             continue;
@@ -207,7 +207,7 @@
         department.ac = [self personWithID:acID];
         
         NSString * schoolID = SSUMoonlightBuilderStringify(departmentData[SSUDirectoryDepartmentKeySchoolID]);
-        department.school = [self schoolWithID:[NSNumber numberWithInt:schoolID.intValue]];
+        department.school = [self schoolWithID:@(schoolID.intValue)];
     }
     
     SSULogDebug(@"Finished Department: %f", [[NSDate date] timeIntervalSinceDate:start]);

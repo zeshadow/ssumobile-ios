@@ -33,11 +33,11 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
 - (NSDateFormatter*) dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setDateStyle:NSDateFormatterNoStyle];
-        [_dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
-        [_dateFormatter setLocale:[NSLocale currentLocale]];
-        [_dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
-        [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        _dateFormatter.dateStyle = NSDateFormatterNoStyle;
+        _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+        _dateFormatter.locale = [NSLocale currentLocale];
+        _dateFormatter.timeZone = [NSTimeZone localTimeZone];
+        _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     }
     return _dateFormatter;
 }

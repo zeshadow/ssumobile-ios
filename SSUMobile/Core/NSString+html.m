@@ -12,7 +12,7 @@
 @implementation NSString (html)
 
 - (NSString *)stringByDecodingXMLEntities {
-    NSUInteger myLength = [self length];
+    NSUInteger myLength = self.length;
     NSUInteger ampIndex = [self rangeOfString:@"&" options:NSLiteralSearch].location;
     
     // Short-circuit if there are no ampersands.
@@ -30,7 +30,7 @@
         if ([scanner scanUpToString:@"&" intoString:&nonEntityString]) {
             [result appendString:nonEntityString];
         }
-        if ([scanner isAtEnd]) {
+        if (scanner.atEnd) {
             return result;
         }
         // Scan either a HTML or numeric character entity reference.
@@ -78,7 +78,7 @@
             SSULogError(@"Unsupported XML character entity %@%@", unknownEntity, semicolon);
         }
     }
-    while (![scanner isAtEnd]);
+    while (!scanner.atEnd);
     
     return result;
 }

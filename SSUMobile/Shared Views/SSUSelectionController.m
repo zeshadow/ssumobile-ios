@@ -27,7 +27,7 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
 /*
  Other init methods call this one
  */
-- (id) initWithStyle:(UITableViewStyle)style
+- (instancetype) initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
@@ -39,7 +39,7 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
     return self;
 }
 
-- (id) initWithItems:(NSArray *)items
+- (instancetype) initWithItems:(NSArray *)items
 {
     self = [self initWithStyle:UITableViewStylePlain];
     if (self) {

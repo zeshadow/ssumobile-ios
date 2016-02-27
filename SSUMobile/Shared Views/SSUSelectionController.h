@@ -75,6 +75,6 @@
 /**
  @param items Choices to present to the user
  */
-- (id) initWithItems:(NSArray *)items;
+- (instancetype) initWithItems:(NSArray *)items;
 
 @end
