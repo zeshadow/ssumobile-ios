@@ -12,6 +12,6 @@
 
 @interface SSUMapBuildingPerimeter (properties) <MKAnnotation>
 
-- (MKMapRect) boundingMapRect;
+@property (nonatomic, readonly) MKMapRect boundingMapRect;
 
 @end

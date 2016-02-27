@@ -11,6 +11,6 @@
 
 @interface SSUMapPolygon (properties)
 
-- (MKPolygon*) polygon;
+@property (nonatomic, readonly, strong) MKPolygon *polygon;
 
 @end

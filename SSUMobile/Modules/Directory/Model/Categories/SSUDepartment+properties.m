@@ -11,7 +11,7 @@
 @implementation SSUDepartment (properties)
 
 - (void) updateSectionName {
-    NSString * displayName = [[self displayName] stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
+    NSString * displayName = [self.displayName stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
     self.sectionName = [displayName substringToIndex:1];
 }
 

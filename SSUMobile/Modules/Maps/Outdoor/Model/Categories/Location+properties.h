@@ -11,9 +11,8 @@
 
 @interface SSUMapLocation (properties)
 
-- (CLLocationCoordinate2D) coordinate;
-- (void) setCoordinate:(CLLocationCoordinate2D) newCoordinate;
-- (CLLocation*) location;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly, copy) CLLocation *location;
 
 
 @end

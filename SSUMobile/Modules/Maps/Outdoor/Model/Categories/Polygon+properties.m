@@ -70,7 +70,7 @@ static NSString *const kItemsKey = @"locations";
     NSIndexSet* indexes = [NSIndexSet indexSetWithIndex:idx];
     [self willChange:NSKeyValueChangeReplacement valuesAtIndexes:indexes forKey:kItemsKey];
     NSMutableOrderedSet *tmpOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:[self mutableOrderedSetValueForKey:kItemsKey]];
-    [tmpOrderedSet replaceObjectAtIndex:idx withObject:value];
+    tmpOrderedSet[idx] = value;
     [self setPrimitiveValue:tmpOrderedSet forKey:kItemsKey];
     [self didChange:NSKeyValueChangeReplacement valuesAtIndexes:indexes forKey:kItemsKey];
 }
@@ -85,7 +85,7 @@ static NSString *const kItemsKey = @"locations";
 
 - (void)addLocationsObject:(SSUMapPoint *)value {
     NSMutableOrderedSet *tmpOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:[self mutableOrderedSetValueForKey:kItemsKey]];
-    NSUInteger idx = [tmpOrderedSet count];
+    NSUInteger idx = tmpOrderedSet.count;
     NSIndexSet* indexes = [NSIndexSet indexSetWithIndex:idx];
     [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexes forKey:kItemsKey];
     [tmpOrderedSet addObject:value];
@@ -108,14 +108,14 @@ static NSString *const kItemsKey = @"locations";
 - (void)addLocations:(NSOrderedSet *)values {
     NSMutableOrderedSet *tmpOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:[self mutableOrderedSetValueForKey:kItemsKey]];
     NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
-    NSUInteger valuesCount = [values count];
-    NSUInteger objectsCount = [tmpOrderedSet count];
+    NSUInteger valuesCount = values.count;
+    NSUInteger objectsCount = tmpOrderedSet.count;
     for (NSUInteger i = 0; i < valuesCount; ++i) {
         [indexes addIndex:(objectsCount + i)];
     }
     if (valuesCount > 0) {
         [self willChange:NSKeyValueChangeInsertion valuesAtIndexes:indexes forKey:kItemsKey];
-        [tmpOrderedSet addObjectsFromArray:[values array]];
+        [tmpOrderedSet addObjectsFromArray:values.array];
         [self setPrimitiveValue:tmpOrderedSet forKey:kItemsKey];
         [self didChange:NSKeyValueChangeInsertion valuesAtIndexes:indexes forKey:kItemsKey];
     }
@@ -130,7 +130,7 @@ static NSString *const kItemsKey = @"locations";
             [indexes addIndex:idx];
         }
     }
-    if ([indexes count] > 0) {
+    if (indexes.count > 0) {
         [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexes forKey:kItemsKey];
         [tmpOrderedSet removeObjectsAtIndexes:indexes];
         [self setPrimitiveValue:tmpOrderedSet forKey:kItemsKey];
