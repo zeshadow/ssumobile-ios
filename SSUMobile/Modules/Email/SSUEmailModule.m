@@ -40,7 +40,7 @@
     if (![[SSUConfiguration sharedInstance] boolForKey:SSUEmailLoginEnabledKey]) {
         // The custom login must be broken (ex. something changed on Sonoma's website)
         // so we will show the user the webpage instead
-        NSURL * loginURL = [NSURL URLWithString:SSUEmailLDAPURL];
+        NSURL * loginURL = [NSURL URLWithString:[[SSUConfiguration sharedInstance] stringForKey:SSUEmailLDAPURLKey]];
         [[UIApplication sharedApplication] openURL:loginURL];
         return NO;
     }

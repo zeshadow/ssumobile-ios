@@ -9,6 +9,7 @@
 #import "SSUEmailLoginViewController.h"
 #import "SSULDAPCredentials.h"
 #import "SSUEmailConstants.h"
+#import "SSUConfiguration.h"
 
 @interface SSUEmailLoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -46,7 +47,7 @@
 
 - (void) sanitize {
     // Remove "@sonoma.edu" from the username, if it's there
-    NSString * emailSuffix = [NSString stringWithFormat:@"@%@",SSUEmailDomain];
+    NSString * emailSuffix = [NSString stringWithFormat:@"@%@",[[SSUConfiguration sharedInstance] stringForKey:SSUEmailDomainKey]];
     self.usernameTextField.text = [self.usernameTextField.text stringByReplacingOccurrencesOfString:emailSuffix withString:@""];
 }
 

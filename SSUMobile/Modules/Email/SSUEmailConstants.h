@@ -8,22 +8,19 @@
 
 @import Foundation;
 
-extern NSString * const SSUEmailLDAPURL;
-extern NSString * const SSUEmailLDAPLoginURL;
-extern NSString * const SSUEmailMailURL;
-extern NSString * const SSUEmailGoogleDocsURL;
+extern NSString * const SSUEmailLDAPURLKey;
+extern NSString * const SSUEmailLDAPLoginURLKey;
+extern NSString * const SSUEmailMailURLKey;
+extern NSString * const SSUEmailGoogleDocsURLKey;
 
-extern NSString * const SSUEmailDomain;
+extern NSString * const SSUEmailDomainKey;
 
-extern NSString * const SSUEmailMySSULinkRange;
+extern NSString * const SSUEmailMySSULinkRangeKey;
 
-extern NSString * const SSUEmailSessionIDRange;
-extern const NSInteger SSUEmailSessionIDLength;
+extern NSString * const SSUEmailSessionIDRangeKey;
+extern const NSInteger SSUEmailSessionIDLengthKey;
 
-extern NSString * const SSUEmailLoginTokenRange;
-extern const NSInteger SSUEmailLoginTokenLength;
-
-extern NSString * const SSUEmailCookieNameSessionID;
+extern NSString * const SSUEmailCookieNameSessionIDKey;
 
 /**
  Defines whether or not custom login is enabled. If disabled, the user

@@ -12,6 +12,7 @@
 #import "SSUMoonlightCommunicator.h"
 #import "SSUEmailLoginViewController.h"
 #import "SSULDAPCredentials.h"
+#import "SSUConfiguration.h"
 
 #import <MBProgressHUD/MBProgressHUD.h>
 
@@ -75,14 +76,22 @@ static NSString * kLoginSegue = @"login";
     }
 }
 
+- (void) viewWillDisappear:(BOOL)animated {
+    [self.progressHUD hide:NO];
+    [self.progressHUD removeFromSuperview];
+    [self.webView stopLoading];
+}
+
 - (void) setMode:(SSUEmailViewControllerMode)mode {
     _mode = mode;
     if (mode == SSUEmailViewControllerModeEmail) {
-        self.emailURL = [NSURL URLWithString:SSUEmailMailURL];
+        NSString * url = [[SSUConfiguration sharedInstance] stringForKey:SSUEmailMailURLKey];
+        self.emailURL = [NSURL URLWithString:url];
         self.inboxButton.title = @"Inbox";
     }
     else if (mode == SSUEmailViewControllerModeGoogleDocs)  {
-        self.emailURL = [NSURL URLWithString:SSUEmailGoogleDocsURL];
+        NSString * url = [[SSUConfiguration sharedInstance] stringForKey:SSUEmailGoogleDocsURLKey];
+        self.emailURL = [NSURL URLWithString:url];
         self.inboxButton.title = @"Home";
     }
 }
@@ -96,6 +105,7 @@ static NSString * kLoginSegue = @"login";
     _progressHUD = [[MBProgressHUD alloc] initWithView:self.webView];
     [self.webView addSubview:_progressHUD];
     _progressHUD.labelText = @"Loading";
+    _progressHUD.removeFromSuperViewOnHide = YES;
     
     return _progressHUD;
 }
@@ -116,7 +126,6 @@ static NSString * kLoginSegue = @"login";
 }
 
 - (void) hideLoadingView {
-    self.progressHUD.progress = 0.9f;
     [self.progressHUD hide:YES afterDelay:0.5];
 }
 
@@ -132,8 +141,9 @@ static NSString * kLoginSegue = @"login";
 
 - (void) checkForExistingSession {
     NSArray * cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    NSString * cookieName = [[SSUConfiguration sharedInstance] stringForKey:SSUEmailCookieNameSessionIDKey];
     for (NSHTTPCookie * cookie in cookies) {
-        if ([cookie.name isEqualToString:SSUEmailCookieNameSessionID] && ![self cookieIsExpired:cookie]) {
+        if ([cookie.name isEqualToString:cookieName] && ![self cookieIsExpired:cookie]) {
             self.sessionId = cookie.value;
         }
     }
@@ -163,7 +173,7 @@ static NSString * kLoginSegue = @"login";
 
 //getSessionTokens starts a request with LDAP to scrape a session ID and login token for this request
 -(void) getSessionTokensWithCompletion:(void (^)())completion {
-    NSURL *url = [NSURL URLWithString:SSUEmailLDAPURL];
+    NSURL *url = [NSURL URLWithString:[[SSUConfiguration sharedInstance] stringForKey:SSUEmailLDAPURLKey]];
 
     [SSUMoonlightCommunicator fetchURL:url completionHandler:^(NSData *data, NSError *error) {
         if (error) {
@@ -173,14 +183,13 @@ static NSString * kLoginSegue = @"login";
             }
         }
         else {
-            NSArray * cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-            for (NSHTTPCookie * cookie in cookies) {
-                if ([cookie.name isEqualToString:SSUEmailCookieNameSessionID]) {
-                    self.sessionId = cookie.value;
-                }
-            }
+            // Cookies should now be set in the session since we loaded the login page
+            [self checkForExistingSession];
             if (self.sessionId == nil) {
                 SSULogError(@"Unable to retrieve session id");
+            }
+            else if (completion) {
+                completion();
             }
         }
     }];
@@ -195,7 +204,7 @@ static NSString * kLoginSegue = @"login";
     self.loggingIn = YES;
     self.loadingText = @"Logging in";
     [self showLoadingView];
-    NSURL *url = [NSURL URLWithString:SSUEmailLDAPLoginURL];
+    NSURL *url = [NSURL URLWithString:[[SSUConfiguration sharedInstance] stringForKey:SSUEmailLDAPLoginURLKey]];
     NSMutableDictionary * params = [@{
                                       @"j_username" : username,
                                       @"j_password" : password,
@@ -214,8 +223,8 @@ static NSString * kLoginSegue = @"login";
         else {
             //Check to see if login failed/ was not brought to proper logged in LDAP page
             NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            
-            if ([response rangeOfString:SSUEmailMySSULinkRange].location == NSNotFound) {
+            NSString *mySSURange = [[SSUConfiguration sharedInstance] stringForKey:SSUEmailMySSULinkRangeKey];
+            if ([response rangeOfString:mySSURange].location == NSNotFound) {
                 SSULogInfo(@"LDAP auth failed!");
                 self.loggedIn = NO;		//Did not authenticate properly
                 self.loggingIn = NO;
@@ -327,11 +336,14 @@ static NSString * kLoginSegue = @"login";
 #pragma mark - UIWebView Progress
 
 - (void) updateProgress {
+    [self showLoadingView];
     if (!self.showLoadingProgress) {
+        if (self.requestCount - self.requestsCompleted <= 0) {
+            [self hideLoadingView];
+        }
         return;
     }
     self.progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
-    [self.progressHUD show:YES];
     float progress = 0.0f;
     if (self.requestCount > 0 && self.requestsCompleted > 0) {
         progress = self.requestsCompleted / (float)self.requestCount;
@@ -342,7 +354,7 @@ static NSString * kLoginSegue = @"login";
     progress = MIN(progress,0.9f);
     self.progressHUD.progress = progress;
     if (!self.webView.isLoading || self.requestCount == self.requestsCompleted) {
-        [self.progressHUD hide:YES afterDelay:1.0];
+        [self hideLoadingView];
     }
 }
 

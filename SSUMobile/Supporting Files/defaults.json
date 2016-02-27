@@ -4,14 +4,11 @@
     "edu.sonoma.radio.website" : "http://www.ksunradio.com",
 
     "edu.sonoma.email.login.enabled" : true,
-    "edu.sonoma.email.ldap.url" : "https://login.sonoma.edu/cas-server/login?service=https://ldaps.sonoma.edu/portal/index.cgi",
-    "edu.sonoma.email.exchange.url" : "https://ldaps.sonoma.edu/portal/redir_exchange.cgi",
+    "edu.sonoma.email.ldap.url" : "https://login.sonoma.edu",
+    "edu.sonoma.email.ldap.login.url" : "https://login.sonoma.edu/idp/profile/cas/login?execution=e1s1",
+    "edu.sonoma.email.mail.url" : "https://ldaps.sonoma.edu/portal/redir_exchange.cgi",
     "edu.sonoma.email.googledocs.url" : "https://drive.google.com/a/sonoma.edu",
     "edu.sonoma.email.email.domain" : "sonoma.edu",
-    "edu.sonoma.email.myssu.link.range" : "<!-- Being MySSU link -->",
-    "edu.sonoma.email.session.id.range" : "jsessionid=",
-    "edu.sonoma.email.session.id.length" : 32,
-    "edu.sonoma.email.login.token.range" : "\"lt\" value=\"",
-    "edu.sonoma.email.login.token.length" : 76,
+    "edu.sonoma.email.myssu.link.range" : "<!-- Begin MySSU link -->",
     "edu.sonoma.email.session.id.cookie.name" : "JSESSIONID"
 }

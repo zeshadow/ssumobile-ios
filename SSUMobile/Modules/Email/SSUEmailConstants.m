@@ -8,21 +8,15 @@
 
 #import "SSUEmailConstants.h"
 
-NSString * const SSUEmailLDAPURL = @"https://login.sonoma.edu/";
-NSString * const SSUEmailLDAPLoginURL = @"https://login.sonoma.edu/idp/profile/cas/login?execution=e1s1";
-NSString * const SSUEmailMailURL = @"https://ldaps.sonoma.edu/portal/redir_exchange.cgi";
-NSString * const SSUEmailGoogleDocsURL = @"https://drive.google.com/a/sonoma.edu";
+NSString * const SSUEmailLDAPURLKey = @"edu.sonoma.email.ldap.url";
+NSString * const SSUEmailLDAPLoginURLKey = @"edu.sonoma.email.ldap.login.url";
+NSString * const SSUEmailMailURLKey = @"edu.sonoma.email.mail.url";
+NSString * const SSUEmailGoogleDocsURLKey = @"edu.sonoma.email.googledocs.url";
 
-NSString * const SSUEmailDomain = @"sonoma.edu";
+NSString * const SSUEmailDomainKey = @"edu.sonoma.email.email.domain";
 
-NSString * const SSUEmailMySSULinkRange = @"<!-- Begin MySSU link -->";
+NSString * const SSUEmailMySSULinkRangeKey = @"edu.sonoma.email.myssu.link.range";
 
-NSString * const SSUEmailSessionIDRange = @"jsessionid=";
-const NSInteger SSUEmailSessionIDLength = 32;
-
-NSString * const SSUEmailLoginTokenRange = @"\"lt\" value=\"";
-const NSInteger SSUEmailLoginTokenLength = 76;
-
-NSString * const SSUEmailCookieNameSessionID = @"JSESSIONID";
+NSString * const SSUEmailCookieNameSessionIDKey = @"edu.sonoma.email.session.id.cookie.name";
 
 NSString * const SSUEmailLoginEnabledKey = @"edu.sonoma.email.login.enabled";
