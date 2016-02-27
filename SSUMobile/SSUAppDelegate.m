@@ -133,6 +133,9 @@
     NSString * path = [[NSBundle mainBundle] pathForResource:@"defaults.json" ofType:nil];
     [[SSUConfiguration sharedInstance] loadDefaultsFromFilePath:path];
     // Load settings from moonlight
+    if ([self isFirstLaunchForCurrentVersion]) {
+        return;
+    }
     NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"settings"]];
     [[SSUConfiguration sharedInstance] loadFromURL:configURL completion:^(NSError *error) {
         SSULogDebug(@"After loading from moonlight: %@", [[SSUConfiguration sharedInstance] dictionaryRepresentation]);
