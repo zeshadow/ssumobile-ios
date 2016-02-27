@@ -16,7 +16,7 @@
 
 - (id) objectForKey:(NSString *)key;
 - (NSString *) stringForKey:(NSString *)key;
-- (NSArray *) stringArrayForKey:(NSString *)key;
+- (NSArray <NSString *> *) stringArrayForKey:(NSString *)key;
 - (NSInteger) integerForKey:(NSString *)key;
 - (float) floatForKey:(NSString *)key;
 - (double) doubleForKey:(NSString *)key;
@@ -27,7 +27,9 @@
 #pragma mark - Setters
 
 - (void) setObject:(id)value forKey:(NSString *)key;
+- (void) setArray:(NSArray *)array forKey:(NSString *)key;
 - (void) setString:(NSString *)string forKey:(NSString *)key;
+- (void) setStringArray:(NSArray <NSString *> *)stringArray forKey:(NSString *)key;
 - (void) setInteger:(NSInteger)value forKey:(NSString *)key;
 - (void) setFloat:(float)value forKey:(NSString *)key;
 - (void) setDouble:(double)value forKey:(NSString *)key;
