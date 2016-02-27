@@ -40,7 +40,9 @@ static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
 
 - (void) loadFromURL:(NSURL *)url completion:(void (^)(NSError *))completion {
     NSURLSession * session = [NSURLSession sharedSession];
-    NSURLSessionTask * task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSURLSessionTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             SSULogError(@"Error while attempting to load settings from remote url: %@", error);
             if (completion)
