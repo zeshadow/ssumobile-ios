@@ -15,6 +15,16 @@
 
 #import <SDWebImage/SDImageCache.h>
 
+NSString * const SSUModulesDidLoadNotification = @"edu.sonoma.modules.loaded.notification";
+static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
+
+@interface SSUAppDelegate()
+
+@property (nonatomic) NSArray<SSUModule> * modules;
+@property (nonatomic) NSArray<SSUModuleUI> * modulesUI;
+
+@end
+
 @implementation SSUAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -42,24 +52,16 @@
 }
 
 - (NSArray *) moduleClasses {
-    return @[
-             @"SSUAboutModule",
-             @"SSUDirectoryModule",
-             @"SSUCalendarModule",
-             @"SSUNewsModule",
-             @"SSURadioModule",
-             @"SSUMapModule",
-             @"SSUResourcesModule",
-             @"SSUEmailModule",
+    NSArray <NSString *> * moduleClasses = [[SSUConfiguration sharedInstance] stringArrayForKey:@"edu.sonoma.modules.enabled"];
 #ifdef DEBUG
-             @"SSUDebugModule",
+    return [moduleClasses arrayByAddingObject:@"SSUDebugModule"];
+#else
+    return moduleClasses;
 #endif
-             ];
 }
 
 - (NSArray<SSUModule> *) modules {
-    static NSArray<SSUModule> * modules = nil;
-    if (modules) return modules;
+    if (_modules) return _modules;
     
     NSMutableArray * moduleObjects = (id)[NSMutableArray new];
     for (NSString * className in [self moduleClasses]) {
@@ -69,14 +71,13 @@
         [moduleObjects addObject:module];
     }
     
-    modules = [moduleObjects copy];
+    _modules = [moduleObjects copy];
     
-    return modules;
+    return _modules;
 }
 
 - (NSArray<SSUModuleUI> *) modulesUI {
-    static NSArray<SSUModuleUI> * modules = nil;
-    if (modules) return modules;
+    if (_modulesUI) return _modulesUI;
     
     NSMutableArray * moduleObjects = [NSMutableArray new];
     for (id<SSUModule> module in self.modules) {
@@ -85,7 +86,9 @@
         }
     }
     
-    return [moduleObjects copy];
+    _modulesUI = [moduleObjects copy];
+    
+    return _modulesUI;
 }
 
 - (void) updateAll {
@@ -136,9 +139,16 @@
     if ([self isFirstLaunchForCurrentVersion]) {
         return;
     }
+    
     NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"settings"]];
+    NSArray * classes = [[SSUConfiguration sharedInstance] stringArrayForKey:SSUModulesEnabledKey];
     [[SSUConfiguration sharedInstance] loadFromURL:configURL completion:^(NSError *error) {
         SSULogDebug(@"After loading from moonlight: %@", [[SSUConfiguration sharedInstance] dictionaryRepresentation]);
+        if (![classes isEqualToArray:[[SSUConfiguration sharedInstance] stringArrayForKey:SSUModulesEnabledKey]]) {
+            self.modules = nil;
+            self.modulesUI = nil;
+            [[NSNotificationCenter defaultCenter] postNotificationName:SSUModulesDidLoadNotification object:nil];
+        }
     }];
 }
 

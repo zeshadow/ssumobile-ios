@@ -11,6 +11,8 @@
 
 #define AppDelegate ((SSUAppDelegate*)[[UIApplication sharedApplication] delegate])
 
+extern NSString * const SSUModulesDidLoadNotification;
+
 @interface SSUAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow * window;
