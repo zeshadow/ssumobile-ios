@@ -24,3 +24,10 @@ extern NSString * const SSUEmailLoginTokenRange;
 extern const NSInteger SSUEmailLoginTokenLength;
 
 extern NSString * const SSUEmailCookieNameSessionID;
+
+/**
+ Defines whether or not custom login is enabled. If disabled, the user
+ should be taken to the login page on Sonoma's website instead of being
+ shown a custom login interface.
+ */
+extern NSString * const SSUEmailLoginEnabledKey;

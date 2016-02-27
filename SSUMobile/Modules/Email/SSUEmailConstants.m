@@ -24,3 +24,5 @@ NSString * const SSUEmailLoginTokenRange = @"\"lt\" value=\"";
 const NSInteger SSUEmailLoginTokenLength = 76;
 
 NSString * const SSUEmailCookieNameSessionID = @"JSESSIONID";
+
+NSString * const SSUEmailLoginEnabledKey = @"edu.sonoma.email.login.enabled";

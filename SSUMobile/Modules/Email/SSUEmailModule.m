@@ -8,6 +8,7 @@
 
 #import "SSUEmailModule.h"
 #import "SSUEmailConstants.h"
+#import "SSUConfiguration.h"
 
 @implementation SSUEmailModule
 
@@ -36,6 +37,13 @@
 }
 
 - (BOOL) shouldNavigateToModule {
+    if (![[SSUConfiguration sharedInstance] boolForKey:SSUEmailLoginEnabledKey]) {
+        // The custom login must be broken (ex. something changed on Sonoma's website)
+        // so we will show the user the webpage instead
+        NSURL * loginURL = [NSURL URLWithString:SSUEmailLDAPURL];
+        [[UIApplication sharedApplication] openURL:loginURL];
+        return NO;
+    }
     return YES;
 }
 
