@@ -9,6 +9,8 @@
 #import "SSUCommunicator.h"
 #import "SSULogging.h"
 
+static const NSTimeInterval kTimeoutInterval = 10.0;
+
 @interface SSUCommunicator()
 
 @property (nonatomic, strong) NSURLSession * session;
@@ -23,10 +25,11 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
         [postData appendString:[NSString stringWithFormat:@"%@=%@&",key,obj]];
     }];
     
-    return [postData stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return [postData stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
-- (NSURLSession *) session {
++ (NSURLSession *) session {
+    static NSURLSession * _session = nil;
     if (_session) return _session;
     
     _session = [NSURLSession sharedSession];
@@ -34,10 +37,14 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
     return _session;
 }
 
-- (NSURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
+#pragma mark - Making NSURLRequest objects
+
++ (NSMutableURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
     NSString * postData = URLEncodedDictionary(params);
     
-    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url
+                                     cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                        timeoutInterval:kTimeoutInterval];
     request.HTTPMethod = @"POST";
     request.HTTPBody = [[postData stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:[NSString stringWithFormat:@"%lu",(unsigned long)request.HTTPBody.length] forHTTPHeaderField:@"Content-Length"];
@@ -45,39 +52,66 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
     return request;
 }
 
-- (void) getURL:(NSURL *)url completion:(DownloadCompletion)completion {
++ (NSMutableURLRequest *) getRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
+    NSURL * fullURL = url;
+    if (params != nil) {
+        NSURLComponents * components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
+        NSString * parameters = URLEncodedDictionary(params);
+        // Check if parameters already exist
+        if (components.query.length) {
+            parameters = [parameters stringByAppendingFormat:@"&%@", parameters];
+        }
+        components.query = parameters;
+        fullURL = [components URL];
+    }
+    return [NSMutableURLRequest requestWithURL:fullURL
+                                   cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                               timeoutInterval:kTimeoutInterval];
+}
+
+#pragma mark - Convenience
+
++ (void) getURL:(NSURL *)url completion:(SSUCommunicatorCompletion)completion {
     [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        completion(data, error);
+        completion(response, data, error);
     }];
 }
 
-- (void) getJSONFromURL:(NSURL *)url completion:(JSONDownloadCompletion)completion {
++ (void) getJSONFromURL:(NSURL *)url completion:(SSUCommunicatorJSONCompletion)completion {
     if (completion == NULL) {
         // Downloading it without doing anything with it is worthless
+        // (or it should be! no side effects with GETs please)
+        SSULogDebug(@"Ignoring GET request for which no completion block is specified");
         return;
     }
-    [self getURL:url completion:^(NSData *data, NSError *error) {
-        if (error) {
-            SSULogError(@"Error while downloading JSON: %@",error);
-            completion(nil, error);
-        }
-        else if (data) {
-            id json = [self serializeJSON:data];
-            completion(json, error);
-        }
-    }];
+    NSURLRequest * request = [self getRequestWithURL:url parameters:nil];
+    [self performJSONRequest:request completion:completion];
 }
 
-- (void) postURL:(NSURL *)url parameters:(NSDictionary *)params completion:(DownloadCompletion)completion {
++ (void) postURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion {
     NSURLRequest * request = [self postRequestWithURL:url parameters:params];
-    [self.session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-        
-    }];
+    [self performRequest:request completion:completion];
 }
 
-#pragma mark - Private
+#pragma mark - Perform Request
 
-- (id) serializeJSON:(NSData *)data {
++ (void) performRequest:(NSURLRequest *)request completion:(SSUCommunicatorCompletion)completion {
+    NSURLSessionTask * task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        completion(response, data, error);
+    }];
+    [task resume];
+}
+
++ (void) performJSONRequest:(NSURLRequest *)request completion:(SSUCommunicatorJSONCompletion)completion {
+    [self performRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+        id json = [self serializeJSON:data];
+        completion(response, json, error);
+   }];
+}
+
+#pragma mark - Helper
+
++ (id) serializeJSON:(NSData *)data {
     NSError * error;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
