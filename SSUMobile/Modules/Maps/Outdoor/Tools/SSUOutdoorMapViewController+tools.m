@@ -27,8 +27,8 @@ const CGFloat accuracy = 0.000000001;
 
 - (MKPointAnnotation*) createPointAtLocation:(CLLocation*)location withTitle:(NSString*)string {
     MKPointAnnotation* annotation = [[MKPointAnnotation alloc] init];
-    [annotation setCoordinate:location.coordinate];
-    [annotation setTitle:string];
+    annotation.coordinate = location.coordinate;
+    annotation.title = string;
     return annotation;
 }
 
@@ -239,13 +239,13 @@ const CGFloat accuracy = 0.000000001;
 }
 
 - (void) deleteConnectionsFromPoint:(SSUMapPoint*)point {
-    for (SSUMapPoint* connection in [point connections]) {
+    for (SSUMapPoint* connection in point.connections) {
         [self deleteConnectionFromA:point toB:connection];
     }
 }
 
 - (void) createConnectionsFromPoint:(SSUMapPoint*)point {
-    for (SSUMapPoint* connection in [point connections]) {
+    for (SSUMapPoint* connection in point.connections) {
         [self createConnectionFromA:point toB:connection];
     }
 }

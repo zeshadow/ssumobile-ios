@@ -64,7 +64,7 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    SSUArticle *article = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    SSUArticle *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([cell.reuseIdentifier isEqualToString:SSUNewsEntityArticle]) {
         SSUNewsArticleTableViewCell* articleCell = (SSUNewsArticleTableViewCell*)cell;
         articleCell.article = article;
@@ -94,7 +94,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SSUArticle* article = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    SSUArticle* article = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     SSUWebViewController* controller = [SSUWebViewController webViewControllerFromStoryboard];
     controller.urlToLoad = article.link;

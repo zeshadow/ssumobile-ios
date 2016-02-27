@@ -349,7 +349,7 @@ static CGFloat CELL_ROW_HEIGHT = 50;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:SSUEventDetailSegue])
+    if ([segue.identifier isEqualToString:SSUEventDetailSegue])
     {
         SSUCalendarEventDetail * detailController = segue.destinationViewController;
         detailController.event = self.selectedEvent;

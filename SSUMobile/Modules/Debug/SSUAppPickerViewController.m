@@ -17,13 +17,6 @@
 
 @implementation SSUAppPickerViewController
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,7 +33,7 @@
         RBStoryboardLink* link = segue.destinationViewController;
         SSULogDebug(@"Destination: %@", NSStringFromClass([link.scene class]));
     }
-    [segue.destinationViewController setTitle:[self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow].textLabel.text];
+    segue.destinationViewController.title = [self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow].textLabel.text;
 }
 
 - (IBAction)didRefresh:(id)sender {

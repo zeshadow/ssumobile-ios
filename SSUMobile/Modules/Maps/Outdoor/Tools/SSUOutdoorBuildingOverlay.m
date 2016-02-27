@@ -20,10 +20,10 @@
     _building = building;
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        [_nameLabel setFrame:self.bounds];
-        [_nameLabel setCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
+        _nameLabel.frame = self.bounds;
+        _nameLabel.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     }
-    [_nameLabel setText:_building.name];
+    _nameLabel.text = _building.name;
 }
 
 /*

@@ -260,7 +260,7 @@
             // We don't have access to the user's location so don't try to move the map, it will
             // just show an empty screen
             [self requestLocationAuthorization];
-            [mapView setUserTrackingMode:MKUserTrackingModeNone];
+            mapView.userTrackingMode = MKUserTrackingModeNone;
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Cannot Access Location"
                                                                  message:@"If you want to use the location feature, please allow SSUMobile to access your location in your phone's settings"
                                                                 delegate:nil

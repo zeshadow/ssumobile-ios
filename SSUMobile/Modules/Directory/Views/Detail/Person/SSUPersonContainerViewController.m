@@ -18,26 +18,6 @@
 
 @implementation SSUPersonContainerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -58,21 +38,21 @@
     SSUPerson* person = (SSUPerson*)[self object];
     
     if (!SSUIsEmptyString(person.firstName)) {
-        [_firstNameLabel setText:person.firstName];
-        [_firstNameLabel setEnabled:YES];
+        _firstNameLabel.text = person.firstName;
+        _firstNameLabel.enabled = YES;
     }
     else {
-        [_firstNameLabel setText:UNKNOWN_VALUE];
-        [_firstNameLabel setEnabled:NO];
+        _firstNameLabel.text = UNKNOWN_VALUE;
+        _firstNameLabel.enabled = NO;
     }
     
     if (!SSUIsEmptyString(person.lastName)) {
-        [_lastNameLabel setText:person.lastName];
-        [_lastNameLabel setEnabled:YES];
+        _lastNameLabel.text = person.lastName;
+        _lastNameLabel.enabled = YES;
     }
     else {
-        [_lastNameLabel setText:UNKNOWN_VALUE];
-        [_lastNameLabel setEnabled:NO];
+        _lastNameLabel.text = UNKNOWN_VALUE;
+        _lastNameLabel.enabled = NO;
     }
 }
 

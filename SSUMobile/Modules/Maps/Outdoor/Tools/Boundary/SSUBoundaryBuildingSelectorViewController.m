@@ -38,13 +38,13 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // used for debugging: show all building ids in the console
-        for (SSUBuilding *building in [[self fetchedResultsController] fetchedObjects]) {
+        for (SSUBuilding *building in self.fetchedResultsController.fetchedObjects) {
             SSULogDebug(@"Building %@, id: %@", building.name, building.id);
         }
     });
     
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self fetchedResultsController] sections][section];
-    return [sectionInfo numberOfObjects];
+    id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
+    return sectionInfo.numberOfObjects;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,10 +56,10 @@
     cell.textLabel.text = building.name;
     
     if ([_definedBuildingIDs containsObject:building.id]) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
@@ -79,7 +79,7 @@
     _fetchedResultsController = aFetchedResultsController;
     
     NSError *error = nil;
-    if (![[self fetchedResultsController] performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         // Handle error
         SSULogError(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();

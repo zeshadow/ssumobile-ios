@@ -66,7 +66,7 @@ typedef enum Mode {
                 switch (_mode) {
                     case kModeCreate:{
                         
-                        if ([[self.selectedPoint connections] containsObject:connectedPoint] && [[connectedPoint connections] containsObject:self.selectedPoint]) {
+                        if ([(self.selectedPoint).connections containsObject:connectedPoint] && [connectedPoint.connections containsObject:self.selectedPoint]) {
                             dispatch_sync(dispatch_get_main_queue(), ^{
                                 [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection already exists" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
                             });
@@ -172,7 +172,7 @@ typedef enum Mode {
     self.selectedPoint = nil;
     _cancelButton.enabled = NO;
     
-    [self setMode:kModeCreate];
+    self.mode = kModeCreate;
 }
 
 - (void)setSelectedPoint:(SSUMapPoint *)selectedPoint {

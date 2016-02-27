@@ -295,7 +295,7 @@ typedef NS_ENUM(NSInteger, kOtherInfoRow) {
 
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag == PHONE_ALERT_TAG && buttonIndex != [alertView cancelButtonIndex]) {
+    if (alertView.tag == PHONE_ALERT_TAG && buttonIndex != alertView.cancelButtonIndex) {
         NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",_person.phone]];
         if ([[UIApplication sharedApplication] canOpenURL:url]) {
             [[UIApplication sharedApplication] openURL:url];

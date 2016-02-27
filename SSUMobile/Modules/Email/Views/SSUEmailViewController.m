@@ -383,8 +383,8 @@ static NSString * kLoginSegue = @"login";
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     //Filter where the user can click links to
-    NSURL *selectedURL = [request URL];
-    NSString *urlString = [selectedURL absoluteString];
+    NSURL *selectedURL = request.URL;
+    NSString *urlString = selectedURL.absoluteString;
     
     if ([urlString containsString:@"logout"] || [urlString containsString:@"logoff"]) {
         // If the user logs out using gmail's interface, perform a logout on the client

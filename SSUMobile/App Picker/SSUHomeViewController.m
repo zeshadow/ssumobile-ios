@@ -59,8 +59,8 @@ static NSInteger BLANK_CELL_INDEX = 7;
     UINavigationBar * appearance = [UINavigationBar appearance];
     [navBar setBackgroundImage:[appearance backgroundImageForBarMetrics:UIBarMetricsDefault]
                  forBarMetrics:UIBarMetricsDefault];
-    navBar.shadowImage = [appearance shadowImage];
-    navBar.barTintColor = [appearance barTintColor];
+    navBar.shadowImage = appearance.shadowImage;
+    navBar.barTintColor = appearance.barTintColor;
     navBar.translucent = NO;
     
 }

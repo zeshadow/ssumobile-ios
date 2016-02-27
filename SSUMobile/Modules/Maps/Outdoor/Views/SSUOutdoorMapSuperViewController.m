@@ -149,7 +149,7 @@ const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;
         if (!error) {
             const CGFloat kVerticalInsets = 50;
             const CGFloat kHorizontalInsets = 50;
-            [self.mapView setVisibleMapRect:[line boundingMapRect] edgePadding:UIEdgeInsetsMake(kVerticalInsets, kHorizontalInsets, kVerticalInsets, kHorizontalInsets) animated:YES];
+            [self.mapView setVisibleMapRect:line.boundingMapRect edgePadding:UIEdgeInsetsMake(kVerticalInsets, kHorizontalInsets, kVerticalInsets, kHorizontalInsets) animated:YES];
         }
         if (completionBlock) {
             completionBlock(error == nil);
@@ -182,9 +182,9 @@ const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;
     MKPlacemark * flagPole = [[MKPlacemark alloc] initWithCoordinate:flagPoleCoord addressDictionary:nil];
     MKMapItem * destination = [[MKMapItem alloc] initWithPlacemark:flagPole];
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
-    [request setSource:[MKMapItem mapItemForCurrentLocation]];
-    [request setDestination:destination];
-    [request setTransportType:MKDirectionsTransportTypeAny];
+    request.source = [MKMapItem mapItemForCurrentLocation];
+    request.destination = destination;
+    request.transportType = MKDirectionsTransportTypeAny;
     [request setRequestsAlternateRoutes:YES];
     MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
     [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
@@ -691,9 +691,9 @@ const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;
             pinView.annotation = annotation;
         }
         CGFloat alpha = 1;
-        if ([mapPoint isBuildingEntrance]) {
+        if (mapPoint.isBuildingEntrance) {
             pinView.pinColor = MKPinAnnotationColorGreen;
-        } else if ([mapPoint isBuildingWall]) {
+        } else if (mapPoint.isBuildingWall) {
             pinView.pinColor = MKPinAnnotationColorRed;
         } else {
             pinView.pinColor = MKPinAnnotationColorPurple;
