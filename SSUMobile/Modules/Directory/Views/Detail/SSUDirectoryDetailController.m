@@ -63,6 +63,7 @@
 
 static const NSInteger kConfirmCallTag = 100;
 static const NSInteger kConfirmWebsiteTag = 200;
+static const NSInteger kConfirmEmailTag = 300;
 
 - (void) confirmCallPhoneNumber {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Call this number"
@@ -84,6 +85,16 @@ static const NSInteger kConfirmWebsiteTag = 200;
     [alert show];
 }
 
+- (void) confirmShowEmailComposer {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Compose email?"
+                                                     message:@"Would you like to compose an email message to this address?"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Cancel"
+                                           otherButtonTitles:@"Confirm", nil];
+    alert.tag = kConfirmWebsiteTag;
+    [alert show];
+}
+
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == alertView.cancelButtonIndex) {
         return;
@@ -94,6 +105,9 @@ static const NSInteger kConfirmWebsiteTag = 200;
     else if (alertView.tag == kConfirmWebsiteTag) {
         [self navigateToWebsite];
     }
+    else if (alertView.tag == kConfirmEmailTag) {
+        [self showEmailComposer];
+    }
 }
 
 - (void) callPhoneNumber {
@@ -102,6 +116,10 @@ static const NSInteger kConfirmWebsiteTag = 200;
 
 - (void) navigateToWebsite {
     SSULogError(@"User requested website navigation but detail did not implement `navigateToWebsite`");
+}
+
+- (void) showEmailComposer {
+    SSULogError(@"User requested email composer but detail did not implement `showEmailComposer`");
 }
 
 @end
