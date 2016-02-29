@@ -46,28 +46,11 @@
     dateFormatter.locale = [NSLocale currentLocale];
     dateFormatter.timeZone = [NSTimeZone systemTimeZone];
     
-    // Calendar is no longer date delta-ed - instead, all events which have a start date
-    // at most one month in the past and up until the indefinite future are sent.
-    if (events.count > 0) {
-        NSArray * existingEvents = [SSUMoonlightBuilder allObjectsWithEntityName:SSUCalendarEntityEvent
-                                                                         context:self.context];
-        SSULogDebug(@"Deleting %lu old events", (unsigned long)existingEvents.count);
-        for (SSUEvent * event in existingEvents) {
-            [event.managedObjectContext deleteObject:event];
-        }
-    }
+    NSMutableArray * ids = [NSMutableArray new];
     
     for (NSDictionary * eventData in events) {
-        SSUMoonlightDataMode mode = [self modeFromJSONData:eventData];
         NSNumber * eventId = @([eventData[SSUCalendarEventKeyID] integerValue]);
         SSUEvent * event = [SSUCalendarBuilder eventWithID:eventId inContext:self.context];
-//        if (event == nil) {
-//            continue;
-//        }
-//        if (mode == SSUMoonlightDataModeDeleted) {
-//            [self.context deleteObject:event];
-//            continue;
-//        }
         
         event.title = eventData[SSUCalendarEventKeyTitle];
         event.startDate = [dateFormatter dateFromString:eventData[SSUCalendarEventKeyStart]];
@@ -78,7 +61,13 @@
         event.organization = eventData[SSUCalendarEventKeyOrganization];
         event.category = eventData[SSUCalendarEventKeyCategory];
         
+        [ids addObject:[event id]];
     }
+    
+    // Calendar is no longer date delta-ed - instead, all events which have a start date
+    // at most one month in the past and up until the indefinite future are sent.
+    NSPredicate * deletePredicate = [NSPredicate predicateWithFormat:@"NOT (id  IN %@)", ids];
+    [SSUMoonlightBuilder deleteObjectsWithEntityName:SSUCalendarEntityEvent matchingPredicate:deletePredicate context:self.context];
     SSULogDebug(@"Finished Events: %f",[[NSDate date] timeIntervalSinceDate:buildStart]);
 }
 
