@@ -222,6 +222,15 @@ typedef NS_ENUM(NSInteger, kSectionAdminRow) {
             [self performSegueWithIdentifier:@"Location" sender:self];
         return;
     }
+    else if (indexPath.section == kTableViewSectionContact) {
+        if (indexPath.row == kSectionContactRowPhone) {
+            [self confirmCallPhoneNumber];
+        }
+        else if (indexPath.row == kSectionContactRowWebsite) {
+            [self confirmNavigateToWebsite];
+        }
+        return;
+    }
     
     [self showDetailForObject:self.selectedObject animated:YES];
 }
@@ -231,6 +240,21 @@ typedef NS_ENUM(NSInteger, kSectionAdminRow) {
         SSUOutdoorMapSuperViewController * vc = segue.destinationViewController;
         [vc loadObject:self.department.building inContext:self.context];
     }
+}
+
+- (void) callPhoneNumber {
+    NSString * tel = [NSString stringWithFormat:@"tel://%@",self.department.phone];
+    NSURL * url = [NSURL URLWithString:tel];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) navigateToWebsite {
+    NSString * urlString = self.department.site;
+    if ([urlString rangeOfString:@"http"].location != 0) {
+        urlString = [@"http://" stringByAppendingString:urlString];
+    }
+    NSURL * url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end

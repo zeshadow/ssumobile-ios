@@ -8,8 +8,9 @@
 
 #import "SSUDirectoryDetailController.h"
 #import "SSUDirectoryConstants.h"
+#import "SSULogging.h"
 
-@interface SSUDirectoryDetailController ()
+@interface SSUDirectoryDetailController () <UIAlertViewDelegate>
 
 @end
 
@@ -56,6 +57,51 @@
     } else {
         [self presentViewController:detail animated:animated completion:NULL];
     }
+}
+
+#pragma mark - Cell Actions
+
+static const NSInteger kConfirmCallTag = 100;
+static const NSInteger kConfirmWebsiteTag = 200;
+
+- (void) confirmCallPhoneNumber {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Call this number"
+                                                     message:@"Would you like to make a phone call to the selected number?"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Cancel"
+                                           otherButtonTitles:@"Call", nil];
+    alert.tag = kConfirmCallTag;
+    [alert show];
+}
+
+- (void) confirmNavigateToWebsite {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Load webpage?"
+                                                     message:@"Would you like to load this webpage in Safari?"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Cancel"
+                                           otherButtonTitles:@"Confirm", nil];
+    alert.tag = kConfirmWebsiteTag;
+    [alert show];
+}
+
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == alertView.cancelButtonIndex) {
+        return;
+    }
+    if (alertView.tag == kConfirmCallTag) {
+        [self callPhoneNumber];
+    }
+    else if (alertView.tag == kConfirmWebsiteTag) {
+        [self navigateToWebsite];
+    }
+}
+
+- (void) callPhoneNumber {
+    SSULogError(@"User requested phone call but detail did not implement `callPhoneNumber`");
+}
+
+- (void) navigateToWebsite {
+    SSULogError(@"User requested website navigation but detail did not implement `navigateToWebsite`");
 }
 
 @end

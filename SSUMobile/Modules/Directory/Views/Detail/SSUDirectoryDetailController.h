@@ -15,4 +15,33 @@
 
 - (void) showDetailForObject:(SSUDirectoryObject *)object animated:(BOOL)animated;
 
+/**
+ Asks the user to confirm calling the given phone number
+ */
+- (void) confirmCallPhoneNumber;
+/**
+ Asks the user to confirm loading the selected website in safari
+ */
+- (void) confirmNavigateToWebsite;
+
+/**
+ Asks the user to confirm starting a new email to the selected address
+ */
+- (void) confirmShowEmailComposer;
+
+/**
+ Called if the user confirmed the phone call
+ */
+- (void) callPhoneNumber;
+
+/**
+ Called if the user confirmed navigating to the website
+ */
+- (void) navigateToWebsite;
+
+/**
+ Called if the user confirmed starting a new email to the selected address
+ */
+- (void) showEmailComposer;
+
 @end

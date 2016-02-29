@@ -16,8 +16,6 @@
 @import AddressBook;
 @import AddressBookUI;
 
-static NSInteger PHONE_ALERT_TAG = 100;
-
 typedef NS_ENUM(NSInteger, kTableViewSection) {
     kTableViewSectionPersonInfo = 0,
     kTableViewSectionOtherInfo,
@@ -158,14 +156,11 @@ typedef NS_ENUM(NSInteger, kOtherInfoRow) {
     }
 }
 
-- (void) promptPhoneCall {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:self.person.phone
-                                                     message:@""
-                                                    delegate:self
-                                           cancelButtonTitle:@"Cancel"
-                                           otherButtonTitles:@"Call", nil];
-    alert.tag = PHONE_ALERT_TAG;
-    [alert show];
+- (void) callPhoneNumber {
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",_person.phone]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 #pragma mark - Address Book Integration
@@ -289,18 +284,6 @@ typedef NS_ENUM(NSInteger, kOtherInfoRow) {
             }
         });
     });
-}
-
-#pragma mark - UIAlertView
-
-- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == PHONE_ALERT_TAG && buttonIndex != alertView.cancelButtonIndex) {
-        NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",_person.phone]];
-        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-            [[UIApplication sharedApplication] openURL:url];
-        }
-    }
 }
 
 @end
