@@ -12,10 +12,4 @@
 
 @property(nonatomic) SSUEvent *event;
 
-@property (nonatomic) IBOutlet UILabel * titleLabel;
-@property (nonatomic) IBOutlet UILabel * categoryLabel;
-@property (nonatomic) IBOutlet UILabel * dateLabel;
-@property (nonatomic) IBOutlet UILabel * locationLabel;
-@property (nonatomic) IBOutlet UIWebView * descriptionWebView;
-
 @end

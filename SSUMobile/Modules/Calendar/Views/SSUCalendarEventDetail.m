@@ -18,6 +18,12 @@ static NSString * DEFAULT_DESCRIPTION = @"No description for this event";
 
 @interface SSUCalendarEventDetail() <EKEventEditViewDelegate>
 
+@property (nonatomic) IBOutlet UILabel * titleLabel;
+@property (nonatomic) IBOutlet UILabel * categoryLabel;
+@property (nonatomic) IBOutlet UILabel * dateLabel;
+@property (nonatomic) IBOutlet UILabel * locationLabel;
+@property (nonatomic) IBOutlet UIWebView * descriptionWebView;
+
 - (IBAction)addToCalendarAction:(id)sender;
 
 @end
