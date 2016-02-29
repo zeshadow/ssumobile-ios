@@ -13,9 +13,11 @@
 
 - (void) build:(NSArray*)connections {
     SSULogDebug(@"Building Connections: %lu", (unsigned long)connections.count);
-    NSArray * mapPoints = [SSUMapBuilder allObjectsWithEntityName:@"SSUMapPoint" context:self.context];
-    for (SSUMapPoint * point in mapPoints) {
-        [point removeConnections:point.connections];
+    if (connections.count > 0) {
+        NSArray * mapPoints = [SSUMapBuilder allObjectsWithEntityName:@"SSUMapPoint" context:self.context];
+        for (SSUMapPoint * point in mapPoints) {
+            [point removeConnections:point.connections];
+        }
     }
     for (NSDictionary* connectionData in connections) {
         SSUMapPoint* a = [SSUConnectionsBuilder mapPointWithID:connectionData[@"aID"] inContext:self.context];
