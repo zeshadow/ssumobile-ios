@@ -93,7 +93,6 @@
             }
         }
         else {
-            NSString * date = [self.dateFormatter stringFromDate:[NSDate date]];
             [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsDirectoryUpdatedDate];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
