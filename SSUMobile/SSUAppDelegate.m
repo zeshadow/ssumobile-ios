@@ -200,11 +200,25 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
  Removes any existing Core Data database files stored in the documents directory.
  */
 - (void) clearLocalDatabases {
-    NSURL * documents = SSUDocumentsDirectory();
-    NSArray * filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:documents includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
     NSString * extensionToDelete = @".sqlite";
+    [self deleteFilesInDiretory:SSUDocumentsDirectory() matchingExtension:extensionToDelete];
+    [self deleteFilesInDiretory:SSUCachesDirectory() matchingExtension:extensionToDelete];
+}
+
+- (void) deleteFilesInDiretory:(NSURL *)directory matchingExtension:(NSString *)extension {
+    BOOL isDirectory = NO;
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:directory.path isDirectory:&isDirectory];
+    if (!(exists && isDirectory)) {
+        SSULogError(@"Attempting to remove files from a path which does not exist or is not a directory: %@", directory);
+        return;
+    }
+    
+    NSArray * filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:directory
+                                                        includingPropertiesForKeys:nil
+                                                                           options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                                             error:nil];
     for (NSURL * path in filePaths) {
-        if ([path.path rangeOfString:extensionToDelete].length == 0) {
+        if ([path.path rangeOfString:extension].location == NSNotFound) {
             continue;
         }
         SSULogDebug(@"Removing file at path: %@",path);
