@@ -127,7 +127,7 @@ typedef NS_ENUM(NSInteger, kOtherInfoRow) {
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     self.selectedObject = nil;
     if (indexPath.section == kTableViewSectionPersonInfo && indexPath.row == kPersonInfoRowPhone) {
-        [self promptPhoneCall];
+        [self confirmCallPhoneNumber];
     }
     else if (indexPath.section == kTableViewSectionPersonInfo && indexPath.row == kPersonInfoRowEmail) {
         [self showEmailComposer];
