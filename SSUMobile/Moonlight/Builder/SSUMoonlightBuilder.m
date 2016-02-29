@@ -117,14 +117,26 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
     return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
 }
 
-+ (NSArray *) allObjectsWithEntityName:(NSString *)entityName context:(NSManagedObjectContext *)context {
++ (NSArray *) allObjectsWithEntityName:(NSString *)entityName matchingPredicate:(NSPredicate *)predicate context:(NSManagedObjectContext *)context {
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    fetchRequest.predicate = predicate;
     NSArray * results = [context executeFetchRequest:fetchRequest error:nil];
     return results;
 }
 
++ (NSArray *) allObjectsWithEntityName:(NSString *)entityName context:(NSManagedObjectContext *)context {
+    return [self allObjectsWithEntityName:entityName matchingPredicate:nil context:context];
+}
+
 - (NSArray *) allObjectsWithEntityName:(NSString *)entityName {
     return [[self class] allObjectsWithEntityName:entityName context:self.context];
+}
+
++ (void) deleteObjectsWithEntityName:(NSString *)entityName matchingPredicate:(NSPredicate *)predicate context:(NSManagedObjectContext *)context {
+    NSArray * objects = [self allObjectsWithEntityName:entityName matchingPredicate:predicate context:context];
+    for (id object in objects) {
+        [context deleteObject:object];
+    }
 }
 
 #pragma mark - Save
