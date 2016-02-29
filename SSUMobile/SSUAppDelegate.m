@@ -33,7 +33,14 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
     [self setupStyles];
     
     SSULogDebug(@"%@", SSUDocumentsDirectory());
-    SSULogDebug(@"%@",SSUCachesDirectory());
+    SSULogDebug(@"%@", SSUCachesDirectory());
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:SSUApplicationSupportDirectory().path]) {
+        [[NSFileManager defaultManager] createDirectoryAtURL:SSUApplicationSupportDirectory()
+                                 withIntermediateDirectories:YES
+                                                  attributes:nil
+                                                       error:nil];
+    }
     
     //Update all modules
     if ([self isFirstLaunchForCurrentVersion]) {
