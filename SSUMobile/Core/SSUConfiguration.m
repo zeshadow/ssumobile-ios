@@ -109,6 +109,10 @@ static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
     return [self.userDefaults stringForKey:key];
 }
 
+- (NSDate *) dateForKey:(NSString *)key {
+    return [self.userDefaults objectForKey:key];
+}
+
 - (NSArray *) arrayForKey:(NSString *)key {
     return [self.userDefaults arrayForKey:key];
 }
@@ -164,6 +168,10 @@ static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
 
 - (void) setArray:(NSArray *)array forKey:(NSString *)key {
     [self.userDefaults setObject:array forKey:key];
+}
+
+- (void) setDate:(NSDate *)date forKey:(NSString *)key {
+    [self.userDefaults setObject:date forKey:key];
 }
 
 - (void) setStringArray:(NSArray<NSString *> *)stringArray forKey:(NSString *)key {

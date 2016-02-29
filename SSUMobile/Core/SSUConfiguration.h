@@ -16,6 +16,7 @@
 
 - (id) objectForKey:(NSString *)key;
 - (NSString *) stringForKey:(NSString *)key;
+- (NSDate *) dateForKey:(NSString *)key;
 - (NSArray <NSString *> *) stringArrayForKey:(NSString *)key;
 - (NSInteger) integerForKey:(NSString *)key;
 - (float) floatForKey:(NSString *)key;
@@ -28,6 +29,7 @@
 
 - (void) setObject:(id)value forKey:(NSString *)key;
 - (void) setArray:(NSArray *)array forKey:(NSString *)key;
+- (void) setDate:(NSDate *)date forKey:(NSString *)key;
 - (void) setString:(NSString *)string forKey:(NSString *)key;
 - (void) setStringArray:(NSArray <NSString *> *)stringArray forKey:(NSString *)key;
 - (void) setInteger:(NSInteger)value forKey:(NSString *)key;
