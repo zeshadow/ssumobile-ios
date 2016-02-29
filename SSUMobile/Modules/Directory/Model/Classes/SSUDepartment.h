@@ -14,6 +14,7 @@
 
 @interface SSUDepartment : SSUDirectoryObject
 
+@property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * fax;
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * office;

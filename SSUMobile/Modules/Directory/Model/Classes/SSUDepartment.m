@@ -14,6 +14,7 @@
 
 @implementation SSUDepartment
 
+@dynamic email;
 @dynamic fax;
 @dynamic id;
 @dynamic office;

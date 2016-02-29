@@ -58,6 +58,7 @@ extern NSString* const SSUDirectoryPersonKeyDepartment;
 extern NSString* const SSUDirectoryDepartmentKeyName;
 extern NSString* const SSUDirectoryDepartmentKeyDisplayName;
 extern NSString* const SSUDirectoryDepartmentKeyPhone;
+extern NSString* const SSUDirectoryDepartmentKeyEmail;
 extern NSString* const SSUDirectoryDepartmentKeySite;
 extern NSString* const SSUDirectoryDepartmentKeyChairID;
 extern NSString* const SSUDirectoryDepartmentKeyACID;

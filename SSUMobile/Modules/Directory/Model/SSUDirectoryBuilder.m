@@ -193,6 +193,7 @@
 
         department.term = department.displayName;
         
+        department.email = departmentData[SSUDirectoryDepartmentKeyEmail];
         department.phone = departmentData[SSUDirectoryDepartmentKeyPhone];
         department.site = departmentData[SSUDirectoryDepartmentKeySite];
         department.office = departmentData[SSUDirectoryDepartmentKeyRoomID];

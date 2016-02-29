@@ -42,6 +42,7 @@ NSString* const SSUDirectoryPersonKeyDepartment = @"department";
 NSString* const SSUDirectoryDepartmentKeyName = @"name";
 NSString* const SSUDirectoryDepartmentKeyDisplayName = @"displayName";
 NSString* const SSUDirectoryDepartmentKeyPhone = @"phone";
+NSString* const SSUDirectoryDepartmentKeyEmail = @"email";
 NSString* const SSUDirectoryDepartmentKeySite = @"site";
 NSString* const SSUDirectoryDepartmentKeyChairID = @"chair";
 NSString* const SSUDirectoryDepartmentKeyACID = @"ac";
