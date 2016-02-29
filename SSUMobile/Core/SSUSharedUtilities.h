@@ -14,6 +14,13 @@
 #define SSUTrimString(str) ((id)str == [NSNull null] || str == nil) ? @"" : [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
 #define SSUIsEmptyString(str) (str == nil || (id)str == [NSNull null] || [SSUTrimString(str) length] == 0)
 
+/// Returns an NSURL object for the specified search path
+extern NSURL * SSUURLForDirectory(NSSearchPathDirectory directory);
+/// The URL of the application's cache directory, for files which should persist but can be recreated
+extern NSURL * SSUCachesDirectory();
+/// The URL of the application's documents directory, where user files should be stored
+extern NSURL * SSUDocumentsDirectory();
+
 /** Constants */
 extern NSString * const kSSUErrorDomain;
 extern const NSInteger kSSUGenericErrorCode;

@@ -32,7 +32,8 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
     [self setupConfiguration];
     [self setupStyles];
     
-    SSULogDebug(@"%@",[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+    SSULogDebug(@"%@", SSUDocumentsDirectory());
+    SSULogDebug(@"%@",SSUCachesDirectory());
     
     //Update all modules
     if ([self isFirstLaunchForCurrentVersion]) {
@@ -195,17 +196,11 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
 
 #pragma mark - Helper
 
-// Returns the URL to the application's Documents directory.
-- (NSURL *)applicationDocumentsDirectory {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-                                                   inDomains:NSUserDomainMask] lastObject];
-}
-
 /**
  Removes any existing Core Data database files stored in the documents directory.
  */
 - (void) clearLocalDatabases {
-    NSURL * documents = [self applicationDocumentsDirectory];
+    NSURL * documents = SSUDocumentsDirectory();
     NSArray * filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:documents includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
     NSString * extensionToDelete = @".sqlite";
     for (NSURL * path in filePaths) {

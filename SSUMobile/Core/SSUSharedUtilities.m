@@ -10,3 +10,16 @@ NSString * const kSSUErrorDomain = @"edu.sonoma.cs.ssumobile";
 const NSInteger kSSUGenericErrorCode = 100;
 NSString * const SSUAppIsFirstLaunchKey = @"SSUAppIsFirstLaunch";
 NSString * const SSUMoonlightBaseURL = @"https://moonlight.cs.sonoma.edu/ssumobile/1_0/";
+
+NSURL * URLForDirectory(NSSearchPathDirectory directory) {
+    return [[[NSFileManager defaultManager] URLsForDirectory:directory
+                                                   inDomains:NSUserDomainMask] firstObject];
+}
+
+NSURL * SSUDocumentsDirectory() {
+    return URLForDirectory(NSDocumentDirectory);
+}
+
+NSURL * SSUCachesDirectory() {
+    return URLForDirectory(NSCachesDirectory);
+}

@@ -24,6 +24,4 @@ extern NSString * const SSUModulesDidLoadNotification;
 
 - (void) updateAll;
 
-- (NSURL *)applicationDocumentsDirectory;
-
 @end
