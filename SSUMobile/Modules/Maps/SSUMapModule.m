@@ -12,6 +12,7 @@
 #import "SSUBuildingPerimetersBuilder.h"
 #import "SSUConnectionsBuilder.h"
 #import "SSUMoonlightCommunicator.h"
+#import "SSUConfiguration.h"
 
 @implementation SSUMapModule
 
@@ -89,8 +90,7 @@
 }
 
 - (void) updatePoints:(void (^)())completion {
-    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsPointsUpdatedDate];
-    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsPointsUpdatedDate];
     [SSUMoonlightCommunicator getJSONFromPath:@"points" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Map points: %@", error);
@@ -100,6 +100,7 @@
         }
         else {
             [self.backgroundContext performBlock:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsPointsUpdatedDate];
                 [self buildPointsJSON:json];
                 if (completion) {
                     completion();
@@ -111,8 +112,7 @@
 }
 
 - (void) updatePerimeters:(void (^)())completion {
-    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsPerimetersUpdatedDate];
-    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsPerimetersUpdatedDate];
     [SSUMoonlightCommunicator getJSONFromPath:@"perimeters" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Map perimeters: %@", error);
@@ -122,6 +122,7 @@
         }
         else {
             [self.backgroundContext performBlock:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsPerimetersUpdatedDate];
                 [self buildPerimetersJSON:json];
                 if (completion) {
                     completion();
@@ -132,8 +133,7 @@
 }
 
 - (void) updateConnections:(void (^)())completion {
-    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsConnectionsUpdatedDate];
-    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsPerimetersUpdatedDate];
     [SSUMoonlightCommunicator getJSONFromPath:@"connections" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Map connections: %@", error);
@@ -143,6 +143,7 @@
         }
         else {
             [self.backgroundContext performBlock:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsPerimetersUpdatedDate];
                 [self buildConnectionsJSON:json];
                 if (completion) {
                     completion();

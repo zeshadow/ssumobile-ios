@@ -10,6 +10,7 @@
 #import "SSUMoonlightCommunicator.h"
 #import "SSUNewsBuilder.h"
 #import "SSULogging.h"
+#import "SSUConfiguration.h"
 
 @implementation SSUNewsModule
 
@@ -64,8 +65,7 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update News NEW");
-    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsNewsUpdatedDate];
-    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsNewsUpdatedDate];
     [SSUMoonlightCommunicator getJSONFromPath:@"news" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update News: %@", error);
@@ -76,6 +76,7 @@
         else {
             NSString * date = [self.dateFormatter stringFromDate:[NSDate date]];
             [[NSUserDefaults standardUserDefaults] setObject:date forKey:SSUUserDefaultsNewsUpdatedDate];
+            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsNewsUpdatedDate];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
                 if (completion) {

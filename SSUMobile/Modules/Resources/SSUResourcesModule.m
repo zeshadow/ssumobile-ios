@@ -10,6 +10,7 @@
 #import "SSUResourcesBuilder.h"
 #import "SSUMoonlightCommunicator.h"
 #import "SSULogging.h"
+#import "SSUConfiguration.h"
 
 @implementation SSUResourcesModule
 
@@ -64,8 +65,7 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Resources NEW");
-    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsNewsUpdatedDate];
-    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsResourcesUpdatedDate];
     [SSUMoonlightCommunicator getJSONFromPath:@"resources.json" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Resources: %@", error);
@@ -75,6 +75,7 @@
         }
         else {
             [self.backgroundContext performBlock:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsResourcesUpdatedDate];
                 [self buildJSON:json];
                 if (completion) {
                     completion();

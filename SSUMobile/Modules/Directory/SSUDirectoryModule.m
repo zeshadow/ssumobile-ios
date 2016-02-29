@@ -10,6 +10,7 @@
 #import "SSUDirectoryBuilder.h"
 #import "SSUMoonlightCommunicator.h"
 #import "SSULogging.h"
+#import "SSUConfiguration.h"
 
 @interface SSUDirectoryModule()
 
@@ -83,8 +84,7 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Directory NEW");
-    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsDirectoryUpdatedDate];
-    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsDirectoryUpdatedDate];
     [SSUMoonlightCommunicator getJSONFromPath:@"directory" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory: %@", error);
@@ -94,7 +94,7 @@
         }
         else {
             NSString * date = [self.dateFormatter stringFromDate:[NSDate date]];
-            [[NSUserDefaults standardUserDefaults] setObject:date forKey:SSUUserDefaultsDirectoryUpdatedDate];
+            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsDirectoryUpdatedDate];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
                 if (completion) {

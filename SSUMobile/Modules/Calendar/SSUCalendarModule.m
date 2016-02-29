@@ -10,6 +10,7 @@
 #import "SSUCalendarBuilder.h"
 #import "SSUMoonlightCommunicator.h"
 #import "SSULogging.h"
+#import "SSUConfiguration.h"
 
 @implementation SSUCalendarModule
 
@@ -64,8 +65,6 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Calendar NEW");
-//    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsCalendarUpdatedDate];
-//    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
     [SSUMoonlightCommunicator getJSONFromPath:@"calendar" sinceDate:nil completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Calendar: %@", error);
@@ -75,7 +74,7 @@
         }
         else {
             NSString * date = [self.dateFormatter stringFromDate:[NSDate date]];
-            [[NSUserDefaults standardUserDefaults] setObject:date forKey:SSUUserDefaultsCalendarUpdatedDate];
+            [[SSUConfiguration sharedInstance] setObject:date forKey:SSUUserDefaultsCalendarUpdatedDate];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
                 if (completion) {

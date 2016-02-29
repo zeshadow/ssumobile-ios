@@ -7,7 +7,7 @@
 //
 
 #import "SSUCoreDataModuleBase.h"
-#import "SSUNewsConstants.h"
+#import "SSUResourcesConstants.h"
 
 @interface SSUResourcesModule : SSUCoreDataModuleBase <SSUModuleUI>
 
