@@ -7,6 +7,7 @@
         "SSURadioModule",
         "SSUMapModule",
         "SSUResourcesModule",
+        "SSUEmailModule",
     ],
     
     "edu.sonoma.radio.stream.enabled" : false,
