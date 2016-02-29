@@ -64,9 +64,9 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Calendar NEW");
-    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsCalendarUpdatedDate];
-    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
-    [SSUMoonlightCommunicator getJSONFromPath:@"calendar" sinceDate:date completion:^(id json, NSError *error) {
+//    NSString * lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:SSUUserDefaultsCalendarUpdatedDate];
+//    NSDate * date = (lastUpdate != nil) ? [self.dateFormatter dateFromString:lastUpdate] : nil;
+    [SSUMoonlightCommunicator getJSONFromPath:@"calendar" sinceDate:nil completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Calendar: %@", error);
             if (completion) {

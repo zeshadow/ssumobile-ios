@@ -46,17 +46,28 @@
     dateFormatter.locale = [NSLocale currentLocale];
     dateFormatter.timeZone = [NSTimeZone systemTimeZone];
     
+    // Calendar is no longer date delta-ed - instead, all events which have a start date
+    // at most one month in the past and up until the indefinite future are sent.
+    if (events.count > 0) {
+        NSArray * existingEvents = [SSUMoonlightBuilder allObjectsWithEntityName:SSUCalendarEntityEvent
+                                                                         context:self.context];
+        SSULogDebug(@"Deleting %lu old events", (unsigned long)existingEvents.count);
+        for (SSUEvent * event in existingEvents) {
+            [event.managedObjectContext deleteObject:event];
+        }
+    }
+    
     for (NSDictionary * eventData in events) {
         SSUMoonlightDataMode mode = [self modeFromJSONData:eventData];
         NSNumber * eventId = @([eventData[SSUCalendarEventKeyID] integerValue]);
         SSUEvent * event = [SSUCalendarBuilder eventWithID:eventId inContext:self.context];
-        if (event == nil) {
-            continue;
-        }
-        if (mode == SSUMoonlightDataModeDeleted) {
-            [self.context deleteObject:event];
-            continue;
-        }
+//        if (event == nil) {
+//            continue;
+//        }
+//        if (mode == SSUMoonlightDataModeDeleted) {
+//            [self.context deleteObject:event];
+//            continue;
+//        }
         
         event.title = eventData[SSUCalendarEventKeyTitle];
         event.startDate = [dateFormatter dateFromString:eventData[SSUCalendarEventKeyStart]];
