@@ -23,3 +23,7 @@ NSURL * SSUDocumentsDirectory() {
 NSURL * SSUCachesDirectory() {
     return URLForDirectory(NSCachesDirectory);
 }
+
+NSURL * SSUApplicationSupportDirectory() {
+    return URLForDirectory(NSApplicationSupportDirectory);
+}

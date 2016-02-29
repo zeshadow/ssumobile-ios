@@ -44,7 +44,7 @@
 - (NSPersistentStoreCoordinator *) persistentStoreCoordinatorWithName:(NSString *)storeName
                                                                 model:(NSManagedObjectModel *)model {
     NSString * fileName = [NSString stringWithFormat:@"%@.sqlite", storeName];
-    NSURL * directory = SSUCachesDirectory();
+    NSURL * directory = SSUApplicationSupportDirectory();
     NSURL *storeURL = [directory URLByAppendingPathComponent:fileName];
     NSError *error = nil;
     

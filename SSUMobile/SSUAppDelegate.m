@@ -202,7 +202,7 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
 - (void) clearLocalDatabases {
     NSString * extensionToDelete = @".sqlite";
     [self deleteFilesInDiretory:SSUDocumentsDirectory() matchingExtension:extensionToDelete];
-    [self deleteFilesInDiretory:SSUCachesDirectory() matchingExtension:extensionToDelete];
+    [self deleteFilesInDiretory:SSUApplicationSupportDirectory() matchingExtension:extensionToDelete];
 }
 
 - (void) deleteFilesInDiretory:(NSURL *)directory matchingExtension:(NSString *)extension {

@@ -20,6 +20,8 @@ extern NSURL * SSUURLForDirectory(NSSearchPathDirectory directory);
 extern NSURL * SSUCachesDirectory();
 /// The URL of the application's documents directory, where user files should be stored
 extern NSURL * SSUDocumentsDirectory();
+/// The URL for app-created files which are needed to function properly but should be hidden from the user
+extern NSURL * SSUApplicationSupportDirectory();
 
 /** Constants */
 extern NSString * const kSSUErrorDomain;
