@@ -619,6 +619,7 @@ const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;
     if (_loadedObject) {
         [self setBuildingPerimeter:_loadedObject highlighted:YES];
         [_mapView selectAnnotation:_loadedObject animated:YES];
+        _loadedObject = nil;
     }
 }
 
