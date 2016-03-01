@@ -10,3 +10,4 @@
 
 NSString * SSURadioStreamURLKey = @"edu.sonoma.radio.stream.url";
 NSString * SSURadioStreamEnabledKey = @"edu.sonoma.radio.stream.enabled";
+NSString * SSURadioStreamDisabledMessageKey = @"edu.sonoma.radio.stream.disabled.message";

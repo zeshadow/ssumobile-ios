@@ -8,3 +8,4 @@
 
 extern NSString * SSURadioStreamURLKey;
 extern NSString * SSURadioStreamEnabledKey;
+extern NSString * SSURadioStreamDisabledMessageKey;

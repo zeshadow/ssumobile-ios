@@ -49,8 +49,9 @@
          mobile play. Unfortunately there is nothing we can do about this.
          So we will inform the user of this and go back
          */
+        NSString * message = [[SSUConfiguration sharedInstance] stringForKey:SSURadioStreamDisabledMessageKey];
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"KSUN Currently Unavailable on Mobile"
-                                                         message:@"KSUN Radio has switched to a streaming service which does not support mobile play, as it requires Adobe Flash. SSUMobile has no control over this. If you are interested in getting this functionality back, please contact KSUN Radio with your concerns."
+                                                         message:message
                                                         delegate:nil
                                                cancelButtonTitle:@"Done"
                                                otherButtonTitles:nil];
