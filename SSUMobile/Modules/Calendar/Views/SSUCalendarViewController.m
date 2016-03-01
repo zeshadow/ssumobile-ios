@@ -13,6 +13,7 @@
 #import "SSUCollectionViewCellSeparatorView.h"
 #import "SSUSelectionController.h"
 #import "SSUCalendarModule.h"
+#import "SSUConfiguration.h"
 
 #import <Masonry/Masonry.h>
 
@@ -89,9 +90,13 @@ static CGFloat CELL_ROW_HEIGHT = 50;
         self.selectedDate = [NSDate date];
     }
     
-    [[SSUCalendarModule sharedInstance] updateData:^{
-        [self loadEvents];
-    }];
+    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsCalendarUpdatedDate] timeIntervalSinceNow];
+    const NSTimeInterval updateInterval = -1 * 60 * 5;
+    if (lastUpdate <= updateInterval) {
+        [[SSUCalendarModule sharedInstance] updateData:^{
+            [self loadEvents];
+        }];
+    }
 }
 
 - (void) applyStyles {
