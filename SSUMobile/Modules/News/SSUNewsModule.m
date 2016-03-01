@@ -65,7 +65,7 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update News NEW");
-    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsNewsUpdatedDate];
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUNewsUpdatedDateKey];
     [SSUMoonlightCommunicator getJSONFromPath:@"news" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update News: %@", error);
@@ -74,7 +74,7 @@
             }
         }
         else {
-            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsNewsUpdatedDate];
+            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUNewsUpdatedDateKey];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
                 if (completion) {

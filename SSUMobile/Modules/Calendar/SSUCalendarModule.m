@@ -73,7 +73,7 @@
             }
         }
         else {
-            [[SSUConfiguration sharedInstance] setObject:[NSDate date] forKey:SSUUserDefaultsCalendarUpdatedDate];
+            [[SSUConfiguration sharedInstance] setObject:[NSDate date] forKey:SSUCalendarUpdatedDateKey];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
                 if (completion) {

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString* const SSUUserDefaultsResourcesUpdatedDate;
+extern NSString* const SSUResourcesUpdatedDateKey;
 
 extern NSString * SSUResourcesEntityResource;
 extern NSString * SSUResourcesEntitySection;

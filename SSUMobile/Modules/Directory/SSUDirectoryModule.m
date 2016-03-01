@@ -84,7 +84,7 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Directory NEW");
-    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsDirectoryUpdatedDate];
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryUpdatedDateKey];
     [SSUMoonlightCommunicator getJSONFromPath:@"directory" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory: %@", error);
@@ -93,7 +93,7 @@
             }
         }
         else {
-            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsDirectoryUpdatedDate];
+            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUDirectoryUpdatedDateKey];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
                 if (completion) {

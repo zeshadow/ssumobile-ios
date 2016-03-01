@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-extern NSString* const SSUUserDefaultsNewsUpdatedDate;
+extern NSString* const SSUNewsUpdatedDateKey;
 
 extern NSString* const SSUNewsEntityArticle;
 

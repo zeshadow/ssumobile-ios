@@ -41,7 +41,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsNewsUpdatedDate] timeIntervalSinceNow];
+    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] dateForKey:SSUNewsUpdatedDateKey] timeIntervalSinceNow];
     const NSTimeInterval timeInterval = -1 * 60 * 5;
     if (lastUpdate <= timeInterval) {
         [self refresh];

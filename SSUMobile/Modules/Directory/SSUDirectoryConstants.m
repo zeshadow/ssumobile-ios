@@ -8,7 +8,7 @@
 
 #import "SSUDirectoryConstants.h"
 
-NSString* const SSUUserDefaultsDirectoryUpdatedDate = @"DirectoryUpdatedDate";
+NSString* const SSUDirectoryUpdatedDateKey = @"DirectoryUpdatedDate";
 
 NSString* const SSUDirectoryStoryboardiPhone = @"Directory_iPhone";
 NSString* const SSUDirectoryStoryboardiPad = @"Directory_iPhone"; // For now..

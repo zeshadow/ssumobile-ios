@@ -45,5 +45,6 @@
 - (void) loadDictionary:(NSDictionary *)data;
 - (void) loadFromURL:(NSURL *)url completion:(void(^)(NSError * error))completion;
 - (void) loadDefaultsFromFilePath:(NSString *)filePath;
+- (void) save;
 
 @end

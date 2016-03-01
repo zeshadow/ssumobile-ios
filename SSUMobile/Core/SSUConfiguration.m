@@ -99,6 +99,10 @@ static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
     [self.userDefaults registerDefaults:defaults];
 }
 
+- (void) save {
+    [self.userDefaults synchronize];
+}
+
 #pragma mark - Accessors
 
 - (id) objectForKey:(NSString *)key {

@@ -8,9 +8,9 @@
 
 #import "SSUOutdoorMapConstants.h"
 
-NSString* const SSUUserDefaultsPointsUpdatedDate = @"PointsUpdatedDate";
-NSString* const SSUUserDefaultsPerimetersUpdatedDate = @"PerimetersUpdatedDate";
-NSString* const SSUUserDefaultsConnectionsUpdatedDate = @"ConnectionsUpdatedDate";
+NSString* const SSUMapPointsUpdatedDateKey = @"PointsUpdatedDate";
+NSString* const SSUMapPerimetersUpdatedDateKey = @"PerimetersUpdatedDate";
+NSString* const SSUMapConnectionsUpdatedDateKey = @"ConnectionsUpdatedDate";
 
 NSString* const SSUOutdoorMapEntityMapPoint = @"SSUMapPoint";
 NSString* const SSUOutdoorMapEntityPolygon = @"SSUMapPolygon";

@@ -10,9 +10,9 @@
 
 #define CLCOORDINATES_EQUAL( a, b ) (fabs(a.latitude - b.latitude) <= 0.000000000001 && fabs(a.longitude - b.longitude) <= 0.000000000001)
 
-extern NSString* const SSUUserDefaultsPointsUpdatedDate;
-extern NSString* const SSUUserDefaultsPerimetersUpdatedDate;
-extern NSString* const SSUUserDefaultsConnectionsUpdatedDate;
+extern NSString* const SSUMapPointsUpdatedDateKey;
+extern NSString* const SSUMapPerimetersUpdatedDateKey;
+extern NSString* const SSUMapConnectionsUpdatedDateKey;
 
 //extern NSString* const SSUOutdoorMapEntity<##>;
 extern NSString* const SSUOutdoorMapEntityMapPoint;

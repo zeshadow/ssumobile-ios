@@ -8,7 +8,7 @@
 
 #import "SSUNewsConstants.h"
 
-NSString* const SSUUserDefaultsNewsUpdatedDate = @"NewsUpdatedDate";
+NSString* const SSUNewsUpdatedDateKey = @"NewsUpdatedDate";
 
 NSString* const SSUNewsEntityArticle = @"SSUArticle";
 

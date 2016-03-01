@@ -7,6 +7,7 @@
 //
 
 #import "SSULDAPCredentials.h"
+#import "SSUConfiguration.h"
 #import <SimpleKeychain/SimpleKeychain.h>
 
 static NSString * kUsernameKey = @"SSUEmailUsername";
@@ -60,19 +61,19 @@ static SSULDAPCredentials * sharedInstance;
 }
 
 - (BOOL) rememberLogin {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kRemeberLoginKey];
+    return [[SSUConfiguration sharedInstance] boolForKey:kRemeberLoginKey];
 }
 
 - (BOOL) hasCredentials {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kHasCredentialsKey];
+    return [[SSUConfiguration sharedInstance] boolForKey:kHasCredentialsKey];
 }
 
 - (void) setRememberLogin:(BOOL)rememberLogin {
-    [[NSUserDefaults standardUserDefaults] setBool:rememberLogin forKey:kRemeberLoginKey];
+    [[SSUConfiguration sharedInstance] setBool:rememberLogin forKey:kRemeberLoginKey];
 }
 
 - (void) setHasCredentials:(BOOL)hasCredentials {
-    [[NSUserDefaults standardUserDefaults] setBool:hasCredentials forKey:kHasCredentialsKey];
+    [[SSUConfiguration sharedInstance] setBool:hasCredentials forKey:kHasCredentialsKey];
 }
 
 - (void) clearCredentials {

@@ -8,6 +8,7 @@
 
 #import "SSUPerson+properties.h"
 #import "SSUSettingsConstants.h"
+#import "SSUConfiguration.h"
 
 @implementation SSUPerson (properties)
 
@@ -19,7 +20,7 @@
 
 - (void) updateDisplayName {
     NSString* displayName = nil;
-    switch ([[NSUserDefaults standardUserDefaults] boolForKey:SSUDirectoryDisplayOrderKey]) {
+    switch ([[SSUConfiguration sharedInstance] boolForKey:SSUDirectoryDisplayOrderKey]) {
         case kSSUFirstLast:
             displayName = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
             break;
@@ -32,7 +33,7 @@
 
 - (void) updateTerm {
     NSString* term = nil;
-    switch ([[NSUserDefaults standardUserDefaults] boolForKey:SSUDirectorySortOrderKey]) {
+    switch ([[SSUConfiguration sharedInstance] boolForKey:SSUDirectorySortOrderKey]) {
         case kSSUFirstLast:
             term = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
             break;

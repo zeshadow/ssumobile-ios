@@ -65,7 +65,7 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Resources NEW");
-    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsResourcesUpdatedDate];
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUResourcesUpdatedDateKey];
     [SSUMoonlightCommunicator getJSONFromPath:@"resources.json" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Resources: %@", error);
@@ -75,7 +75,7 @@
         }
         else {
             [self.backgroundContext performBlock:^{
-                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsResourcesUpdatedDate];
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUResourcesUpdatedDateKey];
                 [self buildJSON:json];
                 if (completion) {
                     completion();

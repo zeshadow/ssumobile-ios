@@ -90,7 +90,7 @@ static CGFloat CELL_ROW_HEIGHT = 50;
         self.selectedDate = [NSDate date];
     }
     
-    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsCalendarUpdatedDate] timeIntervalSinceNow];
+    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] dateForKey:SSUCalendarUpdatedDateKey] timeIntervalSinceNow];
     const NSTimeInterval updateInterval = -1 * 60 * 5;
     if (lastUpdate <= updateInterval) {
         [[SSUCalendarModule sharedInstance] updateData:^{

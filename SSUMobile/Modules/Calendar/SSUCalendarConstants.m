@@ -8,7 +8,7 @@
 
 #import "SSUCalendarConstants.h"
 
-NSString* const SSUUserDefaultsCalendarUpdatedDate = @"CalendarUpdatedDate";
+NSString* const SSUCalendarUpdatedDateKey = @"CalendarUpdatedDate";
 
 NSString * const SSUCalendarEntityEvent = @"SSUEvent";
 

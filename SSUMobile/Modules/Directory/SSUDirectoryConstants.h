@@ -14,7 +14,7 @@ typedef enum SSUDirectoryCategoryType {
     kSSUDirectoryCategoryAll
 } SSUDirectoryCategoryType;
 
-extern NSString* const SSUUserDefaultsDirectoryUpdatedDate;
+extern NSString* const SSUDirectoryUpdatedDateKey;
 
 extern NSString* const SSUDirectoryCategoryPeople;
 extern NSString* const SSUDirectoryCategoryBuildings;
