@@ -114,8 +114,6 @@
     SSULogDebug(@"Started People: %lu", (unsigned long)people.count);
     NSDate* start = [NSDate date];
     
-    [self updatePersonProperties];
-    
     for (NSDictionary* personData in people) {
         SSUMoonlightDataMode mode = [self modeFromJSONData:personData];
         
@@ -147,6 +145,8 @@
         person.department = [self departmentWithID:departmentID];
     }
     
+    [self updatePersonProperties];
+    
     SSULogDebug(@"Finished People: %f", [[NSDate date] timeIntervalSinceDate:start]);
 }
 
@@ -174,8 +174,6 @@
 - (void) buildDepartments:(NSArray*)departments {
     SSULogDebug(@"Started Departments: %lu", (unsigned long)departments.count);
     NSDate* start = [NSDate date];
-    
-    [self updateDepartmentProperties];
 
     for (NSDictionary* departmentData in departments) {
         SSUDepartment* department = [SSUDirectoryBuilder departmentWithID:departmentData[SSUMoonlightManagerKeyID] inContext:self.context];
@@ -210,6 +208,8 @@
         NSString * schoolID = SSUMoonlightBuilderStringify(departmentData[SSUDirectoryDepartmentKeySchoolID]);
         department.school = [self schoolWithID:@(schoolID.intValue)];
     }
+    
+    [self updateDepartmentProperties];
     
     SSULogDebug(@"Finished Department: %f", [[NSDate date] timeIntervalSinceDate:start]);
 }
