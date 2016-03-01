@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		070A3A681BAA960100B0E67C /* SSUDebugModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A671BAA960100B0E67C /* SSUDebugModule.m */; };
-		070A3A6A1BAA969100B0E67C /* Debug.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070A3A691BAA969100B0E67C /* Debug.xcassets */; };
 		070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
 		07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07155A2F18BE06B300226502 /* SSUSchoolViewController.m */; };
 		071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E237719E2380B00483138 /* SSUResourcesViewController.m */; };
@@ -17,6 +15,164 @@
 		071E23A119E25B6300483138 /* SSUEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E23A019E25B6300483138 /* SSUEvent.m */; };
 		071E23A619E284F400483138 /* licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 071E23A419E284F400483138 /* licenses.txt */; };
 		071FE0DC1BE0836800CC3DCD /* SSULogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 071FE0DB1BE0836800CC3DCD /* SSULogging.m */; };
+		0730A6551C85515200FC9370 /* SSUMapBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F1861B4BA404003BD52C /* SSUMapBuilder.m */; };
+		0730A6561C85515200FC9370 /* SSUResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E237719E2380B00483138 /* SSUResourcesViewController.m */; };
+		0730A6571C85515200FC9370 /* SSULDAPCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A4E61A87168D004DC819 /* SSULDAPCredentials.m */; };
+		0730A6581C85515200FC9370 /* SSUPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF531B6F350C00364B36 /* SSUPersonTableViewCell.m */; };
+		0730A6591C85515200FC9370 /* SSUCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */; };
+		0730A65A1C85515200FC9370 /* SSURadioModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B721B9F2D1100FFB2FE /* SSURadioModule.m */; };
+		0730A65B1C85515200FC9370 /* SSUClassSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */; };
+		0730A65C1C85515200FC9370 /* SSUDirectoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995B2616B127A400168521 /* SSUDirectoryBuilder.m */; };
+		0730A65D1C85515200FC9370 /* SSUEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E23A019E25B6300483138 /* SSUEvent.m */; };
+		0730A65E1C85515200FC9370 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AED16B1274200168521 /* main.m */; };
+		0730A65F1C85515200FC9370 /* SSUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AF116B1274200168521 /* SSUAppDelegate.m */; };
+		0730A6601C85515200FC9370 /* SSUEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A4E31A87159B004DC819 /* SSUEmailViewController.m */; };
+		0730A6611C85515200FC9370 /* SSUAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F84D8319F589A30046D148 /* SSUAboutViewController.m */; };
+		0730A6621C85515200FC9370 /* SSUResourcesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3AB1A1D97570088193E /* SSUResourcesBuilder.m */; };
+		0730A6631C85515200FC9370 /* SSUResourcesEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BA1A1D988C0088193E /* SSUResourcesEntry.m */; };
+		0730A6641C85515200FC9370 /* SSUMoonlightCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995B2D16B127A400168521 /* SSUMoonlightCommunicator.m */; };
+		0730A6651C85515200FC9370 /* SSUCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6C1B9EF63000FFB2FE /* SSUCalendarModule.m */; };
+		0730A6661C85515200FC9370 /* SSUMapPopoverContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0774756F1A6CA5ED0094EB15 /* SSUMapPopoverContentController.m */; };
+		0730A6671C85515200FC9370 /* SSUPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40035A016B9C6BC00B27F93 /* SSUPersonViewController.m */; };
+		0730A6681C85515200FC9370 /* NSString+html.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B98B401C687D3F00973AD7 /* NSString+html.m */; };
+		0730A6691C85515200FC9370 /* SSUDebugCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */; };
+		0730A66A1C85515200FC9370 /* SSUPersonContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40035AE16B9DFAF00B27F93 /* SSUPersonContainerViewController.m */; };
+		0730A66B1C85515200FC9370 /* SSUEmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */; };
+		0730A66C1C85515200FC9370 /* SSUCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FD09131BA09A56005C38DD /* SSUCommunicator.m */; };
+		0730A66D1C85515200FC9370 /* SSUFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */; };
+		0730A66E1C85515200FC9370 /* SSUSchool.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36018E2D52600B98565 /* SSUSchool.m */; };
+		0730A66F1C85515200FC9370 /* SSUDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE5C16B9F19600B919F0 /* SSUDepartmentViewController.m */; };
+		0730A6701C85515200FC9370 /* SSUCalendarEventDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0780FFEC19CF950A00FD1E2A /* SSUCalendarEventDetail.m */; };
+		0730A6711C85515200FC9370 /* SSUDirectoryConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */; };
+		0730A6721C85515200FC9370 /* SSUDirectoryModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */; };
+		0730A6731C85515200FC9370 /* SSUSegmentedTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D090DF1BCB8B560022B364 /* SSUSegmentedTableHeaderView.m */; };
+		0730A6741C85515200FC9370 /* SSUBuildingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F530C1B707DA700F97BCA /* SSUBuildingTableViewCell.m */; };
+		0730A6751C85515200FC9370 /* SSUModuleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B661B9EA83C00FFB2FE /* SSUModuleBase.m */; };
+		0730A6761C85515200FC9370 /* SSUDepartmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF561B6F375000364B36 /* SSUDepartmentTableViewCell.m */; };
+		0730A6771C85515200FC9370 /* SSUArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08DD52190F1E0B00141224 /* SSUArticle.m */; };
+		0730A6781C85515200FC9370 /* SSUNewsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */; };
+		0730A6791C85515200FC9370 /* SSUBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE6616BA241900B919F0 /* SSUBuildingViewController.m */; };
+		0730A67A1C85515200FC9370 /* SSUNewsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */; };
+		0730A67B1C85515200FC9370 /* SSUMoonlightBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE8016BA344C00B919F0 /* SSUMoonlightBuilder.m */; };
+		0730A67C1C85515200FC9370 /* SSUCalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0783A2131A1039760004982F /* SSUCalendarEventCell.m */; };
+		0730A67D1C85515200FC9370 /* SSUSchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F530F1B70807B00F97BCA /* SSUSchoolTableViewCell.m */; };
+		0730A67E1C85515200FC9370 /* SSUResourcesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B751B9F2DB100FFB2FE /* SSUResourcesModule.m */; };
+		0730A67F1C85515200FC9370 /* Directory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 074D13581BA703B20002899F /* Directory.xcdatamodeld */; };
+		0730A6801C85515200FC9370 /* SSUHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0768952F198A165600C233B3 /* SSUHomeViewController.m */; };
+		0730A6811C85515200FC9370 /* SSUNewsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */; };
+		0730A6821C85515200FC9370 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF74316BB8C5C00BE95E3 /* News.xcdatamodeld */; };
+		0730A6831C85515200FC9370 /* SSUCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75016BB903D00BE95E3 /* SSUCalendarConstants.m */; };
+		0730A6841C85515200FC9370 /* SSUCalendarBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75316BB90A600BE95E3 /* SSUCalendarBuilder.m */; };
+		0730A6851C85515200FC9370 /* SSURadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE1019C6C5AF0016349C /* SSURadioViewController.m */; };
+		0730A6861C85515200FC9370 /* SSUConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ED578B1BA9477B00B6ECDF /* SSUConfiguration.m */; };
+		0730A6871C85515200FC9370 /* SSUDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75616BB914300BE95E3 /* SSUDetailTableViewController.m */; };
+		0730A6881C85515200FC9370 /* SSURadioConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE0D19C6C5120016349C /* SSURadioConstants.m */; };
+		0730A6891C85515200FC9370 /* SSUNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */; };
+		0730A68A1C85515200FC9370 /* SSUDepartment+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */; };
+		0730A68B1C85515200FC9370 /* SSUNewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 78708BDF16C48B2000226EA9 /* SSUNewsObject.m */; };
+		0730A68C1C85515200FC9370 /* SSUDirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A8E14F16C74BDE00898596 /* SSUDirectoryViewController.m */; };
+		0730A68D1C85515200FC9370 /* SSUEmailConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */; };
+		0730A68E1C85515200FC9370 /* SSUSettingsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */; };
+		0730A68F1C85515200FC9370 /* SSUAppPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787AD41B16CDBD53001BB4A0 /* SSUAppPickerViewController.m */; };
+		0730A6901C85515200FC9370 /* SSUBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36318E2D52600B98565 /* SSUBuilding.m */; };
+		0730A6911C85515200FC9370 /* SSUResourcesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E239D19E241BD00483138 /* SSUResourcesCell.m */; };
+		0730A6921C85515200FC9370 /* SSUOutdoorMapSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784315F116D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m */; };
+		0730A6931C85515200FC9370 /* SSULogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 071FE0DB1BE0836800CC3DCD /* SSULogging.m */; };
+		0730A6941C85515200FC9370 /* SSUOutdoorBuildingOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7843160B16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m */; };
+		0730A6951C85515200FC9370 /* SSUPerson+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7847DF5F16E18164001B3CB7 /* SSUPerson+properties.m */; };
+		0730A6961C85515200FC9370 /* SSUDirectoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36618E2D52600B98565 /* SSUDirectoryObject.m */; };
+		0730A6971C85515200FC9370 /* SSUOutdoorBoundaryToolMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9CF16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m */; };
+		0730A6981C85515200FC9370 /* SSUPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A35D18E2D52500B98565 /* SSUPerson.m */; };
+		0730A6991C85515200FC9370 /* Resources.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3A01A1D92DC0088193E /* Resources.xcdatamodeld */; };
+		0730A69A1C85515200FC9370 /* SSUEditDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F18D1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m */; };
+		0730A69B1C85515200FC9370 /* SSUOutdoorMapViewController+tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9D716E2822B001DC30F /* SSUOutdoorMapViewController+tools.m */; };
+		0730A69C1C85515200FC9370 /* SSUBuildingMapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074E853A1BCF76740016E8A6 /* SSUBuildingMapViewCell.m */; };
+		0730A69D1C85515200FC9370 /* SSUOutdoorPathConnectToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9DB16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.m */; };
+		0730A69E1C85515200FC9370 /* SSUOutdoorPathPointToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9DE16E28862001DC30F /* SSUOutdoorPathPointToolViewController.m */; };
+		0730A69F1C85515200FC9370 /* SSUDirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0762BE1E1B6C778500525E04 /* SSUDirectoryTableViewCell.m */; };
+		0730A6A01C85515200FC9370 /* SSUCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */; };
+		0730A6A11C85515200FC9370 /* SSUOutdoorMapConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DD35616E688D1009188CC /* SSUOutdoorMapConstants.m */; };
+		0730A6A21C85515200FC9370 /* SSUCoreDataModuleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B691B9EB46400FFB2FE /* SSUCoreDataModuleBase.m */; };
+		0730A6A31C85515200FC9370 /* Map.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7841E5FB16E6C589007A8F95 /* Map.xcdatamodeld */; };
+		0730A6A41C85515200FC9370 /* MapPoint+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDD316E6E0B40078FBB0 /* MapPoint+properties.m */; };
+		0730A6A51C85515200FC9370 /* SSUEmailPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */; };
+		0730A6A61C85515200FC9370 /* Location+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE616E6E4B70078FBB0 /* Location+properties.m */; };
+		0730A6A71C85515200FC9370 /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
+		0730A6A81C85515200FC9370 /* SSUMapModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */; };
+		0730A6A91C85515200FC9370 /* SSUAboutModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */; };
+		0730A6AA1C85515200FC9370 /* SSUTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CD1B9453C200014CD0 /* SSUTableHeaderView.m */; };
+		0730A6AB1C85515200FC9370 /* SSUDirectoryDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760DC321A5FD060001D04F9 /* SSUDirectoryDetailController.m */; };
+		0730A6AC1C85515200FC9370 /* BuildingPerimeter+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE916E6E5D20078FBB0 /* BuildingPerimeter+properties.m */; };
+		0730A6AD1C85515200FC9370 /* SSUEmailModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */; };
+		0730A6AE1C85515200FC9370 /* Polygon+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EE1716E6EB330078FBB0 /* Polygon+properties.m */; };
+		0730A6AF1C85515200FC9370 /* SSUMapBuildingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */; };
+		0730A6B01C85515200FC9370 /* SSUMapBuildingPerimeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C3C016E6FE4600119B63 /* SSUMapBuildingPerimeter.m */; };
+		0730A6B11C85515200FC9370 /* SSUMapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C3D216E8233700119B63 /* SSUMapLocation.m */; };
+		0730A6B21C85515200FC9370 /* SSUOutdoorDirectionToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BD865516FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m */; };
+		0730A6B31C85515200FC9370 /* SSUResourcesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BD1A1D99A30088193E /* SSUResourcesConstants.m */; };
+		0730A6B41C85515200FC9370 /* SSUResourcesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3B71A1D988B0088193E /* SSUResourcesSection.m */; };
+		0730A6B51C85515200FC9370 /* SSUOutdoorMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF4FAA1900AC130006276D /* SSUOutdoorMapViewController.m */; };
+		0730A6B61C85515200FC9370 /* Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 074D135C1BA703FB0002899F /* Calendar.xcdatamodeld */; };
+		0730A6B71C85515200FC9370 /* SSUSharedUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC88A031900FDCE00E6863F /* SSUSharedUtilities.m */; };
+		0730A6B81C85515200FC9370 /* SSUWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */; };
+		0730A6B91C85515200FC9370 /* SSUMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B51717A0AA00D8768C /* SSUMapPoint.m */; };
+		0730A6BA1C85515200FC9370 /* SSUMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B81718ADCD00D8768C /* SSUMapPolygon.m */; };
+		0730A6BB1C85515200FC9370 /* SSUPointsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190BC171B3D0600D8768C /* SSUPointsBuilder.m */; };
+		0730A6BC1C85515200FC9370 /* SSUDirectoryToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F18A1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m */; };
+		0730A6BD1C85515200FC9370 /* SSUSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F1921B4F83A2003BD52C /* SSUSelectionController.m */; };
+		0730A6BE1C85515200FC9370 /* SSUConnectionsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190C5171B3F9700D8768C /* SSUConnectionsBuilder.m */; };
+		0730A6BF1C85515200FC9370 /* SSUBuildingPerimetersBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190C8171B3FBE00D8768C /* SSUBuildingPerimetersBuilder.m */; };
+		0730A6C01C85515200FC9370 /* SSUSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07155A2F18BE06B300226502 /* SSUSchoolViewController.m */; };
+		0730A6C11C85515200FC9370 /* SSURadioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0780018719D00CA100FD1E2A /* SSURadioStreamer.m */; };
+		0730A6C21C85515200FC9370 /* SSUBoundaryBuildingSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190E0171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m */; };
+		0730A6C31C85515200FC9370 /* SSUCollectionViewCellSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C13CE31B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m */; };
+		0730A6C41C85515200FC9370 /* SSUNewsArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */; };
+		0730A6C51C85515200FC9370 /* SSUDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36918E2D52600B98565 /* SSUDepartment.m */; };
+		0730A6C61C85515200FC9370 /* SSUDebugModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A671BAA960100B0E67C /* SSUDebugModule.m */; };
+		0730A6C81C85515200FC9370 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AFDFD619D917550027D0F1 /* EventKitUI.framework */; };
+		0730A6C91C85515200FC9370 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0780016E19CFE46800FD1E2A /* AVFoundation.framework */; };
+		0730A6CA1C85515200FC9370 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0780016C19CFE45D00FD1E2A /* MediaPlayer.framework */; };
+		0730A6CB1C85515200FC9370 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */; };
+		0730A6CC1C85515200FC9370 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077B458718F54AF000899344 /* AddressBookUI.framework */; };
+		0730A6CD1C85515200FC9370 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077B458518F54AEA00899344 /* AddressBook.framework */; };
+		0730A6CE1C85515200FC9370 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784315FA16D1E44300B8552F /* CoreLocation.framework */; };
+		0730A6CF1C85515200FC9370 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784315F816D1E06400B8552F /* MapKit.framework */; };
+		0730A6D01C85515200FC9370 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995ADF16B1274200168521 /* UIKit.framework */; };
+		0730A6D11C85515200FC9370 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE116B1274200168521 /* Foundation.framework */; };
+		0730A6D21C85515200FC9370 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE316B1274200168521 /* CoreGraphics.framework */; };
+		0730A6D31C85515200FC9370 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE516B1274200168521 /* CoreData.framework */; };
+		0730A6D41C85515200FC9370 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7498147B54ADC312BAD34773 /* libPods.a */; };
+		0730A6D61C85515200FC9370 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F84D8019F5885B0046D148 /* About.storyboard */; };
+		0730A6D71C85515200FC9370 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4995AEA16B1274200168521 /* InfoPlist.strings */; };
+		0730A6D81C85515200FC9370 /* Calendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09021BA082AE005C38DD /* Calendar.xcassets */; };
+		0730A6D91C85515200FC9370 /* licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 071E23A419E284F400483138 /* licenses.txt */; };
+		0730A6DA1C85515200FC9370 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3C031BBBB92C0075ADE8 /* Map.sqlite */; };
+		0730A6DB1C85515200FC9370 /* Email.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C997CF1A87119900534A1C /* Email.storyboard */; };
+		0730A6DC1C85515200FC9370 /* defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = 07AB76D21C786E43006352C5 /* defaults.json */; };
+		0730A6DD1C85515200FC9370 /* Radio_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C2FE1419C6C5D00016349C /* Radio_iPhone.storyboard */; };
+		0730A6DE1C85515200FC9370 /* Calendar.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3C011BBBB91E0075ADE8 /* Calendar.sqlite */; };
+		0730A6DF1C85515200FC9370 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078000F719CFAA0D00FD1E2A /* Images.xcassets */; };
+		0730A6E01C85515200FC9370 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4995AF916B1274200168521 /* MainStoryboard_iPhone.storyboard */; };
+		0730A6E11C85515200FC9370 /* Map_Building.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */; };
+		0730A6E21C85515200FC9370 /* AppPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09041BA0833E005C38DD /* AppPicker.xcassets */; };
+		0730A6E31C85515200FC9370 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BFB3051B44E840002BF411 /* Debug.storyboard */; };
+		0730A6E41C85515200FC9370 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */; };
+		0730A6E51C85515200FC9370 /* Directory_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */; };
+		0730A6E61C85515200FC9370 /* News_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */; };
+		0730A6E71C85515200FC9370 /* Calendar_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */; };
+		0730A6E81C85515200FC9370 /* Email.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FF1BA08132005C38DD /* Email.xcassets */; };
+		0730A6E91C85515200FC9370 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
+		0730A6EA1C85515200FC9370 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */; };
+		0730A6EB1C85515200FC9370 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090D1BA084E1005C38DD /* Resources.xcassets */; };
+		0730A6EC1C85515200FC9370 /* Map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09101BA08548005C38DD /* Map.xcassets */; };
+		0730A6ED1C85515200FC9370 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78FE792716C9D04500626462 /* Settings.bundle */; };
+		0730A6EE1C85515200FC9370 /* Map_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784315F416D1DF2800B8552F /* Map_iPhone.storyboard */; };
+		0730A6EF1C85515200FC9370 /* Directory_Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0766F18F1B4E4DCC003BD52C /* Directory_Debug.storyboard */; };
+		0730A6F01C85515200FC9370 /* Radio.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09071BA08448005C38DD /* Radio.xcassets */; };
+		0730A6F11C85515200FC9370 /* Directory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FC1BA02EBE005C38DD /* Directory.xcassets */; };
+		0730A6F21C85515200FC9370 /* News.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090A1BA084B0005C38DD /* News.xcassets */; };
+		0730A6F31C85515200FC9370 /* Debug.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070A3A691BAA969100B0E67C /* Debug.xcassets */; };
+		0730A6F41C85515200FC9370 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
 		0741C9521A871D73000B7BC6 /* SSUEmailConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */; };
 		0741C9551A8727BA000B7BC6 /* SSUEmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */; };
 		074D135A1BA703B20002899F /* Directory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 074D13581BA703B20002899F /* Directory.xcdatamodeld */; };
@@ -27,9 +183,6 @@
 		0760DC331A5FD060001D04F9 /* SSUDirectoryDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760DC321A5FD060001D04F9 /* SSUDirectoryDetailController.m */; };
 		0762BE1F1B6C778500525E04 /* SSUDirectoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0762BE1E1B6C778500525E04 /* SSUDirectoryTableViewCell.m */; };
 		0766F1871B4BA404003BD52C /* SSUMapBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F1861B4BA404003BD52C /* SSUMapBuilder.m */; };
-		0766F18B1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F18A1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m */; };
-		0766F18E1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F18D1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m */; };
-		0766F1901B4E4DCC003BD52C /* Directory_Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0766F18F1B4E4DCC003BD52C /* Directory_Debug.storyboard */; };
 		0766F1931B4F83A2003BD52C /* SSUSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0766F1921B4F83A2003BD52C /* SSUSelectionController.m */; };
 		07689530198A165600C233B3 /* SSUHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0768952F198A165600C233B3 /* SSUHomeViewController.m */; };
 		076CBF541B6F350C00364B36 /* SSUPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF531B6F350C00364B36 /* SSUPersonTableViewCell.m */; };
@@ -66,8 +219,6 @@
 		07B78B7C1B9F320300FFB2FE /* SSUEmailModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */; };
 		07B78B7F1B9F326900FFB2FE /* SSUAboutModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */; };
 		07B98B411C687D3F00973AD7 /* NSString+html.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B98B401C687D3F00973AD7 /* NSString+html.m */; };
-		07B98B441C6880BD00973AD7 /* SSUDebugCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */; };
-		07BFB3061B44E840002BF411 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BFB3051B44E840002BF411 /* Debug.storyboard */; };
 		07C13CE41B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C13CE31B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m */; };
 		07C2FE0E19C6C5120016349C /* SSURadioConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE0D19C6C5120016349C /* SSURadioConstants.m */; };
 		07C2FE1219C6C5AF0016349C /* SSURadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE1019C6C5AF0016349C /* SSURadioViewController.m */; };
@@ -109,29 +260,21 @@
 		784315F516D1DF2900B8552F /* Map_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784315F416D1DF2800B8552F /* Map_iPhone.storyboard */; };
 		784315F916D1E06400B8552F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784315F816D1E06400B8552F /* MapKit.framework */; };
 		784315FB16D1E44300B8552F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784315FA16D1E44300B8552F /* CoreLocation.framework */; };
-		7843160C16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7843160B16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m */; };
 		7847DF6016E18165001B3CB7 /* SSUPerson+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7847DF5F16E18164001B3CB7 /* SSUPerson+properties.m */; };
 		785DD35716E688D1009188CC /* SSUOutdoorMapConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DD35616E688D1009188CC /* SSUOutdoorMapConstants.m */; };
 		78708BE016C48B2000226EA9 /* SSUNewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 78708BDF16C48B2000226EA9 /* SSUNewsObject.m */; };
-		787AD41C16CDBD53001BB4A0 /* SSUAppPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787AD41B16CDBD53001BB4A0 /* SSUAppPickerViewController.m */; };
-		7881D9D016E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9CF16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m */; };
-		7881D9D816E2822B001DC30F /* SSUOutdoorMapViewController+tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9D716E2822B001DC30F /* SSUOutdoorMapViewController+tools.m */; };
-		7881D9DC16E28858001DC30F /* SSUOutdoorPathConnectToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9DB16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.m */; };
-		7881D9DF16E28863001DC30F /* SSUOutdoorPathPointToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881D9DE16E28862001DC30F /* SSUOutdoorPathPointToolViewController.m */; };
 		7893FFE417260B8A009251F4 /* SSUNewsArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */; };
 		78A190B61717A0AA00D8768C /* SSUMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B51717A0AA00D8768C /* SSUMapPoint.m */; };
 		78A190B91718ADCD00D8768C /* SSUMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B81718ADCD00D8768C /* SSUMapPolygon.m */; };
 		78A190BD171B3D0600D8768C /* SSUPointsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190BC171B3D0600D8768C /* SSUPointsBuilder.m */; };
 		78A190C6171B3F9900D8768C /* SSUConnectionsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190C5171B3F9700D8768C /* SSUConnectionsBuilder.m */; };
 		78A190C9171B3FBF00D8768C /* SSUBuildingPerimetersBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190C8171B3FBE00D8768C /* SSUBuildingPerimetersBuilder.m */; };
-		78A190E1171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190E0171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m */; };
 		78A5EDD416E6E0B40078FBB0 /* MapPoint+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDD316E6E0B40078FBB0 /* MapPoint+properties.m */; };
 		78A5EDE716E6E4B70078FBB0 /* Location+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE616E6E4B70078FBB0 /* Location+properties.m */; };
 		78A5EDEA16E6E5D30078FBB0 /* BuildingPerimeter+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE916E6E5D20078FBB0 /* BuildingPerimeter+properties.m */; };
 		78A5EE1816E6EB330078FBB0 /* Polygon+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EE1716E6EB330078FBB0 /* Polygon+properties.m */; };
 		78A8E15016C74BDE00898596 /* SSUDirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A8E14F16C74BDE00898596 /* SSUDirectoryViewController.m */; };
 		78AD220C171731F600FB89F0 /* SSUDirectoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995B2616B127A400168521 /* SSUDirectoryBuilder.m */; };
-		78BD865616FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BD865516FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m */; };
 		78FE792816C9D04500626462 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78FE792716C9D04500626462 /* Settings.bundle */; };
 		78FE792C16CAA30B00626462 /* SSUSettingsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */; };
 		AA08DD53190F1E0B00141224 /* SSUArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08DD52190F1E0B00141224 /* SSUArticle.m */; };
@@ -199,6 +342,8 @@
 		071E23A419E284F400483138 /* licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = licenses.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
 		071FE0DA1BE0836800CC3DCD /* SSULogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSULogging.h; sourceTree = "<group>"; };
 		071FE0DB1BE0836800CC3DCD /* SSULogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSULogging.m; sourceTree = "<group>"; };
+		0730A6FA1C85515300FC9370 /* SSUMobile Dev Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSUMobile Dev Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0730A6FC1C85531A00FC9370 /* SSUMobile-Dev-Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSUMobile-Dev-Tools-Info.plist"; sourceTree = "<group>"; };
 		0741C9501A871D73000B7BC6 /* SSUEmailConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailConstants.h; sourceTree = "<group>"; };
 		0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailConstants.m; sourceTree = "<group>"; };
 		0741C9531A8727BA000B7BC6 /* SSUEmailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailLoginViewController.h; sourceTree = "<group>"; };
@@ -470,6 +615,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0730A6C71C85515200FC9370 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0730A6C81C85515200FC9370 /* EventKitUI.framework in Frameworks */,
+				0730A6C91C85515200FC9370 /* AVFoundation.framework in Frameworks */,
+				0730A6CA1C85515200FC9370 /* MediaPlayer.framework in Frameworks */,
+				0730A6CB1C85515200FC9370 /* QuartzCore.framework in Frameworks */,
+				0730A6CC1C85515200FC9370 /* AddressBookUI.framework in Frameworks */,
+				0730A6CD1C85515200FC9370 /* AddressBook.framework in Frameworks */,
+				0730A6CE1C85515200FC9370 /* CoreLocation.framework in Frameworks */,
+				0730A6CF1C85515200FC9370 /* MapKit.framework in Frameworks */,
+				0730A6D01C85515200FC9370 /* UIKit.framework in Frameworks */,
+				0730A6D11C85515200FC9370 /* Foundation.framework in Frameworks */,
+				0730A6D21C85515200FC9370 /* CoreGraphics.framework in Frameworks */,
+				0730A6D31C85515200FC9370 /* CoreData.framework in Frameworks */,
+				0730A6D41C85515200FC9370 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4995AD816B1274200168521 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -797,11 +962,11 @@
 		784315ED16D1CFE600B8552F /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				07BFB3051B44E840002BF411 /* Debug.storyboard */,
 				070A3A661BAA960100B0E67C /* SSUDebugModule.h */,
 				070A3A671BAA960100B0E67C /* SSUDebugModule.m */,
 				07B98B421C6880BD00973AD7 /* SSUDebugCredentials.h */,
 				07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */,
-				07BFB3051B44E840002BF411 /* Debug.storyboard */,
 				787AD41A16CDBD53001BB4A0 /* SSUAppPickerViewController.h */,
 				787AD41B16CDBD53001BB4A0 /* SSUAppPickerViewController.m */,
 				070A3A6B1BAA969B00B0E67C /* Resources */,
@@ -1093,6 +1258,7 @@
 			children = (
 				C4995ADB16B1274200168521 /* SSUMobile.app */,
 				C4995B0D16B1274300168521 /* SSUMobileTests.xctest */,
+				0730A6FA1C85515300FC9370 /* SSUMobile Dev Tools.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1142,6 +1308,7 @@
 				07ADC65B19E2304C008E8075 /* Initial Data */,
 				07651AE918EC1F150098FD2C /* Images */,
 				C4995AE916B1274200168521 /* SSUMobile-Info.plist */,
+				0730A6FC1C85531A00FC9370 /* SSUMobile-Dev-Tools-Info.plist */,
 				C4995AED16B1274200168521 /* main.m */,
 				C4995AEF16B1274200168521 /* SSUMobile-Prefix.pch */,
 			);
@@ -1357,6 +1524,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0730A6521C85515200FC9370 /* SSUMobile Dev Tools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0730A6F71C85515200FC9370 /* Build configuration list for PBXNativeTarget "SSUMobile Dev Tools" */;
+			buildPhases = (
+				0730A6531C85515200FC9370 /* Check Pods Manifest.lock */,
+				0730A6541C85515200FC9370 /* Sources */,
+				0730A6C71C85515200FC9370 /* Frameworks */,
+				0730A6D51C85515200FC9370 /* Resources */,
+				0730A6F51C85515200FC9370 /* Copy Pods Resources */,
+				0730A6F61C85515200FC9370 /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SSUMobile Dev Tools";
+			productName = SSUMobile;
+			productReference = 0730A6FA1C85515300FC9370 /* SSUMobile Dev Tools.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C4995ADA16B1274200168521 /* SSUMobile */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4995B2016B1274300168521 /* Build configuration list for PBXNativeTarget "SSUMobile" */;
@@ -1407,6 +1594,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Sonoma State University Department of Computer Science";
 				TargetAttributes = {
+					0730A6521C85515200FC9370 = {
+						DevelopmentTeam = 43828X7VU8;
+					};
 					C4995ADA16B1274200168521 = {
 						DevelopmentTeam = 43828X7VU8;
 						SystemCapabilities = {
@@ -1430,12 +1620,51 @@
 			projectRoot = "";
 			targets = (
 				C4995ADA16B1274200168521 /* SSUMobile */,
+				0730A6521C85515200FC9370 /* SSUMobile Dev Tools */,
 				C4995B0C16B1274300168521 /* SSUMobileTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0730A6D51C85515200FC9370 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0730A6D61C85515200FC9370 /* About.storyboard in Resources */,
+				0730A6D71C85515200FC9370 /* InfoPlist.strings in Resources */,
+				0730A6D81C85515200FC9370 /* Calendar.xcassets in Resources */,
+				0730A6D91C85515200FC9370 /* licenses.txt in Resources */,
+				0730A6DA1C85515200FC9370 /* Map.sqlite in Resources */,
+				0730A6DB1C85515200FC9370 /* Email.storyboard in Resources */,
+				0730A6DC1C85515200FC9370 /* defaults.json in Resources */,
+				0730A6DD1C85515200FC9370 /* Radio_iPhone.storyboard in Resources */,
+				0730A6DE1C85515200FC9370 /* Calendar.sqlite in Resources */,
+				0730A6DF1C85515200FC9370 /* Images.xcassets in Resources */,
+				0730A6E01C85515200FC9370 /* MainStoryboard_iPhone.storyboard in Resources */,
+				0730A6E11C85515200FC9370 /* Map_Building.storyboard in Resources */,
+				0730A6E21C85515200FC9370 /* AppPicker.xcassets in Resources */,
+				0730A6E31C85515200FC9370 /* Debug.storyboard in Resources */,
+				0730A6E41C85515200FC9370 /* Resources.sqlite in Resources */,
+				0730A6E51C85515200FC9370 /* Directory_iPhone.storyboard in Resources */,
+				0730A6E61C85515200FC9370 /* News_iPhone.storyboard in Resources */,
+				0730A6E71C85515200FC9370 /* Calendar_iPhone.storyboard in Resources */,
+				0730A6E81C85515200FC9370 /* Email.xcassets in Resources */,
+				0730A6E91C85515200FC9370 /* Resources.storyboard in Resources */,
+				0730A6EA1C85515200FC9370 /* Directory.sqlite in Resources */,
+				0730A6EB1C85515200FC9370 /* Resources.xcassets in Resources */,
+				0730A6EC1C85515200FC9370 /* Map.xcassets in Resources */,
+				0730A6ED1C85515200FC9370 /* Settings.bundle in Resources */,
+				0730A6EE1C85515200FC9370 /* Map_iPhone.storyboard in Resources */,
+				0730A6EF1C85515200FC9370 /* Directory_Debug.storyboard in Resources */,
+				0730A6F01C85515200FC9370 /* Radio.xcassets in Resources */,
+				0730A6F11C85515200FC9370 /* Directory.xcassets in Resources */,
+				0730A6F21C85515200FC9370 /* News.xcassets in Resources */,
+				0730A6F31C85515200FC9370 /* Debug.xcassets in Resources */,
+				0730A6F41C85515200FC9370 /* SSUCalendarEventCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4995AD916B1274200168521 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1453,7 +1682,6 @@
 				C4995AFB16B1274200168521 /* MainStoryboard_iPhone.storyboard in Resources */,
 				079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */,
 				07FD09051BA0833E005C38DD /* AppPicker.xcassets in Resources */,
-				07BFB3061B44E840002BF411 /* Debug.storyboard in Resources */,
 				07CD3BFE1BBBB8E60075ADE8 /* Resources.sqlite in Resources */,
 				C46E1E5116BB55370040435C /* Directory_iPhone.storyboard in Resources */,
 				C42D1BD616BB5D19003AE10B /* News_iPhone.storyboard in Resources */,
@@ -1465,11 +1693,9 @@
 				07FD09111BA08548005C38DD /* Map.xcassets in Resources */,
 				78FE792816C9D04500626462 /* Settings.bundle in Resources */,
 				784315F516D1DF2900B8552F /* Map_iPhone.storyboard in Resources */,
-				0766F1901B4E4DCC003BD52C /* Directory_Debug.storyboard in Resources */,
 				07FD09081BA08448005C38DD /* Radio.xcassets in Resources */,
 				07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */,
 				07FD090B1BA084B0005C38DD /* News.xcassets in Resources */,
-				070A3A6A1BAA969100B0E67C /* Debug.xcassets in Resources */,
 				07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1485,6 +1711,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0730A6531C85515200FC9370 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0730A6F51C85515200FC9370 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0730A6F61C85515200FC9370 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7D39AA43D5CBAD3D304D372D /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1546,6 +1817,127 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0730A6541C85515200FC9370 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0730A6551C85515200FC9370 /* SSUMapBuilder.m in Sources */,
+				0730A6561C85515200FC9370 /* SSUResourcesViewController.m in Sources */,
+				0730A6571C85515200FC9370 /* SSULDAPCredentials.m in Sources */,
+				0730A6581C85515200FC9370 /* SSUPersonTableViewCell.m in Sources */,
+				0730A6591C85515200FC9370 /* SSUCoreDataTableViewController.m in Sources */,
+				0730A65A1C85515200FC9370 /* SSURadioModule.m in Sources */,
+				0730A65B1C85515200FC9370 /* SSUClassSearchTableViewController.m in Sources */,
+				0730A65C1C85515200FC9370 /* SSUDirectoryBuilder.m in Sources */,
+				0730A65D1C85515200FC9370 /* SSUEvent.m in Sources */,
+				0730A65E1C85515200FC9370 /* main.m in Sources */,
+				0730A65F1C85515200FC9370 /* SSUAppDelegate.m in Sources */,
+				0730A6601C85515200FC9370 /* SSUEmailViewController.m in Sources */,
+				0730A6611C85515200FC9370 /* SSUAboutViewController.m in Sources */,
+				0730A6621C85515200FC9370 /* SSUResourcesBuilder.m in Sources */,
+				0730A6631C85515200FC9370 /* SSUResourcesEntry.m in Sources */,
+				0730A6641C85515200FC9370 /* SSUMoonlightCommunicator.m in Sources */,
+				0730A6651C85515200FC9370 /* SSUCalendarModule.m in Sources */,
+				0730A6661C85515200FC9370 /* SSUMapPopoverContentController.m in Sources */,
+				0730A6671C85515200FC9370 /* SSUPersonViewController.m in Sources */,
+				0730A6681C85515200FC9370 /* NSString+html.m in Sources */,
+				0730A6691C85515200FC9370 /* SSUDebugCredentials.m in Sources */,
+				0730A66A1C85515200FC9370 /* SSUPersonContainerViewController.m in Sources */,
+				0730A66B1C85515200FC9370 /* SSUEmailLoginViewController.m in Sources */,
+				0730A66C1C85515200FC9370 /* SSUCommunicator.m in Sources */,
+				0730A66D1C85515200FC9370 /* SSUFeedbackViewController.m in Sources */,
+				0730A66E1C85515200FC9370 /* SSUSchool.m in Sources */,
+				0730A66F1C85515200FC9370 /* SSUDepartmentViewController.m in Sources */,
+				0730A6701C85515200FC9370 /* SSUCalendarEventDetail.m in Sources */,
+				0730A6711C85515200FC9370 /* SSUDirectoryConstants.m in Sources */,
+				0730A6721C85515200FC9370 /* SSUDirectoryModule.m in Sources */,
+				0730A6731C85515200FC9370 /* SSUSegmentedTableHeaderView.m in Sources */,
+				0730A6741C85515200FC9370 /* SSUBuildingTableViewCell.m in Sources */,
+				0730A6751C85515200FC9370 /* SSUModuleBase.m in Sources */,
+				0730A6761C85515200FC9370 /* SSUDepartmentTableViewCell.m in Sources */,
+				0730A6771C85515200FC9370 /* SSUArticle.m in Sources */,
+				0730A6781C85515200FC9370 /* SSUNewsModule.m in Sources */,
+				0730A6791C85515200FC9370 /* SSUBuildingViewController.m in Sources */,
+				0730A67A1C85515200FC9370 /* SSUNewsBuilder.m in Sources */,
+				0730A67B1C85515200FC9370 /* SSUMoonlightBuilder.m in Sources */,
+				0730A67C1C85515200FC9370 /* SSUCalendarEventCell.m in Sources */,
+				0730A67D1C85515200FC9370 /* SSUSchoolTableViewCell.m in Sources */,
+				0730A67E1C85515200FC9370 /* SSUResourcesModule.m in Sources */,
+				0730A67F1C85515200FC9370 /* Directory.xcdatamodeld in Sources */,
+				0730A6801C85515200FC9370 /* SSUHomeViewController.m in Sources */,
+				0730A6811C85515200FC9370 /* SSUNewsConstants.m in Sources */,
+				0730A6821C85515200FC9370 /* News.xcdatamodeld in Sources */,
+				0730A6831C85515200FC9370 /* SSUCalendarConstants.m in Sources */,
+				0730A6841C85515200FC9370 /* SSUCalendarBuilder.m in Sources */,
+				0730A6851C85515200FC9370 /* SSURadioViewController.m in Sources */,
+				0730A6861C85515200FC9370 /* SSUConfiguration.m in Sources */,
+				0730A6871C85515200FC9370 /* SSUDetailTableViewController.m in Sources */,
+				0730A6881C85515200FC9370 /* SSURadioConstants.m in Sources */,
+				0730A6891C85515200FC9370 /* SSUNewsViewController.m in Sources */,
+				0730A68A1C85515200FC9370 /* SSUDepartment+properties.m in Sources */,
+				0730A68B1C85515200FC9370 /* SSUNewsObject.m in Sources */,
+				0730A68C1C85515200FC9370 /* SSUDirectoryViewController.m in Sources */,
+				0730A68D1C85515200FC9370 /* SSUEmailConstants.m in Sources */,
+				0730A68E1C85515200FC9370 /* SSUSettingsConstants.m in Sources */,
+				0730A68F1C85515200FC9370 /* SSUAppPickerViewController.m in Sources */,
+				0730A6901C85515200FC9370 /* SSUBuilding.m in Sources */,
+				0730A6911C85515200FC9370 /* SSUResourcesCell.m in Sources */,
+				0730A6921C85515200FC9370 /* SSUOutdoorMapSuperViewController.m in Sources */,
+				0730A6931C85515200FC9370 /* SSULogging.m in Sources */,
+				0730A6941C85515200FC9370 /* SSUOutdoorBuildingOverlay.m in Sources */,
+				0730A6951C85515200FC9370 /* SSUPerson+properties.m in Sources */,
+				0730A6961C85515200FC9370 /* SSUDirectoryObject.m in Sources */,
+				0730A6971C85515200FC9370 /* SSUOutdoorBoundaryToolMapViewController.m in Sources */,
+				0730A6981C85515200FC9370 /* SSUPerson.m in Sources */,
+				0730A6991C85515200FC9370 /* Resources.xcdatamodeld in Sources */,
+				0730A69A1C85515200FC9370 /* SSUEditDepartmentViewController.m in Sources */,
+				0730A69B1C85515200FC9370 /* SSUOutdoorMapViewController+tools.m in Sources */,
+				0730A69C1C85515200FC9370 /* SSUBuildingMapViewCell.m in Sources */,
+				0730A69D1C85515200FC9370 /* SSUOutdoorPathConnectToolViewController.m in Sources */,
+				0730A69E1C85515200FC9370 /* SSUOutdoorPathPointToolViewController.m in Sources */,
+				0730A69F1C85515200FC9370 /* SSUDirectoryTableViewCell.m in Sources */,
+				0730A6A01C85515200FC9370 /* SSUCalendarViewController.m in Sources */,
+				0730A6A11C85515200FC9370 /* SSUOutdoorMapConstants.m in Sources */,
+				0730A6A21C85515200FC9370 /* SSUCoreDataModuleBase.m in Sources */,
+				0730A6A31C85515200FC9370 /* Map.xcdatamodeld in Sources */,
+				0730A6A41C85515200FC9370 /* MapPoint+properties.m in Sources */,
+				0730A6A51C85515200FC9370 /* SSUEmailPickerViewController.m in Sources */,
+				0730A6A61C85515200FC9370 /* Location+properties.m in Sources */,
+				0730A6A71C85515200FC9370 /* SSUAppPickerModuleCell.m in Sources */,
+				0730A6A81C85515200FC9370 /* SSUMapModule.m in Sources */,
+				0730A6A91C85515200FC9370 /* SSUAboutModule.m in Sources */,
+				0730A6AA1C85515200FC9370 /* SSUTableHeaderView.m in Sources */,
+				0730A6AB1C85515200FC9370 /* SSUDirectoryDetailController.m in Sources */,
+				0730A6AC1C85515200FC9370 /* BuildingPerimeter+properties.m in Sources */,
+				0730A6AD1C85515200FC9370 /* SSUEmailModule.m in Sources */,
+				0730A6AE1C85515200FC9370 /* Polygon+properties.m in Sources */,
+				0730A6AF1C85515200FC9370 /* SSUMapBuildingDetailViewController.m in Sources */,
+				0730A6B01C85515200FC9370 /* SSUMapBuildingPerimeter.m in Sources */,
+				0730A6B11C85515200FC9370 /* SSUMapLocation.m in Sources */,
+				0730A6B21C85515200FC9370 /* SSUOutdoorDirectionToolViewController.m in Sources */,
+				0730A6B31C85515200FC9370 /* SSUResourcesConstants.m in Sources */,
+				0730A6B41C85515200FC9370 /* SSUResourcesSection.m in Sources */,
+				0730A6B51C85515200FC9370 /* SSUOutdoorMapViewController.m in Sources */,
+				0730A6B61C85515200FC9370 /* Calendar.xcdatamodeld in Sources */,
+				0730A6B71C85515200FC9370 /* SSUSharedUtilities.m in Sources */,
+				0730A6B81C85515200FC9370 /* SSUWebViewController.m in Sources */,
+				0730A6B91C85515200FC9370 /* SSUMapPoint.m in Sources */,
+				0730A6BA1C85515200FC9370 /* SSUMapPolygon.m in Sources */,
+				0730A6BB1C85515200FC9370 /* SSUPointsBuilder.m in Sources */,
+				0730A6BC1C85515200FC9370 /* SSUDirectoryToolsViewController.m in Sources */,
+				0730A6BD1C85515200FC9370 /* SSUSelectionController.m in Sources */,
+				0730A6BE1C85515200FC9370 /* SSUConnectionsBuilder.m in Sources */,
+				0730A6BF1C85515200FC9370 /* SSUBuildingPerimetersBuilder.m in Sources */,
+				0730A6C01C85515200FC9370 /* SSUSchoolViewController.m in Sources */,
+				0730A6C11C85515200FC9370 /* SSURadioStreamer.m in Sources */,
+				0730A6C21C85515200FC9370 /* SSUBoundaryBuildingSelectorViewController.m in Sources */,
+				0730A6C31C85515200FC9370 /* SSUCollectionViewCellSeparatorView.m in Sources */,
+				0730A6C41C85515200FC9370 /* SSUNewsArticleTableViewCell.m in Sources */,
+				0730A6C51C85515200FC9370 /* SSUDepartment.m in Sources */,
+				0730A6C61C85515200FC9370 /* SSUDebugModule.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4995AD716B1274200168521 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1570,7 +1962,6 @@
 				077475701A6CA5ED0094EB15 /* SSUMapPopoverContentController.m in Sources */,
 				C40035A116B9C6BC00B27F93 /* SSUPersonViewController.m in Sources */,
 				07B98B411C687D3F00973AD7 /* NSString+html.m in Sources */,
-				07B98B441C6880BD00973AD7 /* SSUDebugCredentials.m in Sources */,
 				C40035AF16B9DFAF00B27F93 /* SSUPersonContainerViewController.m in Sources */,
 				0741C9551A8727BA000B7BC6 /* SSUEmailLoginViewController.m in Sources */,
 				07FD09141BA09A56005C38DD /* SSUCommunicator.m in Sources */,
@@ -1608,22 +1999,15 @@
 				78A8E15016C74BDE00898596 /* SSUDirectoryViewController.m in Sources */,
 				0741C9521A871D73000B7BC6 /* SSUEmailConstants.m in Sources */,
 				78FE792C16CAA30B00626462 /* SSUSettingsConstants.m in Sources */,
-				787AD41C16CDBD53001BB4A0 /* SSUAppPickerViewController.m in Sources */,
 				07D1A36418E2D52600B98565 /* SSUBuilding.m in Sources */,
 				071E239E19E241BD00483138 /* SSUResourcesCell.m in Sources */,
 				784315F216D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m in Sources */,
 				071FE0DC1BE0836800CC3DCD /* SSULogging.m in Sources */,
-				7843160C16D2D46B00B8552F /* SSUOutdoorBuildingOverlay.m in Sources */,
 				7847DF6016E18165001B3CB7 /* SSUPerson+properties.m in Sources */,
 				07D1A36718E2D52600B98565 /* SSUDirectoryObject.m in Sources */,
-				7881D9D016E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.m in Sources */,
 				07D1A35E18E2D52500B98565 /* SSUPerson.m in Sources */,
 				0785A3A21A1D92DC0088193E /* Resources.xcdatamodeld in Sources */,
-				0766F18E1B4E4DA8003BD52C /* SSUEditDepartmentViewController.m in Sources */,
-				7881D9D816E2822B001DC30F /* SSUOutdoorMapViewController+tools.m in Sources */,
 				074E853B1BCF76740016E8A6 /* SSUBuildingMapViewCell.m in Sources */,
-				7881D9DC16E28858001DC30F /* SSUOutdoorPathConnectToolViewController.m in Sources */,
-				7881D9DF16E28863001DC30F /* SSUOutdoorPathPointToolViewController.m in Sources */,
 				0762BE1F1B6C778500525E04 /* SSUDirectoryTableViewCell.m in Sources */,
 				07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */,
 				785DD35716E688D1009188CC /* SSUOutdoorMapConstants.m in Sources */,
@@ -1643,7 +2027,6 @@
 				07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */,
 				7801C3C116E6FE4600119B63 /* SSUMapBuildingPerimeter.m in Sources */,
 				7801C3D316E8233900119B63 /* SSUMapLocation.m in Sources */,
-				78BD865616FD5E710055A257 /* SSUOutdoorDirectionToolViewController.m in Sources */,
 				0785A3BE1A1D99A30088193E /* SSUResourcesConstants.m in Sources */,
 				0785A3B81A1D988B0088193E /* SSUResourcesSection.m in Sources */,
 				AAEF4FAB1900AC130006276D /* SSUOutdoorMapViewController.m in Sources */,
@@ -1653,17 +2036,14 @@
 				78A190B61717A0AA00D8768C /* SSUMapPoint.m in Sources */,
 				78A190B91718ADCD00D8768C /* SSUMapPolygon.m in Sources */,
 				78A190BD171B3D0600D8768C /* SSUPointsBuilder.m in Sources */,
-				0766F18B1B4E4BF1003BD52C /* SSUDirectoryToolsViewController.m in Sources */,
 				0766F1931B4F83A2003BD52C /* SSUSelectionController.m in Sources */,
 				78A190C6171B3F9900D8768C /* SSUConnectionsBuilder.m in Sources */,
 				78A190C9171B3FBF00D8768C /* SSUBuildingPerimetersBuilder.m in Sources */,
 				07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */,
 				0780018819D00CA100FD1E2A /* SSURadioStreamer.m in Sources */,
-				78A190E1171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m in Sources */,
 				07C13CE41B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m in Sources */,
 				7893FFE417260B8A009251F4 /* SSUNewsArticleTableViewCell.m in Sources */,
 				07D1A36A18E2D52600B98565 /* SSUDepartment.m in Sources */,
-				070A3A681BAA960100B0E67C /* SSUDebugModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1712,6 +2092,83 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0730A6F81C85515200FC9370 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECFB3C29DF587AA0CC0BCC3 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2.0.1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSUMobile/Supporting Files/SSUMobile-Prefix.pch";
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Dev-Tools-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SSU.SSUMobile.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobile/SSUMobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$SRCROOT/Pods/Headers/Public/**/**";
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0730A6F91C85515200FC9370 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A02A232B2B44BC1BB6F62CA0 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2.0.1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"SSUDirectoryTools*",
+					SSUEditDepartmentViewController,
+					"*_Debug.storyboard",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSUMobile/Supporting Files/SSUMobile-Prefix.pch";
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Dev-Tools-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SSU.SSUMobile.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobile/SSUMobile-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$SRCROOT/Pods/Headers/Public/**/**";
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		C4995B1E16B1274300168521 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1885,6 +2342,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0730A6F71C85515200FC9370 /* Build configuration list for PBXNativeTarget "SSUMobile Dev Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0730A6F81C85515200FC9370 /* Debug */,
+				0730A6F91C85515200FC9370 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C4995AD516B1274200168521 /* Build configuration list for PBXProject "SSUMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

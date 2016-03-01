@@ -62,7 +62,10 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
 - (NSArray *) moduleClasses {
     NSArray <NSString *> * moduleClasses = [[SSUConfiguration sharedInstance] stringArrayForKey:@"edu.sonoma.modules.enabled"];
 #ifdef DEBUG
-    return [moduleClasses arrayByAddingObject:@"SSUDebugModule"];
+    if (NSClassFromString(@"SSUDebugModule")) {
+        return [moduleClasses arrayByAddingObject:@"SSUDebugModule"];
+    }
+    return moduleClasses;
 #else
     return moduleClasses;
 #endif

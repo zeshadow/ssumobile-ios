@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
-   version = "2.0">
+   LastUpgradeVersion = "0720"
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0730A6521C85515200FC9370"
+               BuildableName = "SSUMobile Dev Tools.app"
+               BlueprintName = "SSUMobile Dev Tools"
+               ReferencedContainer = "container:SSUMobile.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C4995B0C16B1274300168521"
-               BuildableName = "SSUMobileTests.xctest"
-               BlueprintName = "SSUMobileTests"
-               ReferencedContainer = "container:SSUMobile.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C4995ADA16B1274200168521"
-            BuildableName = "SSUMobile.app"
-            BlueprintName = "SSUMobile"
+            BlueprintIdentifier = "0730A6521C85515200FC9370"
+            BuildableName = "SSUMobile Dev Tools.app"
+            BlueprintName = "SSUMobile Dev Tools"
             ReferencedContainer = "container:SSUMobile.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -36,33 +42,27 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      debugXPCServices = "NO"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "NO"
-      viewDebuggingEnabled = "No">
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C4995ADA16B1274200168521"
-            BuildableName = "SSUMobile.app"
-            BlueprintName = "SSUMobile"
+            BlueprintIdentifier = "0730A6521C85515200FC9370"
+            BuildableName = "SSUMobile Dev Tools.app"
+            BlueprintName = "SSUMobile Dev Tools"
             ReferencedContainer = "container:SSUMobile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
-      <LocationScenarioReference
-         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
-         referenceType = "1">
-      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -74,15 +74,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C4995ADA16B1274200168521"
-            BuildableName = "SSUMobile.app"
-            BlueprintName = "SSUMobile"
+            BlueprintIdentifier = "0730A6521C85515200FC9370"
+            BuildableName = "SSUMobile Dev Tools.app"
+            BlueprintName = "SSUMobile Dev Tools"
             ReferencedContainer = "container:SSUMobile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Release">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
