@@ -13,6 +13,7 @@
 #import "SSUArticle.h"
 #import "SSUNewsArticleTableViewCell.h"
 #import "SSUWebViewController.h"
+#import "SSUConfiguration.h"
 
 @interface SSUNewsViewController ()
 
@@ -40,7 +41,11 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self refresh];
+    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsNewsUpdatedDate] timeIntervalSinceNow];
+    const NSTimeInterval timeInterval = -1 * 60 * 5;
+    if (lastUpdate <= timeInterval) {
+        [self refresh];
+    }
 }
 
 - (void)refresh {

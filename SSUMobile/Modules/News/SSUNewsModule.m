@@ -74,8 +74,6 @@
             }
         }
         else {
-            NSString * date = [self.dateFormatter stringFromDate:[NSDate date]];
-            [[NSUserDefaults standardUserDefaults] setObject:date forKey:SSUUserDefaultsNewsUpdatedDate];
             [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsNewsUpdatedDate];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
