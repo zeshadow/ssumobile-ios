@@ -73,8 +73,7 @@
             }
         }
         else {
-            NSString * date = [self.dateFormatter stringFromDate:[NSDate date]];
-            [[SSUConfiguration sharedInstance] setObject:date forKey:SSUUserDefaultsCalendarUpdatedDate];
+            [[SSUConfiguration sharedInstance] setObject:[NSDate date] forKey:SSUUserDefaultsCalendarUpdatedDate];
             [self.backgroundContext performBlock:^{
                 [self buildJSON:json];
                 if (completion) {
