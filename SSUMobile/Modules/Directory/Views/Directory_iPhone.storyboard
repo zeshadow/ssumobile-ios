@@ -139,7 +139,7 @@
         <!--Academic School-->
         <scene sceneID="sdc-n1-jf6">
             <objects>
-                <tableViewController storyboardIdentifier="School" title="Academic School" id="oHj-AZ-e7u" customClass="SSUSchoolViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SSUSchool" title="Academic School" id="oHj-AZ-e7u" customClass="SSUSchoolViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="loP-om-QQo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +256,7 @@
         <!--Building-->
         <scene sceneID="RWI-9V-ciy">
             <objects>
-                <tableViewController storyboardIdentifier="Building" id="IHV-hm-l7Y" customClass="SSUBuildingViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SSUBuilding" id="IHV-hm-l7Y" customClass="SSUBuildingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="9XV-ev-tPv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,7 +360,7 @@
         <!--Department Info-->
         <scene sceneID="7mi-zA-sDb">
             <objects>
-                <tableViewController storyboardIdentifier="Department" id="9gq-PT-XR1" customClass="SSUDepartmentViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SSUDepartment" id="9gq-PT-XR1" customClass="SSUDepartmentViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="NHg-LB-Ijf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -568,7 +568,7 @@
         <!--Contact Info-->
         <scene sceneID="8jE-QE-uP0">
             <objects>
-                <tableViewController storyboardIdentifier="Person" clearsSelectionOnViewWillAppear="NO" id="uG6-8G-EOc" customClass="SSUPersonViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SSUPerson" clearsSelectionOnViewWillAppear="NO" id="uG6-8G-EOc" customClass="SSUPersonViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vSL-Ay-9nD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -856,6 +856,6 @@
         <image name="directory_wolf" width="399" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7JN-Vz-CtI"/>
+        <segue reference="d1Y-xO-39D"/>
     </inferredMetricsTieBreakers>
 </document>

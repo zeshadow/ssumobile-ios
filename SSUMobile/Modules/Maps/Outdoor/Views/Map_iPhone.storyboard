@@ -365,7 +365,7 @@
                     <navigationItem key="navigationItem" title="Directory/Building" id="waV-gE-91z"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Directory_iPhone"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="Building"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="SSUBuilding"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfS-Fo-ICV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -378,7 +378,7 @@
                 <viewController id="I1U-u7-mOm" customClass="RBStoryboardLink" sceneMemberID="viewController">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Directory_iPhone"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="Department"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="SSUDepartment"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XB-bM-rJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
