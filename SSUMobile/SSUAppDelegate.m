@@ -48,6 +48,7 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
         [self clearLocalDatabases];
         [[SSUConfiguration sharedInstance] setBool:NO forKey:[self firstLaunchKey]];
         [self setupAll];
+        [self showWelcomeMessage];
     }
     else {
         [self setupAll];
@@ -205,6 +206,19 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
 }
 
 #pragma mark - Helper
+
+- (void) showWelcomeMessage {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Welcome to SSUMobile!"
+                                                     message:@"Welcome to the lastest version of SSUMobile! In order to provide you with up to date information, some data will be download from internet."
+                                                    delegate:self
+                                           cancelButtonTitle:@"Okay"
+                                           otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [self updateAll];
+}
 
 /**
  Removes any existing Core Data database files stored in the documents directory.
