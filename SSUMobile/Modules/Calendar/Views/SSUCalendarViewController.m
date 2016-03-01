@@ -210,20 +210,26 @@ static CGFloat CELL_ROW_HEIGHT = 50;
     UILabel * label = (UILabel *)[cell.contentView viewWithTag:labelTag];
     if (label == nil) {
         label = [[UILabel alloc] init];
-        label.font = [UIFont systemFontOfSize:9.0];
+        label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
         label.textColor = [UIColor lightGrayColor];
         label.tag = labelTag;
+        label.minimumScaleFactor = .50;
+        label.adjustsFontSizeToFitWidth = YES;
+        label.textAlignment = NSTextAlignmentCenter;
         [cell.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             const CGFloat margin = 1.0;
             UILabel * dayLabel = [cell valueForKey:@"dayLabel"];
-            make.top.equalTo(dayLabel.mas_bottom).with.offset(margin);
-            make.bottom.equalTo(label.superview.mas_bottom).with.offset(-margin);
-            make.centerX.equalTo(label.superview.mas_centerX);
+            make.top.equalTo(label.superview.mas_top);
+            make.right.equalTo(label.superview.mas_right).with.offset(-margin);
+            make.bottom.greaterThanOrEqualTo(dayLabel.mas_top).with.offset(-margin);
+            make.left.greaterThanOrEqualTo(dayLabel.mas_right).with.offset(margin);
         }];
+        [cell.contentView bringSubviewToFront:label];
     }
-    NSString * eventPlural = (count > 1) ? @"events" : @"event";
-    NSString * eventText = [NSString stringWithFormat:@"%lu %@", count, eventPlural];
+//    NSString * eventPlural = (count > 1) ? @"events" : @"event";
+//    NSString * eventText = [NSString stringWithFormat:@"%lu %@", (unsigned long)count, eventPlural];
+    NSString * eventText = [NSString stringWithFormat:@"%lu", (unsigned long)count];
     label.text = (count > 0) ? eventText : @"";
     
     // If we are on the overflow days (ex. before first day of month or after last day of month)
