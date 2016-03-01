@@ -136,7 +136,7 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
     id choice = [self.searchData objectAtIndex:indexPath.row];
     cell.textLabel.text = [choice valueForKey:self.textKey];
     if (self.subtitleKey) {
-        cell.detailTextLabel.text = [choice valueForKey:self.subtitleKey];
+        cell.detailTextLabel.text = [choice valueForKeyPath:self.subtitleKey];
     }
     return cell;
 }
