@@ -146,7 +146,6 @@
 		0730A6D71C85515200FC9370 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4995AEA16B1274200168521 /* InfoPlist.strings */; };
 		0730A6D81C85515200FC9370 /* Calendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09021BA082AE005C38DD /* Calendar.xcassets */; };
 		0730A6D91C85515200FC9370 /* licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 071E23A419E284F400483138 /* licenses.txt */; };
-		0730A6DA1C85515200FC9370 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3C031BBBB92C0075ADE8 /* Map.sqlite */; };
 		0730A6DB1C85515200FC9370 /* Email.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C997CF1A87119900534A1C /* Email.storyboard */; };
 		0730A6DC1C85515200FC9370 /* defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = 07AB76D21C786E43006352C5 /* defaults.json */; };
 		0730A6DD1C85515200FC9370 /* Radio_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C2FE1419C6C5D00016349C /* Radio_iPhone.storyboard */; };
@@ -156,13 +155,11 @@
 		0730A6E11C85515200FC9370 /* Map_Building.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */; };
 		0730A6E21C85515200FC9370 /* AppPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09041BA0833E005C38DD /* AppPicker.xcassets */; };
 		0730A6E31C85515200FC9370 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BFB3051B44E840002BF411 /* Debug.storyboard */; };
-		0730A6E41C85515200FC9370 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */; };
 		0730A6E51C85515200FC9370 /* Directory_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */; };
 		0730A6E61C85515200FC9370 /* News_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */; };
 		0730A6E71C85515200FC9370 /* Calendar_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */; };
 		0730A6E81C85515200FC9370 /* Email.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FF1BA08132005C38DD /* Email.xcassets */; };
 		0730A6E91C85515200FC9370 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
-		0730A6EA1C85515200FC9370 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */; };
 		0730A6EB1C85515200FC9370 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090D1BA084E1005C38DD /* Resources.xcassets */; };
 		0730A6EC1C85515200FC9370 /* Map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09101BA08548005C38DD /* Map.xcassets */; };
 		0730A6ED1C85515200FC9370 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78FE792716C9D04500626462 /* Settings.bundle */; };
@@ -173,6 +170,12 @@
 		0730A6F21C85515200FC9370 /* News.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090A1BA084B0005C38DD /* News.xcassets */; };
 		0730A6F31C85515200FC9370 /* Debug.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070A3A691BAA969100B0E67C /* Debug.xcassets */; };
 		0730A6F41C85515200FC9370 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
+		0730A7011C856A4300FC9370 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7001C856A4300FC9370 /* Directory.sqlite */; };
+		0730A7021C856A4300FC9370 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7001C856A4300FC9370 /* Directory.sqlite */; };
+		0730A7041C856A5B00FC9370 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7031C856A5B00FC9370 /* Resources.sqlite */; };
+		0730A7051C856A5B00FC9370 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7031C856A5B00FC9370 /* Resources.sqlite */; };
+		0730A7071C856A8100FC9370 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7061C856A8100FC9370 /* Map.sqlite */; };
+		0730A7081C856A8100FC9370 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7061C856A8100FC9370 /* Map.sqlite */; };
 		0741C9521A871D73000B7BC6 /* SSUEmailConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */; };
 		0741C9551A8727BA000B7BC6 /* SSUEmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */; };
 		074D135A1BA703B20002899F /* Directory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 074D13581BA703B20002899F /* Directory.xcdatamodeld */; };
@@ -226,10 +229,7 @@
 		07C5A4E41A87159B004DC819 /* SSUEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A4E31A87159B004DC819 /* SSUEmailViewController.m */; };
 		07C5A4E71A87168D004DC819 /* SSULDAPCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A4E61A87168D004DC819 /* SSULDAPCredentials.m */; };
 		07C997D01A87119900534A1C /* Email.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C997CF1A87119900534A1C /* Email.storyboard */; };
-		07CD3BFE1BBBB8E60075ADE8 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */; };
-		07CD3C001BBBB8F70075ADE8 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */; };
 		07CD3C021BBBB91E0075ADE8 /* Calendar.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3C011BBBB91E0075ADE8 /* Calendar.sqlite */; };
-		07CD3C041BBBB92C0075ADE8 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 07CD3C031BBBB92C0075ADE8 /* Map.sqlite */; };
 		07D090E01BCB8B560022B364 /* SSUSegmentedTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D090DF1BCB8B560022B364 /* SSUSegmentedTableHeaderView.m */; };
 		07D1A35E18E2D52500B98565 /* SSUPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A35D18E2D52500B98565 /* SSUPerson.m */; };
 		07D1A36118E2D52600B98565 /* SSUSchool.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36018E2D52600B98565 /* SSUSchool.m */; };
@@ -344,6 +344,9 @@
 		071FE0DB1BE0836800CC3DCD /* SSULogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSULogging.m; sourceTree = "<group>"; };
 		0730A6FA1C85515300FC9370 /* SSUMobile Dev Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSUMobile Dev Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0730A6FC1C85531A00FC9370 /* SSUMobile-Dev-Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSUMobile-Dev-Tools-Info.plist"; sourceTree = "<group>"; };
+		0730A7001C856A4300FC9370 /* Directory.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Directory.sqlite; sourceTree = "<group>"; };
+		0730A7031C856A5B00FC9370 /* Resources.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Resources.sqlite; sourceTree = "<group>"; };
+		0730A7061C856A8100FC9370 /* Map.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Map.sqlite; sourceTree = "<group>"; };
 		0741C9501A871D73000B7BC6 /* SSUEmailConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailConstants.h; sourceTree = "<group>"; };
 		0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailConstants.m; sourceTree = "<group>"; };
 		0741C9531A8727BA000B7BC6 /* SSUEmailLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailLoginViewController.h; sourceTree = "<group>"; };
@@ -449,10 +452,7 @@
 		07C5A4E51A87168D004DC819 /* SSULDAPCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSULDAPCredentials.h; sourceTree = "<group>"; };
 		07C5A4E61A87168D004DC819 /* SSULDAPCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSULDAPCredentials.m; sourceTree = "<group>"; };
 		07C997CF1A87119900534A1C /* Email.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Email.storyboard; sourceTree = "<group>"; };
-		07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Resources.sqlite; sourceTree = "<group>"; };
-		07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Directory.sqlite; sourceTree = "<group>"; };
 		07CD3C011BBBB91E0075ADE8 /* Calendar.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Calendar.sqlite; sourceTree = "<group>"; };
-		07CD3C031BBBB92C0075ADE8 /* Map.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Map.sqlite; sourceTree = "<group>"; };
 		07D090DE1BCB8B560022B364 /* SSUSegmentedTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSegmentedTableHeaderView.h; sourceTree = "<group>"; };
 		07D090DF1BCB8B560022B364 /* SSUSegmentedTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSegmentedTableHeaderView.m; sourceTree = "<group>"; };
 		07D1A35C18E2D52500B98565 /* SSUPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUPerson.h; sourceTree = "<group>"; };
@@ -903,7 +903,7 @@
 			isa = PBXGroup;
 			children = (
 				07FD08FC1BA02EBE005C38DD /* Directory.xcassets */,
-				07CD3BFF1BBBB8F70075ADE8 /* Directory.sqlite */,
+				0730A7001C856A4300FC9370 /* Directory.sqlite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -945,7 +945,7 @@
 			isa = PBXGroup;
 			children = (
 				07FD090D1BA084E1005C38DD /* Resources.xcassets */,
-				07CD3BFD1BBBB8E60075ADE8 /* Resources.sqlite */,
+				0730A7031C856A5B00FC9370 /* Resources.sqlite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -954,7 +954,7 @@
 			isa = PBXGroup;
 			children = (
 				07FD09101BA08548005C38DD /* Map.xcassets */,
-				07CD3C031BBBB92C0075ADE8 /* Map.sqlite */,
+				0730A7061C856A8100FC9370 /* Map.sqlite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1631,11 +1631,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0730A7021C856A4300FC9370 /* Directory.sqlite in Resources */,
 				0730A6D61C85515200FC9370 /* About.storyboard in Resources */,
 				0730A6D71C85515200FC9370 /* InfoPlist.strings in Resources */,
 				0730A6D81C85515200FC9370 /* Calendar.xcassets in Resources */,
 				0730A6D91C85515200FC9370 /* licenses.txt in Resources */,
-				0730A6DA1C85515200FC9370 /* Map.sqlite in Resources */,
 				0730A6DB1C85515200FC9370 /* Email.storyboard in Resources */,
 				0730A6DC1C85515200FC9370 /* defaults.json in Resources */,
 				0730A6DD1C85515200FC9370 /* Radio_iPhone.storyboard in Resources */,
@@ -1645,13 +1645,11 @@
 				0730A6E11C85515200FC9370 /* Map_Building.storyboard in Resources */,
 				0730A6E21C85515200FC9370 /* AppPicker.xcassets in Resources */,
 				0730A6E31C85515200FC9370 /* Debug.storyboard in Resources */,
-				0730A6E41C85515200FC9370 /* Resources.sqlite in Resources */,
 				0730A6E51C85515200FC9370 /* Directory_iPhone.storyboard in Resources */,
 				0730A6E61C85515200FC9370 /* News_iPhone.storyboard in Resources */,
 				0730A6E71C85515200FC9370 /* Calendar_iPhone.storyboard in Resources */,
 				0730A6E81C85515200FC9370 /* Email.xcassets in Resources */,
 				0730A6E91C85515200FC9370 /* Resources.storyboard in Resources */,
-				0730A6EA1C85515200FC9370 /* Directory.sqlite in Resources */,
 				0730A6EB1C85515200FC9370 /* Resources.xcassets in Resources */,
 				0730A6EC1C85515200FC9370 /* Map.xcassets in Resources */,
 				0730A6ED1C85515200FC9370 /* Settings.bundle in Resources */,
@@ -1659,8 +1657,10 @@
 				0730A6EF1C85515200FC9370 /* Directory_Debug.storyboard in Resources */,
 				0730A6F01C85515200FC9370 /* Radio.xcassets in Resources */,
 				0730A6F11C85515200FC9370 /* Directory.xcassets in Resources */,
+				0730A7051C856A5B00FC9370 /* Resources.sqlite in Resources */,
 				0730A6F21C85515200FC9370 /* News.xcassets in Resources */,
 				0730A6F31C85515200FC9370 /* Debug.xcassets in Resources */,
+				0730A7081C856A8100FC9370 /* Map.sqlite in Resources */,
 				0730A6F41C85515200FC9370 /* SSUCalendarEventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1672,23 +1672,23 @@
 				07F84D8119F5885B0046D148 /* About.storyboard in Resources */,
 				C4995AEC16B1274200168521 /* InfoPlist.strings in Resources */,
 				07FD09031BA082AE005C38DD /* Calendar.xcassets in Resources */,
+				0730A7041C856A5B00FC9370 /* Resources.sqlite in Resources */,
 				071E23A619E284F400483138 /* licenses.txt in Resources */,
-				07CD3C041BBBB92C0075ADE8 /* Map.sqlite in Resources */,
 				07C997D01A87119900534A1C /* Email.storyboard in Resources */,
 				07AB76D31C786E43006352C5 /* defaults.json in Resources */,
 				07C2FE1519C6C5D00016349C /* Radio_iPhone.storyboard in Resources */,
+				0730A7071C856A8100FC9370 /* Map.sqlite in Resources */,
 				07CD3C021BBBB91E0075ADE8 /* Calendar.sqlite in Resources */,
 				078000F819CFAA0D00FD1E2A /* Images.xcassets in Resources */,
 				C4995AFB16B1274200168521 /* MainStoryboard_iPhone.storyboard in Resources */,
 				079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */,
 				07FD09051BA0833E005C38DD /* AppPicker.xcassets in Resources */,
-				07CD3BFE1BBBB8E60075ADE8 /* Resources.sqlite in Resources */,
 				C46E1E5116BB55370040435C /* Directory_iPhone.storyboard in Resources */,
 				C42D1BD616BB5D19003AE10B /* News_iPhone.storyboard in Resources */,
 				C42D1BD816BB5D7F003AE10B /* Calendar_iPhone.storyboard in Resources */,
+				0730A7011C856A4300FC9370 /* Directory.sqlite in Resources */,
 				07FD09001BA08132005C38DD /* Email.xcassets in Resources */,
 				071E237A19E2398500483138 /* Resources.storyboard in Resources */,
-				07CD3C001BBBB8F70075ADE8 /* Directory.sqlite in Resources */,
 				07FD090E1BA084E1005C38DD /* Resources.xcassets in Resources */,
 				07FD09111BA08548005C38DD /* Map.xcassets in Resources */,
 				78FE792816C9D04500626462 /* Settings.bundle in Resources */,
