@@ -47,11 +47,13 @@ static CGFloat CELL_ROW_HEIGHT = 50;
 {
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:SSUCalendarEntityEvent];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES]];
-    NSManagedObjectContext * context = [[SSUCalendarModule sharedInstance] context];
+    NSManagedObjectContext * context = [[SSUCalendarModule sharedInstance] backgroundContext];
     [context performBlock:^{
         self.unfilteredEvents = [context executeFetchRequest:fetchRequest error:nil];
-        [self reloadEventTableView];
-        [self.collectionView reloadData]; // Reload to put the event count on each cell
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self reloadEventTableView];
+            [self.collectionView reloadData];
+        });
     }];
 }
 
