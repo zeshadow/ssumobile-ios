@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, kSectionNameRow) {
 typedef NS_ENUM(NSInteger, kSectionContactRow) {
     kSectionContactRowPhone = 0,
     kSectionContactRowWebsite,
+    kSectionContactRowEmail,
     kSectionContactRowCount
 };
 
@@ -136,6 +137,13 @@ typedef NS_ENUM(NSInteger, kSectionAdminRow) {
                     [self hideCellAtIndexPath:indexPath];
                 }
             }
+            else if (indexPath.row == kSectionContactRowEmail) {
+                cell.detailTextLabel.text = @"Email";
+                cell.textLabel.text = self.department.email;
+                if (SSUIsEmptyString(self.department.email)) {
+                    [self hideCellAtIndexPath:indexPath];
+                }
+            }
             break;
         }
         case kTableViewSectionLocation: {
@@ -229,6 +237,9 @@ typedef NS_ENUM(NSInteger, kSectionAdminRow) {
         else if (indexPath.row == kSectionContactRowWebsite) {
             [self confirmNavigateToWebsite];
         }
+        else if (indexPath.row == kSectionContactRowEmail) {
+            [self confirmShowEmailComposer];
+        }
         return;
     }
     
@@ -255,6 +266,16 @@ typedef NS_ENUM(NSInteger, kSectionAdminRow) {
     }
     NSURL * url = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) showEmailComposer {
+    NSURL* URL = [NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", [self.department.email stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]];
+    if ([[UIApplication sharedApplication] canOpenURL:URL]) {
+        [[UIApplication sharedApplication] openURL: URL];
+    }
+    else {
+        SSULogDebug(@"Cannot open URL: %@", URL.absoluteString);
+    }
 }
 
 @end
