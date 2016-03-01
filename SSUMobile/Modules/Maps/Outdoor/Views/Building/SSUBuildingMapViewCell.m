@@ -76,7 +76,7 @@ enum {
         MKPolygonRenderer * renderer = [[MKPolygonRenderer alloc] initWithPolygon:(MKPolygon *)overlay];
         renderer.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:0.2];
         renderer.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
-        renderer.lineWidth = 3;
+        renderer.lineWidth = 1;
         return renderer;
     }
     return nil;

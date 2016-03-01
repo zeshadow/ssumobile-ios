@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Map Building Detail View Controller-->
@@ -12,8 +12,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="TWd-Rf-N4V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="230" id="54M-aj-cfn" customClass="SSUBuildingMapViewCell">
                                 <rect key="frame" x="0.0" y="49.5" width="320" height="230"/>
@@ -24,26 +23,18 @@
                                     <subviews>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BWt-ZF-ILf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="229.5"/>
-                                            <animations/>
                                         </imageView>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Db1-58-18s">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="230" id="PMO-o8-pC3"/>
                                             </constraints>
                                             <connections>
-                                                <outlet property="delegate" destination="Rbp-xM-fb1" id="xdE-on-k9j"/>
+                                                <outlet property="delegate" destination="54M-aj-cfn" id="Wft-0P-jMw"/>
                                             </connections>
                                         </mapView>
-                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-XB-0FK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
-                                            <animations/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25135400690184051" colorSpace="calibratedRGB"/>
-                                        </view>
                                         <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Su8-M0-Ken">
                                             <rect key="frame" x="0.0" y="192.5" width="320" height="37"/>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65116947852760731" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="pageControlChangedPage:" destination="54M-aj-cfn" eventType="valueChanged" id="YnF-IW-zwO"/>
@@ -51,13 +42,15 @@
                                         </pageControl>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Darwin Hall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBJ-6q-B6s">
                                             <rect key="frame" x="20" y="105" width="280" height="19.5"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-XB-0FK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25135400690184051" colorSpace="calibratedRGB"/>
+                                        </view>
                                     </subviews>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Db1-58-18s" secondAttribute="trailing" id="0x0-gP-mlw"/>
                                         <constraint firstItem="AXC-XB-0FK" firstAttribute="top" secondItem="2I6-A9-LSA" secondAttribute="top" id="COE-IT-COa"/>
@@ -80,7 +73,6 @@
                                         <constraint firstAttribute="trailing" secondItem="Su8-M0-Ken" secondAttribute="trailing" id="wnp-rM-VDU"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <animations/>
                                 <connections>
                                     <outlet property="buildingImageView" destination="BWt-ZF-ILf" id="hqV-zE-cxN"/>
                                     <outlet property="buildingLabel" destination="uBJ-6q-B6s" id="eYD-bE-zmB"/>
@@ -99,15 +91,12 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Directions to Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="naD-ZY-cth">
                                             <rect key="frame" x="15" y="0.0" width="290" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.078431372549019607" green="0.23137254901960785" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                 </tableViewCellContentView>
-                                <animations/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DirectoryCell" textLabel="WXP-W6-t5S" rowHeight="45" style="IBUITableViewCellStyleDefault" id="L4X-5e-9MH">
                                 <rect key="frame" x="0.0" y="324.5" width="320" height="45"/>
@@ -119,15 +108,12 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="View in Directory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WXP-W6-t5S">
                                             <rect key="frame" x="15" y="0.0" width="290" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.078431372550000003" green="0.23137254900000001" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                 </tableViewCellContentView>
-                                <animations/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DepartmentCell" textLabel="2Ws-37-RSr" rowHeight="45" style="IBUITableViewCellStyleDefault" id="0xX-K2-Y8Q" customClass="SSUDepartmentTableViewCell">
                                 <rect key="frame" x="0.0" y="369.5" width="320" height="45"/>
@@ -139,14 +125,11 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Ws-37-RSr">
                                             <rect key="frame" x="15" y="0.0" width="290" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                 </tableViewCellContentView>
-                                <animations/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
