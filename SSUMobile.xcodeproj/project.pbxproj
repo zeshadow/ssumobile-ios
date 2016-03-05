@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
 		07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07155A2F18BE06B300226502 /* SSUSchoolViewController.m */; };
+		0717DDB01C8AAF8D009861D9 /* SSUWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0717DDAF1C8AAF8D009861D9 /* SSUWebViewController.storyboard */; };
+		0717DDB11C8AAF8D009861D9 /* SSUWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0717DDAF1C8AAF8D009861D9 /* SSUWebViewController.storyboard */; };
 		071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E237719E2380B00483138 /* SSUResourcesViewController.m */; };
 		071E237A19E2398500483138 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
 		071E239E19E241BD00483138 /* SSUResourcesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E239D19E241BD00483138 /* SSUResourcesCell.m */; };
@@ -332,6 +334,7 @@
 		070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAppPickerModuleCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07155A2E18BE06B300226502 /* SSUSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSchoolViewController.h; sourceTree = "<group>"; };
 		07155A2F18BE06B300226502 /* SSUSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSchoolViewController.m; sourceTree = "<group>"; };
+		0717DDAF1C8AAF8D009861D9 /* SSUWebViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SSUWebViewController.storyboard; sourceTree = "<group>"; };
 		071E237619E2380B00483138 /* SSUResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesViewController.h; sourceTree = "<group>"; };
 		071E237719E2380B00483138 /* SSUResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesViewController.m; sourceTree = "<group>"; };
 		071E237919E2398500483138 /* Resources.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
@@ -724,6 +727,7 @@
 				C4FBF75616BB914300BE95E3 /* SSUDetailTableViewController.m */,
 				07DE5DA51B9C83F6005B38CB /* SSUCoreDataTableViewController.h */,
 				07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */,
+				0717DDAF1C8AAF8D009861D9 /* SSUWebViewController.storyboard */,
 				AAB5DA6B1924935F002DC260 /* SSUWebViewController.h */,
 				AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */,
 			);
@@ -1645,6 +1649,7 @@
 				0730A6E11C85515200FC9370 /* Map_Building.storyboard in Resources */,
 				0730A6E21C85515200FC9370 /* AppPicker.xcassets in Resources */,
 				0730A6E31C85515200FC9370 /* Debug.storyboard in Resources */,
+				0717DDB11C8AAF8D009861D9 /* SSUWebViewController.storyboard in Resources */,
 				0730A6E51C85515200FC9370 /* Directory_iPhone.storyboard in Resources */,
 				0730A6E61C85515200FC9370 /* News_iPhone.storyboard in Resources */,
 				0730A6E71C85515200FC9370 /* Calendar_iPhone.storyboard in Resources */,
@@ -1696,6 +1701,7 @@
 				07FD09081BA08448005C38DD /* Radio.xcassets in Resources */,
 				07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */,
 				07FD090B1BA084B0005C38DD /* News.xcassets in Resources */,
+				0717DDB01C8AAF8D009861D9 /* SSUWebViewController.storyboard in Resources */,
 				07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

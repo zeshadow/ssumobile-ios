@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JbQ-3r-7YF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JbQ-3r-7YF">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_picker_background" translatesAutoresizingMaskIntoConstraints="NO" id="fVL-EF-WZd">
-                                <rect key="frame" x="-240" y="0.0" width="800" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_picker_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="kf7-Ms-89m">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -303,6 +303,7 @@
                             <constraint firstAttribute="centerX" secondItem="fVL-EF-WZd" secondAttribute="centerX" id="69r-aj-QEz"/>
                             <constraint firstItem="HHD-9H-Ybg" firstAttribute="top" secondItem="kf7-Ms-89m" secondAttribute="bottom" id="EmH-ib-wT5"/>
                             <constraint firstItem="kf7-Ms-89m" firstAttribute="top" secondItem="RJm-Us-9ed" secondAttribute="top" id="GfL-GE-Zeg"/>
+                            <constraint firstItem="fVL-EF-WZd" firstAttribute="width" secondItem="RJm-Us-9ed" secondAttribute="width" id="N16-Gj-YNf"/>
                             <constraint firstAttribute="trailing" secondItem="LVg-OO-bDL" secondAttribute="trailing" id="Pkh-pf-ERj"/>
                             <constraint firstItem="HHD-9H-Ybg" firstAttribute="top" secondItem="LVg-OO-bDL" secondAttribute="bottom" id="Pv0-zF-MGI"/>
                             <constraint firstItem="LVg-OO-bDL" firstAttribute="width" secondItem="RJm-Us-9ed" secondAttribute="width" id="Rc4-st-dlu"/>
@@ -325,62 +326,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7PP-HW-6ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2845" y="-2562"/>
-        </scene>
-        <!--Web View Controller-->
-        <scene sceneID="T5V-CY-9E2">
-            <objects>
-                <viewController storyboardIdentifier="Web View" id="x7E-Q9-10n" customClass="SSUWebViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sao-r5-PD8"/>
-                        <viewControllerLayoutGuide type="bottom" id="z3i-LD-8Gu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0vR-VF-95k">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oc-eb-CXH">
-                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                            </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moU-j9-u0a">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="rewind" id="3Wt-4D-KbB">
-                                        <connections>
-                                            <action selector="didPressBackButton:" destination="x7E-Q9-10n" id="f4o-WM-gBa"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dQE-mp-pbX"/>
-                                    <barButtonItem systemItem="fastForward" id="WC8-S1-Yjg">
-                                        <connections>
-                                            <action selector="didPressForwardButton:" destination="x7E-Q9-10n" id="abE-p1-piq"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="8oc-eb-CXH" firstAttribute="leading" secondItem="0vR-VF-95k" secondAttribute="leading" id="6FO-2X-yHB"/>
-                            <constraint firstItem="moU-j9-u0a" firstAttribute="trailing" secondItem="0vR-VF-95k" secondAttribute="trailing" id="Sn6-M6-KJa"/>
-                            <constraint firstItem="moU-j9-u0a" firstAttribute="bottom" secondItem="0vR-VF-95k" secondAttribute="bottom" id="Unu-DM-6fZ"/>
-                            <constraint firstItem="8oc-eb-CXH" firstAttribute="top" secondItem="Sao-r5-PD8" secondAttribute="bottom" id="bGk-Fa-1AU"/>
-                            <constraint firstItem="moU-j9-u0a" firstAttribute="top" secondItem="8oc-eb-CXH" secondAttribute="bottom" id="efa-Qt-jTS"/>
-                            <constraint firstItem="moU-j9-u0a" firstAttribute="leading" secondItem="0vR-VF-95k" secondAttribute="leading" id="nyl-c2-sae"/>
-                            <constraint firstItem="8oc-eb-CXH" firstAttribute="trailing" secondItem="0vR-VF-95k" secondAttribute="trailing" id="zHI-lE-sNJ"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="xyZ-nk-gna"/>
-                    <connections>
-                        <outlet property="webview" destination="8oc-eb-CXH" id="J5D-Hg-Ja7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FAR-JO-In9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2329" y="-2562"/>
         </scene>
     </scenes>
     <resources>

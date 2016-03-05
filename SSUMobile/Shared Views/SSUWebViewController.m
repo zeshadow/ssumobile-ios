@@ -1,9 +1,20 @@
+//
+//  SSUWebViewController.h
+//  SSUMobile
+//
+//  Copyright (c) 2015 Sonoma State University Department of Computer Science. All rights reserved.
+//
+
 #import "SSUWebViewController.h"
 #import "MBProgressHud.h"
+
+static NSString * const kStoryboardName = @"SSUWebViewController";
 
 @interface SSUWebViewController () <UIActionSheetDelegate,UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webview;
+@property (nonatomic) IBOutlet UIBarButtonItem * backButton;
+@property (nonatomic) IBOutlet UIBarButtonItem * forwardButton;
 
 @property (nonatomic) MBProgressHUD * progressHUD;
 
@@ -11,18 +22,20 @@
 
 @implementation SSUWebViewController
 
-+ (SSUWebViewController *)webViewControllerFromStoryboard {
-    // TODO: handle iPad?
-    id viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"Web View"];
++ (SSUWebViewController *) webViewController {
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:kStoryboardName
+                                                           bundle:[NSBundle bundleForClass:self]];
+    id viewController = [storyboard instantiateInitialViewController];
     NSAssert([viewController isKindOfClass:[self class]], @"Expecting web view");
     return viewController;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     UIBarButtonItem * actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(didPressActionButton:)];
     self.navigationItem.rightBarButtonItem = actionButton;
+    
+    [self updateNavigationButtons];
     
     self.webview.delegate = self;
     
@@ -36,24 +49,30 @@
     }
 }
 
+- (void) viewWillDisappear:(BOOL)animated {
+    [self.webview stopLoading];
+}
+
+- (void) updateNavigationButtons {
+    self.backButton.enabled = NO;
+    self.forwardButton.enabled = NO;
+}
+
 #pragma mark - IBActions
 
-- (IBAction)didPressBackButton:(UIBarButtonItem *)sender
-{
-    if ([_webview canGoBack]) {
-        [_webview goBack];
+- (IBAction)didPressBackButton:(UIBarButtonItem *)sender {
+    if ([self.webview canGoBack]) {
+        [self.webview goBack];
     }
 }
 
-- (IBAction)didPressForwardButton:(id)sender
-{
-    if ([_webview canGoForward]) {
-        [_webview goForward];
+- (IBAction)didPressForwardButton:(id)sender{
+    if ([self.webview canGoForward]) {
+        [self.webview goForward];
     }
 }
 
-- (void) didPressActionButton:(UIBarButtonItem *)sender
-{
+- (void) didPressActionButton:(UIBarButtonItem *)sender {
     UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                               delegate:self
                                                      cancelButtonTitle:@"Cancel"
@@ -77,10 +96,13 @@
 - (void) webViewDidStartLoad:(UIWebView *)webView {
     [self.progressHUD show:YES];
     [self.webview bringSubviewToFront:self.progressHUD];
+    
+    [self updateNavigationButtons];
 }
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     [self.progressHUD hide:YES afterDelay:1.0];
+    [self updateNavigationButtons];
 }
 
 - (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -121,7 +143,7 @@
         return _progressHUD;
     }
     
-    _progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _progressHUD = [MBProgressHUD showHUDAddedTo:self.webview animated:YES];
     _progressHUD.labelText = @"Loading";
     
     return _progressHUD;

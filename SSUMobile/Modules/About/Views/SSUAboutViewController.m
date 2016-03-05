@@ -52,7 +52,7 @@ static NSString * CACHE_CELL = @"Cache";
 {
     UITableViewCell * cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     if ([cell.reuseIdentifier isEqualToString:LEGAL_CELL]) {
-        SSUWebViewController * webView = [SSUWebViewController webViewControllerFromStoryboard];
+        SSUWebViewController * webView = [SSUWebViewController webViewController];
         webView.urlToLoad = [[NSBundle mainBundle] pathForResource:@"licenses" ofType:@"txt"];
         
         [self.navigationController pushViewController:webView animated:YES];

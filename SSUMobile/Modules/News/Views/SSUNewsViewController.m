@@ -101,7 +101,7 @@
 {
     SSUArticle* article = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    SSUWebViewController* controller = [SSUWebViewController webViewControllerFromStoryboard];
+    SSUWebViewController* controller = [SSUWebViewController webViewController];
     controller.urlToLoad = article.link;
     SSULogDebug(@"%@",article);
     [self.navigationController pushViewController:controller animated:YES];
