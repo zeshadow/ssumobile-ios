@@ -317,7 +317,9 @@
                             <constraint firstItem="LVg-OO-bDL" firstAttribute="top" secondItem="edJ-A3-Jxd" secondAttribute="bottom" id="w5S-Pv-vSx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Welcome to SSUMobile" id="zLJ-jL-Fr4"/>
+                    <navigationItem key="navigationItem" title="Welcome to SSUMobile" id="zLJ-jL-Fr4">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="E7A-WO-X2a"/>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="LVg-OO-bDL" id="S2Q-T4-PE1"/>

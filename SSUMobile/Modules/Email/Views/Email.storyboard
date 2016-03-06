@@ -11,14 +11,14 @@
             <objects>
                 <tableViewController title="Campus Email" id="oF1-Fg-Olb" customClass="SSUEmailPickerViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="gsd-8R-KD3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection footerTitle="" id="HFr-k4-4NW">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="181" id="Fix-UZ-NKH">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="181"/>
+                                        <rect key="frame" x="0.0" y="99" width="320" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fix-UZ-NKH" id="R7R-D3-fA0">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="180.5"/>
@@ -54,7 +54,7 @@
                             <tableViewSection id="S9u-vb-9jH">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="Uw8-MS-Qvi">
-                                        <rect key="frame" x="0.0" y="236" width="320" height="180"/>
+                                        <rect key="frame" x="0.0" y="300" width="320" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uw8-MS-Qvi" id="rTI-Uh-r1N">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="179.5"/>
@@ -92,13 +92,13 @@
                             <outlet property="delegate" destination="oF1-Fg-Olb" id="87F-dm-URW"/>
                         </connections>
                     </tableView>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6c-SQ-xTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-466" y="136"/>
         </scene>
-        <!--Campus Email-->
+        <!--Email View Controller-->
         <scene sceneID="XGy-dx-bZe">
             <objects>
                 <viewController id="6b5-wH-7kI" customClass="SSUEmailViewController" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Campus Email" id="HMJ-0e-Vjy">
+                    <navigationItem key="navigationItem" id="HMJ-0e-Vjy">
                         <barButtonItem key="rightBarButtonItem" title="Inbox" id="oib-75-Umb">
                             <connections>
                                 <action selector="inboxButtonPressed:" destination="6b5-wH-7kI" id="LYP-X8-3vq"/>
@@ -165,7 +165,7 @@
         <scene sceneID="PHv-4m-ITl">
             <objects>
                 <tableViewController id="47m-j0-HYz" customClass="SSUEmailLoginViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="t3o-Pi-RFL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="t3o-Pi-RFL">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -245,7 +245,7 @@
                             <tableViewSection id="dum-75-hOG">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XNJ-Fm-0hW">
-                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="173.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XNJ-Fm-0hW" id="4Ty-1F-VPc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
