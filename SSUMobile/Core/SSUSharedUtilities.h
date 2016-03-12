@@ -12,7 +12,7 @@
 
 /** Strings */
 #define SSUTrimString(str) ((id)str == [NSNull null] || str == nil) ? @"" : [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
-#define SSUIsEmptyString(str) (str == nil || (id)str == [NSNull null] || [SSUTrimString(str) length] == 0)
+#define SSUIsEmptyString(str) (str == nil || (id)str == [NSNull null] || [[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
 
 /// Returns an NSURL object for the specified search path
 extern NSURL * SSUURLForDirectory(NSSearchPathDirectory directory);

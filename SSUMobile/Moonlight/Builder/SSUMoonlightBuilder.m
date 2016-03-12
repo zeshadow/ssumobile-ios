@@ -43,13 +43,13 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
 }
 
 - (SSUMoonlightDataMode) modeFromCreated:(NSString*)created modified:(NSString*)modified deleted:(NSString*)deleted {
-    if (deleted && ![deleted isEqualToString:@"None"]) {
+    if (deleted && ![deleted isEqualToString:@"None"] && !SSUIsEmptyString(created)) {
         return SSUMoonlightDataModeDeleted;
     }
-    else if (modified && ![modified isEqualToString:@"None"]) {
+    else if (modified && ![modified isEqualToString:@"None"] && !SSUIsEmptyString(modified)) {
         return SSUMoonlightDataModeModified;
     }
-    else if (created && ![created isEqualToString:@"None"]) {
+    else if (created && ![created isEqualToString:@"None"] && !SSUIsEmptyString(deleted)) {
         return SSUMoonlightDataModeCreate;
     }
     return SSUMoonlightDataModeNone;
