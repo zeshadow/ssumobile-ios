@@ -48,7 +48,6 @@
 
 + (instancetype) sharedInstance;
 
-- (NSURL *) applicationDocumentsDirectory;
 - (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(NSURL *)url toValue:(BOOL)excluded;
 
 @end

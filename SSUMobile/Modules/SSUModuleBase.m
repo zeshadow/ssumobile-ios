@@ -21,11 +21,6 @@
     return nil;
 }
 
-- (NSURL *) applicationDocumentsDirectory {
-    return [[[NSFileManager defaultManager]
-             URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
-}
-
 - (NSDateFormatter*) dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
@@ -54,6 +49,8 @@
         
     return success;
 }
+
+
 
 //MARK: Default implementations for SSUModule
 
