@@ -15,12 +15,11 @@
 + (SSUResourcesEntry *) resourceWithID:(NSNumber *)ID inContext:(NSManagedObjectContext *)context {
     if (ID.integerValue == 0)
         return nil;
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, ID];
     BOOL created = NO;
     SSUResourcesEntry * resource = (SSUResourcesEntry *)[self objectWithEntityName:SSUResourcesEntityResource
-                                                       predicate:predicate
-                                                         context:context
-                                                entityWasCreated:&created];
+                                                                                ID:ID
+                                                                           context:context
+                                                                  entityWasCreated:&created];
     if (created) {
         resource.id = ID;
     }
@@ -30,12 +29,11 @@
 + (SSUResourcesSection *) sectionWithID:(NSNumber *)ID inContext:(NSManagedObjectContext *)context {
     if (ID.integerValue == 0)
         return nil;
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, ID];
     BOOL created = NO;
     SSUResourcesSection * section = (SSUResourcesSection *)[self objectWithEntityName:SSUResourcesEntitySection
-                                                    predicate:predicate
-                                                      context:context
-                                             entityWasCreated:&created];
+                                                                                   ID:ID
+                                                                              context:context
+                                                                     entityWasCreated:&created];
     if (created) {
         section.id = ID;
     }

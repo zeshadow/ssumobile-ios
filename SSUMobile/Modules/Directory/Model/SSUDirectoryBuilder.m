@@ -22,9 +22,8 @@
 + (SSUPerson *) personWithID:(NSString *)personID inContext:(NSManagedObjectContext *)context {
     if (personID.integerValue == 0)
         return nil;
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, personID];
     BOOL created = NO;
-    SSUPerson * person = (SSUPerson*)[self objectWithEntityName:SSUDirectoryEntityPerson predicate:predicate context:context entityWasCreated:&created];
+    SSUPerson * person = (SSUPerson*)[self objectWithEntityName:SSUDirectoryEntityPerson ID:personID context:context entityWasCreated:&created];
     if (created) {
         person.id = personID;
         person.sectionName = SSUDirectoryCategoryPeople;
@@ -40,9 +39,8 @@
 + (SSUDepartment *) departmentWithID:(NSString *)departmentID inContext:(NSManagedObjectContext *)context {
     if (departmentID.integerValue == 0)
         return nil;
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, departmentID];
     BOOL created = NO;
-    SSUDepartment* department = (SSUDepartment *)[self objectWithEntityName:SSUDirectoryEntityDepartment predicate:predicate context:context entityWasCreated:&created];
+    SSUDepartment* department = (SSUDepartment *)[self objectWithEntityName:SSUDirectoryEntityDepartment ID:departmentID context:context entityWasCreated:&created];
     if (created) {
         department.id = departmentID;
         department.sectionName = SSUDirectoryCategoryDepartments;
@@ -122,9 +120,7 @@
         if (person == nil)
             continue;
         if (mode == SSUMoonlightDataModeDeleted) {
-            if (person.inserted) {
-                [self.context deleteObject:person];
-            }
+            [self.context deleteObject:person];
             continue;
         }
         

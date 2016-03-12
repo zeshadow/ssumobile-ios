@@ -16,18 +16,15 @@
     if (eventID == nil || eventID.integerValue == 0)
         return nil;
     
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, eventID];
     BOOL created = NO;
     SSUEvent* event = (SSUEvent*)[self objectWithEntityName:SSUCalendarEntityEvent
-                                            predicate:predicate
-                                              context:context
-                                     entityWasCreated:&created];
+                                                         ID:eventID
+                                                    context:context
+                                           entityWasCreated:&created];
     if (created) {
         event.id = eventID;
     }
-    else {
-        
-    }
+
     return event;
 }
 

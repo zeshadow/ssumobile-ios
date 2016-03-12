@@ -50,6 +50,11 @@ typedef void(^Block)(BOOL hadChanges, NSError* error);
                                        ID:(id)ID
                                   context:(NSManagedObjectContext *)context;
 
++ (NSManagedObject *) objectWithEntityName:(NSString *)entityName
+                                        ID:(id)ID
+                                   context:(NSManagedObjectContext *)context
+                          entityWasCreated:(BOOL*)isNew;
+
 + (NSArray *) allObjectsWithEntityName:(NSString *)entityName
                      matchingPredicate:(NSPredicate *)predicate
                                context:(NSManagedObjectContext *)context;

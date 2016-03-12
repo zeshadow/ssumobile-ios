@@ -28,6 +28,8 @@
                 SSUMapPoint* point = [SSUBuildingPerimetersBuilder mapPointWithID:pID.stringValue inContext:self.context];
                 [perimeter addLocationsObject:point];
             }
+            perimeter.buildingID = building.id;
+            perimeter.buildingName = building.displayName;
         }];
     }
     SSULogDebug(@"Finished building perimeters");

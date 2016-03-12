@@ -34,15 +34,9 @@
 }
 
 - (void) removeOldArticles {
-    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUNewsEntityArticle];
     NSDate * cutoffDate = [NSDate dateWithTimeIntervalSinceNow:-1*SSUNewsArticleFetchDateLimit];
-    request.predicate = [NSPredicate predicateWithFormat:@"published <= %@",cutoffDate];
-    NSArray * oldArticles = [self.context executeFetchRequest:request error:nil];
-    for (SSUArticle * article in oldArticles) {
-        [self.context performBlockAndWait:^{
-            [self.context deleteObject:article];
-        }];
-    }
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"published <= %@",cutoffDate];
+    [SSUMoonlightBuilder deleteObjectsWithEntityName:SSUNewsEntityArticle matchingPredicate:predicate context:self.context];
 }
 
 - (void) build:(NSArray *)stories {
@@ -55,10 +49,7 @@
             [self.context deleteObject:article];
             continue;
         }
-        else if (mode == SSUMoonlightDataModeCreate){
-        }
-        else if (mode == SSUMoonlightDataModeModified)  {
-        }
+
         article.author = storyData[SSUNewsKeyAuthor];
         article.category = storyData[SSUNewsKeyCategory];
         article.title = storyData[SSUNewsKeyTitle];

@@ -66,15 +66,21 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
 + (NSManagedObject *) objectWithEntityName:(NSString *)entityName
                                         ID:(id)ID
                                    context:(NSManagedObjectContext *)context {
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K == %@",SSUMoonlightManagerKeyID,ID];
-    return [[self class] objectWithEntityName:entityName predicate:predicate context:context];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K == %@", SSUMoonlightManagerKeyID, ID];
+    return [self objectWithEntityName:entityName predicate:predicate context:context];
+}
+
+
++ (NSManagedObject *) objectWithEntityName:(NSString *)entityName ID:(id)ID context:(NSManagedObjectContext *)context entityWasCreated:(BOOL *)isNew {
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K == %@", SSUMoonlightManagerKeyID, ID];
+    return [self objectWithEntityName:entityName predicate:predicate context:context entityWasCreated:isNew];
 }
 
 
 + (NSManagedObject *) objectWithEntityName:(NSString *)entityName
                                  predicate:(NSPredicate *)predicate
                                    context:(NSManagedObjectContext *)context {
-    return [[self class] objectWithEntityName:entityName predicate:predicate context:context entityWasCreated:NULL];
+    return [self objectWithEntityName:entityName predicate:predicate context:context entityWasCreated:NULL];
 }
 
 /*
@@ -92,7 +98,7 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
     NSError* error = nil;
     NSArray* results = [context executeFetchRequest:request error:&error];
     if (!results) {
-        SSULogError(@"Error: %@", error.debugDescription);
+        SSULogError(@"Error: %@", error);
         return nil;
     }
     else if (results.count == 1) {
@@ -102,7 +108,7 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
         return results.firstObject;
     }
     else if (results.count > 1) {
-        SSULogError(@"Error: %@", @"More than one object returned in fetch");
+        SSULogError(@"Error: More than one object fetched when expected only 1");
         for (NSManagedObject* object in results) {
             SSULogDebug(@"Object: %@", object);
         }

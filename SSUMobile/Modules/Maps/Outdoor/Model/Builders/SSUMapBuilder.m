@@ -16,47 +16,23 @@
 }
 
 + (SSUMapPoint*) mapPointWithID:(NSString*)pointID inContext:(NSManagedObjectContext*)context {
-    if ([self mapPointExistsWithID:pointID inContext:context]) {
-        NSFetchRequest* request = [[NSFetchRequest alloc] init];
-        request.includesPendingChanges = YES;
-        request.entity = [NSEntityDescription entityForName:SSUOutdoorMapEntityMapPoint inManagedObjectContext:context];
-        request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, pointID];
-        
-        NSError* error = nil;
-        NSArray* results = [context executeFetchRequest:request error:&error];
-        
-        if (!results) {
-            SSULogError(@"Error: %@", error.debugDescription);
-        }
-        else if (results.count == 0) {
-            SSULogError(@"Error: No map point found");
-        }
-        else if (results.count > 1) {
-            SSULogError(@"Error: Multiple map points found");
-            for (SSUMapPoint* point in results) {
-                SSULogDebug(@"Point: %@", point);
-            }
-        }
-        else {
-            return results.lastObject;
-        }
-    }
-    else {
-        SSUMapPoint* point = [NSEntityDescription insertNewObjectForEntityForName:SSUOutdoorMapEntityMapPoint inManagedObjectContext:context];
-        point.id = pointID;
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, pointID];
+    
+    
+    BOOL created = NO;
+    SSUMapPoint* point = (id)[self objectWithEntityName:SSUOutdoorMapEntityMapPoint predicate:predicate context:context entityWasCreated:&created];
+    if (created) {
         point.latitude = @"0";
         point.longitude = @"0";
-        return point;
     }
-    return nil;
+    return point;
 }
 
 + (BOOL) mapPointExistsWithID:(NSString*)pointID inContext:(NSManagedObjectContext*)context {
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:SSUOutdoorMapEntityMapPoint];
     request.includesPendingChanges = YES;
-    request.entity = [NSEntityDescription entityForName:SSUOutdoorMapEntityMapPoint inManagedObjectContext:context];
     request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, pointID];
-    
+
     NSError* error = nil;
     NSInteger count = [context countForFetchRequest:request error:&error];
     return count != NSNotFound && count > 0;
@@ -69,33 +45,14 @@
 
 + (SSUMapBuildingPerimeter *) perimeterForBuilding:(SSUBuilding *)building
                                         inContext:(NSManagedObjectContext *)context {
-    SSUMapBuildingPerimeter* perimeter = nil;
-    if ([self perimeterExistsForBuilding:building inContext:context]) {
-        NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:SSUOutdoorMapEntityBuildingPerimeter];
-        request.includesPendingChanges = YES;
-        request.predicate = [NSPredicate predicateWithFormat:@"buildingID = %@", building.id];
-        
-        NSError* error = nil;
-        NSArray* results = [context executeFetchRequest:request error:&error];
-        
-        if (!results) {
-            SSULogError(@"Error: %@", error.debugDescription);
-        }
-        else if (!results.count) {
-            SSULogError(@"Error: No map point found");
-        }
-        else if (results.count > 1) {
-            SSULogError(@"Error: Multiple map points found");
-        }
-        else {
-            perimeter = results.lastObject;
-        }
-    }
-    else {
-        perimeter = [NSEntityDescription insertNewObjectForEntityForName:SSUOutdoorMapEntityBuildingPerimeter inManagedObjectContext:context];
+    BOOL created = NO;
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"buildingID = %@", building.id];
+    SSUMapBuildingPerimeter* perimeter = (id)[self objectWithEntityName:SSUOutdoorMapEntityBuildingPerimeter predicate:predicate context:context entityWasCreated:&created];
+    
+    if (created) {
         perimeter.buildingID = building.id;
     }
-    perimeter.buildingName = building.name;
+    
     return perimeter;
 }
 
@@ -104,7 +61,7 @@
 }
 
 + (BOOL) perimeterExistsForBuilding:(SSUBuilding*)building inContext:(NSManagedObjectContext*)context {
-    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:SSUOutdoorMapEntityBuildingPerimeter];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:SSUOutdoorMapEntityBuildingPerimeter];
     request.includesPendingChanges = YES;
     request.predicate = [NSPredicate predicateWithFormat:@"buildingID = %@", building.id];
     
