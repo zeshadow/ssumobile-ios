@@ -1602,7 +1602,6 @@
 						DevelopmentTeam = 43828X7VU8;
 					};
 					C4995ADA16B1274200168521 = {
-						DevelopmentTeam = 43828X7VU8;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
