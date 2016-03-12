@@ -54,8 +54,8 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
 }
 
 - (void) updateNavigationButtons {
-    self.backButton.enabled = NO;
-    self.forwardButton.enabled = NO;
+    self.backButton.enabled = self.webview.canGoBack;
+    self.forwardButton.enabled = self.webview.canGoForward;
 }
 
 #pragma mark - IBActions
