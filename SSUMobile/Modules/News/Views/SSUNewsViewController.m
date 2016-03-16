@@ -37,6 +37,8 @@
     
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.context sectionNameKeyPath:@"published" cacheName:nil];
     self.fetchedResultsController = aFetchedResultsController;
+    
+    self.tableView.separatorInset = UIEdgeInsetsZero;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -73,32 +75,21 @@
     if ([cell.reuseIdentifier isEqualToString:SSUNewsEntityArticle]) {
         SSUNewsArticleTableViewCell* articleCell = (SSUNewsArticleTableViewCell*)cell;
         articleCell.article = article;
+        articleCell.separatorInset = UIEdgeInsetsZero;
+        // TODO: iOS 8
+        if ([articleCell respondsToSelector:@selector(setLayoutMargins:)]) {
+            articleCell.layoutMargins = UIEdgeInsetsZero;
+        }
     }
 }
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    static NSDateFormatter * dateFormatter;
-    if (!dateFormatter) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateStyle = NSDateFormatterLongStyle;
-        dateFormatter.timeStyle = NSDateFormatterLongStyle;
-    }
-    SSUArticle * article = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    return [dateFormatter stringFromDate:article.published];
-}
-
-- (NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    SSUArticle * article = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    if (!SSUIsEmptyString(article.author))
-        return [NSString stringWithFormat:@"by %@",article.author];
-    else
-        return nil;
+    return nil;
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SSUArticle* article = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     SSUWebViewController* controller = [SSUWebViewController webViewController];
