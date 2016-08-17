@@ -29,9 +29,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"Directory",
                              @"The campus directory containing the contact information of faculty and staff");
+}
+
+- (nonnull NSString *) identifier {
+    return @"directory";
 }
 
 - (UIView *) viewForHomeScreen {

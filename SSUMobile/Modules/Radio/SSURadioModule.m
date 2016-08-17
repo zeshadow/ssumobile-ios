@@ -23,9 +23,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"Radio",
                              @"The campus online radio status - KSUN Radio");
+}
+
+- (nonnull NSString *) identifier {
+    return @"radio";
 }
 
 - (UIView *) viewForHomeScreen {

@@ -11,7 +11,9 @@
 @protocol SSUModule <NSObject>
 
 /** A user-facing title for this module. Should be localized */
-- (NSString *) title;
+- (nonnull NSString *) title;
+/** A non-user-facing identifier for this module. */
+- (nonnull NSString *) identifier;
 
 /** Called immediately after application launch to provide modules with a time to set themselves up properly */
 - (void) setup;
@@ -46,7 +48,7 @@
 
 @property (nonatomic, strong, readonly) NSDateFormatter * dateFormatter;
 
-+ (instancetype) sharedInstance;
++ (nonnull instancetype) sharedInstance;
 
 - (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(NSURL *)url toValue:(BOOL)excluded;
 

@@ -21,8 +21,12 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return @"Debug";
+}
+
+- (nonnull NSString *) identifier {
+    return @"debug";
 }
 
 - (UIView *) viewForHomeScreen {

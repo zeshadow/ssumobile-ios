@@ -25,9 +25,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"News",
                              @"The campus News provides upcoming information on upcoming events");
+}
+
+- (nonnull NSString *) identifier {
+    return @"news";
 }
 
 - (UIView *) viewForHomeScreen {

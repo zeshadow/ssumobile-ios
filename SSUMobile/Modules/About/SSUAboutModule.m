@@ -21,9 +21,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"About",
                              @"General information about the app. \'Info\'");
+}
+
+- (nonnull NSString *) identifier {
+    return @"about";
 }
 
 - (UIView *) viewForHomeScreen {

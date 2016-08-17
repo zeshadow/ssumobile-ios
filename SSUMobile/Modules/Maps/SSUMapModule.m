@@ -27,9 +27,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"Map",
                              @"The campus Map shows the location of campus buildings and provides directions");
+}
+
+- (nonnull NSString *) identifier {
+    return @"campusmap";
 }
 
 - (UIView *) viewForHomeScreen {

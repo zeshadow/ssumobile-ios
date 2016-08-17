@@ -25,9 +25,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"Calendar",
                              @"The campus Calendar provides upcoming information on upcoming events");
+}
+
+- (nonnull NSString *) identifier {
+    return @"calendar";
 }
 
 - (UIView *) viewForHomeScreen {

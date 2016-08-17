@@ -23,9 +23,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"Email",
                              @"Provides access to campus email accounts");
+}
+
+- (nonnull NSString *) identifier {
+    return @"email";
 }
 
 - (UIView *) viewForHomeScreen {

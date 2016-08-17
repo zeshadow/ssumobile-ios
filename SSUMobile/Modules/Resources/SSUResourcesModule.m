@@ -25,9 +25,13 @@
 
 #pragma mark - SSUModule
 
-- (NSString *) title {
+- (nonnull NSString *) title {
     return NSLocalizedString(@"Resources",
                              @"Campus resources, such as phone numbers and web links");
+}
+
+- (nonnull NSString *) identifier {
+    return @"directory";
 }
 
 - (UIView *) viewForHomeScreen {
