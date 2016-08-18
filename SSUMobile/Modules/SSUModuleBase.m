@@ -21,13 +21,12 @@
     return nil;
 }
 
-- (NSDateFormatter*) dateFormatter {
+- (nonnull NSDateFormatter *) dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
         _dateFormatter.dateStyle = NSDateFormatterNoStyle;
         _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
         _dateFormatter.locale = [NSLocale currentLocale];
-        _dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         _dateFormatter.timeZone = [NSTimeZone localTimeZone];
         _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     }
@@ -38,7 +37,7 @@
  Marks the file at URL as excluded from iCloud backups. Appropriate use is required for
  approval on the App Store
  */
-- (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(NSURL *)url toValue:(BOOL)excluded {
+- (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(nullable NSURL *)url toValue:(BOOL)excluded {
     NSError *error = nil;
     BOOL success = [url setResourceValue:@(excluded)
                                   forKey:NSURLIsExcludedFromBackupKey
@@ -55,6 +54,11 @@
 //MARK: Default implementations for SSUModule
 
 - (NSString *) title {
+    NSAssert(NO, @"Subclasses of %@ must provide an implementation for %s", [self class], __FUNCTION__);
+    return nil;
+}
+
+- (NSString *) identifier {
     NSAssert(NO, @"Subclasses of %@ must provide an implementation for %s", [self class], __FUNCTION__);
     return nil;
 }

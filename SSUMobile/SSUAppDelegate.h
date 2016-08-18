@@ -11,17 +11,8 @@
 
 #define AppDelegate ((SSUAppDelegate*)[[UIApplication sharedApplication] delegate])
 
-extern NSString * const SSUModulesDidLoadNotification;
-
 @interface SSUAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow * window;
-
-/** All SSUModule(UI) instances that were loaded on launch */
-@property (nonatomic, readonly) NSArray<SSUModule> * modules;
-/** All SSUModuleUI instances */
-@property (nonatomic, readonly) NSArray<SSUModuleUI> * modulesUI;
-
-- (void) updateAll;
 
 @end

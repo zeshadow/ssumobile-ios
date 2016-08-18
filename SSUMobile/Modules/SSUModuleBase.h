@@ -10,6 +10,8 @@
 
 @protocol SSUModule <NSObject>
 
++ (nonnull instancetype) sharedInstance;
+
 /** A user-facing title for this module. Should be localized */
 - (nonnull NSString *) title;
 /** A non-user-facing identifier for this module. */
@@ -18,7 +20,7 @@
 /** Called immediately after application launch to provide modules with a time to set themselves up properly */
 - (void) setup;
 /** Called when the application is updating all modules at once */
-- (void) updateData:(void (^)())completion;
+- (void) updateData:(void  (^ _Nullable )())completion;
 /** Called when the user requests the deletion of all cached data */
 - (void) clearCachedData;
 
@@ -27,9 +29,9 @@
 @protocol SSUModuleUI <SSUModule>
 
 /** The image that will be used as the button for this module */
-- (UIImage *) imageForHomeScreen;
+- (nullable UIImage *) imageForHomeScreen;
 /** The module's initial view controller */
-- (UIViewController *) initialViewController;
+- (nonnull UIViewController *) initialViewController;
 
 /** 
  Return YES if your module is available, or NO if the functionality is not available or you do not
@@ -40,16 +42,16 @@
 /** If YES, this module's `viewForHomeScreen` view will be set as the navigation item's rightBarButtonItem */
 - (BOOL) showModuleInNavigationBar;
 /** The view that shows up on the homescreen and navigates to this module */
-- (UIView *) viewForHomeScreen;
+- (nonnull UIView *) viewForHomeScreen;
 
 @end
 
 @interface SSUModuleBase : NSObject <SSUModule>
 
-@property (nonatomic, strong, readonly) NSDateFormatter * dateFormatter;
+@property (nonatomic, strong, readonly, nonnull) NSDateFormatter * dateFormatter;
 
 + (nonnull instancetype) sharedInstance;
 
-- (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(NSURL *)url toValue:(BOOL)excluded;
+- (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(nullable NSURL *)url toValue:(BOOL)excluded;
 
 @end

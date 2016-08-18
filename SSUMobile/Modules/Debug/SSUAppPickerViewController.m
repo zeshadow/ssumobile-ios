@@ -9,6 +9,7 @@
 #import "SSUAppPickerViewController.h"
 #import "RBStoryboardLink.h"
 #import "SSUAppDelegate.h"
+#import "SSUModuleServices.h"
 #import "SSULogging.h"
 
 @interface SSUAppPickerViewController ()
@@ -36,8 +37,8 @@
     segue.destinationViewController.title = [self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow].textLabel.text;
 }
 
-- (IBAction)didRefresh:(id)sender {
-    [AppDelegate updateAll];
+- (void) didRefresh:(id)sender {
+    [[SSUModuleServices sharedInstance] updateAll];
 }
 
 - (void) dealloc {

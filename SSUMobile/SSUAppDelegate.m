@@ -12,16 +12,12 @@
 #import "SSUModuleBase.h"
 #import "SSULogging.h"
 #import "SSUConfiguration.h"
+#import "SSUModuleServices.h"
 
 #import <SDWebImage/SDImageCache.h>
 
-NSString * const SSUModulesDidLoadNotification = @"edu.sonoma.modules.loaded.notification";
-static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
 
 @interface SSUAppDelegate()
-
-@property (nonatomic) NSArray<SSUModule> * modules;
-@property (nonatomic) NSArray<SSUModuleUI> * modulesUI;
 
 @end
 
@@ -47,12 +43,12 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
         SSULogDebug(@"First launch");
         [self clearLocalDatabases];
         [[SSUConfiguration sharedInstance] setBool:NO forKey:[self firstLaunchKey]];
-        [self setupAll];
+        [[SSUModuleServices sharedInstance] setupAll];
         [self showWelcomeMessage];
     }
     else {
-        [self setupAll];
-        [self updateAll];
+        [[SSUModuleServices sharedInstance] setupAll];
+        [[SSUModuleServices sharedInstance] updateAll];
     }
     
     [[SDImageCache sharedImageCache] setMaxCacheSize:1024*1000*100]; // 100MB max cache size
@@ -60,60 +56,6 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
     return YES;
 }
 
-- (NSArray *) moduleClasses {
-    NSArray <NSString *> * moduleClasses = [[SSUConfiguration sharedInstance] stringArrayForKey:@"edu.sonoma.modules.enabled"];
-#ifdef DEBUG
-    if (NSClassFromString(@"SSUDebugModule")) {
-        return [moduleClasses arrayByAddingObject:@"SSUDebugModule"];
-    }
-    return moduleClasses;
-#else
-    return moduleClasses;
-#endif
-}
-
-- (NSArray<SSUModule> *) modules {
-    if (_modules) return _modules;
-    
-    NSMutableArray * moduleObjects = (id)[NSMutableArray new];
-    for (NSString * className in [self moduleClasses]) {
-        Class cls = NSClassFromString(className);
-        id<SSUModule> module = [cls sharedInstance];
-        NSAssert([module conformsToProtocol:@protocol(SSUModule)], @"Module with name %@ does not conform to the %@ protocol", className, NSStringFromProtocol(@protocol(SSUModule)));
-        [moduleObjects addObject:module];
-    }
-    
-    _modules = [moduleObjects copy];
-    
-    return _modules;
-}
-
-- (NSArray<SSUModuleUI> *) modulesUI {
-    if (_modulesUI) return _modulesUI;
-    
-    NSMutableArray * moduleObjects = [NSMutableArray new];
-    for (id<SSUModule> module in self.modules) {
-        if ([module conformsToProtocol:@protocol(SSUModuleUI)]) {
-            [moduleObjects addObject:module];
-        }
-    }
-    
-    _modulesUI = [moduleObjects copy];
-    
-    return _modulesUI;
-}
-
-- (void) updateAll {
-    for (id<SSUModule> module in self.modules) {
-        [module updateData:NULL];
-    }
-}
-
-- (void) setupAll {
-    for (id<SSUModule> module in self.modules) {
-        [module setup];
-    }
-}
 
 - (void) setupStyles {
     
@@ -151,15 +93,14 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
     if ([self isFirstLaunchForCurrentVersion]) {
         return;
     }
+    return;
     
     NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"settings"]];
     NSArray * classes = [[SSUConfiguration sharedInstance] stringArrayForKey:SSUModulesEnabledKey];
     [[SSUConfiguration sharedInstance] loadFromURL:configURL completion:^(NSError *error) {
         SSULogDebug(@"After loading from moonlight: %@", [[SSUConfiguration sharedInstance] dictionaryRepresentation]);
         if (![classes isEqualToArray:[[SSUConfiguration sharedInstance] stringArrayForKey:SSUModulesEnabledKey]]) {
-            self.modules = nil;
-            self.modulesUI = nil;
-            [[NSNotificationCenter defaultCenter] postNotificationName:SSUModulesDidLoadNotification object:nil];
+            [[SSUModuleServices sharedInstance] loadModules];
         }
     }];
 }
@@ -205,6 +146,22 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
     [[SDImageCache sharedImageCache] clearMemory];
 }
 
+#pragma mark - NSUserActivity / CoreSpotlight
+
+- (BOOL) application:(UIApplication *)application
+continueUserActivity:(nonnull NSUserActivity *)userActivity
+  restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler {
+    if ([userActivity.activityType isEqualToString:CSSearchableItemActionType]) {
+        NSString * moduleIdentifier = userActivity.userInfo[CSSearchableItemActivityIdentifier];
+        NSLog(@"%@",moduleIdentifier);
+    }
+    return NO;
+}
+
+- (BOOL) application:(UIApplication *)application willContinueUserActivityWithType:(NSString *)userActivityType {
+    return [userActivityType isEqualToString:CSSearchableItemActionType];
+}
+
 #pragma mark - Helper
 
 - (void) showWelcomeMessage {
@@ -217,7 +174,7 @@ static NSString * const SSUModulesEnabledKey = @"edu.sonoma.modules.enabled";
 }
 
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    [self updateAll];
+    [[SSUModuleServices sharedInstance] updateAll];
 }
 
 /**

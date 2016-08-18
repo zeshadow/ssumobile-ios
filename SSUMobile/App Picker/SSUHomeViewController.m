@@ -8,7 +8,7 @@
 
 #import "SSUHomeViewController.h"
 #import "SSUAppPickerModuleCell.h"
-#import "SSUAppDelegate.h"
+#import "SSUModuleServices.h"
 #import <Masonry/Masonry.h>
 
 static NSInteger COLS = 3;
@@ -71,7 +71,7 @@ static NSInteger BLANK_CELL_INDEX = 7;
 }
 
 - (void) loadModules {
-    NSMutableArray * modules = [[AppDelegate modulesUI] mutableCopy];
+    NSMutableArray * modules = [[[SSUModuleServices sharedInstance] modulesUI] mutableCopy];
     id<SSUModuleUI> navBarModule = nil;
     for (id<SSUModuleUI> module in modules) {
         if ([module respondsToSelector:@selector(showModuleInNavigationBar)] &&
