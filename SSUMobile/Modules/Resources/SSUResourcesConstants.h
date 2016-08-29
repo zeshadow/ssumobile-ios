@@ -8,17 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString* const SSUResourcesUpdatedDateKey;
+extern NSString * const SSUResourcesUpdatedDateKey;
 
-extern NSString * SSUResourcesEntityResource;
-extern NSString * SSUResourcesEntitySection;
-
-extern NSString * SSUResourcesResourceKeyName;
-extern NSString * SSUResourcesResourceKeyURL;
-extern NSString * SSUResourcesResourceKeyPhone;
-extern NSString * SSUResourcesResourceKeyImageURL;
-extern NSString * SSUResourcesResourceKeySectionID;
-
-extern NSString * SSUResourcesSectionKeyName;
-extern NSString * SSUResourcesSectionKeyPosition;
-extern NSString * SSUResourcesSectionKeyName;
+extern NSString * const SSUResourcesEntityResource;
+extern NSString * const SSUResourcesEntitySection;

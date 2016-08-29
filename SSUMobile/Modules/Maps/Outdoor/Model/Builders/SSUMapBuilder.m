@@ -9,6 +9,9 @@
 #import "SSUMapBuilder.h"
 #import "SSULogging.h"
 
+NSString * const SSUPointKeyLatitude = @"latitude";
+NSString * const SSUPointKeyLongitude = @"longitude";
+
 @implementation SSUMapBuilder
 
 - (SSUMapPoint *) mapPointWithID:(NSString *)pointID {

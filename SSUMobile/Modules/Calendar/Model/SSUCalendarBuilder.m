@@ -10,6 +10,17 @@
 #import "SSUCalendarConstants.h"
 #import "SSULogging.h"
 
+NSString * const SSUCalendarEventKeyID = @"Id";
+NSString * const SSUCalendarEventKeyCreated = @"CreatedOn";
+NSString * const SSUCalendarEventKeyStart = @"StartsOn";
+NSString * const SSUCalendarEventKeyEnd = @"EndsOn";
+NSString * const SSUCalendarEventKeyTitle = @"Title";
+NSString * const SSUCalendarEventKeyOrganization = @"Organization";
+NSString * const SSUCalendarEventKeyCategory = @"category";
+NSString * const SSUCalendarEventKeyLocation = @"Location";
+NSString * const SSUCalendarEventKeyDescription = @"Description";
+NSString * const SSUCalendarEventKeyImgURL = @"ImgUrl";
+
 @implementation SSUCalendarBuilder
 
 + (SSUEvent *) eventWithID:(NSNumber *)eventID inContext:(NSManagedObjectContext *)context {

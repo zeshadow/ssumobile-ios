@@ -17,5 +17,3 @@ NSString* const SSUOutdoorMapEntityPolygon = @"SSUMapPolygon";
 NSString* const SSUOutdoorMapEntityLocation = @"SSUMapLocation";
 NSString* const SSUOutdoorMapEntityBuildingPerimeter = @"SSUMapBuildingPerimeter";
 
-NSString* const SSUPointKeyLatitude = @"latitude";
-NSString* const SSUPointKeyLongitude = @"longitude";

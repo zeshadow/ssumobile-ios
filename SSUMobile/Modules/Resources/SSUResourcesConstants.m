@@ -8,16 +8,7 @@
 
 #import "SSUResourcesConstants.h"
 
-NSString* const SSUResourcesUpdatedDateKey = @"ResourcesUpdatedDate";
+NSString * const SSUResourcesUpdatedDateKey = @"ResourcesUpdatedDate";
 
-NSString * SSUResourcesEntityResource = @"SSUResourcesEntry";
-NSString * SSUResourcesEntitySection = @"SSUResourcesSection";
-
-NSString * SSUResourcesResourceKeyName = @"name";
-NSString * SSUResourcesResourceKeyURL = @"url";
-NSString * SSUResourcesResourceKeyPhone = @"phone";
-NSString * SSUResourcesResourceKeyImageURL = @"imageURL";
-NSString * SSUResourcesResourceKeySectionID = @"section_id";
-
-NSString * SSUResourcesSectionKeyName = @"name";
-NSString * SSUResourcesSectionKeyPosition = @"position";
+NSString * const SSUResourcesEntityResource = @"SSUResourcesEntry";
+NSString * const SSUResourcesEntitySection = @"SSUResourcesSection";

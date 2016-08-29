@@ -11,6 +11,9 @@
 #import "SSUMapModels.h"
 #import "SSUDirectoryModels.h"
 
+extern NSString * const SSUPointKeyLatitude;
+extern NSString * const SSUPointKeyLongitude;
+
 @interface SSUMapBuilder : SSUMoonlightBuilder
 
 - (SSUMapPoint *) mapPointWithID:(NSString *)pointID;

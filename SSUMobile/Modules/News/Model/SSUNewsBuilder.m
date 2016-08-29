@@ -11,6 +11,15 @@
 #import "SSUArticle.h"
 #import "SSULogging.h"
 
+NSString * const SSUNewsKeyAuthor = @"Author";
+NSString * const SSUNewsKeyCategory = @"Category";
+NSString * const SSUNewsKeyTitle = @"Title";
+NSString * const SSUNewsKeyImageURL = @"ImageURL";
+NSString * const SSUNewsKeySummary = @"Summary";
+NSString * const SSUNewsKeyContent = @"Content";
+NSString * const SSUNewsKeyLink = @"Link";
+NSString * const SSUNewsKeyPublished = @"Published";
+
 @interface SSUNewsBuilder()
 
 @end

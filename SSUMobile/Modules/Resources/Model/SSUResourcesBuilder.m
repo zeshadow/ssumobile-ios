@@ -10,6 +10,15 @@
 #import "SSUResourcesConstants.h"
 #import "SSULogging.h"
 
+NSString * const SSUResourcesResourceKeyName = @"name";
+NSString * const SSUResourcesResourceKeyURL = @"url";
+NSString * const SSUResourcesResourceKeyPhone = @"phone";
+NSString * const SSUResourcesResourceKeyImageURL = @"imageURL";
+NSString * const SSUResourcesResourceKeySectionID = @"section_id";
+
+NSString * const SSUResourcesSectionKeyName = @"name";
+NSString * const SSUResourcesSectionKeyPosition = @"position";
+
 @implementation SSUResourcesBuilder
 
 + (SSUResourcesEntry *) resourceWithID:(NSNumber *)ID inContext:(NSManagedObjectContext *)context {

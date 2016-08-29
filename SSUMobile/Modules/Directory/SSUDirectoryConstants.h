@@ -40,36 +40,3 @@ extern NSString* const SSUDirectoryEntityBuilding;
 extern NSString* const SSUDirectoryEntityDepartment;
 extern NSString* const SSUDirectoryEntitySchool;
 extern NSString* const SSUDirectoryEntityDirectoryObject;
-
-extern NSString* const SSUDirectoryPersonKeyCreated;
-extern NSString* const SSUDirectoryPersonKeyDeleted;
-extern NSString* const SSUDirectoryPersonKeyEmail;
-extern NSString* const SSUDirectoryPersonKeyFirstName;
-extern NSString* const SSUDirectoryPersonKeyID;
-extern NSString* const SSUDirectoryPersonKeyLastName;
-extern NSString* const SSUDirectoryPersonKeyModified;
-extern NSString* const SSUDirectoryPersonKeyPhone;
-extern NSString* const SSUDirectoryPersonKeySite;
-extern NSString* const SSUDirectoryPersonKeyTitle;
-extern NSString* const SSUDirectoryPersonKeyOffice;
-extern NSString* const SSUDirectoryPersonKeyBuilding;
-extern NSString* const SSUDirectoryPersonKeyDepartment;
-
-extern NSString* const SSUDirectoryDepartmentKeyName;
-extern NSString* const SSUDirectoryDepartmentKeyDisplayName;
-extern NSString* const SSUDirectoryDepartmentKeyPhone;
-extern NSString* const SSUDirectoryDepartmentKeyEmail;
-extern NSString* const SSUDirectoryDepartmentKeySite;
-extern NSString* const SSUDirectoryDepartmentKeyChairID;
-extern NSString* const SSUDirectoryDepartmentKeyACID;
-extern NSString* const SSUDirectoryDepartmentKeyBuildingID;
-extern NSString* const SSUDirectoryDepartmentKeyRoomID;
-extern NSString* const SSUDirectoryDepartmentKeySchoolID;
-
-extern NSString* const SSUDirectoryBuildingKeyName;
-
-extern NSString* const SSUDirectorySchoolKeyName;
-extern NSString* const SSUDirectorySchoolKeyDeanID;
-extern NSString* const SSUDirectorySchoolKeyAdminID;
-extern NSString* const SSUDirectorySchoolKeyAssistantID;
-extern NSString* const SSUDirectorySchoolKeyBuildingID;

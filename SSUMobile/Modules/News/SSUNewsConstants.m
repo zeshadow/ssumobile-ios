@@ -12,15 +12,6 @@ NSString* const SSUNewsUpdatedDateKey = @"NewsUpdatedDate";
 
 NSString* const SSUNewsEntityArticle = @"SSUArticle";
 
-NSString* const SSUNewsKeyAuthor = @"Author";
-NSString* const SSUNewsKeyCategory = @"Category";
-NSString* const SSUNewsKeyTitle = @"Title";
-NSString* const SSUNewsKeyImageURL = @"ImageURL";
-NSString* const SSUNewsKeySummary = @"Summary";
-NSString* const SSUNewsKeyContent = @"Content";
-NSString* const SSUNewsKeyLink = @"Link";
-NSString* const SSUNewsKeyPublished = @"Published";
-
 NSInteger const SSUNewsArticleFetchDateLimit = 60*60*24*180; // 6 months
 
 NSString* const SSUNewsImageCacheDirectory = @"News_Cache";

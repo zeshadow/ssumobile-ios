@@ -9,14 +9,3 @@
 extern NSString* const SSUCalendarUpdatedDateKey;
 
 extern NSString * const SSUCalendarEntityEvent;
-
-extern NSString * const SSUCalendarEventKeyID;
-extern NSString * const SSUCalendarEventKeyCreated;
-extern NSString * const SSUCalendarEventKeyStart;
-extern NSString * const SSUCalendarEventKeyEnd;
-extern NSString * const SSUCalendarEventKeyTitle;
-extern NSString * const SSUCalendarEventKeyOrganization;
-extern NSString * const SSUCalendarEventKeyCategory;
-extern NSString * const SSUCalendarEventKeyLocation;
-extern NSString * const SSUCalendarEventKeyDescription;
-extern NSString * const SSUCalendarEventKeyImgURL;

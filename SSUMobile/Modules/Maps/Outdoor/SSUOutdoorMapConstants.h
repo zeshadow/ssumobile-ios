@@ -14,11 +14,8 @@ extern NSString* const SSUMapPointsUpdatedDateKey;
 extern NSString* const SSUMapPerimetersUpdatedDateKey;
 extern NSString* const SSUMapConnectionsUpdatedDateKey;
 
-//extern NSString* const SSUOutdoorMapEntity<##>;
 extern NSString* const SSUOutdoorMapEntityMapPoint;
 extern NSString* const SSUOutdoorMapEntityPolygon;
 extern NSString* const SSUOutdoorMapEntityLocation;
 extern NSString* const SSUOutdoorMapEntityBuildingPerimeter;
 
-extern NSString* const SSUPointKeyLatitude;
-extern NSString* const SSUPointKeyLongitude;
