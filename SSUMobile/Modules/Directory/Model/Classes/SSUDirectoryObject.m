@@ -12,6 +12,7 @@
 @implementation SSUDirectoryObject
 
 @dynamic displayName;
+@dynamic id;
 @dynamic isFavorite;
 @dynamic sectionName;
 @dynamic term;

@@ -31,6 +31,8 @@
 
 @interface SSUDirectoryViewController : SSUCoreDataTableViewController <SSUDetailTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
++ (instancetype) instantiateFromStoryboard;
+
 /**
  Manually fetches a specific entity. Use this to force load an entity without needing user input.
  

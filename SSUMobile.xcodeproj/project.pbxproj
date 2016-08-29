@@ -145,7 +145,6 @@
 		0730A6D31C85515200FC9370 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE516B1274200168521 /* CoreData.framework */; };
 		0730A6D41C85515200FC9370 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7498147B54ADC312BAD34773 /* libPods.a */; };
 		0730A6D61C85515200FC9370 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F84D8019F5885B0046D148 /* About.storyboard */; };
-		0730A6D71C85515200FC9370 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4995AEA16B1274200168521 /* InfoPlist.strings */; };
 		0730A6D81C85515200FC9370 /* Calendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09021BA082AE005C38DD /* Calendar.xcassets */; };
 		0730A6D91C85515200FC9370 /* licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 071E23A419E284F400483138 /* licenses.txt */; };
 		0730A6DB1C85515200FC9370 /* Email.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C997CF1A87119900534A1C /* Email.storyboard */; };
@@ -241,6 +240,12 @@
 		07DE5DA71B9C83F6005B38CB /* SSUCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */; };
 		07DFB6CB1B94511A00014CD0 /* SSUDepartment+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */; };
 		07DFB6CE1B9453C200014CD0 /* SSUTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CD1B9453C200014CD0 /* SSUTableHeaderView.m */; };
+		07E8A2161D5FEF06007246A8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E8A2151D5FEF06007246A8 /* MobileCoreServices.framework */; };
+		07E8A2181D5FEF0D007246A8 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E8A2171D5FEF0D007246A8 /* CoreSpotlight.framework */; };
+		07E8A21B1D64276D007246A8 /* SSUSpotlightServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8A21A1D64276D007246A8 /* SSUSpotlightServices.m */; };
+		07E8A21C1D64276D007246A8 /* SSUSpotlightServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8A21A1D64276D007246A8 /* SSUSpotlightServices.m */; };
+		07E8A21F1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8A21E1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m */; };
+		07E8A2201D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8A21E1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m */; };
 		07E8A2231D655E75007246A8 /* SSUModuleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8A2221D655E75007246A8 /* SSUModuleServices.m */; };
 		07E8A2241D655E75007246A8 /* SSUModuleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8A2221D655E75007246A8 /* SSUModuleServices.m */; };
 		07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */; };
@@ -296,7 +301,6 @@
 		C4995AE216B1274200168521 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE116B1274200168521 /* Foundation.framework */; };
 		C4995AE416B1274200168521 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE316B1274200168521 /* CoreGraphics.framework */; };
 		C4995AE616B1274200168521 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995AE516B1274200168521 /* CoreData.framework */; };
-		C4995AEC16B1274200168521 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4995AEA16B1274200168521 /* InfoPlist.strings */; };
 		C4995AEE16B1274200168521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AED16B1274200168521 /* main.m */; };
 		C4995AF216B1274200168521 /* SSUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AF116B1274200168521 /* SSUAppDelegate.m */; };
 		C4995AFB16B1274200168521 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4995AF916B1274200168521 /* MainStoryboard_iPhone.storyboard */; };
@@ -476,6 +480,12 @@
 		07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "SSUDepartment+properties.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07DFB6CC1B9453C200014CD0 /* SSUTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUTableHeaderView.h; sourceTree = "<group>"; };
 		07DFB6CD1B9453C200014CD0 /* SSUTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUTableHeaderView.m; sourceTree = "<group>"; };
+		07E8A2151D5FEF06007246A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		07E8A2171D5FEF0D007246A8 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		07E8A2191D64276D007246A8 /* SSUSpotlightServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSpotlightServices.h; sourceTree = "<group>"; };
+		07E8A21A1D64276D007246A8 /* SSUSpotlightServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSpotlightServices.m; sourceTree = "<group>"; };
+		07E8A21D1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUDirectorySpotlightUtilities.h; sourceTree = "<group>"; };
+		07E8A21E1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectorySpotlightUtilities.m; sourceTree = "<group>"; };
 		07E8A2211D655E75007246A8 /* SSUModuleServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUModuleServices.h; sourceTree = "<group>"; };
 		07E8A2221D655E75007246A8 /* SSUModuleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUModuleServices.m; sourceTree = "<group>"; };
 		07EC53B71BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapBuildingDetailViewController.h; sourceTree = "<group>"; };
@@ -584,7 +594,6 @@
 		C4995AE316B1274200168521 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C4995AE516B1274200168521 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C4995AE916B1274200168521 /* SSUMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SSUMobile-Info.plist"; sourceTree = "<group>"; };
-		C4995AEB16B1274200168521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4995AED16B1274200168521 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C4995AEF16B1274200168521 /* SSUMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSUMobile-Prefix.pch"; sourceTree = "<group>"; };
 		C4995AF016B1274200168521 /* SSUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -626,6 +635,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E8A2181D5FEF0D007246A8 /* CoreSpotlight.framework in Frameworks */,
+				07E8A2161D5FEF06007246A8 /* MobileCoreServices.framework in Frameworks */,
 				0730A6C81C85515200FC9370 /* EventKitUI.framework in Frameworks */,
 				0730A6C91C85515200FC9370 /* AVFoundation.framework in Frameworks */,
 				0730A6CA1C85515200FC9370 /* MediaPlayer.framework in Frameworks */,
@@ -883,6 +894,8 @@
 				071FE0DB1BE0836800CC3DCD /* SSULogging.m */,
 				07E8A2211D655E75007246A8 /* SSUModuleServices.h */,
 				07E8A2221D655E75007246A8 /* SSUModuleServices.m */,
+				07E8A2191D64276D007246A8 /* SSUSpotlightServices.h */,
+				07E8A21A1D64276D007246A8 /* SSUSpotlightServices.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1054,7 +1067,6 @@
 			isa = PBXGroup;
 			children = (
 				C4995AF916B1274200168521 /* MainStoryboard_iPhone.storyboard */,
-				C4995AEA16B1274200168521 /* InfoPlist.strings */,
 				0768952E198A165600C233B3 /* SSUHomeViewController.h */,
 				0768952F198A165600C233B3 /* SSUHomeViewController.m */,
 				070A3A6C1BAA992D00B0E67C /* SSUAppPickerModuleCell.h */,
@@ -1276,6 +1288,8 @@
 		C4995ADE16B1274200168521 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07E8A2171D5FEF0D007246A8 /* CoreSpotlight.framework */,
+				07E8A2151D5FEF06007246A8 /* MobileCoreServices.framework */,
 				07AFDFD619D917550027D0F1 /* EventKitUI.framework */,
 				0780016E19CFE46800FD1E2A /* AVFoundation.framework */,
 				0780016C19CFE45D00FD1E2A /* MediaPlayer.framework */,
@@ -1420,6 +1434,8 @@
 				C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */,
 				07B78B621B9EA4EA00FFB2FE /* SSUDirectoryModule.h */,
 				07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */,
+				07E8A21D1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.h */,
+				07E8A21E1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m */,
 				C42D1BD916BB7779003AE10B /* Model */,
 				C4F7DCA416B4DFB600D81777 /* Views */,
 				0766F1881B4E4BC5003BD52C /* Tools */,
@@ -1642,7 +1658,6 @@
 			files = (
 				0730A7021C856A4300FC9370 /* Directory.sqlite in Resources */,
 				0730A6D61C85515200FC9370 /* About.storyboard in Resources */,
-				0730A6D71C85515200FC9370 /* InfoPlist.strings in Resources */,
 				0730A6D81C85515200FC9370 /* Calendar.xcassets in Resources */,
 				0730A6D91C85515200FC9370 /* licenses.txt in Resources */,
 				0730A6DB1C85515200FC9370 /* Email.storyboard in Resources */,
@@ -1680,7 +1695,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F84D8119F5885B0046D148 /* About.storyboard in Resources */,
-				C4995AEC16B1274200168521 /* InfoPlist.strings in Resources */,
 				07FD09031BA082AE005C38DD /* Calendar.xcassets in Resources */,
 				0730A7041C856A5B00FC9370 /* Resources.sqlite in Resources */,
 				071E23A619E284F400483138 /* licenses.txt in Resources */,
@@ -1923,6 +1937,8 @@
 				0730A6AC1C85515200FC9370 /* BuildingPerimeter+properties.m in Sources */,
 				0730A6AD1C85515200FC9370 /* SSUEmailModule.m in Sources */,
 				0730A6AE1C85515200FC9370 /* Polygon+properties.m in Sources */,
+				07E8A2201D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */,
+				07E8A21C1D64276D007246A8 /* SSUSpotlightServices.m in Sources */,
 				0730A6AF1C85515200FC9370 /* SSUMapBuildingDetailViewController.m in Sources */,
 				0730A6B01C85515200FC9370 /* SSUMapBuildingPerimeter.m in Sources */,
 				0730A6B11C85515200FC9370 /* SSUMapLocation.m in Sources */,
@@ -1958,6 +1974,7 @@
 				071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */,
 				07C5A4E71A87168D004DC819 /* SSULDAPCredentials.m in Sources */,
 				076CBF541B6F350C00364B36 /* SSUPersonTableViewCell.m in Sources */,
+				07E8A21B1D64276D007246A8 /* SSUSpotlightServices.m in Sources */,
 				07DE5DA71B9C83F6005B38CB /* SSUCoreDataTableViewController.m in Sources */,
 				07B78B731B9F2D1100FFB2FE /* SSURadioModule.m in Sources */,
 				AA61EA36192422DA00D82CB5 /* SSUClassSearchTableViewController.m in Sources */,
@@ -2036,6 +2053,7 @@
 				0760DC331A5FD060001D04F9 /* SSUDirectoryDetailController.m in Sources */,
 				78A5EDEA16E6E5D30078FBB0 /* BuildingPerimeter+properties.m in Sources */,
 				07B78B7C1B9F320300FFB2FE /* SSUEmailModule.m in Sources */,
+				07E8A21F1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */,
 				78A5EE1816E6EB330078FBB0 /* Polygon+properties.m in Sources */,
 				07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */,
 				7801C3C116E6FE4600119B63 /* SSUMapBuildingPerimeter.m in Sources */,
@@ -2078,14 +2096,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C4995AEA16B1274200168521 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4995AEB16B1274200168521 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		C4995AF916B1274200168521 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

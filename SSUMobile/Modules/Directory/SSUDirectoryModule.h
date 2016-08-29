@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "SSUCoreDataModuleBase.h"
+#import "SSUSpotlightServices.h"
 
-@interface SSUDirectoryModule : SSUCoreDataModuleBase <SSUModuleUI>
+@interface SSUDirectoryModule : SSUCoreDataModuleBase <SSUModuleUI, SSUSpotlightSupportedProtocol>
 
 @end

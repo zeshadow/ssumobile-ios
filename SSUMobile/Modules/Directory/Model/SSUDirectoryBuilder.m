@@ -69,11 +69,11 @@
     return building;
 }
 
-- (SSUSchool *) schoolWithID:(NSNumber *)schoolID {
+- (SSUSchool *) schoolWithID:(NSString *)schoolID {
     return [[self class] schoolWithID:schoolID inContext:self.context];
 }
 
-+ (SSUSchool *) schoolWithID:(NSNumber *)schoolID inContext:(NSManagedObjectContext *)context {
++ (SSUSchool *) schoolWithID:(NSString *)schoolID inContext:(NSManagedObjectContext *)context {
     if (schoolID == nil || schoolID.integerValue <= 0) {
         return nil;
     }
@@ -202,7 +202,7 @@
         department.ac = [self personWithID:acID];
         
         NSString * schoolID = SSUMoonlightBuilderStringify(departmentData[SSUDirectoryDepartmentKeySchoolID]);
-        department.school = [self schoolWithID:@(schoolID.intValue)];
+        department.school = [self schoolWithID:schoolID];
     }
     
     [self updateDepartmentProperties];
@@ -216,7 +216,7 @@
     
     for (NSDictionary * data in schools) {
         NSString * schoolID = SSUMoonlightBuilderStringify(data[SSUMoonlightManagerKeyID]);
-        SSUSchool * school = [self schoolWithID:@(schoolID.integerValue)];
+        SSUSchool * school = [self schoolWithID:schoolID];
         if (school == nil)
             continue;
         SSUMoonlightDataMode mode = [self modeFromJSONData:data];

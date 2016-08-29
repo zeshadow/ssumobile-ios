@@ -9,6 +9,7 @@
 #import "SSUHomeViewController.h"
 #import "SSUAppPickerModuleCell.h"
 #import "SSUModuleServices.h"
+#import "SSUSpotlightServices.h"
 #import <Masonry/Masonry.h>
 
 static NSInteger COLS = 3;
@@ -22,6 +23,8 @@ static NSInteger BLANK_CELL_INDEX = 7;
 @property (nonatomic, strong) NSIndexPath * blankCellIndexPath;
 @property (nonatomic) CGSize cellSize;
 
+@property (nonnull, strong) UIViewController * controllerToPresent;
+
 @end
 
 @implementation SSUHomeViewController
@@ -33,9 +36,17 @@ static NSInteger BLANK_CELL_INDEX = 7;
     self.blankCellIndexPath = [NSIndexPath indexPathForItem:7 inSection:0];
     
     [self loadModules];
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:SSUModulesDidLoadNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self loadModules];
         [self.collectionView reloadData];
+    }];
+    
+    // TODO: Move this to a global navigation controller
+    [[NSNotificationCenter defaultCenter] addObserverForName:SSUSpotlightActivityRequestingDisplayNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        UIViewController * controller = note.object;
+        self.controllerToPresent = controller;
+        [self.navigationController popToViewController:self animated:YES];
     }];
 }
 
@@ -48,7 +59,13 @@ static NSInteger BLANK_CELL_INDEX = 7;
     navBar.shadowImage = [UIImage new];
     navBar.barTintColor = [UIColor clearColor];
     navBar.translucent = YES;
+}
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.controllerToPresent != nil) {
+        [self.navigationController pushViewController:self.controllerToPresent animated:YES];
+    }
 }
 
 - (void) viewWillDisappear:(BOOL)animated

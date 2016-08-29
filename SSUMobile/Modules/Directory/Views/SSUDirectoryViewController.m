@@ -54,6 +54,12 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 
 @implementation SSUDirectoryViewController
 
++ (instancetype) instantiateFromStoryboard {
+    NSString * storyboardName = SSUDirectoryStoryboardiPhone;
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    return [storyboard instantiateInitialViewController];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.context = [[SSUDirectoryModule sharedInstance] context];

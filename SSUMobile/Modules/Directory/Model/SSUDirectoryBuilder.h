@@ -19,11 +19,11 @@
 - (SSUPerson *) personWithID:(NSString*)personID;
 - (SSUDepartment *) departmentWithID:(NSString*)departmentID;
 - (SSUBuilding *) buildingWithID:(NSString*)buildingID;
-- (SSUSchool *) schoolWithID:(NSNumber *)schoolID;
+- (SSUSchool *) schoolWithID:(NSString *)schoolID;
 
 + (SSUPerson *) personWithID:(NSString*)personID inContext:(NSManagedObjectContext*)context;
 + (SSUDepartment *) departmentWithID:(NSString*)departmentID inContext:(NSManagedObjectContext*)context;
 + (SSUBuilding *) buildingWithID:(NSString*)buildingID inContext:(NSManagedObjectContext*)context;
-+ (SSUSchool *) schoolWithID:(NSNumber *)schoolID inContext:(NSManagedObjectContext *)context;
++ (SSUSchool *) schoolWithID:(NSString *)schoolID inContext:(NSManagedObjectContext *)context;
 
 @end

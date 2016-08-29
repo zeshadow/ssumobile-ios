@@ -11,6 +11,11 @@
 #import "SSUMoonlightCommunicator.h"
 #import "SSULogging.h"
 #import "SSUConfiguration.h"
+#import "SSUDirectorySpotlightUtilities.h"
+#import "SSUDirectoryViewController.h"
+
+@import CoreSpotlight;
+@import MobileCoreServices;
 
 @interface SSUDirectoryModule()
 
@@ -103,6 +108,7 @@
                 if (completion) {
                     completion();
                 }
+                [SSUDirectorySpotlightUtilities populateIndex:[CSSearchableIndex defaultSearchableIndex] context:self.backgroundContext domain:nil];
             }];
         }
         SSULogDebug(@"Finish %@",self.title);
@@ -117,6 +123,24 @@
     [builder build:json];
 }
 
+#pragma mark - Spotlight
 
+- (void) searchableIndex:(CSSearchableIndex *)index reindexItemWithIdentifier:(NSString *)identifier {
+    [SSUDirectorySpotlightUtilities searchableIndex:index reindexItem:identifier inContext:self.backgroundContext domain:self.identifier];
+}
+
+- (void) searchAbleIndexRequestingUpdate:(CSSearchableIndex *)index {
+    [SSUDirectorySpotlightUtilities populateIndex:index context:self.backgroundContext domain:self.identifier];
+}
+
+- (BOOL) recognizesIdentifier:(NSString *)identifier {
+    return YES;
+}
+
+- (UIViewController *) viewControllerForSearchableItemWithIdentifier:(NSString *)identfier {
+    SSUDirectoryViewController * vc = [SSUDirectoryViewController instantiateFromStoryboard];
+    vc.objectToDisplay = [SSUDirectorySpotlightUtilities objectForIdentifier:identfier];
+    return vc;
+}
 
 @end

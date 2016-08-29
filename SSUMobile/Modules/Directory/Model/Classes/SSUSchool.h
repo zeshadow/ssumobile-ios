@@ -14,7 +14,7 @@
 
 @interface SSUSchool : SSUDirectoryObject
 
-@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) SSUPerson *admin;
 @property (nonatomic, retain) SSUPerson *assistant;

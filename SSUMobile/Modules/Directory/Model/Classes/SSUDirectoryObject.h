@@ -13,6 +13,7 @@
 @interface SSUDirectoryObject : NSManagedObject
 
 @property (nonatomic, retain) NSString * displayName;
+@property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSNumber * isFavorite;
 @property (nonatomic, retain) NSString * sectionName;
 @property (nonatomic, retain) NSString * term;

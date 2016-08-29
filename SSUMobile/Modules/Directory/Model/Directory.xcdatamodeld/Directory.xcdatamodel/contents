@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 4.3">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="16A239j" minimumToolsVersion="Xcode 4.3">
     <entity name="SSUBuilding" representedClassName="SSUBuilding" parentEntity="SSUDirectoryObject" elementID="Building" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="departments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="building" inverseEntity="SSUDepartment" syncable="YES"/>
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="building" inverseEntity="SSUPerson" syncable="YES"/>
@@ -10,7 +9,6 @@
     <entity name="SSUDepartment" representedClassName="SSUDepartment" parentEntity="SSUDirectoryObject" elementID="Department" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fax" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="office" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,6 +22,7 @@
     </entity>
     <entity name="SSUDirectoryObject" representedClassName="SSUDirectoryObject" isAbstract="YES" elementID="DirectoryObject" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="sectionName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="term" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +30,6 @@
     <entity name="SSUPerson" representedClassName="SSUPerson" parentEntity="SSUDirectoryObject" elementID="Person" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="office" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,7 +44,6 @@
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="people" inverseEntity="SSUDepartment" syncable="YES"/>
     </entity>
     <entity name="SSUSchool" representedClassName="SSUSchool" parentEntity="SSUDirectoryObject" elementID="School" syncable="YES">
-        <attribute name="id" attributeType="Integer 32" minValueString="1" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="admin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="admin_school" inverseEntity="SSUPerson" syncable="YES"/>
         <relationship name="assistant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SSUPerson" inverseName="assistant_school" inverseEntity="SSUPerson" syncable="YES"/>
@@ -55,10 +52,10 @@
         <relationship name="departments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSUDepartment" inverseName="school" inverseEntity="SSUDepartment" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SSUBuilding" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="SSUDepartment" positionX="0" positionY="0" width="128" height="240"/>
-        <element name="SSUDirectoryObject" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="SSUPerson" positionX="0" positionY="0" width="128" height="270"/>
-        <element name="SSUSchool" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="SSUBuilding" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="SSUDepartment" positionX="0" positionY="0" width="128" height="225"/>
+        <element name="SSUDirectoryObject" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="SSUPerson" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="SSUSchool" positionX="0" positionY="0" width="128" height="135"/>
     </elements>
 </model>

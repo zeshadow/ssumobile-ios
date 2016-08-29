@@ -13,9 +13,11 @@
 #import "SSULogging.h"
 #import "SSUConfiguration.h"
 #import "SSUModuleServices.h"
+#import "SSUSpotlightServices.h"
 
 #import <SDWebImage/SDImageCache.h>
 
+@import CoreSpotlight;
 
 @interface SSUAppDelegate()
 
@@ -152,8 +154,14 @@
 continueUserActivity:(nonnull NSUserActivity *)userActivity
   restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler {
     if ([userActivity.activityType isEqualToString:CSSearchableItemActionType]) {
-        NSString * moduleIdentifier = userActivity.userInfo[CSSearchableItemActivityIdentifier];
-        NSLog(@"%@",moduleIdentifier);
+        NSString * identifier = userActivity.userInfo[CSSearchableItemActivityIdentifier];
+        NSArray * spotlightModules = [[SSUModuleServices sharedInstance] modulesConformingToProtocol:@protocol(SSUSpotlightSupportedProtocol)];
+        for (id<SSUSpotlightSupportedProtocol> module in spotlightModules) {
+            if ([module recognizesIdentifier:identifier]) {
+                UIViewController * viewController = [module viewControllerForSearchableItemWithIdentifier:identifier];
+                [[NSNotificationCenter defaultCenter] postNotificationName:SSUSpotlightActivityRequestingDisplayNotification object:viewController];
+            }
+        }
     }
     return NO;
 }
