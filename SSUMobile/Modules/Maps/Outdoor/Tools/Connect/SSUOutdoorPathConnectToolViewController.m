@@ -53,7 +53,7 @@ typedef enum Mode {
     if (_mode == kModeOff) return;
     
     if ([view.annotation isKindOfClass:[SSUMapPoint class]]) {
-        SSUMapPoint* connectedPoint = view.annotation;
+        SSUMapPoint* connectedPoint = (SSUMapPoint *)view.annotation;
         if (self.selectedPoint && self.selectedPoint != connectedPoint) {
             
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -138,7 +138,7 @@ typedef enum Mode {
             });
         }
         else {
-            self.selectedPoint = view.annotation;
+            self.selectedPoint = connectedPoint;
         }
         _undoButton.enabled = YES;
         _cancelButton.enabled = YES;

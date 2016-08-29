@@ -88,7 +88,7 @@ typedef enum Mode {
     switch (newState) {
         case MKAnnotationViewDragStateEnding: {
             if ([view.annotation isKindOfClass:[SSUMapPoint class]]) {
-                [self modifyPoint:view.annotation];
+                [self modifyPoint:(SSUMapPoint *)view.annotation];
             }
         }
         default:
@@ -145,7 +145,8 @@ typedef enum Mode {
 
 - (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     [super mapView:mapView didSelectAnnotationView:view];
-    _selectedPoint = view.annotation;
+    NSAssert([view.annotation isKindOfClass:[SSUMapPoint class]], @"Expecting an SSUMapPoint here");
+    _selectedPoint = (SSUMapPoint *)view.annotation;
     _deleteButton.enabled = self.modeSegmentedControl.selectedSegmentIndex == kModeEdit;
 }
 

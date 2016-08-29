@@ -530,7 +530,7 @@ const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;
 - (void)selectBuildingId:(NSInteger)buildingId {
     for (id<MKAnnotation> annotation in self.mapView.annotations) {
         if ([annotation isKindOfClass:[SSUMapBuildingPerimeter class]]) {
-            SSUMapBuildingPerimeter *buildingPerimeter = annotation;
+            SSUMapBuildingPerimeter *buildingPerimeter = (SSUMapBuildingPerimeter *)annotation;
             if (buildingPerimeter.buildingID.integerValue == buildingId) {
                 [self makeBuildingPerimeter:buildingPerimeter visibleAnimated:NO];
                 [self.mapView selectAnnotation:buildingPerimeter animated:YES];
@@ -678,7 +678,7 @@ const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;
         return annotationView;
     }
     else if ([annotation isKindOfClass:[SSUMapPoint class]]) {
-        SSUMapPoint *mapPoint = annotation;
+        SSUMapPoint *mapPoint = (SSUMapPoint *)annotation;
         MKPinAnnotationView* pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:SSUOutdoorMapEntityBuildingPerimeter];
         if (!pinView)
         {
@@ -772,7 +772,7 @@ const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;
 
 - (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     if ([view.annotation isKindOfClass:[SSUMapBuildingPerimeter class]]) {
-        [self setBuildingPerimeter:view.annotation highlighted:YES];
+        [self setBuildingPerimeter:(SSUMapBuildingPerimeter *)view.annotation highlighted:YES];
     }
 }
 

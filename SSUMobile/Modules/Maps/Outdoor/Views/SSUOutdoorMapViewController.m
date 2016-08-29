@@ -114,7 +114,7 @@
     if ([super respondsToSelector:@selector(mapView:didSelectAnnotationView:)])
         [super mapView:mapView didSelectAnnotationView:view];
     if ([view.annotation isKindOfClass:[SSUMapBuildingPerimeter class]]) {
-        [self showDetailForBuildingPerimeter:view.annotation];
+        [self showDetailForBuildingPerimeter:(SSUMapBuildingPerimeter *)view.annotation];
     }
 }
 

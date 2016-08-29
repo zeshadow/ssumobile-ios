@@ -143,14 +143,6 @@ typedef NS_ENUM(NSInteger, SSUDirectorySpotlightIdentifierComponents) {
     return [components componentsJoinedByString:kIdentifierComponentSeparater];
 }
 
-+ (NSString *) uniqueIdentifierForDepartment:(SSUDepartment *)department {
-    return [NSString stringWithFormat:@"%@%@%@",SSUDirectoryEntityDepartment,kIdentifierComponentSeparater,department.id];
-}
-
-+ (NSString *) uniqueIdentifierForPerson:(SSUPerson *)person {
-    return [NSString stringWithFormat:@"%@%@%@",SSUDirectoryEntityPerson,kIdentifierComponentSeparater,person.id];
-}
-
 + (NSArray<CSSearchableItem *> *) getSearchableItemsWithContext:(NSManagedObjectContext *)context domain:(NSString *)domain {
     NSMutableArray<CSSearchableItem *> * items = [NSMutableArray new];
     [items addObjectsFromArray:[self getDepartmentItemsWithContext:context domain:domain]];
@@ -163,12 +155,7 @@ typedef NS_ENUM(NSInteger, SSUDirectorySpotlightIdentifierComponents) {
     NSArray<SSUDepartment *> * departments = [SSUDirectoryBuilder allObjectsWithEntityName:SSUDirectoryEntityDepartment context:context];
     NSMutableArray<CSSearchableItem *> * items = [NSMutableArray new];
     for (SSUDepartment * department in departments) {
-        CSSearchableItemAttributeSet * attributes = [self attributeSetForDepartment:department];
-        NSString * identifier = [self uniqueIdentifierForDepartment:department];
-        CSSearchableItem * item = [[CSSearchableItem alloc] initWithUniqueIdentifier:identifier
-                                                                    domainIdentifier:domain
-                                                                        attributeSet:attributes];
-        
+        CSSearchableItem * item = [self searchableItemForObject:department inDomain:domain];
         [items addObject:item];
     }
     return items;
@@ -178,12 +165,7 @@ typedef NS_ENUM(NSInteger, SSUDirectorySpotlightIdentifierComponents) {
     NSArray<SSUPerson *> * people = [SSUDirectoryBuilder allObjectsWithEntityName:SSUDirectoryEntityPerson context:context];
     NSMutableArray<CSSearchableItem *> * items = [NSMutableArray new];
     for (SSUPerson * person in people) {
-        CSSearchableItemAttributeSet * attributes = [self attributeSetForPerson:person];
-        NSString * identifier = [self uniqueIdentifierForPerson:person];
-        CSSearchableItem * item = [[CSSearchableItem alloc] initWithUniqueIdentifier:identifier
-                                                                    domainIdentifier:domain
-                                                                        attributeSet:attributes];
-        
+        CSSearchableItem * item = [self searchableItemForObject:person inDomain:domain];
         [items addObject:item];
     }
     return items;

@@ -60,12 +60,12 @@ const NSInteger kEditSegmentedIndex = 1;
 - (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     [super mapView:mapView didSelectAnnotationView:view];
     if ([view.annotation isKindOfClass:[SSUMapPoint class]]) {
-        _selectedPoint = view.annotation;
+        _selectedPoint = (SSUMapPoint *)view.annotation;
         _deleteButton.enabled = self.modeSegmentedControl.selectedSegmentIndex;
     }
     else if ([view.annotation isKindOfClass:[SSUMapBuildingPerimeter class]]) {
         // Show the new perimeter
-        self.perimeterBeingEdited = view.annotation;
+        self.perimeterBeingEdited = (SSUMapBuildingPerimeter *)view.annotation;
     }
 }
 
@@ -123,7 +123,7 @@ const NSInteger kEditSegmentedIndex = 1;
             [self.mapView addOverlay:self.perimeterBeingEdited.polygon];
             
             if ([view.annotation isKindOfClass:[SSUMapPoint class]]) {
-                [self modifyPoint:view.annotation];
+                [self modifyPoint:(SSUMapPoint *)view.annotation];
             }
         }
         default:

@@ -94,7 +94,7 @@
 - (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     if ([view.annotation isKindOfClass:[SSUMapBuildingPerimeter class]]) {
         [mapView deselectAnnotation:view.annotation animated:NO]; // don't show the popup
-        self.destination = view.annotation;
+        self.destination = (SSUMapBuildingPerimeter *)view.annotation;
         [self showPath];
     }
 }

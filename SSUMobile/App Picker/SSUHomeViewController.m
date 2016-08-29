@@ -46,7 +46,13 @@ static NSInteger BLANK_CELL_INDEX = 7;
     [[NSNotificationCenter defaultCenter] addObserverForName:SSUSpotlightActivityRequestingDisplayNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         UIViewController * controller = note.object;
         self.controllerToPresent = controller;
-        [self.navigationController popToViewController:self animated:YES];
+        if (self.navigationController.viewControllers.lastObject != self) {
+            [self.navigationController popToViewController:self animated:YES];
+        }
+        else {
+            [self.navigationController pushViewController:self.controllerToPresent animated:YES];
+            self.controllerToPresent = nil;
+        }
     }];
 }
 
@@ -65,6 +71,7 @@ static NSInteger BLANK_CELL_INDEX = 7;
     [super viewDidAppear:animated];
     if (self.controllerToPresent != nil) {
         [self.navigationController pushViewController:self.controllerToPresent animated:YES];
+        self.controllerToPresent = nil;
     }
 }
 

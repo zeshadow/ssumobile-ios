@@ -38,8 +38,6 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 @property (nonatomic) NSManagedObjectContext * context;
 @property (nonatomic, readwrite) NSString * entityName;
 
-@property (nonatomic) BOOL isSearching;
-
 @property (nonatomic) NSPredicate* predicate;
 @property (nonatomic) NSArray* sortDescriptors;
 
@@ -79,6 +77,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     self.tableView.sectionIndexColor = SSU_BLUE_COLOR;
     self.searchDisplayController.searchResultsTableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.searchDisplayController.searchResultsTableView.sectionIndexColor = SSU_BLUE_COLOR;
+    self.searchTableView = self.searchDisplayController.searchResultsTableView;
     
     [self.tableView registerClass:[SSUTableHeaderView class] forHeaderFooterViewReuseIdentifier:HEADER_IDENTIFIER];
     [self.tableView registerClass:[SSUSegmentedTableHeaderView class] forHeaderFooterViewReuseIdentifier:SEGMENTED_HEADER_IDENTIFIER];
@@ -134,9 +133,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     self.segmentedControl.selectedSegmentIndex = 0;
     self.segmentedControl.tintColor = [UIColor whiteColor];
     [self.segmentedControl addTarget:self action:@selector(segmentChanged) forControlEvents:UIControlEventValueChanged];
-    id textAttributes = @{
-                          NSFontAttributeName : [UIFont systemFontOfSize:SEGMENT_FONT_SIZE]
-                          };
+    id textAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:SEGMENT_FONT_SIZE]};
     [self.segmentedControl setTitleTextAttributes:textAttributes
                                          forState:UIControlStateNormal];
 }
@@ -181,14 +178,6 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     }];
     
     self.displayEntities = [display copy];
-}
-
-- (void) setShowsSectionTitles:(BOOL)showsSectionTitles {
-    if (_showsSectionTitles != showsSectionTitles) {
-        _showsSectionTitles = showsSectionTitles;
-        // Reload the section headers
-        [self.tableView reloadData];
-    }
 }
 
 /**
@@ -243,13 +232,13 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     [sortDescriptors addObject:[NSSortDescriptor sortDescriptorWithKey:@"sectionName" ascending:YES]];
     [sortDescriptors addObject:[NSSortDescriptor sortDescriptorWithKey:@"term" ascending:YES]];
     if ([self.entityName isEqualToString:SSUDirectoryEntityPerson]) {
-        _showsSectionTitles = YES;
-        _showsSectionIndexTitles = YES;
+        self.showsSectionTitles = YES;
+        self.showsSectionIndexTitles = YES;
         
     }
     else if ([self.entityName isEqualToString:SSUDirectoryEntityBuilding]) {
-        _showsSectionTitles = NO;
-        _showsSectionIndexTitles = NO;
+        self.showsSectionTitles = NO;
+        self.showsSectionIndexTitles = NO;
     }
     else if ([self.entityName isEqualToString:SSUDirectoryEntityDepartment]) {
         NSPredicate * pred = [NSPredicate predicateWithFormat:@"name != 'Unknown' AND ANY people.id != nil"];
@@ -260,16 +249,16 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
         else {
             self.predicate = pred;
         }
-        _showsSectionTitles = YES;
-        _showsSectionIndexTitles = YES;
+        self.showsSectionTitles = YES;
+        self.showsSectionIndexTitles = YES;
     }
     else if ([self.entityName isEqualToString:SSUDirectoryEntityDirectoryObject]) {
-        _showsSectionTitles = YES;
-        _showsSectionIndexTitles = YES;
+        self.showsSectionTitles = YES;
+        self.showsSectionIndexTitles = YES;
     }
     else if ([self.entityName isEqualToString:SSUDirectoryEntitySchool]) {
-        _showsSectionTitles = NO;
-        _showsSectionIndexTitles = NO;
+        self.showsSectionTitles = NO;
+        self.showsSectionIndexTitles = NO;
     }
     else {
         SSULogDebug(@"Unknown Entity Name: %@", self.entityName);
@@ -317,7 +306,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (self.isSearching)
+    if (tableView == self.searchDisplayController.searchResultsTableView)
         return [[self.searchFetchedResultsController.sections objectAtIndex:section] name];
     if (!self.showsSectionTitles)
         return @"";
@@ -328,7 +317,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 - (NSArray *) sectionIndexTitlesForTableView:(UITableView *)tableView {
     if (!self.showsSectionIndexTitles)
         return nil;
-    if (self.isSearching)
+    if (tableView == self.searchDisplayController.searchResultsTableView)
         return [self.searchFetchedResultsController sectionIndexTitles];
 
     return [self.fetchedResultsController sectionIndexTitles];
@@ -451,14 +440,6 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     [self loadEntityName:self.entityName usingPredicate:nil];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    self.isSearching = NO;
-}
-
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-    self.isSearching = NO;
-    return YES;
-}
 
 #pragma mark - SSUDetailTableViewDelegate
 
