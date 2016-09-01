@@ -36,6 +36,16 @@ typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json, 
 + (void) getJSONFromURL:(NSURL *)url completion:(SSUCommunicatorJSONCompletion)completion;
 
 /**
+ Retrieve the data from url and serialize it as JSON, retrieving only the records having changed since date
+ */
++ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate *)date completion:(SSUCommunicatorJSONCompletion)completion;
+
+/**
+ Retrieve the data from url and serialize it as JSON, retrieving only the records having changed since date
+ */
++ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate *)date params:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
+
+/**
  Post the given parameters to the provided URL as form-encoded data
  */
 + (void) postURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;

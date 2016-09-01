@@ -10,6 +10,7 @@
 #import "SSULogging.h"
 
 static const NSTimeInterval kTimeoutInterval = 10.0;
+static NSString * const kMoonlightDateParameter = @"date";
 
 @interface SSUCommunicator()
 
@@ -35,6 +36,20 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
     _session = [NSURLSession sharedSession];
     
     return _session;
+}
+
++ (NSDateFormatter *) dateFormatter {
+    static NSDateFormatter * dateFormatter = nil;
+    if (dateFormatter != nil) return dateFormatter;
+    
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterNoStyle;
+    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    dateFormatter.locale = [NSLocale currentLocale];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"America/Los_Angeles"];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    
+    return dateFormatter;
 }
 
 #pragma mark - Making NSURLRequest objects
@@ -78,13 +93,26 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
 }
 
 + (void) getJSONFromURL:(NSURL *)url completion:(SSUCommunicatorJSONCompletion)completion {
+    [self getJSONFromURL:url sinceDate:nil params:nil completion:completion];
+}
+
++ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate *)date completion:(SSUCommunicatorJSONCompletion)completion {
+    [self getJSONFromURL:url sinceDate:date params:nil completion:completion];
+}
+
++ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate *)date params:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion {
     if (completion == NULL) {
         // Downloading it without doing anything with it is worthless
         // (or it should be! no side effects with GETs please)
         SSULogDebug(@"Ignoring GET request for which no completion block is specified");
         return;
     }
-    NSURLRequest * request = [self getRequestWithURL:url parameters:nil];
+    if (date != nil) {
+        NSMutableDictionary * newParams = [params mutableCopy];
+        newParams[kMoonlightDateParameter] = [[self dateFormatter] stringFromDate:date];
+        params = newParams;
+    }
+    NSURLRequest * request = [self getRequestWithURL:url parameters:params];
     [self performJSONRequest:request completion:completion];
 }
 
