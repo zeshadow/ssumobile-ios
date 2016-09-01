@@ -23,7 +23,10 @@ static NSInteger BLANK_CELL_INDEX = 7;
 @property (nonatomic, strong) NSIndexPath * blankCellIndexPath;
 @property (nonatomic) CGSize cellSize;
 
-@property (nonnull, strong) UIViewController * controllerToPresent;
+@property (nonatomic, strong) UIViewController * controllerToPresent;
+
+@property (nonatomic, strong) IBOutlet UIImageView * backgroundImageView;
+@property (nonatomic, strong) UIView * barBackgroundView;
 
 @end
 
@@ -32,6 +35,12 @@ static NSInteger BLANK_CELL_INDEX = 7;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetCellSize];
+    
+    self.barBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1.0)];
+    self.barBackgroundView.backgroundColor = SSU_BLUE_COLOR;
+    self.barBackgroundView.hidden = YES;
+    
+    [self.backgroundImageView addSubview:self.barBackgroundView];
     
     self.blankCellIndexPath = [NSIndexPath indexPathForItem:7 inSection:0];
     
@@ -65,6 +74,10 @@ static NSInteger BLANK_CELL_INDEX = 7;
     navBar.shadowImage = [UIImage new];
     navBar.barTintColor = [UIColor clearColor];
     navBar.translucent = YES;
+    
+    //TODO: this is a gross hack to fix the weird status bar issue when entering search.
+    //This should go away when we move to iOS 8
+    self.navigationController.view.backgroundColor = SSU_BLUE_COLOR;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -86,7 +99,6 @@ static NSInteger BLANK_CELL_INDEX = 7;
     navBar.shadowImage = appearance.shadowImage;
     navBar.barTintColor = appearance.barTintColor;
     navBar.translucent = NO;
-    
 }
 
 - (UIStatusBarStyle) preferredStatusBarStyle
@@ -172,6 +184,11 @@ static NSInteger BLANK_CELL_INDEX = 7;
     if ([module shouldNavigateToModule]) {
         UIViewController * viewController = [module initialViewController];
         [self.navigationController pushViewController:viewController animated:YES];
+        [UIView animateWithDuration:0.75 animations:^{
+            self.barBackgroundView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height);
+        } completion:^(BOOL finished) {
+            
+        }];
     }
 }
 

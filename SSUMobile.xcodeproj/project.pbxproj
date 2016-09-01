@@ -207,6 +207,8 @@
 		0785A3BB1A1D988C0088193E /* SSUResourcesEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BA1A1D988C0088193E /* SSUResourcesEntry.m */; };
 		0785A3BE1A1D99A30088193E /* SSUResourcesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BD1A1D99A30088193E /* SSUResourcesConstants.m */; };
 		079489091B6606E600BD5E1E /* SSUEmailPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */; };
+		0794E8091D73FE8E00E266AC /* SSUNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794E8081D73FE8E00E266AC /* SSUNavigationController.m */; };
+		0794E80A1D73FE8E00E266AC /* SSUNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794E8081D73FE8E00E266AC /* SSUNavigationController.m */; };
 		079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */; };
 		07AB76D31C786E43006352C5 /* defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = 07AB76D21C786E43006352C5 /* defaults.json */; };
 		07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */; };
@@ -417,6 +419,8 @@
 		0785A3BD1A1D99A30088193E /* SSUResourcesConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUResourcesConstants.m; sourceTree = "<group>"; };
 		079489071B6606E600BD5E1E /* SSUEmailPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailPickerViewController.h; sourceTree = "<group>"; };
 		079489081B6606E600BD5E1E /* SSUEmailPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailPickerViewController.m; sourceTree = "<group>"; };
+		0794E8071D73FE8E00E266AC /* SSUNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNavigationController.h; sourceTree = "<group>"; };
+		0794E8081D73FE8E00E266AC /* SSUNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNavigationController.m; sourceTree = "<group>"; };
 		079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map_Building.storyboard; sourceTree = "<group>"; };
 		07A1486D19F653CA006B708F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		07AB76D21C786E43006352C5 /* defaults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaults.json; sourceTree = "<group>"; };
@@ -745,6 +749,8 @@
 				0717DDAF1C8AAF8D009861D9 /* SSUWebViewController.storyboard */,
 				AAB5DA6B1924935F002DC260 /* SSUWebViewController.h */,
 				AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */,
+				0794E8071D73FE8E00E266AC /* SSUNavigationController.h */,
+				0794E8081D73FE8E00E266AC /* SSUNavigationController.m */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -1939,6 +1945,7 @@
 				0730A6AE1C85515200FC9370 /* Polygon+properties.m in Sources */,
 				07E8A2201D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */,
 				07E8A21C1D64276D007246A8 /* SSUSpotlightServices.m in Sources */,
+				0794E80A1D73FE8E00E266AC /* SSUNavigationController.m in Sources */,
 				0730A6AF1C85515200FC9370 /* SSUMapBuildingDetailViewController.m in Sources */,
 				0730A6B01C85515200FC9370 /* SSUMapBuildingPerimeter.m in Sources */,
 				0730A6B11C85515200FC9370 /* SSUMapLocation.m in Sources */,
@@ -1985,6 +1992,7 @@
 				07C5A4E41A87159B004DC819 /* SSUEmailViewController.m in Sources */,
 				07F84D8419F589A30046D148 /* SSUAboutViewController.m in Sources */,
 				0785A3AC1A1D97570088193E /* SSUResourcesBuilder.m in Sources */,
+				0794E8091D73FE8E00E266AC /* SSUNavigationController.m in Sources */,
 				0785A3BB1A1D988C0088193E /* SSUResourcesEntry.m in Sources */,
 				C4995B3916B127A400168521 /* SSUMoonlightCommunicator.m in Sources */,
 				07B78B6D1B9EF63000FFB2FE /* SSUCalendarModule.m in Sources */,
