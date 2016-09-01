@@ -211,6 +211,8 @@
 		0794E80A1D73FE8E00E266AC /* SSUNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0794E8081D73FE8E00E266AC /* SSUNavigationController.m */; };
 		079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */; };
 		07AB76D31C786E43006352C5 /* defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = 07AB76D21C786E43006352C5 /* defaults.json */; };
+		07AE95991D77B74300A66838 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE95981D77B74300A66838 /* SafariServices.framework */; };
+		07AE959A1D77B74900A66838 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE95981D77B74300A66838 /* SafariServices.framework */; };
 		07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */; };
 		07AFDFD719D917550027D0F1 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AFDFD619D917550027D0F1 /* EventKitUI.framework */; };
 		07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
@@ -252,6 +254,8 @@
 		07E8A2241D655E75007246A8 /* SSUModuleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8A2221D655E75007246A8 /* SSUModuleServices.m */; };
 		07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */; };
 		07ED578C1BA9477B00B6ECDF /* SSUConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 07ED578B1BA9477B00B6ECDF /* SSUConfiguration.m */; };
+		07ED58BD1D77B31A0025843B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ED58BC1D77B31A0025843B /* WebKit.framework */; };
+		07ED58BE1D77B3250025843B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ED58BC1D77B31A0025843B /* WebKit.framework */; };
 		07F84D8119F5885B0046D148 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F84D8019F5885B0046D148 /* About.storyboard */; };
 		07F84D8419F589A30046D148 /* SSUAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F84D8319F589A30046D148 /* SSUAboutViewController.m */; };
 		07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FC1BA02EBE005C38DD /* Directory.xcassets */; };
@@ -424,6 +428,7 @@
 		079E2F0D1BB4BEAB00754A52 /* Map_Building.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map_Building.storyboard; sourceTree = "<group>"; };
 		07A1486D19F653CA006B708F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		07AB76D21C786E43006352C5 /* defaults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaults.json; sourceTree = "<group>"; };
+		07AE95981D77B74300A66838 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		07AFDEA319D8E7DB0027D0F1 /* SSUCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUCalendarViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUCalendarViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07AFDFD619D917550027D0F1 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
@@ -496,6 +501,7 @@
 		07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapBuildingDetailViewController.m; sourceTree = "<group>"; };
 		07ED578A1BA9477B00B6ECDF /* SSUConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUConfiguration.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07ED578B1BA9477B00B6ECDF /* SSUConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUConfiguration.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		07ED58BC1D77B31A0025843B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		07F84D8019F5885B0046D148 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		07F84D8219F589A30046D148 /* SSUAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAboutViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07F84D8319F589A30046D148 /* SSUAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAboutViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -639,6 +645,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07AE95991D77B74300A66838 /* SafariServices.framework in Frameworks */,
+				07ED58BE1D77B3250025843B /* WebKit.framework in Frameworks */,
 				07E8A2181D5FEF0D007246A8 /* CoreSpotlight.framework in Frameworks */,
 				07E8A2161D5FEF06007246A8 /* MobileCoreServices.framework in Frameworks */,
 				0730A6C81C85515200FC9370 /* EventKitUI.framework in Frameworks */,
@@ -661,6 +669,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07AE959A1D77B74900A66838 /* SafariServices.framework in Frameworks */,
+				07ED58BD1D77B31A0025843B /* WebKit.framework in Frameworks */,
 				07AFDFD719D917550027D0F1 /* EventKitUI.framework in Frameworks */,
 				0780016F19CFE46800FD1E2A /* AVFoundation.framework in Frameworks */,
 				0780016D19CFE45D00FD1E2A /* MediaPlayer.framework in Frameworks */,
@@ -1294,6 +1304,8 @@
 		C4995ADE16B1274200168521 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07AE95981D77B74300A66838 /* SafariServices.framework */,
+				07ED58BC1D77B31A0025843B /* WebKit.framework */,
 				07E8A2171D5FEF0D007246A8 /* CoreSpotlight.framework */,
 				07E8A2151D5FEF06007246A8 /* MobileCoreServices.framework */,
 				07AFDFD619D917550027D0F1 /* EventKitUI.framework */,

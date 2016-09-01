@@ -10,7 +10,7 @@
 @interface SSUWebViewController : UIViewController
 
 /// Use one or the other
-@property (nonatomic, copy) NSString *urlToLoad;
+@property (nonatomic) NSURL * urlToLoad;
 @property (nonatomic, copy) NSString *htmlToShow;
 
 /** Creates a new instance of SSUWebViewController */

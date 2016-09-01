@@ -5,14 +5,18 @@
 //  Copyright (c) 2015 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
+@import WebKit;
+
 #import "SSUWebViewController.h"
 #import "MBProgressHud.h"
+#import <Masonry/Masonry.h>
 
 static NSString * const kStoryboardName = @"SSUWebViewController";
 
-@interface SSUWebViewController () <UIActionSheetDelegate,UIWebViewDelegate>
+@interface SSUWebViewController () <UIActionSheetDelegate, WKNavigationDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webview;
+@property (nonatomic) WKWebView * webview;
+@property (nonatomic) IBOutlet UIToolbar * toolbar;
 @property (nonatomic) IBOutlet UIBarButtonItem * backButton;
 @property (nonatomic) IBOutlet UIBarButtonItem * forwardButton;
 
@@ -30,6 +34,22 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
     return viewController;
 }
 
+- (WKWebView *) webview {
+    if (_webview) return _webview;
+    
+    _webview = [[WKWebView alloc] initWithFrame:CGRectZero];
+    
+    [self.view addSubview:_webview];
+    [_webview mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.bottom.equalTo(self.toolbar.mas_top);
+    }];
+    
+    return _webview;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIBarButtonItem * actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(didPressActionButton:)];
@@ -37,13 +57,17 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
     
     [self updateNavigationButtons];
     
-    self.webview.delegate = self;
+    self.webview.navigationDelegate = self;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    if (self.htmlToShow) {
+    if (self.htmlToShow != nil) {
         [self.webview loadHTMLString:self.htmlToShow baseURL:nil];
-        actionButton.enabled = NO;
-    } else if (self.urlToLoad) {
-        NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.urlToLoad]];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    } else if (self.urlToLoad != nil) {
+        NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:self.urlToLoad];
         request.timeoutInterval = 10;
         [self.webview loadRequest:request];
     }
@@ -85,33 +109,32 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
 
 - (void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex != actionSheet.cancelButtonIndex) {
-        NSURL * url = [NSURL URLWithString:self.urlToLoad];
-        if ([[UIApplication sharedApplication] canOpenURL:url])
-            [[UIApplication sharedApplication] openURL:url];
+        if ([[UIApplication sharedApplication] canOpenURL:self.urlToLoad])
+            [[UIApplication sharedApplication] openURL:self.urlToLoad];
     }
 }
 
 #pragma mark - UIWebView
 
-- (void) webViewDidStartLoad:(UIWebView *)webView {
+- (void) webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     [self.progressHUD show:YES];
-    [self.webview bringSubviewToFront:self.progressHUD];
+    [self.view bringSubviewToFront:self.progressHUD];
     
     [self updateNavigationButtons];
 }
 
-- (void) webViewDidFinishLoad:(UIWebView *)webView {
+- (void) webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self.progressHUD hide:YES afterDelay:1.0];
     [self updateNavigationButtons];
 }
 
-- (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void) webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     if (error.code == NSURLErrorNotConnectedToInternet) {
         self.progressHUD.labelText = @"No Internet access";
         self.progressHUD.mode = MBProgressHUDModeText;
         [self.progressHUD hide:YES afterDelay:1.0];
     }
-    else if ([error.userInfo[NSURLErrorFailingURLStringErrorKey] isEqualToString:self.urlToLoad]){
+    else if ([error.userInfo[NSURLErrorFailingURLStringErrorKey] isEqualToString:self.urlToLoad.path]){
         self.progressHUD.labelText = @"Failed to load webpage";
         self.progressHUD.mode = MBProgressHUDModeText;
         [self.progressHUD hide:YES afterDelay:1.0];
@@ -122,12 +145,13 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
     }
 }
 
+
 #pragma mark - Properties
 
-- (void)setUrlToLoad:(NSString *)urlToLoad {
+- (void)setUrlToLoad:(NSURL *)urlToLoad {
     _urlToLoad = urlToLoad;
     if (self.view.window) {
-        [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlToLoad]]];
+        [self.webview loadRequest:[NSURLRequest requestWithURL:self.urlToLoad]];
     }
 }
 
@@ -143,7 +167,7 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
         return _progressHUD;
     }
     
-    _progressHUD = [MBProgressHUD showHUDAddedTo:self.webview animated:YES];
+    _progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _progressHUD.labelText = @"Loading";
     
     return _progressHUD;

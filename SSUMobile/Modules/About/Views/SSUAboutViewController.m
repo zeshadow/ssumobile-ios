@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
+@import SafariServices;
+
 #import "SSUAboutViewController.h"
 #import "SSUWebViewController.h"
 #import "SSULDAPCredentials.h"
@@ -52,9 +54,9 @@ static NSString * CACHE_CELL = @"Cache";
 {
     UITableViewCell * cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     if ([cell.reuseIdentifier isEqualToString:LEGAL_CELL]) {
+        NSURL * fileURL = [[NSBundle mainBundle] URLForResource:@"licenses" withExtension:@"txt"];
         SSUWebViewController * webView = [SSUWebViewController webViewController];
-        webView.urlToLoad = [[NSBundle mainBundle] pathForResource:@"licenses" ofType:@"txt"];
-        
+        webView.urlToLoad = fileURL;
         [self.navigationController pushViewController:webView animated:YES];
     }
     else if ([cell.reuseIdentifier isEqualToString:LDAP_CELL]) {

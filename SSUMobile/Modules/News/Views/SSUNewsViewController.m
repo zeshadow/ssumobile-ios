@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
+@import SafariServices;
+
 #import "SSUNewsViewController.h"
 #import "SSULogging.h"
 #import "SSUNewsModule.h"
@@ -91,11 +93,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SSUArticle* article = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    SSUWebViewController* controller = [SSUWebViewController webViewController];
-    controller.urlToLoad = article.link;
+    NSURL * url = [NSURL URLWithString:article.link];
     SSULogDebug(@"%@",article);
-    [self.navigationController pushViewController:controller animated:YES];
+    if (NSStringFromClass([SFSafariViewController class])) {
+        SFSafariViewController * vc = [[SFSafariViewController alloc] initWithURL:url entersReaderIfAvailable:YES];
+        vc.preferredBarTintColor = SSU_BLUE_COLOR;
+        [self presentViewController:vc animated:YES completion:NULL];
+    }
+    else {
+        SSUWebViewController* controller = [SSUWebViewController webViewController];
+        controller.urlToLoad = [NSURL URLWithString:article.link];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 #pragma mark - Search Display
