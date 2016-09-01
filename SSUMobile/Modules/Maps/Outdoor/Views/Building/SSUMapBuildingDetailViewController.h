@@ -6,7 +6,7 @@
 //  Copyright © 2015 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "SSUDirectoryModels.h"
 
 @class SSUMapBuildingDetailViewController;

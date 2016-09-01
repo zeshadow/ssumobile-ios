@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <MapKit/MapKit.h>
+@import MapKit;
 #import "SSUBuilding.h"
 
 @interface SSUOutdoorBuildingOverlay : MKPolygonView

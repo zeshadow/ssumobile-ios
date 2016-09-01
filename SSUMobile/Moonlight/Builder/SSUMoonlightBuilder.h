@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import CoreData;
 
 #define SSUMoonlightBuilderStringify(obj) [obj description]
 

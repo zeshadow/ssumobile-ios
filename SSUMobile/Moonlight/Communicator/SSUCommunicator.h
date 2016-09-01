@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 typedef void(^SSUCommunicatorCompletion)(NSURLResponse * response, NSData * data, NSError * error);
 typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json, NSError * error);

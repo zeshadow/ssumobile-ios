@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import CoreData;
 
 @interface SSUCoreDataTableViewController : UITableViewController
 

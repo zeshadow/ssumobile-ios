@@ -7,7 +7,7 @@
 //
 
 #import "SSUMapPoint.h"
-#import <MapKit/MapKit.h>
+@import MapKit;
 #import "Location+properties.h"
 #import "SSUMapBuildingPerimeter.h"
 

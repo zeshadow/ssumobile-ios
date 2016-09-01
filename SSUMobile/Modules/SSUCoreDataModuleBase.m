@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
+@import CoreData;
+
 #import "SSUCoreDataModuleBase.h"
 #import "SSULogging.h"
 
 @implementation SSUCoreDataModuleBase
-
 
 #pragma mark - Core Data stack
 

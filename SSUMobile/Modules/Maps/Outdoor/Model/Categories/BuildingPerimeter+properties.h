@@ -8,7 +8,7 @@
 
 #import "SSUMapBuildingPerimeter.h"
 #import "Polygon+properties.h"
-#import <MapKit/MapKit.h>
+@import MapKit;
 
 @interface SSUMapBuildingPerimeter (properties) <MKAnnotation>
 

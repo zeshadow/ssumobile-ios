@@ -6,6 +6,8 @@
 //  Copyright © 2016 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
+@import UIKit;
+
 #import "SSUDebugCredentials.h"
 #import "SSUMoonlightCommunicator.h"
 #import "SSULogging.h"

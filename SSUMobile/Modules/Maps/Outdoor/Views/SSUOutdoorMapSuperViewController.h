@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
+@import UIKit;
+@import MapKit;
 #import "SSUMapBuilder.h"
 #import "SSUDirectoryBuilder.h"
 

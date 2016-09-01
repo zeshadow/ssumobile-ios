@@ -8,7 +8,7 @@
 
 #import "Polygon+properties.h"
 #import "Location+properties.h"
-#import <MapKit/MapKit.h>
+@import MapKit;
 
 @implementation SSUMapPolygon (properties)
 

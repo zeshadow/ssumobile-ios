@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface SSUAboutViewController : UITableViewController
 

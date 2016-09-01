@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 typedef NS_OPTIONS(NSUInteger, SSUCellSeparator) {
     SSUCellSeparatorTop     = 1 << 0,

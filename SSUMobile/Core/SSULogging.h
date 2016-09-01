@@ -6,7 +6,7 @@
 //  Copyright © 2015 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
 //Note: this value must be named 'ddLogLevel', as the macros search for this symbol

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+@import Foundation;
+@import CoreData;
 #import "SSUDirectoryObject.h"
 
 @class SSUBuilding, SSUPerson, SSUSchool;

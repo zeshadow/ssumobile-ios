@@ -235,8 +235,7 @@
 
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    if (status == kCLAuthorizationStatusAuthorized ||
-        status == kCLAuthorizationStatusAuthorizedAlways ||
+    if (status == kCLAuthorizationStatusAuthorizedAlways ||
         status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         [self.mapView setShowsUserLocation:YES];
     }

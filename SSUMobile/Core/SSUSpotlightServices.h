@@ -6,8 +6,8 @@
 //  Copyright © 2016 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+@import Foundation;
+@import UIKit;
 @import CoreSpotlight;
 @import MobileCoreServices;
 

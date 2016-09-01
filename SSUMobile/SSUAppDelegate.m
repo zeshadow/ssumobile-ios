@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
+@import Foundation;
+@import CoreSpotlight;
+
 #import "SSUAppDelegate.h"
 #import "SSUSettingsConstants.h"
 #import "SSURadioStreamer.h"
@@ -16,8 +19,6 @@
 #import "SSUSpotlightServices.h"
 
 #import <SDWebImage/SDImageCache.h>
-
-@import CoreSpotlight;
 
 @interface SSUAppDelegate()
 

@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
+@import MediaPlayer;
+
 #import "SSURadioStreamer.h"
 #import "SSULogging.h"
 #import "SSUConfiguration.h"
-
-@import MediaPlayer;
 
 static NSString * SSURadioNowPlayingSongTitle = @"KSUN Radio";
 static NSString * SSURadioNowPlayingSongAlbum = @"Sonoma State University";
@@ -153,7 +153,7 @@ static SSURadioStreamer * _sharedInstance = nil;
         SSULogError(@"Error registering for background playback: %@",error.userInfo[NSLocalizedDescriptionKey]);
     }
     error = nil;
-    [[AVAudioSession sharedInstance] setActive:YES withOptions:nil error:&error];
+    [[AVAudioSession sharedInstance] setActive:YES withOptions:0 error:&error];
     if (error) {
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                          message:@"Unable to play KSUN radio. Please try again later."
@@ -270,7 +270,8 @@ static SSURadioStreamer * _sharedInstance = nil;
 {
     if ([keyPath isEqualToString:@"status"] && [object isKindOfClass:[AVPlayer class]])
     {
-        AVPlayerStatus status = [object status];
+        AVPlayer * player = (AVPlayer *)object;
+        AVPlayerStatus status = [player status];
         if (self.player.status == AVPlayerStatusReadyToPlay && self.isPlaying)
         {
             [self didBeginOrResumePlaying];

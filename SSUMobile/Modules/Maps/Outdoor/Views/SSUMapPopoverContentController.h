@@ -13,7 +13,7 @@
 //  on each object
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @class SSUMapPopoverContentController;
 

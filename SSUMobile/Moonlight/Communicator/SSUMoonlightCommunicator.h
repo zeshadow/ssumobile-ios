@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 extern NSString* const SSUMoonlightManagerKeyID;
 extern NSString* const SSUMoonlightManagerKeyCreated;
