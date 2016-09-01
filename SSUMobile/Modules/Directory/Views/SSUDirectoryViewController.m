@@ -67,12 +67,14 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     }
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
+    self.searchKey = @"displayName";
+    
     [self setupEntities];
     [self setupSegmentedControl];
     [self setupFetchedResultsControllers];
     
-    _showsSectionTitles = NO;
-    _showsSectionIndexTitles = NO;
+    self.showsSectionTitles = NO;
+    self.showsSectionIndexTitles = NO;
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.sectionIndexColor = SSU_BLUE_COLOR;
     self.searchDisplayController.searchResultsTableView.sectionIndexBackgroundColor = [UIColor clearColor];
@@ -299,7 +301,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0 && [self tableView:tableView titleForHeaderInSection:section].length > 0) {
+    if (section == 0 && [self tableView:tableView titleForHeaderInSection:section].length > 0 && tableView == self.tableView) {
         return self.segmentedControl.frame.size.height * 2;
     }
     return self.segmentedControl.frame.size.height + 1;
@@ -340,7 +342,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
         return [self tableView:tableView searchCellForRowAtIndexPath:indexPath];
     SSUDirectoryObject* object = [self objectAtIndex:indexPath];
     NSString *cellIdentifier = object.entity.name;
-    SSUDirectoryTableViewCell *cell = (id)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    SSUDirectoryTableViewCell *cell = (id)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [self configureCell:cell forObject:object];
     return cell;
 }
@@ -349,12 +351,10 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     SSUDirectoryObject * obj = [self.searchFetchedResultsController objectAtIndexPath:indexPath];
     NSString * identifier = obj.entity.name;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
+    // Even though this is the search results table view, use our table view to construct the cell
+    SSUDirectoryTableViewCell *cell = (id)[self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = obj.displayName;
+    [self configureCell:cell forObject:obj];
     
     return cell;
 }
@@ -365,7 +365,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SSUDirectoryObject* object = [self objectAtIndex:indexPath];
+    SSUDirectoryObject* object = (tableView == self.searchDisplayController.searchResultsTableView) ? [self.searchFetchedResultsController objectAtIndexPath:indexPath] : [self objectAtIndex:indexPath];
     self.selectedObject = object;
     
     [self performSegueWithIdentifier:object.entity.name sender:self];
@@ -419,24 +419,12 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     }
 }
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    self.isSearching = YES;
-    [self performSearchFetch];
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:[self.searchDisplayController.searchBar text]];
-    return YES;
-}
-
 - (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
     // See: http://stackoverflow.com/a/24253630/2012042
     // if (self.tableView != self.searchDisplayController.searchBar.superview) {
     if (self.searchDisplayController.searchBar.window == nil) {
         [self.tableView insertSubview:self.searchDisplayController.searchBar aboveSubview:self.tableView];
     }
-    self.isSearching = NO;
     [self loadEntityName:self.entityName usingPredicate:nil];
 }
 

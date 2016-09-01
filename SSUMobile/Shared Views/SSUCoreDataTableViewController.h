@@ -13,6 +13,23 @@
 @property (nonatomic, strong) NSFetchedResultsController * fetchedResultsController;
 @property (nonatomic, strong) NSFetchedResultsController * searchFetchedResultsController;
 
+/**
+ The key used in the predicate for text searches.
+ 
+ Default: term
+ */
+@property (nonatomic, strong) NSString * searchKey;
+
+/**
+ The table view that will be used to show search results
+ */
+@property (nonatomic, weak) UITableView * searchTableView;
+
+/**
+ Will be YES if currently searching
+ */
+@property (nonatomic) BOOL isSearching;
+
 - (void) performFetch;
 - (void) performSearchFetch;
 
