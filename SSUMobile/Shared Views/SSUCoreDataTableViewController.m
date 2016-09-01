@@ -23,8 +23,6 @@
 
     self.fetchedResultsController.delegate = self;
     self.searchFetchedResultsController.delegate = self;
-    
-    self.searchDisplayController.searchResultsTableView.delegate = self;
 }
 
 - (void) setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {
@@ -39,30 +37,19 @@
     [self performSearchFetch];
 }
 
-- (NSString *) searchKey {
-    if (_searchKey) return _searchKey;
-    
-    _searchKey = @"term";
-    return _searchKey;
-}
-
-- (UIStatusBarStyle) preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (tableView == self.tableView) {
-        return self.fetchedResultsController.sections.count;
+    if (self.isSearching) {
+        return self.searchFetchedResultsController.sections.count;
     }
     else {
-        return self.searchFetchedResultsController.sections.count;
+        return self.fetchedResultsController.sections.count;
     }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSFetchedResultsController * controller = (tableView == self.tableView) ? self.fetchedResultsController : self.searchFetchedResultsController;
+    NSFetchedResultsController * controller = (self.isSearching) ? self.searchFetchedResultsController : self.fetchedResultsController;
     return [controller.sections[section] numberOfObjects];
 }
 
@@ -84,26 +71,22 @@
 
 #pragma mark - Search
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    [self performSearchFetch];
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:[self.searchDisplayController.searchBar text]];
-    return YES;
-}
-
 - (void) filterContentForSearchText:(NSString*)searchText {
     NSFetchRequest *fetchRequest = self.searchFetchedResultsController.fetchRequest;
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", self.searchKey, searchText];
+    if ([searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0) {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", self.searchKey, searchText];
+    }
+    else {
+        fetchRequest.predicate = nil;
+    }
     [self performSearchFetch];
+    [self.tableView reloadData];
 }
 
 #pragma mark - NSFetchedResultsController Updates
 
 - (UITableView *) tableViewForController:(NSFetchedResultsController *)controller {
-    return (controller == self.fetchedResultsController) ? self.tableView : self.searchTableView;;
+    return self.tableView;
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {

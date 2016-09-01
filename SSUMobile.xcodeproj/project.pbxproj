@@ -213,6 +213,10 @@
 		07AB76D31C786E43006352C5 /* defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = 07AB76D21C786E43006352C5 /* defaults.json */; };
 		07AE95991D77B74300A66838 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE95981D77B74300A66838 /* SafariServices.framework */; };
 		07AE959A1D77B74900A66838 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE95981D77B74300A66838 /* SafariServices.framework */; };
+		07AE959D1D77D7E000A66838 /* SSUSearchableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AE959C1D77D7E000A66838 /* SSUSearchableTableViewController.m */; };
+		07AE959E1D77D7E000A66838 /* SSUSearchableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AE959C1D77D7E000A66838 /* SSUSearchableTableViewController.m */; };
+		07AE95A11D77D80400A66838 /* SSUCoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AE95A01D77D80400A66838 /* SSUCoreTableViewController.m */; };
+		07AE95A21D77D80400A66838 /* SSUCoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AE95A01D77D80400A66838 /* SSUCoreTableViewController.m */; };
 		07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */; };
 		07AFDFD719D917550027D0F1 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AFDFD619D917550027D0F1 /* EventKitUI.framework */; };
 		07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
@@ -429,6 +433,10 @@
 		07A1486D19F653CA006B708F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		07AB76D21C786E43006352C5 /* defaults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaults.json; sourceTree = "<group>"; };
 		07AE95981D77B74300A66838 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		07AE959B1D77D7E000A66838 /* SSUSearchableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSearchableTableViewController.h; sourceTree = "<group>"; };
+		07AE959C1D77D7E000A66838 /* SSUSearchableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSearchableTableViewController.m; sourceTree = "<group>"; };
+		07AE959F1D77D80400A66838 /* SSUCoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCoreTableViewController.h; sourceTree = "<group>"; };
+		07AE95A01D77D80400A66838 /* SSUCoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUCoreTableViewController.m; sourceTree = "<group>"; };
 		07AFDEA319D8E7DB0027D0F1 /* SSUCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUCalendarViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07AFDEA419D8E7DB0027D0F1 /* SSUCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUCalendarViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07AFDFD619D917550027D0F1 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
@@ -754,6 +762,10 @@
 				07D090DF1BCB8B560022B364 /* SSUSegmentedTableHeaderView.m */,
 				C4FBF75516BB914300BE95E3 /* SSUDetailTableViewController.h */,
 				C4FBF75616BB914300BE95E3 /* SSUDetailTableViewController.m */,
+				07AE959F1D77D80400A66838 /* SSUCoreTableViewController.h */,
+				07AE95A01D77D80400A66838 /* SSUCoreTableViewController.m */,
+				07AE959B1D77D7E000A66838 /* SSUSearchableTableViewController.h */,
+				07AE959C1D77D7E000A66838 /* SSUSearchableTableViewController.m */,
 				07DE5DA51B9C83F6005B38CB /* SSUCoreDataTableViewController.h */,
 				07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */,
 				0717DDAF1C8AAF8D009861D9 /* SSUWebViewController.storyboard */,
@@ -1866,6 +1878,7 @@
 			files = (
 				0730A6551C85515200FC9370 /* SSUMapBuilder.m in Sources */,
 				0730A6561C85515200FC9370 /* SSUResourcesViewController.m in Sources */,
+				07AE95A21D77D80400A66838 /* SSUCoreTableViewController.m in Sources */,
 				0730A6571C85515200FC9370 /* SSULDAPCredentials.m in Sources */,
 				0730A6581C85515200FC9370 /* SSUPersonTableViewCell.m in Sources */,
 				0730A6591C85515200FC9370 /* SSUCoreDataTableViewController.m in Sources */,
@@ -1963,6 +1976,7 @@
 				0730A6B11C85515200FC9370 /* SSUMapLocation.m in Sources */,
 				0730A6B21C85515200FC9370 /* SSUOutdoorDirectionToolViewController.m in Sources */,
 				0730A6B31C85515200FC9370 /* SSUResourcesConstants.m in Sources */,
+				07AE959E1D77D7E000A66838 /* SSUSearchableTableViewController.m in Sources */,
 				0730A6B41C85515200FC9370 /* SSUResourcesSection.m in Sources */,
 				0730A6B51C85515200FC9370 /* SSUOutdoorMapViewController.m in Sources */,
 				0730A6B61C85515200FC9370 /* Calendar.xcdatamodeld in Sources */,
@@ -1991,6 +2005,7 @@
 			files = (
 				0766F1871B4BA404003BD52C /* SSUMapBuilder.m in Sources */,
 				071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */,
+				07AE95A11D77D80400A66838 /* SSUCoreTableViewController.m in Sources */,
 				07C5A4E71A87168D004DC819 /* SSULDAPCredentials.m in Sources */,
 				076CBF541B6F350C00364B36 /* SSUPersonTableViewCell.m in Sources */,
 				07E8A21B1D64276D007246A8 /* SSUSpotlightServices.m in Sources */,
@@ -2080,6 +2095,7 @@
 				7801C3D316E8233900119B63 /* SSUMapLocation.m in Sources */,
 				0785A3BE1A1D99A30088193E /* SSUResourcesConstants.m in Sources */,
 				0785A3B81A1D988B0088193E /* SSUResourcesSection.m in Sources */,
+				07AE959D1D77D7E000A66838 /* SSUSearchableTableViewController.m in Sources */,
 				AAEF4FAB1900AC130006276D /* SSUOutdoorMapViewController.m in Sources */,
 				074D135E1BA703FB0002899F /* Calendar.xcdatamodeld in Sources */,
 				AAC88A041900FDCE00E6863F /* SSUSharedUtilities.m in Sources */,
