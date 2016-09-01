@@ -95,7 +95,6 @@
     if ([self isFirstLaunchForCurrentVersion]) {
         return;
     }
-    return;
     
     NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"settings"]];
     NSArray * classes = [[SSUConfiguration sharedInstance] stringArrayForKey:SSUModulesEnabledKey];
