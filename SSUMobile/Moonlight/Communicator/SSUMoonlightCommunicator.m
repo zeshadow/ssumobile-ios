@@ -56,7 +56,7 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
     _dateFormatter.dateStyle = NSDateFormatterNoStyle;
     _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
     _dateFormatter.locale = [NSLocale currentLocale];
-    _dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    _dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"America/Los_Angeles"];
     _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     
     return _dateFormatter;
@@ -159,6 +159,7 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
             fullURL = [fullURL stringByAppendingFormat:@"?date=%@", [dateString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         }
     }
+    SSULogDebug(@"Pulling JSON from URL: %@", fullURL);
     
     NSURL* url = [NSURL URLWithString:fullURL];
     [self getJSONFromURL:url completion:completion];
