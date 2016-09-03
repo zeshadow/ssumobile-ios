@@ -18,9 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO: this is a gross hack to fix the weird status bar issue when entering search.
-    //This should go away when we move to iOS 8
-    self.navigationController.view.backgroundColor = SSU_BLUE_COLOR;
     
     self.barBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1.0)];
     self.barBackgroundView.backgroundColor = SSU_BLUE_COLOR;

@@ -245,6 +245,8 @@
 		07D1A36418E2D52600B98565 /* SSUBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36318E2D52600B98565 /* SSUBuilding.m */; };
 		07D1A36718E2D52600B98565 /* SSUDirectoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36618E2D52600B98565 /* SSUDirectoryObject.m */; };
 		07D1A36A18E2D52600B98565 /* SSUDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36918E2D52600B98565 /* SSUDepartment.m */; };
+		07D9DEFD1D7954C60067C820 /* SSUGlobalNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9DEFC1D7954C60067C820 /* SSUGlobalNavigationController.m */; };
+		07D9DEFE1D7954C60067C820 /* SSUGlobalNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9DEFC1D7954C60067C820 /* SSUGlobalNavigationController.m */; };
 		07DE5DA71B9C83F6005B38CB /* SSUCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */; };
 		07DFB6CB1B94511A00014CD0 /* SSUDepartment+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */; };
 		07DFB6CE1B9453C200014CD0 /* SSUTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CD1B9453C200014CD0 /* SSUTableHeaderView.m */; };
@@ -491,6 +493,8 @@
 		07D1A36618E2D52600B98565 /* SSUDirectoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryObject.m; sourceTree = "<group>"; };
 		07D1A36818E2D52600B98565 /* SSUDepartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUDepartment.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07D1A36918E2D52600B98565 /* SSUDepartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUDepartment.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		07D9DEFB1D7954C60067C820 /* SSUGlobalNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUGlobalNavigationController.h; sourceTree = "<group>"; };
+		07D9DEFC1D7954C60067C820 /* SSUGlobalNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUGlobalNavigationController.m; sourceTree = "<group>"; };
 		07DE5DA51B9C83F6005B38CB /* SSUCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUCoreDataTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUCoreDataTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07DFB6C91B94511A00014CD0 /* SSUDepartment+properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "SSUDepartment+properties.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -773,6 +777,8 @@
 				AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */,
 				0794E8071D73FE8E00E266AC /* SSUNavigationController.h */,
 				0794E8081D73FE8E00E266AC /* SSUNavigationController.m */,
+				07D9DEFB1D7954C60067C820 /* SSUGlobalNavigationController.h */,
+				07D9DEFC1D7954C60067C820 /* SSUGlobalNavigationController.m */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -1887,6 +1893,7 @@
 				0730A65C1C85515200FC9370 /* SSUDirectoryBuilder.m in Sources */,
 				0730A65D1C85515200FC9370 /* SSUEvent.m in Sources */,
 				0730A65E1C85515200FC9370 /* main.m in Sources */,
+				07D9DEFE1D7954C60067C820 /* SSUGlobalNavigationController.m in Sources */,
 				0730A65F1C85515200FC9370 /* SSUAppDelegate.m in Sources */,
 				0730A6601C85515200FC9370 /* SSUEmailViewController.m in Sources */,
 				0730A6611C85515200FC9370 /* SSUAboutViewController.m in Sources */,
@@ -2059,6 +2066,7 @@
 				C4FBF75716BB914400BE95E3 /* SSUDetailTableViewController.m in Sources */,
 				07C2FE0E19C6C5120016349C /* SSURadioConstants.m in Sources */,
 				C4FBF77F16BC615300BE95E3 /* SSUNewsViewController.m in Sources */,
+				07D9DEFD1D7954C60067C820 /* SSUGlobalNavigationController.m in Sources */,
 				07DFB6CB1B94511A00014CD0 /* SSUDepartment+properties.m in Sources */,
 				78708BE016C48B2000226EA9 /* SSUNewsObject.m in Sources */,
 				78A8E15016C74BDE00898596 /* SSUDirectoryViewController.m in Sources */,

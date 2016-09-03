@@ -7,6 +7,7 @@
 //
 
 #import "SSUHomeViewController.h"
+#import "SSUGlobalNavigationController.h"
 #import "SSUAppPickerModuleCell.h"
 #import "SSUModuleServices.h"
 #import "SSUSpotlightServices.h"
@@ -65,19 +66,9 @@ static NSInteger BLANK_CELL_INDEX = 7;
     }];
 }
 
-- (void) viewWillAppear:(BOOL)animated
-{
+- (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Change the nav bar styling to be 100% transparent
-    UINavigationBar * navBar = self.navigationController.navigationBar;
-    [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    navBar.shadowImage = [UIImage new];
-    navBar.barTintColor = [UIColor clearColor];
-    navBar.translucent = YES;
-    
-    //TODO: this is a gross hack to fix the weird status bar issue when entering search.
-    //This should go away when we move to iOS 8
-    self.navigationController.view.backgroundColor = SSU_BLUE_COLOR;
+    [[SSUGlobalNavigationController sharedInstance] setNavigationBarTransparent:YES];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -88,21 +79,12 @@ static NSInteger BLANK_CELL_INDEX = 7;
     }
 }
 
-- (void) viewWillDisappear:(BOOL)animated
-{
+- (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // Undo all the styling changes we made to the nav bar
-    UINavigationBar * navBar = self.navigationController.navigationBar;
-    UINavigationBar * appearance = [UINavigationBar appearance];
-    [navBar setBackgroundImage:[appearance backgroundImageForBarMetrics:UIBarMetricsDefault]
-                 forBarMetrics:UIBarMetricsDefault];
-    navBar.shadowImage = appearance.shadowImage;
-    navBar.barTintColor = appearance.barTintColor;
-    navBar.translucent = NO;
+    [[SSUGlobalNavigationController sharedInstance] setNavigationBarTransparent:NO];
 }
 
-- (UIStatusBarStyle) preferredStatusBarStyle
-{
+- (UIStatusBarStyle) preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 

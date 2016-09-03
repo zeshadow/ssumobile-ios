@@ -10,4 +10,6 @@
 
 @interface SSUNavigationController : UINavigationController
 
+- (void) setNavigationBarTransparent:(BOOL)transparent;
+
 @end
