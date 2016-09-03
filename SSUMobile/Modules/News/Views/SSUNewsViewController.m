@@ -9,6 +9,7 @@
 @import SafariServices;
 
 #import "SSUNewsViewController.h"
+#import "SSUSelectionController.h"
 #import "SSULogging.h"
 #import "SSUNewsModule.h"
 #import "SSUNewsConstants.h"
@@ -17,9 +18,10 @@
 #import "SSUWebViewController.h"
 #import "SSUConfiguration.h"
 
-@interface SSUNewsViewController ()
+@interface SSUNewsViewController () <SSUSelectionDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext * context;
+@property (nonatomic, strong) NSPredicate * predicate;
 
 @end
 
@@ -30,6 +32,9 @@
     self.context = [[SSUNewsModule sharedInstance] context];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
+    UIBarButtonItem * filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleDone target:self action:@selector(filterButtonPressed)];
+    self.navigationItem.rightBarButtonItem = filterButton;
+    
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     fetchRequest.entity = [NSEntityDescription entityForName:SSUNewsEntityArticle inManagedObjectContext:self.context];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"published" ascending:NO]];
@@ -39,6 +44,7 @@
     
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.context sectionNameKeyPath:@"published" cacheName:nil];
     self.fetchedResultsController = aFetchedResultsController;
+    self.fetchedResultsController.delegate = self;
     
     self.tableView.separatorInset = UIEdgeInsetsZero;
     
@@ -66,6 +72,13 @@
         [self.refreshControl endRefreshing];
         [self.tableView reloadData];
     }];
+}
+
+- (void) setPredicate:(NSPredicate *)predicate {
+    _predicate = predicate;
+    self.fetchedResultsController.fetchRequest.predicate = _predicate;
+    [self.fetchedResultsController performFetch:nil];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -115,6 +128,58 @@
         controller.urlToLoad = [NSURL URLWithString:article.link];
         [self.navigationController pushViewController:controller animated:YES];
     }
+}
+
+#pragma mark - Actions
+
+- (void) filterButtonPressed {
+    NSArray * categories = [@[@"All Categories"] arrayByAddingObjectsFromArray:[self allCategories]];
+    SSUSelectionController * selectionController = [[SSUSelectionController alloc] initWithItems:categories];
+    selectionController.delegate = self;
+    if (self.predicate == nil) {
+        selectionController.defaultIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+    }
+    else {
+        NSString * current = [[self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] category];
+        NSInteger row = (NSInteger)[categories indexOfObject:current];
+        selectionController.defaultIndex = [NSIndexPath indexPathForRow:row inSection:0];
+    }
+    [self.navigationController pushViewController:selectionController animated:YES];
+}
+
+- (void) userDidSelectItem:(id)item atIndexPath:(NSIndexPath *)indexPath fromController:(SSUSelectionController *)controller {
+    if ([item isEqualToString:@"All Categories"]) {
+        self.predicate = nil;
+    }
+    else {
+        NSString * categoryName = item;
+        self.predicate = [NSPredicate predicateWithFormat:@"category = %@", categoryName];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) selectionControllerDismissed:(SSUSelectionController *)controller {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - private
+
+- (NSArray *) allCategories {
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUNewsEntityArticle];
+    NSString * categoryKeyName = @"category";
+    request.propertiesToFetch = @[categoryKeyName];
+    request.returnsDistinctResults = YES;
+    request.resultType = NSDictionaryResultType;
+    
+    NSArray * objects = [[SSUNewsModule sharedInstance].context executeFetchRequest:request error:nil];
+    NSMutableArray * categories = [NSMutableArray arrayWithCapacity:objects.count];
+    for (NSDictionary * dict in objects) {
+        if (dict[categoryKeyName] != nil) {
+            [categories addObject:dict[categoryKeyName]];
+        }
+    }
+    return [categories sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 @end
