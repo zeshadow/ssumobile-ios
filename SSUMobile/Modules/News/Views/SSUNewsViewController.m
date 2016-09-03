@@ -41,6 +41,12 @@
     self.fetchedResultsController = aFetchedResultsController;
     
     self.tableView.separatorInset = UIEdgeInsetsZero;
+    
+    self.searchKey = @"title";
+    
+    [self.tableView registerClass:[SSUNewsArticleTableViewCell class] forCellReuseIdentifier:SSUNewsEntityArticle];
+    self.tableView.rowHeight = (int)([UIScreen mainScreen].applicationFrame.size.height / 4);
+    [self.tableView reloadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -89,6 +95,10 @@
     return nil;
 }
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,16 +115,6 @@
         controller.urlToLoad = [NSURL URLWithString:article.link];
         [self.navigationController pushViewController:controller animated:YES];
     }
-}
-
-#pragma mark - Search Display
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    return YES;
 }
 
 @end
