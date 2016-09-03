@@ -30,7 +30,6 @@ static const CGFloat CELL_HEIGHT = 44;
 static const CGFloat SEGMENT_FONT_SIZE = 11.0;
 
 static NSString * const LOCATION_SEGUE = @"Location";
-static NSString * const SEGMENTED_HEADER_IDENTIFIER = @"SegmentedHeader";
 static NSString * const HEADER_IDENTIFIER = @"Header";
 
 @interface SSUDirectoryViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
@@ -76,17 +75,11 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     self.showsSectionTitles = NO;
     self.showsSectionIndexTitles = NO;
     
-    [self.tableView registerClass:[SSUTableHeaderView class] forHeaderFooterViewReuseIdentifier:HEADER_IDENTIFIER];
-    [self.tableView registerClass:[SSUSegmentedTableHeaderView class] forHeaderFooterViewReuseIdentifier:SEGMENTED_HEADER_IDENTIFIER];
-    
     [self loadEntityName:_entityName usingPredicate:_predicate];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    // Setting this in viewDidLoad will have no effect
-    self.navigationController.navigationBar.translucent = NO;
-    
     // Check if we need to display anything - if we were pushed from another module
     if (self.objectToDisplay) {
         [self displayObject:self.objectToDisplay];
@@ -128,11 +121,14 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 - (void) setupSegmentedControl {
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:self.displayEntities];
     self.segmentedControl.selectedSegmentIndex = 0;
+    self.segmentedControl.backgroundColor = SSU_BLUE_COLOR;
     self.segmentedControl.tintColor = [UIColor whiteColor];
     [self.segmentedControl addTarget:self action:@selector(segmentChanged) forControlEvents:UIControlEventValueChanged];
     id textAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:SEGMENT_FONT_SIZE]};
     [self.segmentedControl setTitleTextAttributes:textAttributes
                                          forState:UIControlStateNormal];
+    self.tableView.tableHeaderView = self.segmentedControl;
+    [self.segmentedControl sizeToFit];
 }
 
 - (void) setupFetchedResultsControllers {
@@ -276,33 +272,19 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
         }
     }
     
-    NSFetchRequest* fetchRequest = self.fetchedResultsController.fetchRequest;
+    NSFetchRequest * fetchRequest = self.fetchedResultsController.fetchRequest;
     fetchRequest.entity = [NSEntityDescription entityForName:self.entityName inManagedObjectContext:self.context];
     fetchRequest.sortDescriptors = self.sortDescriptors;
     fetchRequest.predicate = self.predicate;
+    
+    NSFetchRequest * searchFetch = self.searchFetchedResultsController.fetchRequest;
+    searchFetch.entity = fetchRequest.entity;
+    searchFetch.sortDescriptors = fetchRequest.sortDescriptors;
 
     [self reloadData];
 }
 
 #pragma mark - Table View
-
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSString * identifier = (section == 0) ? SEGMENTED_HEADER_IDENTIFIER : HEADER_IDENTIFIER;
-    SSUTableHeaderView * header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-    if ([header isKindOfClass:[SSUSegmentedTableHeaderView class]]) {
-        SSUSegmentedTableHeaderView * segmentedHeader = (SSUSegmentedTableHeaderView *)header;
-        segmentedHeader.segmentedControl = self.segmentedControl;
-    }
-    header.headerTextLabel.text = [self tableView:tableView titleForHeaderInSection:section];
-    return header;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0 && [self tableView:tableView titleForHeaderInSection:section].length > 0) {
-        return self.segmentedControl.frame.size.height * 2;
-    }
-    return self.segmentedControl.frame.size.height + 1;
-}
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (self.isSearching)

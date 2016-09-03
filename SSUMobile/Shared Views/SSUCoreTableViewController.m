@@ -22,10 +22,8 @@ static NSString * const kHeaderReuseIdentifier = @"SSUCoreTableViewHeader";
     
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     self.tableView.sectionIndexColor = SSU_BLUE_COLOR;
-}
-
-- (UIStatusBarStyle) preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+    
+    [self.tableView registerClass:[SSUTableHeaderView class] forHeaderFooterViewReuseIdentifier:kHeaderReuseIdentifier];
 }
 
 #pragma mark - Table view
