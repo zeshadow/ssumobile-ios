@@ -1653,7 +1653,7 @@
 			attributes = {
 				CLASSPREFIX = SSU;
 				LastTestingUpgradeCheck = 0600;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Sonoma State University Department of Computer Science";
 				TargetAttributes = {
 					0730A6521C85515200FC9370 = {
