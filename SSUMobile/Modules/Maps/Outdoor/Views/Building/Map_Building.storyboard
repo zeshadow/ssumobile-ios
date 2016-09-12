@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Map Building Detail View Controller-->
@@ -10,22 +11,19 @@
             <objects>
                 <tableViewController storyboardIdentifier="SSUMapBuildingDetailViewController" id="Rbp-xM-fb1" customClass="SSUMapBuildingDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="TWd-Rf-N4V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="230" id="54M-aj-cfn" customClass="SSUBuildingMapViewCell">
-                                <rect key="frame" x="0.0" y="49.5" width="320" height="230"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="230"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54M-aj-cfn" id="2I6-A9-LSA">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="229.5"/>
+                                    <frame key="frameInset" width="375" height="229"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BWt-ZF-ILf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="229.5"/>
-                                        </imageView>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BWt-ZF-ILf"/>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Db1-58-18s">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="230" id="PMO-o8-pC3"/>
                                             </constraints>
@@ -34,21 +32,18 @@
                                             </connections>
                                         </mapView>
                                         <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Su8-M0-Ken">
-                                            <rect key="frame" x="0.0" y="192.5" width="320" height="37"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65116947852760731" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65116947852760731" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="pageControlChangedPage:" destination="54M-aj-cfn" eventType="valueChanged" id="YnF-IW-zwO"/>
                                             </connections>
                                         </pageControl>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Darwin Hall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBJ-6q-B6s">
-                                            <rect key="frame" x="20" y="105" width="280" height="19.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-XB-0FK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25135400690184051" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25135400690184051" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -82,48 +77,48 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DirectionsCell" textLabel="naD-ZY-cth" rowHeight="45" style="IBUITableViewCellStyleDefault" id="g7Q-Xx-Sop">
-                                <rect key="frame" x="0.0" y="279.5" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="286" width="375" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g7Q-Xx-Sop" id="Dcs-xe-B58">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Directions to Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="naD-ZY-cth">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="44.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" red="0.078431372549019607" green="0.23137254901960785" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.078431372549019607" green="0.23137254901960785" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DirectoryCell" textLabel="WXP-W6-t5S" rowHeight="45" style="IBUITableViewCellStyleDefault" id="L4X-5e-9MH">
-                                <rect key="frame" x="0.0" y="324.5" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="331" width="375" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L4X-5e-9MH" id="ugi-GW-J4x">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="View in Directory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WXP-W6-t5S">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="44.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" red="0.078431372550000003" green="0.23137254900000001" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.078431372550000003" green="0.23137254900000001" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DepartmentCell" textLabel="2Ws-37-RSr" rowHeight="45" style="IBUITableViewCellStyleDefault" id="0xX-K2-Y8Q" customClass="SSUDepartmentTableViewCell">
-                                <rect key="frame" x="0.0" y="369.5" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="376" width="375" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0xX-K2-Y8Q" id="v7P-vJ-Wfn">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Ws-37-RSr">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="44.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="highlightedColor"/>
@@ -153,7 +148,7 @@
                 <viewController id="gIv-Yh-cz9" customClass="RBStoryboardLink" sceneMemberID="viewController">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Directory_iPhone"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="Department"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="SSUDepartment"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGL-mh-Xof" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,7 +161,7 @@
                 <viewController id="z0P-a2-3h3" customClass="RBStoryboardLink" sceneMemberID="viewController">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Directory_iPhone"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="Building"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="SSUBuilding"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFs-fV-hS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,4 +169,9 @@
             <point key="canvasLocation" x="567" y="889"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>
