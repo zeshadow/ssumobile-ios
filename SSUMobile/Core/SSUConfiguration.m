@@ -10,6 +10,7 @@
 #import "SSULogging.h"
 
 static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
+NSString * const kSSUConfigLastLoadDateKey = @"edu.sonoma.configuration.last_load";
 
 @interface SSUConfiguration()
 
@@ -42,6 +43,7 @@ static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
     NSURLSession * session = [NSURLSession sharedSession];
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
     request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSDate * lastLoadDate = [NSDate date];
     NSURLSessionTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             SSULogError(@"Error while attempting to load settings from remote url: %@", error);
@@ -63,6 +65,7 @@ static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
             }
             else {
                 [self loadDictionary:json];
+                [self setDate:lastLoadDate forKey:kSSUConfigLastLoadDateKey];
                 if (completion)
                     completion(nil);
             }

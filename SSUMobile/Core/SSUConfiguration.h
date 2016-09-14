@@ -8,6 +8,8 @@
 
 @import Foundation;
 
+extern NSString * const kSSUConfigLastLoadDateKey;
+
 @interface SSUConfiguration : NSObject
 
 + (instancetype) sharedInstance;
