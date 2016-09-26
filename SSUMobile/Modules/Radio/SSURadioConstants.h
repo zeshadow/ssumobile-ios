@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Sonoma State University Department of Computer Science. All rights reserved.
 //
 
-extern NSString * SSURadioStreamURLKey;
-extern NSString * SSURadioStreamEnabledKey;
-extern NSString * SSURadioStreamDisabledMessageKey;
+extern NSString * const SSURadioStreamURLKey;
+extern NSString * const SSURadioStreamEnabledKey;
+extern NSString * const SSURadioStreamDisabledMessageKey;
+extern NSString * const SSURadioWebsiteURLKey;

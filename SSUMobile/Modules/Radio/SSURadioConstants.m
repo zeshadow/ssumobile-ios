@@ -8,6 +8,7 @@
 
 #import "SSURadioConstants.h"
 
-NSString * SSURadioStreamURLKey = @"edu.sonoma.radio.stream.url";
-NSString * SSURadioStreamEnabledKey = @"edu.sonoma.radio.stream.enabled";
-NSString * SSURadioStreamDisabledMessageKey = @"edu.sonoma.radio.stream.disabled.message";
+NSString * const SSURadioStreamURLKey = @"edu.sonoma.radio.stream.url";
+NSString * const SSURadioStreamEnabledKey = @"edu.sonoma.radio.stream.enabled";
+NSString * const SSURadioStreamDisabledMessageKey = @"edu.sonoma.radio.stream.disabled.message";
+NSString * const SSURadioWebsiteURLKey = @"edu.sonoma.radio.website";

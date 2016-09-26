@@ -10,9 +10,11 @@
 #import "SSULogging.h"
 #import "SSURadioConstants.h"
 #import "SSUConfiguration.h"
+#import "SSUWebViewController.h"
 
 @import MediaPlayer;
 @import AVFoundation;
+@import SafariServices;
 
 static NSString * SSURadioPlayerReadyMessage = @"Press play to start streaming";
 static NSString * SSURadioPlayerLoadingMessage = @"Loading...";
@@ -268,6 +270,18 @@ static NSString * SSURadioWebPageURL = @"http://www.ksunradio.com";
     if (buttonIndex != actionSheet.cancelButtonIndex)
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:SSURadioWebPageURL]];
+        NSURL * url = [NSURL URLWithString:[[SSUConfiguration sharedInstance] stringForKey:SSURadioWebsiteURLKey]];
+        if (NSStringFromClass([SFSafariViewController class])) {
+            SFSafariViewController * vc = [[SFSafariViewController alloc] initWithURL:url
+                                                              entersReaderIfAvailable:NO];
+            vc.preferredBarTintColor = SSU_BLUE_COLOR;
+            [self presentViewController:vc animated:YES completion:NULL];
+        }
+        else {
+            SSUWebViewController* controller = [SSUWebViewController webViewController];
+            controller.urlToLoad = url;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
     }
 }
 
@@ -276,7 +290,9 @@ static NSString * SSURadioWebPageURL = @"http://www.ksunradio.com";
  */
 - (void) actionButtonPressed:(UIBarButtonItem *)barButton
 {
-    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open ksunradio.com in Safari", nil];
+    NSString * urlString = [[SSUConfiguration sharedInstance] stringForKey:SSURadioWebsiteURLKey];
+    NSString * buttonTitle = [NSString stringWithFormat:@"Open %@", urlString];
+    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:buttonTitle, nil];
     [actionSheet showInView:self.view];
 }
 
