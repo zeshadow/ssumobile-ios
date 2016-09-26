@@ -16,8 +16,6 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
 
 @interface SSUSelectionController()
 
-@property (nonatomic, strong) UISearchDisplayController * searchController;
-
 @end
 
 @implementation SSUSelectionController
@@ -53,14 +51,8 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    self.searchBar.placeholder = @"Search";
-    self.searchBar.delegate = self;
-    self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
-    self.searchController.delegate = self;
-    self.searchController.searchResultsDataSource = self;
-    self.searchController.searchResultsDelegate = self;
-    self.tableView.tableHeaderView = self.searchBar;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellReuseIdentifier];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kSearchCellReuseIdentifier];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -84,25 +76,20 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-        return 1;
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView == self.searchDisplayController.searchResultsTableView)
+    if (self.isSearching)
         return self.searchData.count;
     return [self.choices count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (self.isSearching) {
         return [self tableView:tableView searchCellForRowAtIndexPath:indexPath];
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kCellReuseIdentifier];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
     
     id choice = [self objectAtIndexPath:indexPath];
     if ([choice isKindOfClass:[NSString class]]) {
@@ -143,7 +130,7 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (self.isSearching) {
         id selectedObj = [self.searchData objectAtIndex:indexPath.row];
         self.selectedIndex = [self indexOfObject:selectedObj];
         [self.searchDisplayController setActive:NO animated:YES];
@@ -170,11 +157,6 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
 }
 
 # pragma mark - Search
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:searchString scope:nil];
-    return YES;
-}
 
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K contains[c] %@",self.textKey,searchText];

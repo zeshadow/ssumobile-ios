@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+#import "SSUSearchableTableViewController.h"
+
 @class SSUSelectionController;
 
 @protocol SSUSelectionDelegate <NSObject>
@@ -21,7 +23,7 @@
 /**
  Displays a list of options that the user can select.
  */
-@interface SSUSelectionController : UITableViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
+@interface SSUSelectionController : SSUSearchableTableViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
 /**
  The choices that the controller will present to the user. 
