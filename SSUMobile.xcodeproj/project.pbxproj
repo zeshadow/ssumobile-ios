@@ -23,7 +23,6 @@
 		0730A6581C85515200FC9370 /* SSUPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF531B6F350C00364B36 /* SSUPersonTableViewCell.m */; };
 		0730A6591C85515200FC9370 /* SSUCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DE5DA61B9C83F6005B38CB /* SSUCoreDataTableViewController.m */; };
 		0730A65A1C85515200FC9370 /* SSURadioModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B721B9F2D1100FFB2FE /* SSURadioModule.m */; };
-		0730A65B1C85515200FC9370 /* SSUClassSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */; };
 		0730A65C1C85515200FC9370 /* SSUDirectoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995B2616B127A400168521 /* SSUDirectoryBuilder.m */; };
 		0730A65D1C85515200FC9370 /* SSUEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E23A019E25B6300483138 /* SSUEvent.m */; };
 		0730A65E1C85515200FC9370 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AED16B1274200168521 /* main.m */; };
@@ -299,7 +298,6 @@
 		78FE792816C9D04500626462 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78FE792716C9D04500626462 /* Settings.bundle */; };
 		78FE792C16CAA30B00626462 /* SSUSettingsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */; };
 		AA08DD53190F1E0B00141224 /* SSUArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08DD52190F1E0B00141224 /* SSUArticle.m */; };
-		AA61EA36192422DA00D82CB5 /* SSUClassSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */; };
 		AAB5DA6D1924935F002DC260 /* SSUWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */; };
 		AAC88A041900FDCE00E6863F /* SSUSharedUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC88A031900FDCE00E6863F /* SSUSharedUtilities.m */; };
 		AAEF4F5B18FFAB6C0006276D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */; };
@@ -589,8 +587,6 @@
 		A02A232B2B44BC1BB6F62CA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AA08DD51190F1E0B00141224 /* SSUArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUArticle.h; sourceTree = "<group>"; };
 		AA08DD52190F1E0B00141224 /* SSUArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUArticle.m; sourceTree = "<group>"; };
-		AA61EA34192422DA00D82CB5 /* SSUClassSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUClassSearchTableViewController.h; sourceTree = "<group>"; };
-		AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUClassSearchTableViewController.m; sourceTree = "<group>"; };
 		AA72986C1905D17500A63F99 /* Path_TuscanyToSalazar.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Path_TuscanyToSalazar.gpx; sourceTree = "<group>"; };
 		AAB5DA6B1924935F002DC260 /* SSUWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUWebViewController.h; sourceTree = "<group>"; };
 		AAB5DA6C1924935F002DC260 /* SSUWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUWebViewController.m; sourceTree = "<group>"; };
@@ -1062,8 +1058,6 @@
 				784315F116D1DDDA00B8552F /* SSUOutdoorMapSuperViewController.m */,
 				AAEF4FA91900AC130006276D /* SSUOutdoorMapViewController.h */,
 				AAEF4FAA1900AC130006276D /* SSUOutdoorMapViewController.m */,
-				AA61EA34192422DA00D82CB5 /* SSUClassSearchTableViewController.h */,
-				AA61EA35192422DA00D82CB5 /* SSUClassSearchTableViewController.m */,
 				0774756E1A6CA5ED0094EB15 /* SSUMapPopoverContentController.h */,
 				0774756F1A6CA5ED0094EB15 /* SSUMapPopoverContentController.m */,
 			);
@@ -1889,7 +1883,6 @@
 				0730A6581C85515200FC9370 /* SSUPersonTableViewCell.m in Sources */,
 				0730A6591C85515200FC9370 /* SSUCoreDataTableViewController.m in Sources */,
 				0730A65A1C85515200FC9370 /* SSURadioModule.m in Sources */,
-				0730A65B1C85515200FC9370 /* SSUClassSearchTableViewController.m in Sources */,
 				0730A65C1C85515200FC9370 /* SSUDirectoryBuilder.m in Sources */,
 				0730A65D1C85515200FC9370 /* SSUEvent.m in Sources */,
 				0730A65E1C85515200FC9370 /* main.m in Sources */,
@@ -2018,7 +2011,6 @@
 				07E8A21B1D64276D007246A8 /* SSUSpotlightServices.m in Sources */,
 				07DE5DA71B9C83F6005B38CB /* SSUCoreDataTableViewController.m in Sources */,
 				07B78B731B9F2D1100FFB2FE /* SSURadioModule.m in Sources */,
-				AA61EA36192422DA00D82CB5 /* SSUClassSearchTableViewController.m in Sources */,
 				78AD220C171731F600FB89F0 /* SSUDirectoryBuilder.m in Sources */,
 				071E23A119E25B6300483138 /* SSUEvent.m in Sources */,
 				C4995AEE16B1274200168521 /* main.m in Sources */,
