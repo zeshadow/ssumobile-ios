@@ -16,6 +16,11 @@
 
 @interface SSUDirectoryBuilder : SSUMoonlightBuilder
 
+- (void) buildPeople:(NSArray *)people;
+- (void) buildDepartments:(NSArray *)departments;
+- (void) buildBuildings:(NSArray *)buildings;
+- (void) buildSchools:(NSArray *)schools;
+
 - (SSUPerson *) personWithID:(NSString*)personID;
 - (SSUDepartment *) departmentWithID:(NSString*)departmentID;
 - (SSUBuilding *) buildingWithID:(NSString*)buildingID;

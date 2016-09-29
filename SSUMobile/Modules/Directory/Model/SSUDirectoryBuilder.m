@@ -8,14 +8,13 @@
 
 #import "SSUDirectoryBuilder.h"
 #import "SSUDirectoryConstants.h"
-#import "SSUPerson+properties.h"
-#import "SSUDepartment.h"
-#import "SSUBuilding.h"
+#import "SSUDirectoryModels.h"
 #import "SSULogging.h"
 
 NSString * const SSUDirectoryPersonKeyEmail = @"email";
-NSString * const SSUDirectoryPersonKeyFirstName = @"firstName";
-NSString * const SSUDirectoryPersonKeyLastName = @"lastName";
+NSString * const SSUDirectoryPersonKeyDisplayName = @"display_name";
+NSString * const SSUDirectoryPersonKeyFirstName = @"first_name";
+NSString * const SSUDirectoryPersonKeyLastName = @"last_name";
 NSString * const SSUDirectoryPersonKeyPhone = @"phone";
 NSString * const SSUDirectoryPersonKeySite = @"site";
 NSString * const SSUDirectoryPersonKeyTitle = @"title";
@@ -24,7 +23,7 @@ NSString * const SSUDirectoryPersonKeyBuilding = @"building";
 NSString * const SSUDirectoryPersonKeyDepartment = @"department";
 
 NSString * const SSUDirectoryDepartmentKeyName = @"name";
-NSString * const SSUDirectoryDepartmentKeyDisplayName = @"displayName";
+NSString * const SSUDirectoryDepartmentKeyDisplayName = @"display_name";
 NSString * const SSUDirectoryDepartmentKeyPhone = @"phone";
 NSString * const SSUDirectoryDepartmentKeyEmail = @"email";
 NSString * const SSUDirectoryDepartmentKeySite = @"site";
@@ -90,7 +89,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     BOOL created = NO;
     SSUBuilding* building = (SSUBuilding*)[self objectWithEntityName:SSUDirectoryEntityBuilding predicate:predicate context:context entityWasCreated:&created];
     if (created) {
-        building.id = buildingID;
+        building.id = [NSString stringWithFormat:@"%@",buildingID];
         building.sectionName = SSUDirectoryCategoryBuildings;
         building.name = @"Unknown";
     }
@@ -117,16 +116,6 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     return school;
 }
 
-- (void) build:(NSDictionary*)results {
-    // We renamed models with SSU prefix, but moonlight still uses entity names without SSU prefix
-    [self buildDepartments:results[@"Department"]];
-    [self buildPeople:results[@"Person"]];
-    [self buildBuildings:results[@"Building"]];
-    [self buildSchools:results[@"School"]];
-
-    [self saveContext];
-}
-
 - (void) updatePersonProperties {
     NSArray * allPeople = [self allObjectsWithEntityName:SSUDirectoryEntityPerson];
     [allPeople makeObjectsPerformSelector:@selector(updateNameOrder)];
@@ -137,11 +126,14 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     [allDepartments makeObjectsPerformSelector:@selector(updateSectionName)];
 }
 
+//MARK: Build
+
 - (void) buildPeople:(NSArray*)people {
     SSULogDebug(@"Started People: %lu", (unsigned long)people.count);
     NSDate* start = [NSDate date];
     
-    for (NSDictionary* personData in people) {
+    for (NSDictionary* original in people) {
+        NSDictionary * personData = [self cleanJSON:original];
         SSUMoonlightDataMode mode = [self modeFromJSONData:personData];
         
         NSString* personID = SSUMoonlightBuilderStringify(personData[SSUMoonlightManagerKeyID]);
@@ -155,6 +147,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
         
         person.firstName = [personData[SSUDirectoryPersonKeyFirstName] stringByReplacingOccurrencesOfString:@"\\" withString:@""];
         person.lastName = [personData[SSUDirectoryPersonKeyLastName] stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+        person.displayName = personData[SSUDirectoryPersonKeyDisplayName];
         [person updateNameOrder];
         
         person.email = personData[SSUDirectoryPersonKeyEmail];
@@ -171,6 +164,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     }
     
     [self updatePersonProperties];
+    [self saveContext];
     
     SSULogDebug(@"Finished People: %f", [[NSDate date] timeIntervalSinceDate:start]);
 }
@@ -178,7 +172,8 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
 - (void) buildBuildings:(NSArray*)buildings {
     SSULogDebug(@"Started Buildings: %lu", (unsigned long)buildings.count);
     NSDate* start = [NSDate date];
-    for (NSDictionary* buildingData in buildings) {
+    for (NSDictionary* original in buildings) {
+        NSDictionary* buildingData = [self cleanJSON:original];
         SSUBuilding* building = [SSUDirectoryBuilder buildingWithID:buildingData[SSUMoonlightManagerKeyID] inContext:self.context];
         
         if (building == nil)
@@ -192,7 +187,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
         building.displayName = building.name;
         building.term = building.name;
     }
-    
+    [self saveContext];
     SSULogDebug(@"Finished Buildings: %f", [[NSDate date] timeIntervalSinceDate:start]);
 }
 
@@ -200,7 +195,8 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     SSULogDebug(@"Started Departments: %lu", (unsigned long)departments.count);
     NSDate* start = [NSDate date];
 
-    for (NSDictionary* departmentData in departments) {
+    for (NSDictionary* original in departments) {
+        NSDictionary * departmentData = [self cleanJSON:original];
         SSUDepartment* department = [SSUDirectoryBuilder departmentWithID:departmentData[SSUMoonlightManagerKeyID] inContext:self.context];
         if (department == nil)
             continue;
@@ -235,7 +231,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     }
     
     [self updateDepartmentProperties];
-    
+    [self saveContext];
     SSULogDebug(@"Finished Department: %f", [[NSDate date] timeIntervalSinceDate:start]);
 }
 
@@ -243,7 +239,8 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     SSULogDebug(@"Started Schools: %lu", (unsigned long)schools.count);
     NSDate * start = [NSDate date];
     
-    for (NSDictionary * data in schools) {
+    for (NSDictionary * school in schools) {
+        NSDictionary * data = [self cleanJSON:school];
         NSString * schoolID = SSUMoonlightBuilderStringify(data[SSUMoonlightManagerKeyID]);
         SSUSchool * school = [self schoolWithID:schoolID];
         if (school == nil)
@@ -271,7 +268,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
         school.building = [self buildingWithID:buildingID];
 
     }
-    
+    [self saveContext];
     SSULogDebug(@"Finished Schools: %fs", [[NSDate date] timeIntervalSinceDate:start]);
 }
 

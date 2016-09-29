@@ -8,7 +8,10 @@
 
 #import "SSUDirectoryConstants.h"
 
-NSString* const SSUDirectoryUpdatedDateKey = @"DirectoryUpdatedDate";
+NSString* const SSUDirectoryPersonUpdatedDateKey = @"SSUDirectoryPersonUpdatedDateKey";
+NSString* const SSUDirectoryDepartmentUpdatedDateKey = @"SSUDirectoryDepartmentUpdatedDateKey";
+NSString* const SSUDirectoryBuildingUpdatedDateKey = @"SSUDirectoryBuildingUpdatedDateKey";
+NSString* const SSUDirectorySchoolUpdatedDateKey = @"SSUDirectorySchoolUpdatedDateKey";
 
 NSString* const SSUDirectoryStoryboardiPhone = @"Directory_iPhone";
 NSString* const SSUDirectoryStoryboardiPad = @"Directory_iPhone"; // For now..
@@ -21,7 +24,6 @@ NSString* const SSUDirectoryCategoryDepartments = @"Departments";
 NSString* const SSUDirectoryCategorySchools = @"Schools";
 NSString* const SSUDirectoryCategoryFavorites = @"Favorites";
 NSString* const SSUDirectoryCategoryAll = @"All";
-
 
 NSString* const SSUDirectoryEntityPerson = @"SSUPerson";
 NSString* const SSUDirectoryEntityBuilding = @"SSUBuilding";

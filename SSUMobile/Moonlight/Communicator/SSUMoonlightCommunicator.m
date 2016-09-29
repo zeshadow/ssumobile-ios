@@ -57,7 +57,7 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
     _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
     _dateFormatter.locale = [NSLocale currentLocale];
     _dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"America/Los_Angeles"];
-    _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    _dateFormatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
     
     return _dateFormatter;
 }

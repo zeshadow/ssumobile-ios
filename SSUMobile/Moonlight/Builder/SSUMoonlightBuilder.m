@@ -10,9 +10,9 @@
 #import "SSULogging.h"
 
 NSString* const SSUMoonlightManagerKeyID = @"id";
-NSString* const SSUMoonlightManagerKeyCreated = @"Created";
-NSString* const SSUMoonlightManagerKeyModified = @"Modified";
-NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
+NSString* const SSUMoonlightManagerKeyCreated = @"created";
+NSString* const SSUMoonlightManagerKeyModified = @"modified";
+NSString* const SSUMoonlightManagerKeyDeleted = @"deleted";
 
 @interface SSUMoonlightBuilder()
 
@@ -35,21 +35,22 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
         _dateFormatter = [[NSDateFormatter alloc] init];
         _dateFormatter.dateStyle = NSDateFormatterNoStyle;
         _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-        _dateFormatter.locale = [NSLocale currentLocale];
-        _dateFormatter.timeZone = [NSTimeZone localTimeZone];
-        _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        _dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+        _dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        // RFC 3339 style dates
+        _dateFormatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
     }
     return _dateFormatter;
 }
 
-- (SSUMoonlightDataMode) modeFromCreated:(NSString*)created modified:(NSString*)modified deleted:(NSString*)deleted {
-    if (deleted && ![deleted isEqualToString:@"None"] && !SSUIsEmptyString(created)) {
+- (SSUMoonlightDataMode) modeFromCreated:(id)created modified:(id)modified deleted:(id)deleted {
+    if (deleted && deleted != [NSNull null] && !SSUIsEmptyString(deleted)) {
         return SSUMoonlightDataModeDeleted;
     }
-    else if (modified && ![modified isEqualToString:@"None"] && !SSUIsEmptyString(modified)) {
+    else if (modified && modified != [NSNull null] && !SSUIsEmptyString(modified)) {
         return SSUMoonlightDataModeModified;
     }
-    else if (created && ![created isEqualToString:@"None"] && !SSUIsEmptyString(deleted)) {
+    else if (created && created != [NSNull null] && !SSUIsEmptyString(created)) {
         return SSUMoonlightDataModeCreate;
     }
     return SSUMoonlightDataModeNone;
@@ -143,6 +144,16 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"Deleted";
     for (id object in objects) {
         [context deleteObject:object];
     }
+}
+
+- (NSDictionary *) cleanJSON:(NSDictionary *)json {
+    NSMutableDictionary * result = [[NSMutableDictionary alloc] initWithDictionary:json];
+    for (NSString * key in [json allKeys]) {
+        if (json[key] == [NSNull null]) {
+            [result removeObjectForKey:key];
+        }
+    }
+    return result;
 }
 
 #pragma mark - Save

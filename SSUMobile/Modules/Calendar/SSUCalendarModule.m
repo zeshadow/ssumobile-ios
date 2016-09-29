@@ -68,6 +68,8 @@
 }
 
 - (void) updateData:(void (^)())completion {
+    if (completion) completion();
+    return;
     SSULogDebug(@"Update Calendar NEW");
     [SSUMoonlightCommunicator getJSONFromPath:@"calendar" sinceDate:nil completion:^(id json, NSError *error) {
         if (error != nil) {

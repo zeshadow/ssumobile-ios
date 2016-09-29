@@ -15,6 +15,10 @@ typedef enum SSUDirectoryCategoryType {
 } SSUDirectoryCategoryType;
 
 extern NSString* const SSUDirectoryUpdatedDateKey;
+extern NSString* const SSUDirectoryPersonUpdatedDateKey;
+extern NSString* const SSUDirectoryDepartmentUpdatedDateKey;
+extern NSString* const SSUDirectoryBuildingUpdatedDateKey;
+extern NSString* const SSUDirectorySchoolUpdatedDateKey;
 
 extern NSString* const SSUDirectoryCategoryPeople;
 extern NSString* const SSUDirectoryCategoryBuildings;

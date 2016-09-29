@@ -92,23 +92,112 @@
 }
 
 - (void) updateData:(void (^)())completion {
-    SSULogDebug(@"Update Directory NEW");
-    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory" sinceDate:date completion:^(id json, NSError *error) {
+    SSULogDebug(@"Update Directory");
+    __block int count = 0;
+    int totalCount = 4;
+    void(^sharedCompletion)(void) = ^() {
+        count++;
+        if (count >= totalCount && completion != NULL) {
+            completion();
+            [SSUDirectorySpotlightUtilities populateIndex:[CSSearchableIndex defaultSearchableIndex] context:self.backgroundContext domain:nil];
+        }
+    };
+    
+    [self updatePeople:^{
+        sharedCompletion();
+    }];
+    
+    [self updateDepartments:^{
+        sharedCompletion();
+    }];
+    
+    [self updateBuildings:^{
+        sharedCompletion();
+    }];
+    
+    [self updateSchools:^{
+        sharedCompletion();
+    }];
+}
+
+- (void) updatePeople:(void(^)())completion {
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryPersonUpdatedDateKey];
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/person/" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
-            SSULogError(@"Error while attemping to update directory: %@", error);
+            SSULogError(@"Error while attemping to update directory person: %@", error);
             if (completion) {
                 completion();
             }
         }
         else {
-            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUDirectoryUpdatedDateKey];
-            [self.backgroundContext performBlock:^{
-                [self buildJSON:json];
+            [self buildPerson:json completion:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUDirectoryPersonUpdatedDateKey];
                 if (completion) {
                     completion();
                 }
-                [SSUDirectorySpotlightUtilities populateIndex:[CSSearchableIndex defaultSearchableIndex] context:self.backgroundContext domain:nil];
+            }];
+        }
+        SSULogDebug(@"Finish %@",self.title);
+    }];
+}
+
+- (void) updateDepartments:(void(^)())completion {
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryDepartmentUpdatedDateKey];
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/department/" sinceDate:date completion:^(id json, NSError *error) {
+        if (error != nil) {
+            SSULogError(@"Error while attemping to update directory departments: %@", error);
+            if (completion) {
+                completion();
+            }
+        }
+        else {
+            [self buildDepartment:json completion:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUDirectoryDepartmentUpdatedDateKey];
+                if (completion) {
+                    completion();
+                }
+            }];
+        }
+        SSULogDebug(@"Finish %@",self.title);
+    }];
+}
+
+- (void) updateSchools:(void(^)())completion {
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectorySchoolUpdatedDateKey];
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/school/" sinceDate:date completion:^(id json, NSError *error) {
+        if (error != nil) {
+            SSULogError(@"Error while attemping to update directory schools: %@", error);
+            if (completion) {
+                completion();
+            }
+        }
+        else {
+            [self buildSchool:json completion:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUDirectorySchoolUpdatedDateKey];
+                if (completion) {
+                    completion();
+                }
+            }];
+        }
+        SSULogDebug(@"Finish %@",self.title);
+    }];
+}
+
+- (void) updateBuildings:(void(^)())completion {
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryBuildingUpdatedDateKey];
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/building/" sinceDate:date completion:^(id json, NSError *error) {
+        if (error != nil) {
+            SSULogError(@"Error while attemping to update directory buildings: %@", error);
+            if (completion) {
+                completion();
+            }
+        }
+        else {
+            [self buildBuilding:json completion:^{
+                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUDirectoryBuildingUpdatedDateKey];
+                if (completion) {
+                    completion();
+                }
             }];
         }
         SSULogDebug(@"Finish %@",self.title);
@@ -117,10 +206,56 @@
 
 #pragma mark - Private
 
-- (void) buildJSON:(id)json {
+- (void) buildPerson:(NSArray *)personData completion:(void(^)(void))completion {
     SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
-    builder.context = self.backgroundContext;
-    [builder build:json];
+    builder.context = [self newBackgroundContext];
+    [builder.context performBlock:^{
+        [builder buildPeople:personData];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
+    }];
+}
+
+- (void) buildDepartment:(NSArray *)departmentData completion:(void(^)(void))completion {
+    SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
+    builder.context = [self newBackgroundContext];
+    [builder.context performBlock:^{
+        [builder buildDepartments:departmentData];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
+    }];
+}
+
+- (void) buildSchool:(NSArray *)schoolData completion:(void(^)(void))completion {
+    SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
+    builder.context = [self newBackgroundContext];
+    [builder.context performBlock:^{
+        [builder buildSchools:schoolData];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
+    }];
+}
+
+- (void) buildBuilding:(NSArray *)buildingData completion:(void(^)(void))completion {
+    SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
+    builder.context = [self newBackgroundContext];
+    [builder.context performBlock:^{
+        [builder buildBuildings:buildingData];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
+    }];
 }
 
 #pragma mark - Spotlight

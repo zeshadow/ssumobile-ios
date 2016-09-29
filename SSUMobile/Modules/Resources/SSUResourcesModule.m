@@ -68,6 +68,8 @@
 }
 
 - (void) updateData:(void (^)())completion {
+    if (completion) completion();
+    return;
     SSULogDebug(@"Update Resources NEW");
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUResourcesUpdatedDateKey];
     [SSUMoonlightCommunicator getJSONFromPath:@"resources.json" sinceDate:date completion:^(id json, NSError *error) {

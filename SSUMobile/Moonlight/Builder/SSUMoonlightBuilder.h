@@ -72,6 +72,9 @@ typedef void(^Block)(BOOL hadChanges, NSError* error);
 + (void) saveContext:(NSManagedObjectContext*)context;
 - (void) saveContext;
 
+/** Removes any [NSNull null] instances from the given JSON dictionary */
+- (NSDictionary *) cleanJSON:(NSDictionary *)json;
+
 - (void) build:(id)results;
 
 @end

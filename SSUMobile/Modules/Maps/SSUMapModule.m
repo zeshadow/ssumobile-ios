@@ -94,6 +94,8 @@
 }
 
 - (void) updatePoints:(void (^)())completion {
+    if (completion) completion();
+    return;
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUMapPointsUpdatedDateKey];
     [SSUMoonlightCommunicator getJSONFromPath:@"points" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
@@ -116,6 +118,8 @@
 }
 
 - (void) updatePerimeters:(void (^)())completion {
+    if (completion) completion();
+    return;
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUMapPerimetersUpdatedDateKey];
     [SSUMoonlightCommunicator getJSONFromPath:@"perimeters" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
@@ -137,6 +141,8 @@
 }
 
 - (void) updateConnections:(void (^)())completion {
+    if (completion) completion();
+    return;
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUMapPerimetersUpdatedDateKey];
     [SSUMoonlightCommunicator getJSONFromPath:@"connections" sinceDate:date completion:^(id json, NSError *error) {
         if (error != nil) {
