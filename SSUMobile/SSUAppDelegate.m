@@ -51,7 +51,6 @@
     }
     else {
         [[SSUModuleServices sharedInstance] setupAll];
-        [[SSUModuleServices sharedInstance] updateAll];
     }
     
     [[SDImageCache sharedImageCache] setMaxCacheSize:1024*1000*100]; // 100MB max cache size
@@ -59,6 +58,13 @@
     return YES;
 }
 
+- (void) applicationDidBecomeActive:(UIApplication *)application {
+    // Load settings from moonlight
+    if (![self isFirstLaunchForCurrentVersion]) {
+        [self loadRemoteConfiguration];
+        [[SSUModuleServices sharedInstance] updateAll];
+    }
+}
 
 - (void) setupStyles {
     
@@ -92,11 +98,9 @@
     // Load JSON defaults included in app bundle
     NSString * path = [[NSBundle mainBundle] pathForResource:@"defaults.json" ofType:nil];
     [[SSUConfiguration sharedInstance] loadDefaultsFromFilePath:path];
-    // Load settings from moonlight
-    if ([self isFirstLaunchForCurrentVersion]) {
-        return;
-    }
-    
+}
+
+- (void) loadRemoteConfiguration {
     NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"settings"]];
     NSArray * classes = [[SSUConfiguration sharedInstance] stringArrayForKey:SSUModulesEnabledKey];
     [[SSUConfiguration sharedInstance] loadFromURL:configURL completion:^(NSError *error) {
@@ -183,6 +187,7 @@ continueUserActivity:(nonnull NSUserActivity *)userActivity
 
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     [[SSUModuleServices sharedInstance] updateAll];
+    [self loadRemoteConfiguration];
 }
 
 /**
