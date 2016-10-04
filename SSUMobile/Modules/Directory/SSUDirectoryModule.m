@@ -93,30 +93,18 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Directory");
-    __block int count = 0;
-    int totalCount = 4;
-    void(^sharedCompletion)(void) = ^() {
-        count++;
-        if (count >= totalCount && completion != NULL) {
-            completion();
-            [SSUDirectorySpotlightUtilities populateIndex:[CSSearchableIndex defaultSearchableIndex] context:self.backgroundContext domain:nil];
-        }
-    };
-    
-    [self updatePeople:^{
-        sharedCompletion();
-    }];
-    
-    [self updateDepartments:^{
-        sharedCompletion();
-    }];
     
     [self updateBuildings:^{
-        sharedCompletion();
-    }];
-    
-    [self updateSchools:^{
-        sharedCompletion();
+        [self updateSchools:^{
+            [self updateDepartments:^{
+                [self updatePeople:^{
+                    if (completion != NULL) {
+                        completion();
+                    }
+                    [SSUDirectorySpotlightUtilities populateIndex:[CSSearchableIndex defaultSearchableIndex] context:self.backgroundContext domain:nil];
+                }];
+            }];
+        }];
     }];
 }
 
