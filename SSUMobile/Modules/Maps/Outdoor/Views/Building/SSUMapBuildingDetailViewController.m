@@ -193,7 +193,6 @@ static CGFloat kRowHeightNormal = 44;
         SSUDirectoryViewController * controller = (SSUDirectoryViewController *)segue.destinationViewController;
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"building = %@",self.building];
         controller.defaultPredicate = predicate;
-        controller.showsSearchBar = NO;
         controller.entities = @[SSUDirectoryEntityPerson,SSUDirectoryEntityDepartment, SSUDirectoryEntitySchool];
         [controller loadEntityName:SSUDirectoryEntityDepartment usingPredicate:nil];
     }

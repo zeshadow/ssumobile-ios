@@ -227,8 +227,6 @@ static CGFloat CELL_ROW_HEIGHT = 50;
         }];
         [cell.contentView bringSubviewToFront:label];
     }
-//    NSString * eventPlural = (count > 1) ? @"events" : @"event";
-//    NSString * eventText = [NSString stringWithFormat:@"%lu %@", (unsigned long)count, eventPlural];
     NSString * eventText = [NSString stringWithFormat:@"%lu", (unsigned long)count];
     label.text = (count > 0) ? eventText : @"";
     

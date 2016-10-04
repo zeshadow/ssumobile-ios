@@ -389,16 +389,6 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 
 #pragma mark - Search
 
-- (void) setShowsSearchBar:(BOOL)showsSearchBar {
-    _showsSearchBar = showsSearchBar;
-    if (!_showsSearchBar) {
-//        self.tableView.tableHeaderView = nil;
-    }
-    else {
-//        self.tableView.tableHeaderView = self.searchController.searchBar;
-    }
-}
-
 - (void) willDismissSearchController:(UISearchController *)searchController {
     [self loadEntityName:self.entityName usingPredicate:nil];
 }

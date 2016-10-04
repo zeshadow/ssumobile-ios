@@ -78,12 +78,6 @@
 @property (nonatomic) BOOL showsSectionIndexTitles;
 
 /**
- Determines whether a search bar is available at the top of the table view.
- Default is YES.
- */
-@property (nonatomic) BOOL showsSearchBar;
-
-/**
  This view controllers delegate.
  */
 @property (weak, nonatomic) id<SSUDirectoryDelegate> delegate;

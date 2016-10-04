@@ -1,6 +1,5 @@
 
 #import "SSUOutdoorMapViewController.h"
-#import "SSUClassSearchTableViewController.h"
 #import "SSUDirectoryBuilder.h"
 #import "SSUMapPopoverContentController.h"
 #import "SSUMapModule.h"
@@ -8,7 +7,7 @@
 #import "SSUMapBuildingDetailViewController.h"
 
 
-@interface SSUOutdoorMapViewController () <UIActionSheetDelegate, SSUClassSearchTableViewControllerDelegate,CLLocationManagerDelegate, SSUMapBuildingDetailDelegate>
+@interface SSUOutdoorMapViewController () <UIActionSheetDelegate,CLLocationManagerDelegate, SSUMapBuildingDetailDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *endDirectionsButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
