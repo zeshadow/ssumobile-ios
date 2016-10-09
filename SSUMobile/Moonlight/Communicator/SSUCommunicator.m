@@ -21,12 +21,21 @@ static NSString * const kMoonlightDateParameter = @"date";
 @implementation SSUCommunicator
 
 static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
+    NSMutableString * data = [NSMutableString new];
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [data appendString:[NSString stringWithFormat:@"%@=%@&",key,obj]];
+    }];
+    
+    return [data stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+}
+
+static inline NSString * POSTURLEncodedDictionary(NSDictionary * dictionary) {
     NSMutableString * postData = [NSMutableString new];
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [postData appendString:[NSString stringWithFormat:@"%@=%@&",key,obj]];
     }];
     
-    return [postData stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    return postData;
 }
 
 + (NSURLSession *) session {
@@ -55,7 +64,7 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
 #pragma mark - Making NSURLRequest objects
 
 + (NSMutableURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
-    NSString * postData = URLEncodedDictionary(params);
+    NSString * postData = POSTURLEncodedDictionary(params);
     
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url
                                      cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData

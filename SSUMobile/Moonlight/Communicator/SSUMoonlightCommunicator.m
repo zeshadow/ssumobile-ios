@@ -17,6 +17,11 @@
 
 @implementation SSUMoonlightCommunicator
 
++ (NSURL *) baseURLStringForPath:(NSString *)path {
+    NSURL * baseURL = [NSURL URLWithString:SSUMoonlightBaseURL];
+    return [baseURL URLByAppendingPathComponent:path];
+}
+
 #pragma mark - Downloads
 
 + (void) getJSONFromPath:(NSString *)path completion:(SSUCommunicatorJSONCompletion)completion {
@@ -30,17 +35,22 @@
                sinceDate:(NSDate *)lastUpdate
               completion:(SSUCommunicatorJSONCompletion)completion {
     
-    NSString * urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:path];
-    NSString * fullURL = urlBase;
+    NSURL * urlBase = [self baseURLStringForPath:path];
+    NSURL * fullURL = urlBase;
     if (lastUpdate != nil) {
         NSString * dateString = [self.dateFormatter stringFromDate:lastUpdate];
         if (dateString != nil) {
-            fullURL = [fullURL stringByAppendingFormat:@"?date=%@", [dateString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            NSString * dateParam = [NSString stringWithFormat:@"?date=%@", [dateString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            fullURL = [NSURL URLWithString:[fullURL.absoluteString stringByAppendingString:dateParam]];
         }
     }
     
-    NSURL* url = [NSURL URLWithString:fullURL];
-    [self getJSONFromURL:url completion:completion];
+    [self getJSONFromURL:fullURL completion:completion];
+}
+
++ (void) postPath:(NSString *)path parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion {
+    NSURL * url = [self baseURLStringForPath:path];
+    [self postURL:url parameters:params completion:completion];
 }
 
 @end

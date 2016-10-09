@@ -22,4 +22,9 @@
                sinceDate:(NSDate *)date
               completion:(SSUCommunicatorJSONCompletion)completion;
 
++ (void) postPath:(NSString *)path
+       parameters:(NSDictionary *)params
+       completion:(SSUCommunicatorCompletion)completion;
+
+
 @end

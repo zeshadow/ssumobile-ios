@@ -9,9 +9,10 @@
 #import "SSUFeedbackViewController.h"
 #import "SSULogging.h"
 #import "SSUMoonlightCommunicator.h"
+#import "SSUConfiguration.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
-static NSString * SSUUserDefaultsLastFeedbackDate = @"LastFeedbackDate";
+static NSString * SSUUserDefaultsLastFeedbackDate = @"LastFeedbackSubmissionDate";
 static NSTimeInterval WAIT_PERIOD = 60.0;
 
 @interface SSUFeedbackViewController ()
@@ -34,9 +35,9 @@ static NSTimeInterval WAIT_PERIOD = 60.0;
     self.navigationItem.rightBarButtonItem = self.sendButton;
     self.sendButton.enabled = NO;
     
-    [[NSUserDefaults standardUserDefaults] registerDefaults:@{
-                                                              SSUUserDefaultsLastFeedbackDate : @([[NSDate distantPast] timeIntervalSinceReferenceDate])
-                                                              }];
+    [[SSUConfiguration sharedInstance] registerDefaults:@{
+                                                          SSUUserDefaultsLastFeedbackDate : [NSDate distantPast]
+                                                          }];
 }
 
 #pragma mark - UITextViewDelegate
@@ -93,30 +94,34 @@ static NSTimeInterval WAIT_PERIOD = 60.0;
         return;
     }
     self.submitting = YES;
-    NSString * baseURL = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createFeedback"];
-    NSString * version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString * appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString * osVersion = [[NSProcessInfo processInfo] operatingSystemVersionString];
     id params = @{
+                  @"os_name" : @"ios",
                   @"content" : content,
                   @"email" : email,
-                  @"version" : version,
+                  @"app_version" : appVersion,
+                  @"os_version" : osVersion
                   };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:baseURL]
-                           parameters:params
-                           completion:^(NSURLResponse * response, NSData * data, NSError * error) {
-                         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                         self.submitting = NO;
-                         if (error) {
-                             [self alertWithTitle:@"Error" message:@"Sorry, something went wrong. Try again later."];
-                             SSULogError(@"Error during feedback submission: %@",error);
-                         }
-                         else {
-                             [self alertWithTitle:@"Success" message:@"Thank you for your feedback!"];
-                             self.emailTextField.text = @"";
-                             self.textView.text = @"";
-                             [[NSUserDefaults standardUserDefaults] setDouble:[[NSDate date] timeIntervalSinceReferenceDate] forKey:SSUUserDefaultsLastFeedbackDate];
-                         }
-                     }];
+    [SSUMoonlightCommunicator postPath:@"ssumobile/feedback/" parameters:params completion:^(NSURLResponse * response, NSData * data, NSError * error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+             self.submitting = NO;
+             if (error) {
+                 [self alertWithTitle:@"Error" message:@"Sorry, something went wrong. Try again later."];
+                 SSULogError(@"Error during feedback submission: %@",error);
+             }
+             else {
+                 NSString * response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                 SSULogDebug(@"Response: %@", response);
+                 [self alertWithTitle:@"Success" message:@"Thank you for your feedback!"];
+                 self.emailTextField.text = @"";
+                 self.textView.text = @"";
+                 [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUUserDefaultsLastFeedbackDate];
+             }
+         });
+     }];
 }
 
 /**
@@ -124,9 +129,8 @@ static NSTimeInterval WAIT_PERIOD = 60.0;
  defined time period
  */
 - (BOOL) canSubmitFeedback {
-    NSTimeInterval lastSubmission = [[NSUserDefaults standardUserDefaults] doubleForKey:SSUUserDefaultsLastFeedbackDate];
-    NSDate * date = [NSDate dateWithTimeIntervalSinceReferenceDate:lastSubmission];
-    NSTimeInterval sinceLastSubmission = ABS([date timeIntervalSinceNow]);
+    NSDate * lastSubmission = [[SSUConfiguration sharedInstance] dateForKey:SSUUserDefaultsLastFeedbackDate];
+    NSTimeInterval sinceLastSubmission = ABS([lastSubmission timeIntervalSinceNow]);
     return sinceLastSubmission >= WAIT_PERIOD;
 }
 
