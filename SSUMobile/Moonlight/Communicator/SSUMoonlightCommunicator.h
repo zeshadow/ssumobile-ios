@@ -8,35 +8,18 @@
 
 @import Foundation;
 
-extern NSString* const SSUMoonlightManagerKeyID;
-extern NSString* const SSUMoonlightManagerKeyCreated;
-extern NSString* const SSUMoonlightManagerKeyModified;
-extern NSString* const SSUMoonlightManagerKeyDeleted;
+#import "SSUCommunicator.h"
 
-typedef void(^DownloadCompletion)(id json, NSError * error);
+/**
+ Provides support for pulling from URLS specific to the Moonlight API
+ */
+@interface SSUMoonlightCommunicator : SSUCommunicator
 
-@interface SSUMoonlightCommunicator : NSObject
++ (void) getJSONFromPath:(NSString *)path
+              completion:(SSUCommunicatorJSONCompletion)completion;
 
-@property (nonatomic,getter=isCommunicating) BOOL communicating;
-
-+ (SSUMoonlightCommunicator*) fetchURL:(NSURL*)url completionHandler:(void(^)(NSData* data, NSError* error))completionBlock;
-+ (SSUMoonlightCommunicator*) postURL:(NSURL *)url parameters:(NSDictionary *)params completionHandler:(void(^)(NSData* data, NSError* error))completionBlock;
-+ (NSURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
-
-+ (SSUMoonlightCommunicator *) getJSONFromURL:(NSURL *)url
-                                   completion:(DownloadCompletion)completion;
-
-+ (SSUMoonlightCommunicator *) getJSONFromPath:(NSString *)path
-                                    completion:(DownloadCompletion)completion;
-
-+ (SSUMoonlightCommunicator *) getJSONFromPath:(NSString *)path
-                                     sinceDate:(NSDate *)date
-                                    completion:(DownloadCompletion)completion;
-
-- (void) getJSONFromURL:(NSURL *)url completion:(DownloadCompletion)completion;
-- (void) getJSONFromPath:(NSString *)path completion:(DownloadCompletion)completion;
-- (void) getJSONFromPath:(NSString *)path sinceDate:(NSDate *)date completion:(DownloadCompletion)completion;
-
-- (void) cancelAndDiscardURLConnection;
++ (void) getJSONFromPath:(NSString *)path
+               sinceDate:(NSDate *)date
+              completion:(SSUCommunicatorJSONCompletion)completion;
 
 @end

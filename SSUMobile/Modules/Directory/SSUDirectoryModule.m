@@ -110,7 +110,7 @@
 
 - (void) updatePeople:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryPersonUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/person/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/person/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory person: %@", error);
             if (completion) {
@@ -131,7 +131,7 @@
 
 - (void) updateDepartments:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryDepartmentUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/department/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/department/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory departments: %@", error);
             if (completion) {
@@ -152,7 +152,7 @@
 
 - (void) updateSchools:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectorySchoolUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/school/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/school/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory schools: %@", error);
             if (completion) {
@@ -173,7 +173,7 @@
 
 - (void) updateBuildings:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryBuildingUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/building/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/building/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory buildings: %@", error);
             if (completion) {

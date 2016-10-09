@@ -68,10 +68,9 @@
 }
 
 - (void) updateData:(void (^)())completion {
-    if (completion) completion();
-    return;
-    SSULogDebug(@"Update Calendar NEW");
-    [SSUMoonlightCommunicator getJSONFromPath:@"calendar" sinceDate:nil completion:^(id json, NSError *error) {
+    SSULogDebug(@"Update Calendar");
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUCalendarUpdatedDateKey];
+    [SSUMoonlightCommunicator getJSONFromPath:@"events/event/" sinceDate:nil completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Calendar: %@", error);
             if (completion) {

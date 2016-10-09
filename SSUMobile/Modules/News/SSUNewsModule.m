@@ -70,7 +70,7 @@
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update News");
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUNewsUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"news/article/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"news/article/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update News: %@", error);
             if (completion) {

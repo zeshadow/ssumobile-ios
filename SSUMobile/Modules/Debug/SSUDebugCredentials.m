@@ -38,7 +38,8 @@ static NSString * token = nil;
     NSString * key = field.text;
     NSString * baseURL = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"/auth"];
     NSURL * url = [NSURL URLWithString:baseURL];
-    [SSUMoonlightCommunicator postURL:url parameters:@{@"key":key} completionHandler:^(NSData *data, NSError *error) {
+    return;
+    [SSUMoonlightCommunicator postURL:url parameters:@{@"key":key} completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             [self requestCredentials];
         }

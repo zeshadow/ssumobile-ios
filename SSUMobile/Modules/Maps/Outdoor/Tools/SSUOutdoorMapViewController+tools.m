@@ -181,7 +181,7 @@ const CGFloat accuracy = 0.000000001;
         params[@"index"] = index;
     }
     url = [NSURL URLWithString:urlBase];
-    [SSUMoonlightCommunicator postURL:url parameters:params completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator postURL:url parameters:params completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             completionBlock(nil, [NSError errorWithDomain:@"Create Point Connection Error" code:0 userInfo:0]);
         }
@@ -223,7 +223,7 @@ const CGFloat accuracy = 0.000000001;
                               @"key" : [SSUDebugCredentials token]
                               };
     
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             SSULogDebug(@"Modify Point Error: %@", error.debugDescription);
         }
@@ -258,7 +258,7 @@ const CGFloat accuracy = 0.000000001;
                               @"key" : [SSUDebugCredentials token]
                               };
 
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             SSULogDebug(@"Delete Point Error: %@", error.debugDescription);
         }
@@ -288,7 +288,7 @@ const CGFloat accuracy = 0.000000001;
                               @"key" : [SSUDebugCredentials token]
                               };
     
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             SSULogDebug(@"Create Connection Error: %@", error.debugDescription);
         }
@@ -334,7 +334,7 @@ const CGFloat accuracy = 0.000000001;
                               @"key" : [SSUDebugCredentials token]
                               };
     
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             SSULogDebug(@"Delete Connection Error: %@", error.debugDescription);
         }

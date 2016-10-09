@@ -72,7 +72,7 @@
     return;
     SSULogDebug(@"Update Resources NEW");
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUResourcesUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"resources.json" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"resources.json" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Resources: %@", error);
             if (completion) {

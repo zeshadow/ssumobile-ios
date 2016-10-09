@@ -103,7 +103,7 @@ static NSTimeInterval WAIT_PERIOD = 60.0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [SSUMoonlightCommunicator postURL:[NSURL URLWithString:baseURL]
                            parameters:params
-                    completionHandler:^(NSData *data, NSError *error) {
+                           completion:^(NSURLResponse * response, NSData * data, NSError * error) {
                          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                          self.submitting = NO;
                          if (error) {

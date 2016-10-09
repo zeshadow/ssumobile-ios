@@ -141,6 +141,10 @@ static inline NSString * URLEncodedDictionary(NSDictionary * dictionary) {
 
 + (id) serializeJSON:(NSData *)data {
     NSError * error;
+    if (data == nil) {
+        SSULogError(@"Received nil data for json serialization");
+        return nil;
+    }
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         SSULogError(@"Error while attempting to serialize JSON object: %@", error);

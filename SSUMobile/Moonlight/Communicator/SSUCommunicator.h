@@ -13,6 +13,12 @@ typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json, 
 
 @interface SSUCommunicator : NSObject
 
+#pragma mark - Accessor
+
++ (NSDateFormatter *) dateFormatter;
+
+#pragma mark Creating URL Requests
+
 /**
  Create a POST request with form-encoded POST parameters
  */
