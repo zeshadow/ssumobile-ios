@@ -9,8 +9,7 @@
 #import "SSUMapBuilder.h"
 #import "SSULogging.h"
 
-NSString * const SSUPointKeyLatitude = @"latitude";
-NSString * const SSUPointKeyLongitude = @"longitude";
+
 
 @implementation SSUMapBuilder
 
@@ -48,15 +47,25 @@ NSString * const SSUPointKeyLongitude = @"longitude";
 
 + (SSUMapBuildingPerimeter *) perimeterForBuilding:(SSUBuilding *)building
                                         inContext:(NSManagedObjectContext *)context {
+    return [self perimeterForBuildingID:building.id inContext:context];
+}
+
+- (SSUMapBuildingPerimeter *) perimeterForBuildingID:(NSString *)buildingId {
+    return [[self class] perimeterForBuildingID:buildingId inContext:self.context];
+}
+
++ (SSUMapBuildingPerimeter *) perimeterForBuildingID:(NSString *)buildingId
+                                           inContext:(NSManagedObjectContext *)context {
     BOOL created = NO;
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"buildingID = %@", building.id];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"buildingID = %@", buildingId];
     SSUMapBuildingPerimeter* perimeter = (id)[self objectWithEntityName:SSUOutdoorMapEntityBuildingPerimeter predicate:predicate context:context entityWasCreated:&created];
     
     if (created) {
-        perimeter.buildingID = building.id;
+        perimeter.buildingID = buildingId;
     }
     
     return perimeter;
+
 }
 
 - (BOOL) perimeterExistsForBuilding:(SSUBuilding *)building {
