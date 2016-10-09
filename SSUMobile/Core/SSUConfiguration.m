@@ -7,6 +7,7 @@
 //
 
 #import "SSUConfiguration.h"
+#import "SSUCommunicator.h"
 #import "SSULogging.h"
 
 static NSString * const kSSUConfigKeyPrefix = @"edu.sonoma";
@@ -40,38 +41,25 @@ NSString * const kSSUConfigLastLoadDateKey = @"edu.sonoma.configuration.last_loa
 #pragma mark - Helper
 
 - (void) loadFromURL:(NSURL *)url completion:(void (^)(NSError *))completion {
-    NSURLSession * session = [NSURLSession sharedSession];
-    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
-    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     NSDate * lastLoadDate = [NSDate date];
-    NSURLSessionTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [SSUCommunicator getJSONFromURL:url completion:^(NSURLResponse *response, id json, NSError *error) {
         if (error) {
             SSULogError(@"Error while attempting to load settings from remote url: %@", error);
             if (completion)
                 completion(error);
         }
+        else if (![json isKindOfClass:[NSDictionary class]]) {
+            SSULogError(@"Expected dictionary from JSON, got %@ instead", NSStringFromClass([json class]));
+            if (completion)
+                completion(nil);
+        }
         else {
-            NSError * jsonError;
-            NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-            if (jsonError) {
-                SSULogError(@"Error while decoding JSON from remote url: %@", jsonError);
-                if (completion)
-                    completion(jsonError);
-            }
-            else if (![json isKindOfClass:[NSDictionary class]]) {
-                SSULogError(@"Expected dictionary from JSON, got %@ instead", NSStringFromClass([json class]));
-                if (completion)
-                    completion(nil);
-            }
-            else {
-                [self loadDictionary:json];
-                [self setDate:lastLoadDate forKey:kSSUConfigLastLoadDateKey];
-                if (completion)
-                    completion(nil);
-            }
+            [self loadDictionary:json];
+            [self setDate:lastLoadDate forKey:kSSUConfigLastLoadDateKey];
+            if (completion)
+                completion(nil);
         }
     }];
-    [task resume];
 }
 
 - (void) loadDictionary:(NSDictionary *)data {

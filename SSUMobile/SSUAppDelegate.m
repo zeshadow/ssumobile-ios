@@ -101,7 +101,10 @@
 }
 
 - (void) loadRemoteConfiguration {
-    NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:@"settings"]];
+    NSString * versionKey = @"CFBundleShortVersionString";
+    NSString * appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:versionKey];
+    NSString * endpoint = [NSString stringWithFormat:@"ssumobile/settings/ios/%@/", appVersion];
+    NSURL * configURL = [NSURL URLWithString:[SSUMoonlightBaseURL stringByAppendingPathComponent:endpoint]];
     NSArray * classes = [[SSUConfiguration sharedInstance] stringArrayForKey:SSUModulesEnabledKey];
     [[SSUConfiguration sharedInstance] loadFromURL:configURL completion:^(NSError *error) {
         SSULogDebug(@"After loading from moonlight: %@", [[SSUConfiguration sharedInstance] dictionaryRepresentation]);
