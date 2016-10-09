@@ -196,7 +196,7 @@
 
 - (void) buildPerson:(NSArray *)personData completion:(void(^)(void))completion {
     SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
-    builder.context = [self newBackgroundContext];
+    builder.context = [self backgroundContext];
     [builder.context performBlock:^{
         [builder buildPeople:personData];
         if (completion) {
@@ -209,7 +209,7 @@
 
 - (void) buildDepartment:(NSArray *)departmentData completion:(void(^)(void))completion {
     SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
-    builder.context = [self newBackgroundContext];
+    builder.context = [self backgroundContext];
     [builder.context performBlock:^{
         [builder buildDepartments:departmentData];
         if (completion) {
@@ -222,7 +222,7 @@
 
 - (void) buildSchool:(NSArray *)schoolData completion:(void(^)(void))completion {
     SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
-    builder.context = [self newBackgroundContext];
+    builder.context = [self backgroundContext];
     [builder.context performBlock:^{
         [builder buildSchools:schoolData];
         if (completion) {
