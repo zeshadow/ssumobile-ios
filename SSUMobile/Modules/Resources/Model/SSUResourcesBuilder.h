@@ -15,5 +15,8 @@
 + (SSUResourcesEntry *) resourceWithID:(NSNumber *)ID inContext:(NSManagedObjectContext *)context;
 + (SSUResourcesSection *) sectionWithID:(NSNumber *)ID inContext:(NSManagedObjectContext *)context;
 
+- (void) buildResources:(NSArray *)resources;
+- (void) buildSections:(NSArray *)sections;
+
 
 @end

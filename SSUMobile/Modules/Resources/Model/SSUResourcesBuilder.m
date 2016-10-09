@@ -14,7 +14,7 @@ NSString * const SSUResourcesResourceKeyName = @"name";
 NSString * const SSUResourcesResourceKeyURL = @"url";
 NSString * const SSUResourcesResourceKeyPhone = @"phone";
 NSString * const SSUResourcesResourceKeyImageURL = @"imageURL";
-NSString * const SSUResourcesResourceKeySectionID = @"section_id";
+NSString * const SSUResourcesResourceKeySectionID = @"section";
 
 NSString * const SSUResourcesSectionKeyName = @"name";
 NSString * const SSUResourcesSectionKeyPosition = @"position";
@@ -49,16 +49,11 @@ NSString * const SSUResourcesSectionKeyPosition = @"position";
     return section;
 }
 
-- (void) build:(NSDictionary*)results {
-    [self buildResources:results[@"Resource"]];
-    [self buildSections:results[@"Section"]];
-    [self saveContext];
-}
-
 - (void) buildResources:(NSArray *)resources {
     SSULogDebug(@"Started Resources: %lu", (unsigned long)resources.count);
     NSDate* start = [NSDate date];
-    for (NSDictionary * resourceData in resources) {
+    for (NSDictionary * raw in resources) {
+        NSDictionary * resourceData = [self cleanJSON:raw];
         SSUMoonlightDataMode mode = [self modeFromJSONData:resourceData];
         
         NSNumber * resourceID = @([resourceData[SSUMoonlightManagerKeyID] integerValue]);
@@ -79,14 +74,15 @@ NSString * const SSUResourcesSectionKeyPosition = @"position";
         SSUResourcesSection * section = [SSUResourcesBuilder sectionWithID:sectionID inContext:self.context];
         resource.section = section;
     }
-    
+    [self saveContext];
     SSULogDebug(@"Finished resources: %f", [[NSDate date] timeIntervalSinceDate:start]);
 }
 
 - (void) buildSections:(NSArray *)sections {
     SSULogDebug(@"Started Sections: %lu", (unsigned long)sections.count);
     NSDate* start = [NSDate date];
-    for (NSDictionary * sectionData in sections) {
+    for (NSDictionary * raw in sections) {
+        NSDictionary * sectionData = [self cleanJSON:raw];
         SSUMoonlightDataMode mode = [self modeFromJSONData:sectionData];
         
         NSNumber * sectionID = @([sectionData[SSUMoonlightManagerKeyID] integerValue]);
@@ -101,6 +97,7 @@ NSString * const SSUResourcesSectionKeyPosition = @"position";
         section.name = sectionData[SSUResourcesSectionKeyName];
         section.position = @([sectionData[SSUResourcesSectionKeyPosition] integerValue]);
     }
+    [self saveContext];
     
     SSULogDebug(@"Finished sections: %f", [[NSDate date] timeIntervalSinceDate:start]);
 }
