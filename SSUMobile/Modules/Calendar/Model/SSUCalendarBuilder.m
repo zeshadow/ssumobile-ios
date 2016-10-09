@@ -10,16 +10,16 @@
 #import "SSUCalendarConstants.h"
 #import "SSULogging.h"
 
-NSString * const SSUCalendarEventKeyID = @"Id";
-NSString * const SSUCalendarEventKeyCreated = @"CreatedOn";
-NSString * const SSUCalendarEventKeyStart = @"StartsOn";
-NSString * const SSUCalendarEventKeyEnd = @"EndsOn";
-NSString * const SSUCalendarEventKeyTitle = @"Title";
-NSString * const SSUCalendarEventKeyOrganization = @"Organization";
+
+NSString * const SSUCalendarEventKeyID = @"id";
+NSString * const SSUCalendarEventKeyStart = @"start_date";
+NSString * const SSUCalendarEventKeyEnd = @"end_date";
+NSString * const SSUCalendarEventKeyTitle = @"title";
+NSString * const SSUCalendarEventKeyOrganization = @"organization";
 NSString * const SSUCalendarEventKeyCategory = @"category";
-NSString * const SSUCalendarEventKeyLocation = @"Location";
-NSString * const SSUCalendarEventKeyDescription = @"Description";
-NSString * const SSUCalendarEventKeyImgURL = @"ImgUrl";
+NSString * const SSUCalendarEventKeyLocation = @"location";
+NSString * const SSUCalendarEventKeyDescription = @"description";
+NSString * const SSUCalendarEventKeyImgURL = @"image_url";
 
 @implementation SSUCalendarBuilder
 
@@ -39,43 +39,27 @@ NSString * const SSUCalendarEventKeyImgURL = @"ImgUrl";
     return event;
 }
 
-- (void) build:(NSDictionary*)results {
-    SSULogDebug(@"Calendar: %lu", (unsigned long)results.count);
-    [self buildEvents:results[@"Event"]];
-    [self saveContext];
-}
-
 - (void) buildEvents:(NSArray *)events {
     SSULogDebug(@"Started events: %lu",(unsigned long)events.count);
     NSDate* buildStart = [NSDate date];
     
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-MM-dd H:mm:ss";
-    dateFormatter.locale = [NSLocale currentLocale];
-    dateFormatter.timeZone = [NSTimeZone systemTimeZone];
-    
-    NSMutableArray * ids = [NSMutableArray new];
-    
-    for (NSDictionary * eventData in events) {
+    for (NSDictionary * raw in events) {
+        NSDictionary * eventData = [self cleanJSON:raw];
         NSNumber * eventId = @([eventData[SSUCalendarEventKeyID] integerValue]);
         SSUEvent * event = [SSUCalendarBuilder eventWithID:eventId inContext:self.context];
         
         event.title = eventData[SSUCalendarEventKeyTitle];
-        event.startDate = [dateFormatter dateFromString:eventData[SSUCalendarEventKeyStart]];
-        event.endDate = [dateFormatter dateFromString:eventData[SSUCalendarEventKeyEnd]];
+        event.startDate = [self.dateFormatter dateFromString:eventData[SSUCalendarEventKeyStart]];
+        event.endDate = [self.dateFormatter dateFromString:eventData[SSUCalendarEventKeyEnd]];
         event.summary = eventData[SSUCalendarEventKeyDescription];
         event.location = eventData[SSUCalendarEventKeyLocation];
         event.imgURL = eventData[SSUCalendarEventKeyImgURL];
         event.organization = eventData[SSUCalendarEventKeyOrganization];
         event.category = eventData[SSUCalendarEventKeyCategory];
         
-        [ids addObject:[event id]];
     }
+    [self saveContext];
     
-    // Calendar is no longer date delta-ed - instead, all events which have a start date
-    // at most one month in the past and up until the indefinite future are sent.
-    NSPredicate * deletePredicate = [NSPredicate predicateWithFormat:@"NOT (id  IN %@)", ids];
-    [SSUMoonlightBuilder deleteObjectsWithEntityName:SSUCalendarEntityEvent matchingPredicate:deletePredicate context:self.context];
     SSULogDebug(@"Finished Events: %f",[[NSDate date] timeIntervalSinceDate:buildStart]);
 }
 
