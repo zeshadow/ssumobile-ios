@@ -11,14 +11,15 @@
 #import "SSUArticle.h"
 #import "SSULogging.h"
 
-NSString * const SSUNewsKeyAuthor = @"Author";
-NSString * const SSUNewsKeyCategory = @"Category";
-NSString * const SSUNewsKeyTitle = @"Title";
-NSString * const SSUNewsKeyImageURL = @"ImageURL";
-NSString * const SSUNewsKeySummary = @"Summary";
-NSString * const SSUNewsKeyContent = @"Content";
-NSString * const SSUNewsKeyLink = @"Link";
-NSString * const SSUNewsKeyPublished = @"Published";
+NSString * const SSUNewsKeyID = @"article_id";
+NSString * const SSUNewsKeyAuthor = @"author";
+NSString * const SSUNewsKeyCategory = @"category";
+NSString * const SSUNewsKeyTitle = @"title";
+NSString * const SSUNewsKeyImageURL = @"image_url";
+NSString * const SSUNewsKeySummary = @"summary";
+NSString * const SSUNewsKeyContent = @"content";
+NSString * const SSUNewsKeyLink = @"url";
+NSString * const SSUNewsKeyPublished = @"publish_date";
 
 @interface SSUNewsBuilder()
 
@@ -50,10 +51,10 @@ NSString * const SSUNewsKeyPublished = @"Published";
 
 - (void) build:(NSArray *)stories {
     SSULogDebug(@"Building News Stories: %lu", (unsigned long)stories.count);
-    for (NSDictionary* storyData in stories) {
+    for (NSDictionary * raw in stories) {
+        NSDictionary * storyData = [self cleanJSON:raw];
         SSUMoonlightDataMode mode = [self modeFromJSONData:storyData];
-        // TODO: ID is uppercase instead of lowercase
-        SSUArticle* article = [SSUNewsBuilder articleWithID:storyData[@"ID"] inContext:self.context];
+        SSUArticle* article = [SSUNewsBuilder articleWithID:storyData[SSUNewsKeyID] inContext:self.context];
         if (mode == SSUMoonlightDataModeDeleted) {
             [self.context deleteObject:article];
             continue;
@@ -67,15 +68,11 @@ NSString * const SSUNewsKeyPublished = @"Published";
         article.content = storyData[SSUNewsKeyContent];
         article.link = storyData[SSUNewsKeyLink];
         
-        // ex: 2010-12-22T17:39:51Z
-        NSString *publishedString = storyData[SSUNewsKeyPublished];
-        publishedString = [publishedString stringByReplacingOccurrencesOfString:@"T" withString:@" "];
-        publishedString = [publishedString stringByReplacingOccurrencesOfString:@"Z" withString:@""];
-        NSDate * result = [self.dateFormatter dateFromString:publishedString];
-        if (result) {
-            article.published = result;
+        NSDate * publishedDate = [self.dateFormatter dateFromString:storyData[SSUNewsKeyPublished]];
+        if (publishedDate != nil) {
+            article.published = publishedDate;
         } else {
-            SSULogError(@"Error: unable to parse published date %@", publishedString);
+            SSULogError(@"Error: unable to parse published date %@", storyData[SSUNewsKeyPublished]);
         }
     }
     
