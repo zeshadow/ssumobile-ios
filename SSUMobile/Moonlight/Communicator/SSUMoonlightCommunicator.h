@@ -26,5 +26,12 @@
        parameters:(NSDictionary *)params
        completion:(SSUCommunicatorCompletion)completion;
 
+/** Posts to the given path and parses the response as JSON */
++ (void) postJSONPath:(NSString *)path
+           parameters:(NSDictionary *)params
+           completion:(SSUCommunicatorJSONCompletion)completion;
+
++ (NSURL *) urlForPath:(NSString *)path;
+
 
 @end

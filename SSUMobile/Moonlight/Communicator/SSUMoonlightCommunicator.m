@@ -53,4 +53,13 @@
     [self postURL:url parameters:params completion:completion];
 }
 
++ (void) postJSONPath:(NSString *)path parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion {
+    NSURL * url = [self baseURLStringForPath:path];
+    [self postJSONURL:url parameters:params completion:completion];
+}
+
++ (NSURL *)urlForPath:(NSString *)path {
+    return [self baseURLStringForPath:path];
+}
+
 @end

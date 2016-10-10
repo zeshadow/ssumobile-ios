@@ -63,16 +63,40 @@ static inline NSString * POSTURLEncodedDictionary(NSDictionary * dictionary) {
 
 #pragma mark - Making NSURLRequest objects
 
-+ (NSMutableURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
++ (NSMutableURLRequest *) formEncodedRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
     NSString * postData = POSTURLEncodedDictionary(params);
     
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url
-                                     cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                         timeoutInterval:kTimeoutInterval];
-    request.HTTPMethod = @"POST";
     request.HTTPBody = [[postData stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:[NSString stringWithFormat:@"%lu",(unsigned long)request.HTTPBody.length] forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    return request;
+
+}
+
++ (NSMutableURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
+    NSMutableURLRequest * request = [self formEncodedRequestWithURL:url parameters:params];
+    request.HTTPMethod = @"POST";
+    return request;
+}
+
++ (NSMutableURLRequest *) putRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
+    NSMutableURLRequest * request = [self formEncodedRequestWithURL:url parameters:params];
+    request.HTTPMethod = @"PUT";
+    return request;
+}
+
++ (NSMutableURLRequest *) updateRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
+    NSMutableURLRequest * request = [self formEncodedRequestWithURL:url parameters:params];
+    request.HTTPMethod = @"UPDATE";
+    return request;
+}
+
++ (NSMutableURLRequest *) deleteRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params {
+    NSMutableURLRequest * request = [self formEncodedRequestWithURL:url parameters:params];
+    request.HTTPMethod = @"DELETE";
     return request;
 }
 
@@ -128,6 +152,41 @@ static inline NSString * POSTURLEncodedDictionary(NSDictionary * dictionary) {
 + (void) postURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion {
     NSURLRequest * request = [self postRequestWithURL:url parameters:params];
     [self performRequest:request completion:completion];
+}
+
++ (void) postJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion {
+    NSURLRequest * request = [self postRequestWithURL:url parameters:params];
+    [self performJSONRequest:request completion:completion];
+}
+
++ (void) putURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion {
+    NSURLRequest * request = [self putRequestWithURL:url parameters:params];
+    [self performRequest:request completion:completion];
+}
+
++ (void) putJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion {
+    NSURLRequest * request = [self putRequestWithURL:url parameters:params];
+    [self performJSONRequest:request completion:completion];
+}
+
++ (void) updateURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion {
+    NSURLRequest * request = [self updateRequestWithURL:url parameters:params];
+    [self performRequest:request completion:completion];
+}
+
++ (void) updateJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion {
+    NSURLRequest * request = [self updateRequestWithURL:url parameters:params];
+    [self performJSONRequest:request completion:completion];
+}
+
++ (void) deleteURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion {
+    NSURLRequest * request = [self deleteRequestWithURL:url parameters:params];
+    [self performRequest:request completion:completion];
+}
+
++ (void) deleteJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion {
+    NSURLRequest * request = [self deleteRequestWithURL:url parameters:params];
+    [self performJSONRequest:request completion:completion];
 }
 
 #pragma mark - Perform Request

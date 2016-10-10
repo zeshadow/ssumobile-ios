@@ -148,7 +148,7 @@
 
 - (void) buildPointsJSON:(id)json {
     SSUPointsBuilder * builder = [[SSUPointsBuilder alloc] init];
-    builder.context = [self backgroundContextFromContext:self.context];
+    builder.context = self.backgroundContext;
     [builder build:json];
 }
 

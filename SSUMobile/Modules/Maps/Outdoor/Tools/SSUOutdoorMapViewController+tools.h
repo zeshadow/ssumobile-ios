@@ -23,11 +23,12 @@
 
 - (BOOL) compareCoordinate:(CLLocationCoordinate2D)a toCoordinate:(CLLocationCoordinate2D)b accuracy:(CGFloat)accuracy;
 
-- (void) createPointFromCoordinate:(CLLocationCoordinate2D)coordinate buildingID:(NSString*)buildingID index:(NSString*)index completionHandler:(void(^)(SSUMapPoint* point, NSError* error))completionBlock;
-- (void) modifyPoint:(SSUMapPoint*)point;
-- (void) deletePoint:(SSUMapPoint*)point;
+- (void) createPointFromCoordinate:(CLLocationCoordinate2D)coordinate completionHandler:(void (^)(SSUMapPoint * point, NSError * error))completionBlock;
+- (void) createPointFromCoordinate:(CLLocationCoordinate2D)coordinate buildingID:(NSString*)buildingID index:(NSString*)index completionHandler:(void(^)(SSUMapPoint * point, SSUMapBuildingPerimeter * perimeter, NSError* error))completionBlock;
+- (void) modifyPoint:(SSUMapPoint *)point;
+- (void) deletePoint:(SSUMapPoint *)point;
 
-- (void) createConnectionFromA:(SSUMapPoint*)pointA toB:(SSUMapPoint*)pointB;
-- (void) deleteConnectionFromA:(SSUMapPoint*)pointA toB:(SSUMapPoint*)pointB;
+- (void) createConnectionFromA:(SSUMapPoint *)pointA toB:(SSUMapPoint *)pointB;
+- (void) deleteConnectionFromA:(SSUMapPoint *)pointA toB:(SSUMapPoint *)pointB;
 
 @end

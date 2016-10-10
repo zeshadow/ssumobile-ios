@@ -9,8 +9,6 @@
 #import "SSUMapBuilder.h"
 #import "SSULogging.h"
 
-
-
 @implementation SSUMapBuilder
 
 - (SSUMapPoint *) mapPointWithID:(NSString *)pointID {
@@ -18,12 +16,14 @@
 }
 
 + (SSUMapPoint*) mapPointWithID:(NSString*)pointID inContext:(NSManagedObjectContext*)context {
+    pointID = SSUMoonlightBuilderStringify(pointID);
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"%K = %@", SSUMoonlightManagerKeyID, pointID];
     
     
     BOOL created = NO;
     SSUMapPoint* point = (id)[self objectWithEntityName:SSUOutdoorMapEntityMapPoint predicate:predicate context:context entityWasCreated:&created];
     if (created) {
+        point.id = pointID;
         point.latitude = @"0";
         point.longitude = @"0";
     }

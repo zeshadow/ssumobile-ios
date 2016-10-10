@@ -85,16 +85,7 @@ const NSInteger kEditSegmentedIndex = 1;
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan: {
-            [self createPointFromCoordinate:coord buildingID:self.perimeterBeingEdited.buildingID index:@(self.perimeterBeingEdited.locations.count).stringValue completionHandler:^(SSUMapPoint *point, NSError *error) {
-                if (error) {
-                    SSULogDebug(@"Error creating point: %@", error);
-                    return;
-                }
-                [self.perimeterBeingEdited addLocationsObject:point];
-                NSError* errorB = nil;
-                if (![[SSUMapModule sharedInstance].context save:&error]) {
-                    SSULogDebug(@"Error: %@", errorB.debugDescription);
-                }
+            [self createPointFromCoordinate:coord buildingID:self.perimeterBeingEdited.buildingID index:@(self.perimeterBeingEdited.locations.count).stringValue completionHandler:^(SSUMapPoint *point, SSUMapBuildingPerimeter * perimeter, NSError *error) {
                 
                 if (_modeSegmentedControl.selectedSegmentIndex == kEditSegmentedIndex) {
                     [self.mapView addAnnotation:point];

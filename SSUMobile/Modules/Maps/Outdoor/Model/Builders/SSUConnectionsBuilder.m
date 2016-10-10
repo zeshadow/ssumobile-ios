@@ -22,14 +22,16 @@ NSString * const SSUConnectionPointBKey = @"point_b";
         for (SSUMapPoint * point in mapPoints) {
             [point removeConnections:point.connections];
         }
+        for (NSDictionary* connectionData in connections) {
+            SSUMapPoint * a = [SSUConnectionsBuilder mapPointWithID:connectionData[SSUConnectionPointAKey] inContext:self.context];
+            SSUMapPoint * b = [SSUConnectionsBuilder mapPointWithID:connectionData[SSUConnectionPointBKey] inContext:self.context];
+            
+            [a addConnectionsObject:b];
+            [b addConnectionsObject:a];
+        }
+        [self saveContext];
     }
-    for (NSDictionary* connectionData in connections) {
-        SSUMapPoint* a = [SSUConnectionsBuilder mapPointWithID:connectionData[SSUConnectionPointAKey] inContext:self.context];
-        SSUMapPoint* b = [SSUConnectionsBuilder mapPointWithID:connectionData[SSUConnectionPointBKey] inContext:self.context];
-        [a addConnectionsObject:b];
-        [b addConnectionsObject:a];
-    }
-    [self saveContext];
+    
 }
 
 @end
