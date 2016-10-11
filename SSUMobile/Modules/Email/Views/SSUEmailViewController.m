@@ -77,6 +77,7 @@ static NSString * kLoginSegue = @"login";
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self.progressHUD hide:NO];
     [self.progressHUD removeFromSuperview];
     [self.webView stopLoading];

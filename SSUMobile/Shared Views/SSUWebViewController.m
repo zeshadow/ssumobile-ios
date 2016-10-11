@@ -74,6 +74,7 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self.webview stopLoading];
 }
 
