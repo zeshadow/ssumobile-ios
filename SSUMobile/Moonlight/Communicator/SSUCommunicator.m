@@ -120,9 +120,8 @@ static inline NSString * POSTURLEncodedDictionary(NSDictionary * dictionary) {
 #pragma mark - Convenience
 
 + (void) getURL:(NSURL *)url completion:(SSUCommunicatorCompletion)completion {
-    [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        completion(response, data, error);
-    }];
+    NSURLRequest * request = [self getRequestWithURL:url parameters:nil];
+    [self performRequest:request completion:completion];
 }
 
 + (void) getJSONFromURL:(NSURL *)url completion:(SSUCommunicatorJSONCompletion)completion {

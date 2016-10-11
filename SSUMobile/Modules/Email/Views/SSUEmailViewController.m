@@ -58,11 +58,6 @@ static NSString * kLoginSegue = @"login";
     SSULogDebug(@"%@",[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]);
     
     [self checkForStoredCredentials];
-
-    if (!self.loggedIn) {
-        [self showLoadingView];
-        [self getSessionTokens];
-    }
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -71,7 +66,7 @@ static NSString * kLoginSegue = @"login";
     if (!self.loggedIn && !self.loggingIn && !self.canceled) {
         [self showLoginController];
     }
-    else {
+    else if(!self.loggingIn) {
         [self loadEmail];
     }
 }
@@ -120,14 +115,18 @@ static NSString * kLoginSegue = @"login";
 }
 
 - (void) showLoadingView {
-    if (!self.progressHUD.superview) {
-        [self.webView addSubview:self.progressHUD];
-    }
-    [self.progressHUD show:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!self.progressHUD.superview) {
+            [self.webView addSubview:self.progressHUD];
+        }
+        [self.progressHUD show:YES];
+    });
 }
 
 - (void) hideLoadingView {
-    [self.progressHUD hide:YES afterDelay:0.5];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.progressHUD hide:YES afterDelay:0.5];
+    });
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -147,9 +146,6 @@ static NSString * kLoginSegue = @"login";
         if ([cookie.name isEqualToString:cookieName] && ![self cookieIsExpired:cookie]) {
             self.sessionId = cookie.value;
         }
-    }
-    if (self.sessionId != nil) {
-        self.loggedIn = YES;
     }
 }
 
@@ -176,7 +172,7 @@ static NSString * kLoginSegue = @"login";
 -(void) getSessionTokensWithCompletion:(void (^)())completion {
     NSURL *url = [NSURL URLWithString:[[SSUConfiguration sharedInstance] stringForKey:SSUEmailLDAPURLKey]];
 
-    [SSUMoonlightCommunicator getURL:url completion:^(NSURLResponse * response, NSData * data, NSError * error) {
+    [SSUCommunicator getURL:url completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             SSULogError(@"Request failed: %@", [error localizedDescription]);
             if (completion) {
@@ -189,7 +185,7 @@ static NSString * kLoginSegue = @"login";
             if (self.sessionId == nil) {
                 SSULogError(@"Unable to retrieve session id");
             }
-            else if (completion) {
+            if (completion) {
                 completion();
             }
         }
@@ -212,9 +208,7 @@ static NSString * kLoginSegue = @"login";
                                       @"_eventId_proceed" : @"Login",
                                       } mutableCopy];
     
-    NSURLSession * session = [NSURLSession sharedSession];
-    NSURLRequest * request = [SSUMoonlightCommunicator postRequestWithURL:url parameters:params];
-    NSURLSessionTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [SSUCommunicator postURL:url parameters:params completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         [self hideLoadingView];
         if (error) {
             self.loggedIn = NO;
@@ -240,7 +234,6 @@ static NSString * kLoginSegue = @"login";
             }
         }
     }];
-    [task resume];
 }
 
 // Starts loading of email web page request in a webview
