@@ -45,7 +45,6 @@
     if ([self isFirstLaunchForCurrentVersion]) {
         SSULogDebug(@"First launch");
         [self clearLocalDatabases];
-        [[SSUConfiguration sharedInstance] setBool:NO forKey:[self firstLaunchKey]];
         [[SSUModuleServices sharedInstance] setupAll];
         [self showWelcomeMessage];
     }
@@ -189,6 +188,7 @@ continueUserActivity:(nonnull NSUserActivity *)userActivity
 }
 
 - (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [[SSUConfiguration sharedInstance] setBool:NO forKey:[self firstLaunchKey]];
     [[SSUModuleServices sharedInstance] updateAll];
     [self loadRemoteConfiguration];
 }
