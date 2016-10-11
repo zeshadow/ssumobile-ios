@@ -68,6 +68,8 @@ static const CGFloat separatorHeight = 2.0;
     }];
     
     self.articleImageView = [UIImageView new];
+    self.articleImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.articleImageView.clipsToBounds = YES;
     [self.contentView addSubview:self.articleImageView];
     [self.articleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-4.0);
@@ -104,7 +106,7 @@ static const CGFloat separatorHeight = 2.0;
     if (dateFormmater == nil) {
         dateFormmater = [NSDateFormatter new];
         dateFormmater.dateStyle = NSDateFormatterShortStyle;
-        dateFormmater.timeStyle = NSDateFormatterNoStyle;
+        dateFormmater.timeStyle = NSDateFormatterShortStyle;
     }
     
     self.titleLabel.text = article.title;
