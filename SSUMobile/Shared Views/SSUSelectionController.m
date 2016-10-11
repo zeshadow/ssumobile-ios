@@ -133,7 +133,7 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCell";
     if (self.isSearching) {
         id selectedObj = [self.searchData objectAtIndex:indexPath.row];
         self.selectedIndex = [self indexOfObject:selectedObj];
-        [self.searchDisplayController setActive:NO animated:YES];
+        [self.searchController setActive:NO];
         [self.tableView scrollToRowAtIndexPath:self.selectedIndex
                               atScrollPosition:UITableViewScrollPositionMiddle
                                       animated:NO];
