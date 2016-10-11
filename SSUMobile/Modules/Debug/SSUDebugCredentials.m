@@ -11,6 +11,7 @@
 #import "SSUDebugCredentials.h"
 #import "SSUMoonlightCommunicator.h"
 #import "SSULogging.h"
+#import "SSUGlobalNavigationController.h"
 
 static NSString * token = nil;
 
@@ -28,25 +29,63 @@ static NSString * token = nil;
     if ([self token] != nil) {
         return;
     }
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Please provide access token" message:@"An access token is required for dev tools" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go", nil];
-    alertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
-    [alertView show];
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Please login" message:@"Login is required for write-access to dev tools" preferredStyle:UIAlertControllerStyleAlert];
+    enum {
+        UsernameTextField,
+        PasswordTextField
+    };
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Username";
+        textField.tag = UsernameTextField;
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Password";
+        textField.secureTextEntry = YES;
+    }];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [alert dismissViewControllerAnimated:YES completion:NULL];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString * username = alert.textFields[0].text;
+        NSString * password = alert.textFields[1].text;
+        [self loginWithUsername:username password:password];
+    }]];
+    
+    UIViewController * vc = [[[SSUGlobalNavigationController sharedInstance] viewControllers] lastObject];
+    [vc presentViewController:alert animated:YES completion:NULL];
 }
 
-+ (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    UITextField * field = [alertView textFieldAtIndex:0];
-    NSString * key = field.text;
-    NSString * baseURL = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"/auth"];
-    NSURL * url = [NSURL URLWithString:baseURL];
-    [SSUMoonlightCommunicator postURL:url parameters:@{@"key":key} completionHandler:^(NSData *data, NSError *error) {
++ (void) loginWithUsername:(NSString *)username password:(NSString *)password {
+    NSDictionary * params = @{
+                              @"username": username,
+                              @"password": password
+                              };
+    [SSUMoonlightCommunicator postJSONPath:@"token-auth/" parameters:params completion:^(NSURLResponse *response, NSDictionary* json, NSError *error) {
         if (error) {
             [self requestCredentials];
         }
         else {
-            SSULogDebug(@"Successfully retrived token");
-            token = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            token = json[@"token"];
+            if (token == nil || token == (id)[NSNull null]) {
+                SSULogDebug(@"Received an unexpected response: %@", json);
+                token = nil;
+            }
+            else {
+                SSULogDebug(@"Retrieved token: %@", token);
+            }
         }
     }];
+}
+
++ (NSString *) authorizationHeaderValue {
+    return [NSString stringWithFormat:@"Token %@", [self token]];
+}
+
++ (NSURLRequest *) authenticatedRequestFromRequest:(NSURLRequest *)request {
+    NSMutableURLRequest * result = [request mutableCopy];
+    [result addValue:[self authorizationHeaderValue] forHTTPHeaderField:@"Authorization"];
+    
+    return result;
 }
 
 @end

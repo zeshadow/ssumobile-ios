@@ -68,11 +68,44 @@
 }
 
 - (void) updateData:(void (^)())completion {
-    if (completion) completion();
-    return;
-    SSULogDebug(@"Update Resources NEW");
-    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUResourcesUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"resources.json" sinceDate:date completion:^(id json, NSError *error) {
+    SSULogDebug(@"Update Resources");
+    [self updateSections:^{
+        [self updateResources:^{
+            if (completion) {
+                completion();
+            }
+        }];
+    }];
+}
+
+
+- (void) updateSections:(void (^)())completion {
+    SSULogDebug(@"Update Resource Sections");
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUResourcesSectionsUpdatedDateKey];
+    [SSUMoonlightCommunicator getJSONFromPath:@"ssumobile/resources/section" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
+        if (error != nil) {
+            SSULogError(@"Error while attemping to update resource Sections: %@", error);
+            if (completion) {
+                completion();
+            }
+        }
+        else {
+            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUResourcesSectionsUpdatedDateKey];
+            [self.backgroundContext performBlock:^{
+                [self buildSections:json];
+                if (completion) {
+                    completion();
+                }
+            }];
+        }
+        SSULogDebug(@"Finish %@",self.title);
+    }];
+}
+
+- (void) updateResources:(void (^)())completion {
+    SSULogDebug(@"Update Resource Sections");
+    NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUResourcesResourcesUpdatedDateKey];
+    [SSUMoonlightCommunicator getJSONFromPath:@"ssumobile/resources/resource" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update Resources: %@", error);
             if (completion) {
@@ -80,9 +113,9 @@
             }
         }
         else {
+            [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUResourcesResourcesUpdatedDateKey];
             [self.backgroundContext performBlock:^{
-                [[SSUConfiguration sharedInstance] setDate:[NSDate date] forKey:SSUResourcesUpdatedDateKey];
-                [self buildJSON:json];
+                [self buildResources:json];
                 if (completion) {
                     completion();
                 }
@@ -94,10 +127,17 @@
 
 #pragma mark - Private
 
-- (void) buildJSON:(id)json {
+- (void) buildResources:(id)json {
     SSUResourcesBuilder * builder = [[SSUResourcesBuilder alloc] init];
     builder.context = self.backgroundContext;
-    [builder build:json];
+    [builder buildResources:json];
+}
+
+
+- (void) buildSections:(id)json {
+    SSUResourcesBuilder * builder = [[SSUResourcesBuilder alloc] init];
+    builder.context = self.backgroundContext;
+    [builder buildSections:json];
 }
 
 @end

@@ -9,6 +9,9 @@
 #import "SSUConnectionsBuilder.h"
 #import "SSULogging.h"
 
+NSString * const SSUConnectionPointAKey = @"point_a";
+NSString * const SSUConnectionPointBKey = @"point_b";
+
 @implementation SSUConnectionsBuilder
 
 - (void) build:(NSArray*)connections {
@@ -19,14 +22,16 @@
         for (SSUMapPoint * point in mapPoints) {
             [point removeConnections:point.connections];
         }
+        for (NSDictionary* connectionData in connections) {
+            SSUMapPoint * a = [SSUConnectionsBuilder mapPointWithID:connectionData[SSUConnectionPointAKey] inContext:self.context];
+            SSUMapPoint * b = [SSUConnectionsBuilder mapPointWithID:connectionData[SSUConnectionPointBKey] inContext:self.context];
+            
+            [a addConnectionsObject:b];
+            [b addConnectionsObject:a];
+        }
+        [self saveContext];
     }
-    for (NSDictionary* connectionData in connections) {
-        SSUMapPoint* a = [SSUConnectionsBuilder mapPointWithID:connectionData[@"aID"] inContext:self.context];
-        SSUMapPoint* b = [SSUConnectionsBuilder mapPointWithID:connectionData[@"bID"] inContext:self.context];
-        [a addConnectionsObject:b];
-        [b addConnectionsObject:a];
-    }
-    [self saveContext];
+    
 }
 
 @end

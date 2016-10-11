@@ -93,36 +93,24 @@
 
 - (void) updateData:(void (^)())completion {
     SSULogDebug(@"Update Directory");
-    __block int count = 0;
-    int totalCount = 4;
-    void(^sharedCompletion)(void) = ^() {
-        count++;
-        if (count >= totalCount && completion != NULL) {
-            completion();
-            [SSUDirectorySpotlightUtilities populateIndex:[CSSearchableIndex defaultSearchableIndex] context:self.backgroundContext domain:nil];
-        }
-    };
-    
-    [self updatePeople:^{
-        sharedCompletion();
-    }];
-    
-    [self updateDepartments:^{
-        sharedCompletion();
-    }];
     
     [self updateBuildings:^{
-        sharedCompletion();
-    }];
-    
-    [self updateSchools:^{
-        sharedCompletion();
+        [self updateSchools:^{
+            [self updateDepartments:^{
+                [self updatePeople:^{
+                    if (completion != NULL) {
+                        completion();
+                    }
+                    [SSUDirectorySpotlightUtilities populateIndex:[CSSearchableIndex defaultSearchableIndex] context:self.backgroundContext domain:nil];
+                }];
+            }];
+        }];
     }];
 }
 
 - (void) updatePeople:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryPersonUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/person/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/person/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory person: %@", error);
             if (completion) {
@@ -143,7 +131,7 @@
 
 - (void) updateDepartments:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryDepartmentUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/department/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/department/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory departments: %@", error);
             if (completion) {
@@ -164,7 +152,7 @@
 
 - (void) updateSchools:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectorySchoolUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/school/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/school/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory schools: %@", error);
             if (completion) {
@@ -185,7 +173,7 @@
 
 - (void) updateBuildings:(void(^)())completion {
     NSDate * date = [[SSUConfiguration sharedInstance] dateForKey:SSUDirectoryBuildingUpdatedDateKey];
-    [SSUMoonlightCommunicator getJSONFromPath:@"directory/building/" sinceDate:date completion:^(id json, NSError *error) {
+    [SSUMoonlightCommunicator getJSONFromPath:@"directory/building/" sinceDate:date completion:^(NSURLResponse * response, id json, NSError * error) {
         if (error != nil) {
             SSULogError(@"Error while attemping to update directory buildings: %@", error);
             if (completion) {
@@ -208,7 +196,7 @@
 
 - (void) buildPerson:(NSArray *)personData completion:(void(^)(void))completion {
     SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
-    builder.context = [self newBackgroundContext];
+    builder.context = [self backgroundContext];
     [builder.context performBlock:^{
         [builder buildPeople:personData];
         if (completion) {
@@ -221,7 +209,7 @@
 
 - (void) buildDepartment:(NSArray *)departmentData completion:(void(^)(void))completion {
     SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
-    builder.context = [self newBackgroundContext];
+    builder.context = [self backgroundContext];
     [builder.context performBlock:^{
         [builder buildDepartments:departmentData];
         if (completion) {
@@ -234,7 +222,7 @@
 
 - (void) buildSchool:(NSArray *)schoolData completion:(void(^)(void))completion {
     SSUDirectoryBuilder * builder = [[SSUDirectoryBuilder alloc] init];
-    builder.context = [self newBackgroundContext];
+    builder.context = [self backgroundContext];
     [builder.context performBlock:^{
         [builder buildSchools:schoolData];
         if (completion) {

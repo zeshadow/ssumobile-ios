@@ -37,33 +37,34 @@ const CGFloat accuracy = 0.000000001;
 }
 
 - (void) connectMapPoints {
-    __block NSMutableSet* connections = [NSMutableSet set];
-    __block NSArray* mapPoints = self.mapPoints;
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_sync(queue, ^{
-        for (SSUMapPoint* point in mapPoints) {
-            for (SSUMapPoint* neighbor in point.connections) {
-                CLLocationCoordinate2D* coords = malloc(sizeof(CLLocationCoordinate2D) * 2);
-                coords[0] = point.coordinate;
-                coords[1] = neighbor.coordinate;
-                MKPolyline* line = [MKPolyline polylineWithCoordinates:coords count:2];
-                free(coords);
-                
-                BOOL found = NO;
-                for (MKPolyline* connection in connections) {
-                    if ([self comparePolyline:connection toPolyline:line]) {
-                        found = YES;
-                    }
-                }
-                if (!found) {
-                    [connections addObject:line];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.mapView addOverlay:line];
-                    });
+    NSMutableSet* connections = [NSMutableSet set];
+    NSArray* mapPoints = self.mapPoints;
+    CLLocationCoordinate2D* coords = malloc(sizeof(CLLocationCoordinate2D) * 2);
+    CLLocationCoordinate2D empty = CLLocationCoordinate2DMake(0, 0);
+    for (SSUMapPoint* point in mapPoints) {
+        for (SSUMapPoint* neighbor in point.connections) {
+            coords[0] = point.coordinate;
+            coords[1] = neighbor.coordinate;
+            MKPolyline* line = [MKPolyline polylineWithCoordinates:coords count:2];
+            coords[0] = empty;
+            coords[1] = empty;
+            
+            BOOL found = NO;
+            for (MKPolyline* connection in connections) {
+                if ([self comparePolyline:connection toPolyline:line]) {
+                    found = YES;
+                    break;
                 }
             }
+            if (!found) {
+                [connections addObject:line];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.mapView addOverlay:line];
+                });
+            }
         }
-    });
+    }
+    free(coords);
 }
 
 - (BOOL) comparePolyline:(MKPolyline*)a toPolyline:(MKPolyline*)b {
@@ -167,73 +168,122 @@ const CGFloat accuracy = 0.000000001;
     return count;
 }
 
-- (void) createPointFromCoordinate:(CLLocationCoordinate2D)coordinate buildingID:(NSString*)buildingID index:(NSString*)index completionHandler:(void(^)(SSUMapPoint* point, NSError* error))completionBlock {
-    SSULogDebug(@"Will Create Point");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createPoint"];
-    NSURL* url = nil;
-    NSMutableDictionary * params = [@{
-                                     @"latitude" : @(coordinate.latitude),
-                                     @"longitude" : @(coordinate.longitude),
-                                     @"key" : [SSUDebugCredentials token]
-                                     } mutableCopy];
-    if (buildingID && index) {
-        params[@"buildingID"] = buildingID;
-        params[@"index"] = index;
+- (NSString *) stringFromCoordinateDegrees:(CLLocationDegrees)degrees {
+    static NSNumberFormatter * formatter = nil;
+    if (formatter == nil) {
+        formatter = [NSNumberFormatter new];
+        formatter.numberStyle = NSNumberFormatterDecimalStyle;
+        formatter.maximumFractionDigits = 13;
     }
-    url = [NSURL URLWithString:urlBase];
-    [SSUMoonlightCommunicator postURL:url parameters:params completionHandler:^(NSData *data, NSError *error) {
+    
+    return [formatter stringFromNumber:@(degrees)];
+}
+
+- (void) createPointFromCoordinate:(CLLocationCoordinate2D)coordinate completionHandler:(void (^)(SSUMapPoint * point, NSError * error))completionBlock {
+    SSULogDebug(@"Will Create Point");
+    NSURL* url = [SSUMoonlightCommunicator urlForPath:@"ssumobile/map/point/"];
+    NSDictionary * params = @{
+                              @"latitude" : [self stringFromCoordinateDegrees:coordinate.latitude],
+                              @"longitude" : [self stringFromCoordinateDegrees:coordinate.longitude],
+                              };
+    NSURLRequest * request = [SSUMoonlightCommunicator postRequestWithURL:url parameters:params];
+    request = [SSUDebugCredentials authenticatedRequestFromRequest:request];
+    [SSUMoonlightCommunicator performJSONRequest:request completion:^(NSURLResponse *response, id json, NSError *error) {
         if (error) {
-            completionBlock(nil, [NSError errorWithDomain:@"Create Point Connection Error" code:0 userInfo:0]);
+            completionBlock(nil, error);
         }
-        else if (data != nil){
-            NSError* jsonError = nil;
-            NSDictionary* results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
-            if (jsonError) {
-                // Non-JSON response
-                NSString * response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                SSULogDebug(@"Response: %@",response);
-            }
-            else if (results[@"error"]) {
-                completionBlock(nil, [NSError errorWithDomain:@"Create Point Received Error" code:0 userInfo:0]);
-                SSULogDebug(@"Error creating point: %@", error.localizedDescription);
-            }
-            else {
-                [[SSUMapModule sharedInstance].context performBlock:^{
-                    SSUMapPoint* point = [SSUMapBuilder mapPointWithID:[results[SSUMoonlightManagerKeyID] stringValue] inContext:[SSUMapModule sharedInstance].context];
-                    point.latitude = @(coordinate.latitude).stringValue;
-                    point.longitude = @(coordinate.longitude).stringValue;
-                    
-                    completionBlock(point, nil);
-                }];
-            }
+        else if (json != nil){
+            [[SSUMapModule sharedInstance].context performBlock:^{
+                SSUMapPoint* point = [SSUMapBuilder mapPointWithID:[json[SSUMoonlightManagerKeyID] stringValue] inContext:[SSUMapModule sharedInstance].context];
+                point.latitude = @(coordinate.latitude).stringValue;
+                point.longitude = @(coordinate.longitude).stringValue;
+                SSULogDebug(@"Successfully created point: %@", point);
+                completionBlock(point, nil);
+            }];
         }
         else {
-            SSULogDebug(@"Did not receive response");
+            SSULogError(@"Big issue here, no error but did not get a response either.");
+            completionBlock(nil, nil);
+        }
+    }];
+}
+
+- (void) createPointFromCoordinate:(CLLocationCoordinate2D)coordinate buildingID:(NSString*)buildingID index:(NSString*)index completionHandler:(void (^)(SSUMapPoint * point, SSUMapBuildingPerimeter * perimeter, NSError * error))completionBlock {
+    
+    [self createPointFromCoordinate:coordinate completionHandler:^(SSUMapPoint *point, NSError *error) {
+        if (error) {
+            completionBlock(nil, nil, error);
+        }
+        else {
+            [self createPerimeterForPoint:point buildingID:buildingID index:index completionHandler:^(SSUMapBuildingPerimeter *perimeter, NSError *error) {
+                if (error) {
+                    completionBlock(point, nil, error);
+                }
+                else {
+                    completionBlock(point, perimeter, nil);
+                }
+            }];
+        }
+    }];
+}
+
+- (void) createPerimeterForPoint:(SSUMapPoint *)point buildingID:(NSString *)buildingID index:(NSString *)index completionHandler:(void(^)(SSUMapBuildingPerimeter * perimeter, NSError * error))completionBlock {
+    NSURL * url = [SSUMoonlightCommunicator urlForPath:@"ssumobile/map/perimeter/"];
+    NSDictionary * params = @{
+                              @"building": @(buildingID.integerValue),
+                              @"index": @(index.integerValue),
+                              @"point": @(point.id.integerValue)
+                              };
+    NSURLRequest * baseRequest = [SSUMoonlightCommunicator postRequestWithURL:url parameters:params];
+    NSURLRequest * request = [SSUDebugCredentials authenticatedRequestFromRequest:baseRequest];
+    [SSUMoonlightCommunicator performJSONRequest:request completion:^(NSURLResponse *response, NSDictionary * json, NSError *error) {
+        if (error) {
+            SSULogDebug(@"Error while creating perimeter: %@",error);
+            completionBlock(nil, error);
+        }
+        else if (json != nil) {
+            SSULogDebug(@"Successfully added point to perimeter");
+            NSManagedObjectContext * context = [[SSUMapModule sharedInstance] context];
+            [context performBlock:^{
+                SSUMapBuildingPerimeter * perimeter = [SSUMapBuilder perimeterForBuildingID:buildingID inContext:context];
+                [perimeter addLocationsObject:point];
+                [context save:nil];
+                completionBlock(perimeter, nil);
+            }];
+        }
+        else {
+            SSULogDebug(@"Did not receive response from perimeter creation");
+            completionBlock(nil, nil);
         }
     }];
 }
 
 - (void) modifyPoint:(SSUMapPoint*)point {
     SSULogDebug(@"Will Modify Point");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"modifyPoint"];
+    NSString * path = [NSString stringWithFormat:@"ssumobile/map/point/%@/", point.id];
+    NSURL * url = [SSUMoonlightCommunicator urlForPath:path];
+    
+    CLLocationCoordinate2D coord = point.coordinate;
     NSDictionary * params = @{
-                              @"pID" : point.id,
-                              @"latitude" : point.latitude,
-                              @"longitude" : point.longitude,
-                              @"key" : [SSUDebugCredentials token]
+                              @"latitude" : [self stringFromCoordinateDegrees:coord.latitude],
+                              @"longitude" : [self stringFromCoordinateDegrees:coord.longitude]
                               };
     
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    NSURLRequest * baseRequest = [SSUMoonlightCommunicator updateRequestWithURL:url parameters:params];
+    NSURLRequest * request = [SSUDebugCredentials authenticatedRequestFromRequest:baseRequest];
+    [SSUMoonlightCommunicator performRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             SSULogDebug(@"Modify Point Error: %@", error.debugDescription);
         }
-        else if(data) {
-            NSString * response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            SSULogDebug(@"Response: %@",response);
-            SSULogDebug(@"Did Modify Point");
-        }
         else {
-            SSULogDebug(@"Did not receive response");
+            SSULogDebug(@"Modify point success");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.mapView removeAnnotation:point];
+                [self.mapView addAnnotation:point];
+            });
+            [[SSUMapModule sharedInstance].context performBlock:^{
+                [[SSUMapModule sharedInstance].context save:nil];
+            }];
         }
     }];
 }
@@ -252,70 +302,63 @@ const CGFloat accuracy = 0.000000001;
 
 - (void) deletePoint:(SSUMapPoint*)point {
     SSULogDebug(@"Will Delete Point");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"deletePoint"];
-    NSDictionary * params = @{
-                              @"pID" : point.id,
-                              @"key" : [SSUDebugCredentials token]
-                              };
-
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    NSString * path = [NSString stringWithFormat:@"ssumobile/map/point/%@/", point.id];
+    NSURL * url = [SSUMoonlightCommunicator urlForPath:path];
+    
+    NSURLRequest * baseRequest = [SSUMoonlightCommunicator deleteRequestWithURL:url parameters:nil];
+    NSURLRequest * request = [SSUDebugCredentials authenticatedRequestFromRequest:baseRequest];
+    [SSUMoonlightCommunicator performRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             SSULogDebug(@"Delete Point Error: %@", error.debugDescription);
         }
-        else if(data) {
-#ifdef DEBUG
-            NSString * response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            SSULogDebug(@"Response: %@",response);
-#endif
+        else {
+            [self.mapView removeAnnotation:point];
             [[SSUMapModule sharedInstance].context performBlock:^{
                 [[SSUMapModule sharedInstance].context deleteObject:point];
                 SSULogDebug(@"Did Delete Point");
             }];
-        }
-        else {
-            SSULogDebug(@"Did not receive response");
         }
     }];
 }
 
 - (void) createConnectionFromA:(SSUMapPoint*)pointA toB:(SSUMapPoint*)pointB {
     SSULogDebug(@"Will Create Connection");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"createConnection"];
+    NSURL * urlBase = [SSUMoonlightCommunicator urlForPath:@"ssumobile/map/point_connection/"];
     NSDictionary * params = @{
-                              @"aID" : pointA.id,
-                              @"bID" : pointB.id,
+                              @"point_a" : pointA.id,
+                              @"point_b" : pointB.id,
                               @"distance" : @([self distanceBetweenMapPoint:pointA andMapPoint:pointB]),
-                              @"key" : [SSUDebugCredentials token]
                               };
     
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    NSURLRequest * baseRequest = [SSUMoonlightCommunicator postRequestWithURL:urlBase parameters:params];
+    NSURLRequest * request = [SSUDebugCredentials authenticatedRequestFromRequest:baseRequest];
+    
+    [SSUMoonlightCommunicator performJSONRequest:request completion:^(NSURLResponse *response, id json, NSError *error) {
         if (error) {
             SSULogDebug(@"Create Connection Error: %@", error.debugDescription);
         }
-        else if (data != nil) {
-#ifdef DEBUG
-            NSString * response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            SSULogDebug(@"Response: %@",response);
-#endif
+        else if (json != nil) {
             [[SSUMapModule sharedInstance].context performBlock:^{
                 [pointA addConnectionsObject:pointB];
                 [pointB addConnectionsObject:pointA];
                 [[SSUMapModule sharedInstance].context save:nil];
-                NSArray * selected = self.mapView.selectedAnnotations;
-                if ([self.mapView.annotations containsObject:pointA]) {
-                    [self.mapView removeAnnotation:pointA];
-                    [self.mapView addAnnotation:pointA];
-                    for (id<MKAnnotation> a in selected) {
-                        [self.mapView selectAnnotation:a animated:NO];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSArray * selected = self.mapView.selectedAnnotations;
+                    if ([self.mapView.annotations containsObject:pointA]) {
+                        [self.mapView removeAnnotation:pointA];
+                        [self.mapView addAnnotation:pointA];
+                        for (id<MKAnnotation> a in selected) {
+                            [self.mapView selectAnnotation:a animated:NO];
+                        }
                     }
-                }
-                if ([self.mapView.annotations containsObject:pointB]) {
-                    [self.mapView removeAnnotation:pointB];
-                    [self.mapView addAnnotation:pointB];
-                    for (id<MKAnnotation> a in selected) {
-                        [self.mapView selectAnnotation:a animated:NO];
+                    if ([self.mapView.annotations containsObject:pointB]) {
+                        [self.mapView removeAnnotation:pointB];
+                        [self.mapView addAnnotation:pointB];
+                        for (id<MKAnnotation> a in selected) {
+                            [self.mapView selectAnnotation:a animated:NO];
+                        }
                     }
-                }
+                });
             }];
             SSULogDebug(@"Did Create Connection");
         }
@@ -327,48 +370,48 @@ const CGFloat accuracy = 0.000000001;
 
 - (void) deleteConnectionFromA:(SSUMapPoint*)pointA toB:(SSUMapPoint*)pointB {
     SSULogDebug(@"Will Delete Connection");
-    NSString* urlBase = [SSUMoonlightBaseURL stringByAppendingPathComponent:@"deleteConnection"];
+    NSURL * url = [SSUMoonlightCommunicator urlForPath:@"ssumobile/map/point_connection/remove/"];
     NSDictionary * params = @{
-                              @"aID" : pointA.id,
-                              @"bID" : pointB.id,
-                              @"key" : [SSUDebugCredentials token]
+                              @"point_a" : pointA.id,
+                              @"point_b" : pointB.id,
                               };
+    NSURLRequest * baseRequest = [SSUMoonlightCommunicator postRequestWithURL:url parameters:params];
+    NSURLRequest * request = [SSUDebugCredentials authenticatedRequestFromRequest:baseRequest];
     
-    [SSUMoonlightCommunicator postURL:[NSURL URLWithString:urlBase] parameters:params completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator performRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             SSULogDebug(@"Delete Connection Error: %@", error.debugDescription);
         }
-        else if (data) {
-#ifdef DEBUG
-            NSString * response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            SSULogDebug(@"Response: %@",response);
-#endif
+        else {
+            if (data != nil) {
+                NSString * responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                SSULogDebug(@"Response: %@", responseString);
+            }
             [[SSUMapModule sharedInstance].context performBlock:^{
                 [pointA removeConnectionsObject:pointB];
                 [pointB removeConnectionsObject:pointA];
                 [[SSUMapModule sharedInstance].context save:nil];
-                NSArray * selected = self.mapView.selectedAnnotations;
-                if ([self.mapView.annotations containsObject:pointA]) {
-                    SSULogDebug(@"Refreshing annotation");
-                    [self.mapView removeAnnotation:pointA];
-                    [self.mapView addAnnotation:pointA];
-                    for (id<MKAnnotation> a in selected) {
-                        [self.mapView selectAnnotation:a animated:NO];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSArray * selected = self.mapView.selectedAnnotations;
+                    if ([self.mapView.annotations containsObject:pointA]) {
+                        SSULogDebug(@"Refreshing annotation");
+                        [self.mapView removeAnnotation:pointA];
+                        [self.mapView addAnnotation:pointA];
+                        for (id<MKAnnotation> a in selected) {
+                            [self.mapView selectAnnotation:a animated:NO];
+                        }
                     }
-                }
-                if ([self.mapView.annotations containsObject:pointB]) {
-                    SSULogDebug(@"Refreshing annotation");
-                    [self.mapView removeAnnotation:pointB];
-                    [self.mapView addAnnotation:pointB];
-                    for (id<MKAnnotation> a in selected) {
-                        [self.mapView selectAnnotation:a animated:NO];
+                    if ([self.mapView.annotations containsObject:pointB]) {
+                        SSULogDebug(@"Refreshing annotation");
+                        [self.mapView removeAnnotation:pointB];
+                        [self.mapView addAnnotation:pointB];
+                        for (id<MKAnnotation> a in selected) {
+                            [self.mapView selectAnnotation:a animated:NO];
+                        }
                     }
-                }
+                });
             }];
             SSULogDebug(@"Did Delete Connection");
-        }
-        else {
-            SSULogDebug(@"Did not receive response");
         }
     }];
 }

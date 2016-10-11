@@ -9,13 +9,18 @@
 #import "SSUPointsBuilder.h"
 #import "SSULogging.h"
 
+NSString * const SSUPointKeyLatitude = @"latitude";
+NSString * const SSUPointKeyLongitude = @"longitude";
+
 @implementation SSUPointsBuilder
 
 - (void) build:(NSArray*)points {
     SSULogDebug(@"Building Points: %lu", (unsigned long)points.count);
-    for (NSDictionary* pointData in points) {
+    for (NSDictionary* raw in points) {
+        NSDictionary * pointData = [self cleanJSON:raw];
         SSUMoonlightDataMode mode = [self modeFromJSONData:pointData];
-        SSUMapPoint* point = [SSUPointsBuilder mapPointWithID:pointData[SSUMoonlightManagerKeyID] inContext:self.context];
+        NSString * pointID = SSUMoonlightBuilderStringify(pointData[SSUMoonlightManagerKeyID]);
+        SSUMapPoint* point = [SSUPointsBuilder mapPointWithID:pointID inContext:self.context];
         if (mode == SSUMoonlightDataModeDeleted) {
             [self.context deleteObject:point];
             continue;

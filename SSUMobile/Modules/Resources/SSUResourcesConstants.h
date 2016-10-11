@@ -8,7 +8,8 @@
 
 @import Foundation;
 
-extern NSString * const SSUResourcesUpdatedDateKey;
+extern NSString * const SSUResourcesResourcesUpdatedDateKey;
+extern NSString * const SSUResourcesSectionsUpdatedDateKey;
 
 extern NSString * const SSUResourcesEntityResource;
 extern NSString * const SSUResourcesEntitySection;

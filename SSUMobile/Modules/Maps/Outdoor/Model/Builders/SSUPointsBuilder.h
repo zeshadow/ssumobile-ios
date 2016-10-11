@@ -8,6 +8,9 @@
 
 #import "SSUMapBuilder.h"
 
+extern NSString * const SSUPointKeyLatitude;
+extern NSString * const SSUPointKeyLongitude;
+
 @interface SSUPointsBuilder : SSUMapBuilder
 
 @end

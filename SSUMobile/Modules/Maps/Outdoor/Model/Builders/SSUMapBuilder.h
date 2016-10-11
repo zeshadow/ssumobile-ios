@@ -11,19 +11,21 @@
 #import "SSUMapModels.h"
 #import "SSUDirectoryModels.h"
 
-extern NSString * const SSUPointKeyLatitude;
-extern NSString * const SSUPointKeyLongitude;
-
 @interface SSUMapBuilder : SSUMoonlightBuilder
 
 - (SSUMapPoint *) mapPointWithID:(NSString *)pointID;
-- (SSUMapBuildingPerimeter *) perimeterForBuilding:(SSUBuilding *)building;
-- (BOOL) perimeterExistsForBuilding:(SSUBuilding *)building;
-
 + (SSUMapPoint *) mapPointWithID:(NSString *)pointID
                        inContext:(NSManagedObjectContext *)context;
+
+- (SSUMapBuildingPerimeter *) perimeterForBuilding:(SSUBuilding *)building;
 + (SSUMapBuildingPerimeter *) perimeterForBuilding:(SSUBuilding *)building
                                          inContext:(NSManagedObjectContext *)context;
+
+- (SSUMapBuildingPerimeter *) perimeterForBuildingID:(NSString *)buildingId;
++ (SSUMapBuildingPerimeter *) perimeterForBuildingID:(NSString *)buildingId
+                                           inContext:(NSManagedObjectContext *)context;
+
+- (BOOL) perimeterExistsForBuilding:(SSUBuilding *)building;
 + (BOOL) perimeterExistsForBuilding:(SSUBuilding *)building
                           inContext:(NSManagedObjectContext *)context;
 

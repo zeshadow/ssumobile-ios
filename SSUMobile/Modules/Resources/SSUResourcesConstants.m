@@ -8,7 +8,8 @@
 
 #import "SSUResourcesConstants.h"
 
-NSString * const SSUResourcesUpdatedDateKey = @"ResourcesUpdatedDate";
+NSString * const SSUResourcesResourcesUpdatedDateKey = @"ResourcesResourcesUpdatedDate";
+NSString * const SSUResourcesSectionsUpdatedDateKey = @"ResourcesSectionsUpdatedDate";
 
 NSString * const SSUResourcesEntityResource = @"SSUResourcesEntry";
 NSString * const SSUResourcesEntitySection = @"SSUResourcesSection";

@@ -66,10 +66,12 @@ typedef enum Mode {
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan: {
-            [self createPointFromCoordinate:coord buildingID:nil index:nil completionHandler:^(SSUMapPoint *point, NSError *error) {
+            [self createPointFromCoordinate:coord completionHandler:^(SSUMapPoint *point, NSError *error) {
                 _modeSegmentedControl.enabled = YES;
                 if (!error) {
-                    [self.mapView addAnnotation:point];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.mapView addAnnotation:point];
+                    });
                 }
             }];
             break;
@@ -99,15 +101,14 @@ typedef enum Mode {
 - (IBAction)didChangeModeValue:(UISegmentedControl *)sender {
     SSUMapPoint* tempSelectedPoint = _selectedPoint;
     NSArray* annotations = self.mapView.annotations;
-    [self.mapView removeAnnotations:annotations];
     
-    //Really slow but fun
-//    [self.mapView addAnnotations:annotations];
-    
-    //Fast and boring
+    // Update the draggable and enabled settings of the point annotations
     for (id<MKAnnotation> annotation in annotations) {
-        [self.mapView addAnnotation:annotation];
+        MKAnnotationView * view = [self.mapView viewForAnnotation:annotation];
+        view.draggable = (self.modeSegmentedControl.selectedSegmentIndex == kModeEdit);
+        view.enabled = (self.modeSegmentedControl.selectedSegmentIndex == kModeEdit);
     }
+    
     
     [self.mapView selectAnnotation:tempSelectedPoint animated:NO];
     _deleteButton.enabled = (sender.selectedSegmentIndex == kModeEdit) && _selectedPoint;
@@ -135,7 +136,7 @@ typedef enum Mode {
     // TODO: Clean this feature up a bit
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     CLLocationCoordinate2D location = self.mapView.userLocation.coordinate;
-    [self createPointFromCoordinate:location buildingID:nil index:nil completionHandler:^(SSUMapPoint *point, NSError *error) {
+    [self createPointFromCoordinate:location completionHandler:^(SSUMapPoint *point, NSError *error) {
         _modeSegmentedControl.enabled = YES;
         if (!error) {
             [self.mapView addAnnotation:point];

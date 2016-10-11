@@ -13,15 +13,36 @@ typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json, 
 
 @interface SSUCommunicator : NSObject
 
+#pragma mark - Accessor
+
++ (NSDateFormatter *) dateFormatter;
+
+#pragma mark Creating URL Requests
+
+/**
+Creates a GET request with the given parameters encoded as a GET query string
+ */
++ (NSMutableURLRequest *) getRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
+
 /**
  Create a POST request with form-encoded POST parameters
  */
 + (NSMutableURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
 
 /**
- Creates a GEt request with the given parameters encoded as a GET query string
+ Create a PUT request with form-encoded POST parameters
  */
-+ (NSMutableURLRequest *) getRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
++ (NSMutableURLRequest *) putRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
+
+/**
+ Create a UPDATE request with form-encoded POST parameters
+ */
++ (NSMutableURLRequest *) updateRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
+
+/**
+ Create a DELETE request with form-encoded POST parameters
+ */
++ (NSMutableURLRequest *) deleteRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
 
 #pragma mark - Convenience
 
@@ -46,9 +67,23 @@ typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json, 
 + (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate *)date params:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
 
 /**
- Post the given parameters to the provided URL as form-encoded data
+ Posts the given parameters to the provided URL as form-encoded data
  */
 + (void) postURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
+
+/**
+ Posts the given parameters to the provided URL as form-encoded data and parses the response as JSON
+ */
++ (void) postJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
+
++ (void) putURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
++ (void) putJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
+
++ (void) updateURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
++ (void) updateJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
+
++ (void) deleteURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
++ (void) deleteJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
 
 #pragma mark - Perform Request
 

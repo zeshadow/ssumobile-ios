@@ -197,12 +197,12 @@
     params[@"key"] = [SSUDebugCredentials token];
     
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
-    [SSUMoonlightCommunicator postURL:url parameters:params completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator postURL:url parameters:params completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         hud.mode = MBProgressHUDModeText;
         hud.labelText = (error == nil) ? @"Success" : [error description];
         [hud hide:YES afterDelay:2.0];
-        NSString * response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        SSULogDebug(@"Response: %@",response);
+        NSString * responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        SSULogDebug(@"Response: %@", responseString);
     }];
 }
 

@@ -175,7 +175,7 @@ static NSString * kLoginSegue = @"login";
 -(void) getSessionTokensWithCompletion:(void (^)())completion {
     NSURL *url = [NSURL URLWithString:[[SSUConfiguration sharedInstance] stringForKey:SSUEmailLDAPURLKey]];
 
-    [SSUMoonlightCommunicator fetchURL:url completionHandler:^(NSData *data, NSError *error) {
+    [SSUMoonlightCommunicator getURL:url completion:^(NSURLResponse * response, NSData * data, NSError * error) {
         if (error) {
             SSULogError(@"Request failed: %@", [error localizedDescription]);
             if (completion) {

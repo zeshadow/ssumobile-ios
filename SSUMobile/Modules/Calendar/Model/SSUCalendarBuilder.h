@@ -12,5 +12,6 @@
 @interface SSUCalendarBuilder : SSUMoonlightBuilder
 
 + (SSUEvent *) eventWithID:(NSNumber *)eventID inContext:(NSManagedObjectContext *)context;
+- (void) buildEvents:(NSArray *)events;
 
 @end

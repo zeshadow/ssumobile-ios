@@ -8,35 +8,30 @@
 
 @import Foundation;
 
-extern NSString* const SSUMoonlightManagerKeyID;
-extern NSString* const SSUMoonlightManagerKeyCreated;
-extern NSString* const SSUMoonlightManagerKeyModified;
-extern NSString* const SSUMoonlightManagerKeyDeleted;
+#import "SSUCommunicator.h"
 
-typedef void(^DownloadCompletion)(id json, NSError * error);
+/**
+ Provides support for pulling from URLS specific to the Moonlight API
+ */
+@interface SSUMoonlightCommunicator : SSUCommunicator
 
-@interface SSUMoonlightCommunicator : NSObject
++ (void) getJSONFromPath:(NSString *)path
+              completion:(SSUCommunicatorJSONCompletion)completion;
 
-@property (nonatomic,getter=isCommunicating) BOOL communicating;
++ (void) getJSONFromPath:(NSString *)path
+               sinceDate:(NSDate *)date
+              completion:(SSUCommunicatorJSONCompletion)completion;
 
-+ (SSUMoonlightCommunicator*) fetchURL:(NSURL*)url completionHandler:(void(^)(NSData* data, NSError* error))completionBlock;
-+ (SSUMoonlightCommunicator*) postURL:(NSURL *)url parameters:(NSDictionary *)params completionHandler:(void(^)(NSData* data, NSError* error))completionBlock;
-+ (NSURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
++ (void) postPath:(NSString *)path
+       parameters:(NSDictionary *)params
+       completion:(SSUCommunicatorCompletion)completion;
 
-+ (SSUMoonlightCommunicator *) getJSONFromURL:(NSURL *)url
-                                   completion:(DownloadCompletion)completion;
+/** Posts to the given path and parses the response as JSON */
++ (void) postJSONPath:(NSString *)path
+           parameters:(NSDictionary *)params
+           completion:(SSUCommunicatorJSONCompletion)completion;
 
-+ (SSUMoonlightCommunicator *) getJSONFromPath:(NSString *)path
-                                    completion:(DownloadCompletion)completion;
++ (NSURL *) urlForPath:(NSString *)path;
 
-+ (SSUMoonlightCommunicator *) getJSONFromPath:(NSString *)path
-                                     sinceDate:(NSDate *)date
-                                    completion:(DownloadCompletion)completion;
-
-- (void) getJSONFromURL:(NSURL *)url completion:(DownloadCompletion)completion;
-- (void) getJSONFromPath:(NSString *)path completion:(DownloadCompletion)completion;
-- (void) getJSONFromPath:(NSString *)path sinceDate:(NSDate *)date completion:(DownloadCompletion)completion;
-
-- (void) cancelAndDiscardURLConnection;
 
 @end

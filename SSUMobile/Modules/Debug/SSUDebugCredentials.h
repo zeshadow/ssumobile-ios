@@ -21,4 +21,9 @@
  */
 + (NSString *) token;
 
+/** 
+ Returns a new request with the necessary headers for a request to be authenticated, if a token is available 
+ */
++ (NSURLRequest *) authenticatedRequestFromRequest:(NSURLRequest *)request;
+
 @end
