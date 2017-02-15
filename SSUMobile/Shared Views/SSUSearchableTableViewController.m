@@ -42,6 +42,11 @@
     self.navigationItem.rightBarButtonItem = self.searchButton;
 }
 
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self cancelButtonAction:self.cancelButton];
+}
+
 - (NSString *) searchKey {
     if (_searchKey) return _searchKey;
     
