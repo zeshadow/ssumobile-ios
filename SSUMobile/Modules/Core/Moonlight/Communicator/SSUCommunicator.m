@@ -9,6 +9,8 @@
 #import "SSUCommunicator.h"
 #import "SSULogging.h"
 
+@import UIKit;
+
 static const NSTimeInterval kTimeoutInterval = 10.0;
 static NSString * const kMoonlightDateParameter = @"date";
 
@@ -59,6 +61,15 @@ static inline NSString * POSTURLEncodedDictionary(NSDictionary * dictionary) {
     dateFormatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
     
     return dateFormatter;
+}
+
+#pragma mark - Network Indicator
+
++ (void) setNetworkActivityIndicatorVisible:(BOOL)visible {
+    static int count = 0;
+    count += (visible) ? 1 : -1;
+    count = MAX(count,0);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(count > 0)];
 }
 
 #pragma mark - Making NSURLRequest objects
@@ -191,7 +202,9 @@ static inline NSString * POSTURLEncodedDictionary(NSDictionary * dictionary) {
 #pragma mark - Perform Request
 
 + (void) performRequest:(NSURLRequest *)request completion:(SSUCommunicatorCompletion)completion {
+    [self setNetworkActivityIndicatorVisible:YES];
     NSURLSessionTask * task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [self setNetworkActivityIndicatorVisible:NO];
         completion(response, data, error);
     }];
     [task resume];
