@@ -55,6 +55,9 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
     if (created) {
         person.id = personID;
         person.sectionName = SSUDirectoryCategoryPeople;
+        person.firstName = @"";
+        person.lastName = @"";
+        person.displayName = @"";
     }
 
     return person;
@@ -73,6 +76,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
         department.id = departmentID;
         department.sectionName = SSUDirectoryCategoryDepartments;
         department.name = @"Unknown";
+        department.displayName = @"Unknown";
     }
 
     return department;
@@ -92,6 +96,7 @@ NSString * const SSUDirectorySchoolKeyBuildingID = @"building";
         building.id = [NSString stringWithFormat:@"%@",buildingID];
         building.sectionName = SSUDirectoryCategoryBuildings;
         building.name = @"Unknown";
+        building.displayName = @"Unknown";
     }
 
     return building;

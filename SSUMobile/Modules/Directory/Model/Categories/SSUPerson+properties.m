@@ -46,7 +46,11 @@
 
 - (void) updateSectionName {
     NSString * displayName = [self.displayName stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
-    self.sectionName = [displayName substringToIndex:1];
+    if (displayName.length > 0) {
+        self.sectionName = [displayName substringToIndex:1];
+    } else {
+        self.sectionName = nil;
+    }
 }
 
 @end

@@ -360,7 +360,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     fetchRequest.predicate = self.predicate;
     fetchRequest.sortDescriptors = self.sortDescriptors;
     
-    fetchRequest.includesPendingChanges = YES;
+    fetchRequest.includesPendingChanges = NO;
     
     NSFetchedResultsController * c = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                          managedObjectContext:self.context
@@ -376,7 +376,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:self.entityName];
     NSArray * sortDescriptors = self.sortDescriptors;
     request.sortDescriptors = sortDescriptors;
-    request.includesPendingChanges = YES;
+    request.includesPendingChanges = NO;
     
     NSFetchedResultsController * c = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                          managedObjectContext:self.context

@@ -91,37 +91,43 @@ NSString* const SSUMoonlightManagerKeyDeleted = @"deleted";
                                  predicate:(NSPredicate *)predicate
                                    context:(NSManagedObjectContext *)context
                           entityWasCreated:(BOOL*)isNew {
-    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    request.includesPendingChanges = YES;
-    request.predicate = predicate;
-    
-    //Does the object exist?
-    NSError* error = nil;
-    NSArray* results = [context executeFetchRequest:request error:&error];
-    if (!results) {
-        SSULogError(@"Error: %@", error);
-        return nil;
-    }
-    else if (results.count == 1) {
+    __block NSManagedObject * returnValue = nil;
+    [context performBlockAndWait:^{
+        NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+        request.includesPendingChanges = YES;
+        request.predicate = predicate;
+        
+        //Does the object exist?
+        NSError* error = nil;
+        NSArray* results = [context executeFetchRequest:request error:&error];
+        if (!results) {
+            SSULogError(@"Error: %@", error);
+            return;
+        }
+        else if (results.count == 1) {
+            if (isNew) {
+                *isNew = NO;
+            }
+            returnValue = results.firstObject;
+            return;
+        }
+        else if (results.count > 1) {
+            SSULogError(@"Error: More than one object fetched when expected only 1");
+            for (NSManagedObject* object in results) {
+                SSULogDebug(@"Object: %@", object);
+            }
+            returnValue = results.firstObject;
+            return;
+        }
+        
+        //Create the object
         if (isNew) {
-            *isNew = NO;
+            *isNew = YES;
         }
-        return results.firstObject;
-    }
-    else if (results.count > 1) {
-        SSULogError(@"Error: More than one object fetched when expected only 1");
-        for (NSManagedObject* object in results) {
-            SSULogDebug(@"Object: %@", object);
-        }
-        return nil;
-    }
-    
-    //Create the object
-    if (isNew) {
-        *isNew = YES;
-    }
-    
-    return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+        
+        returnValue = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+    }];
+    return returnValue;
 }
 
 + (NSArray *) allObjectsWithEntityName:(NSString *)entityName matchingPredicate:(NSPredicate *)predicate context:(NSManagedObjectContext *)context {

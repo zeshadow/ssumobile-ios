@@ -17,12 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.fetchedResultsController performFetch:nil];
-    [self.searchFetchedResultsController performFetch:nil];
-
-    self.fetchedResultsController.delegate = self;
-    self.searchFetchedResultsController.delegate = self;
 }
 
 - (void) setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {
@@ -90,7 +84,8 @@
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [[self tableViewForController:controller] beginUpdates];
+    //TODO: Fix this functionality or change it so we can animate changes correctly
+//    [[self tableViewForController:controller] beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
@@ -98,6 +93,7 @@
        atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
+    return;
     UITableView *tableView = [self tableViewForController:controller];
     
     switch(type) {
@@ -121,6 +117,7 @@
   didChangeSection:(id )sectionInfo
            atIndex:(NSUInteger)sectionIndex
      forChangeType:(NSFetchedResultsChangeType)type {
+    return;
     UITableView * tableView = [self tableViewForController:controller];
     switch(type) {
         case NSFetchedResultsChangeInsert:
@@ -135,7 +132,8 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [[self tableViewForController:controller] endUpdates];
+    [[self tableViewForController:controller] reloadData];
+//    [[self tableViewForController:controller] endUpdates];
 }
 
 
