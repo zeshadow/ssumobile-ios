@@ -18,19 +18,8 @@
 @implementation SSUModuleBase
 
 + (instancetype) sharedInstance {
+    SSULogError(@"sharedInstance not implemented by subclass of SSUModuleBase");
     return nil;
-}
-
-- (nonnull NSDateFormatter *) dateFormatter {
-    if (!_dateFormatter) {
-        _dateFormatter = [[NSDateFormatter alloc] init];
-        _dateFormatter.dateStyle = NSDateFormatterNoStyle;
-        _dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-        _dateFormatter.locale = [NSLocale currentLocale];
-        _dateFormatter.timeZone = [NSTimeZone localTimeZone];
-        _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    }
-    return _dateFormatter;
 }
 
 /** 

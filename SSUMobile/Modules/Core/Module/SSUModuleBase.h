@@ -49,8 +49,6 @@
 
 @interface SSUModuleBase : NSObject <SSUModule>
 
-@property (nonatomic, strong, readonly, nonnull) NSDateFormatter * dateFormatter;
-
 + (nonnull instancetype) sharedInstance;
 
 - (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(nullable NSURL *)url toValue:(BOOL)excluded;
