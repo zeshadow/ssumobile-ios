@@ -152,12 +152,9 @@
 		0730A6F21C85515200FC9370 /* News.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090A1BA084B0005C38DD /* News.xcassets */; };
 		0730A6F31C85515200FC9370 /* Debug.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070A3A691BAA969100B0E67C /* Debug.xcassets */; };
 		0730A6F41C85515200FC9370 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
-		0730A7011C856A4300FC9370 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7001C856A4300FC9370 /* Directory.sqlite */; };
-		0730A7021C856A4300FC9370 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7001C856A4300FC9370 /* Directory.sqlite */; };
-		0730A7041C856A5B00FC9370 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7031C856A5B00FC9370 /* Resources.sqlite */; };
-		0730A7051C856A5B00FC9370 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7031C856A5B00FC9370 /* Resources.sqlite */; };
-		0730A7071C856A8100FC9370 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7061C856A8100FC9370 /* Map.sqlite */; };
-		0730A7081C856A8100FC9370 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0730A7061C856A8100FC9370 /* Map.sqlite */; };
+		073215401E6BC97D00A18A13 /* Resources.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0732153F1E6BC97D00A18A13 /* Resources.sqlite */; };
+		073215421E6BC99600A18A13 /* Directory.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 073215411E6BC99600A18A13 /* Directory.sqlite */; };
+		073215441E6BC9B000A18A13 /* Map.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 073215431E6BC9B000A18A13 /* Map.sqlite */; };
 		0733E0F71E57F99300C85A53 /* SSUMoonlightBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E0CA1E57F99300C85A53 /* SSUMoonlightBuilder.m */; };
 		0733E0F81E57F99300C85A53 /* SSUCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E0CD1E57F99300C85A53 /* SSUCommunicator.m */; };
 		0733E0F91E57F99300C85A53 /* SSUMoonlightCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E0CF1E57F99300C85A53 /* SSUMoonlightCommunicator.m */; };
@@ -338,9 +335,9 @@
 		071E23A419E284F400483138 /* licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = licenses.txt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
 		0730A6FA1C85515300FC9370 /* SSUMobile Dev Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSUMobile Dev Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0730A6FC1C85531A00FC9370 /* SSUMobile-Dev-Tools-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSUMobile-Dev-Tools-Info.plist"; sourceTree = "<group>"; };
-		0730A7001C856A4300FC9370 /* Directory.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Directory.sqlite; sourceTree = "<group>"; };
-		0730A7031C856A5B00FC9370 /* Resources.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Resources.sqlite; sourceTree = "<group>"; };
-		0730A7061C856A8100FC9370 /* Map.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Map.sqlite; sourceTree = "<group>"; };
+		0732153F1E6BC97D00A18A13 /* Resources.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Resources.sqlite; sourceTree = "<group>"; };
+		073215411E6BC99600A18A13 /* Directory.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Directory.sqlite; sourceTree = "<group>"; };
+		073215431E6BC9B000A18A13 /* Map.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Map.sqlite; sourceTree = "<group>"; };
 		0733E0C91E57F99300C85A53 /* SSUMoonlightBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMoonlightBuilder.h; sourceTree = "<group>"; };
 		0733E0CA1E57F99300C85A53 /* SSUMoonlightBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMoonlightBuilder.m; sourceTree = "<group>"; };
 		0733E0CC1E57F99300C85A53 /* SSUCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUCommunicator.h; sourceTree = "<group>"; };
@@ -985,7 +982,7 @@
 			isa = PBXGroup;
 			children = (
 				07FD08FC1BA02EBE005C38DD /* Directory.xcassets */,
-				0730A7001C856A4300FC9370 /* Directory.sqlite */,
+				073215411E6BC99600A18A13 /* Directory.sqlite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1027,7 +1024,7 @@
 			isa = PBXGroup;
 			children = (
 				07FD090D1BA084E1005C38DD /* Resources.xcassets */,
-				0730A7031C856A5B00FC9370 /* Resources.sqlite */,
+				0732153F1E6BC97D00A18A13 /* Resources.sqlite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1036,7 +1033,7 @@
 			isa = PBXGroup;
 			children = (
 				07FD09101BA08548005C38DD /* Map.xcassets */,
-				0730A7061C856A8100FC9370 /* Map.sqlite */,
+				073215431E6BC9B000A18A13 /* Map.sqlite */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1677,7 +1674,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0730A7021C856A4300FC9370 /* Directory.sqlite in Resources */,
 				0730A6D61C85515200FC9370 /* About.storyboard in Resources */,
 				0730A6D81C85515200FC9370 /* Calendar.xcassets in Resources */,
 				0730A6D91C85515200FC9370 /* licenses.txt in Resources */,
@@ -1702,10 +1698,8 @@
 				0730A6EF1C85515200FC9370 /* Directory_Debug.storyboard in Resources */,
 				0730A6F01C85515200FC9370 /* Radio.xcassets in Resources */,
 				0730A6F11C85515200FC9370 /* Directory.xcassets in Resources */,
-				0730A7051C856A5B00FC9370 /* Resources.sqlite in Resources */,
 				0730A6F21C85515200FC9370 /* News.xcassets in Resources */,
 				0730A6F31C85515200FC9370 /* Debug.xcassets in Resources */,
-				0730A7081C856A8100FC9370 /* Map.sqlite in Resources */,
 				0730A6F41C85515200FC9370 /* SSUCalendarEventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1716,13 +1710,13 @@
 			files = (
 				07F84D8119F5885B0046D148 /* About.storyboard in Resources */,
 				07FD09031BA082AE005C38DD /* Calendar.xcassets in Resources */,
-				0730A7041C856A5B00FC9370 /* Resources.sqlite in Resources */,
 				071E23A619E284F400483138 /* licenses.txt in Resources */,
+				073215401E6BC97D00A18A13 /* Resources.sqlite in Resources */,
 				07C997D01A87119900534A1C /* Email.storyboard in Resources */,
 				07AB76D31C786E43006352C5 /* defaults.json in Resources */,
 				07C2FE1519C6C5D00016349C /* Radio_iPhone.storyboard in Resources */,
-				0730A7071C856A8100FC9370 /* Map.sqlite in Resources */,
 				07CD3C021BBBB91E0075ADE8 /* Calendar.sqlite in Resources */,
+				073215441E6BC9B000A18A13 /* Map.sqlite in Resources */,
 				078000F819CFAA0D00FD1E2A /* Images.xcassets in Resources */,
 				C4995AFB16B1274200168521 /* MainStoryboard_iPhone.storyboard in Resources */,
 				079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */,
@@ -1730,8 +1724,8 @@
 				C46E1E5116BB55370040435C /* Directory_iPhone.storyboard in Resources */,
 				C42D1BD616BB5D19003AE10B /* News_iPhone.storyboard in Resources */,
 				C42D1BD816BB5D7F003AE10B /* Calendar_iPhone.storyboard in Resources */,
-				0730A7011C856A4300FC9370 /* Directory.sqlite in Resources */,
 				07FD09001BA08132005C38DD /* Email.xcassets in Resources */,
+				073215421E6BC99600A18A13 /* Directory.sqlite in Resources */,
 				071E237A19E2398500483138 /* Resources.storyboard in Resources */,
 				07FD090E1BA084E1005C38DD /* Resources.xcassets in Resources */,
 				07FD09111BA08548005C38DD /* Map.xcassets in Resources */,
