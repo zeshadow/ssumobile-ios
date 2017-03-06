@@ -31,20 +31,30 @@
     [self performSearchFetch];
 }
 
+- (NSFetchedResultsController *) currentFetchedResultsController {
+    if (self.isSearching) {
+        if (self.searchFetchedResultsController == nil) {
+            SSULogError(@"isSearching == YES but no value has been set for self.searchFetchedResultsController");
+        } else {
+            return self.searchFetchedResultsController;
+        }
+    }
+    return self.fetchedResultsController;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.isSearching) {
-        return self.searchFetchedResultsController.sections.count;
-    }
-    else {
-        return self.fetchedResultsController.sections.count;
-    }
+    return self.currentFetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSFetchedResultsController * controller = (self.isSearching) ? self.searchFetchedResultsController : self.fetchedResultsController;
+    NSFetchedResultsController * controller = self.currentFetchedResultsController;
     return [controller.sections[section] numberOfObjects];
+}
+
+- (NSManagedObject *) objectAtIndex:(NSIndexPath *)indexPath {
+    return [self.currentFetchedResultsController objectAtIndexPath:indexPath];
 }
 
 #pragma mark - Fetch
@@ -67,12 +77,7 @@
 
 - (void) filterContentForSearchText:(NSString*)searchText {
     NSFetchRequest *fetchRequest = self.searchFetchedResultsController.fetchRequest;
-    if ([searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0) {
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", self.searchKey, searchText];
-    }
-    else {
-        fetchRequest.predicate = nil;
-    }
+    fetchRequest.predicate = [self searchPredicateForText:searchText];
     [self performSearchFetch];
     [self.tableView reloadData];
 }

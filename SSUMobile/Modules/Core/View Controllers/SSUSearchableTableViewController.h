@@ -27,5 +27,6 @@
 @property (nonatomic) BOOL isSearching;
 
 - (void) filterContentForSearchText:(nonnull NSString *)searchText;
+- (nonnull NSPredicate *) searchPredicateForText:(nonnull NSString *)searchText;
 
 @end

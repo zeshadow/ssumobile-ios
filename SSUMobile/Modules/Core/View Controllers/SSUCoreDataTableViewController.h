@@ -10,14 +10,16 @@
 @import CoreData;
 
 #import "SSUSearchableTableViewController.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface SSUCoreDataTableViewController : SSUSearchableTableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, nullable, strong) NSFetchedResultsController * fetchedResultsController;
 @property (nonatomic, nullable, strong) NSFetchedResultsController * searchFetchedResultsController;
 
-
 - (void) performFetch;
 - (void) performSearchFetch;
+- (NSManagedObject *) objectAtIndex:(NSIndexPath *)indexPath;
+- (NSFetchedResultsController *) currentFetchedResultsController;
 
 @end
+NS_ASSUME_NONNULL_END

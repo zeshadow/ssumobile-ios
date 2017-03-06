@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) NSManagedObjectContext * context;
 @property (nonatomic, strong) NSPredicate * predicate;
+@property (nonatomic, strong) UIBarButtonItem * filterButton;
 
 @end
 
@@ -32,25 +33,17 @@
     self.context = [[SSUNewsModule sharedInstance] context];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
-    UIBarButtonItem * filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleDone target:self action:@selector(filterButtonPressed)];
-    self.navigationItem.rightBarButtonItem = filterButton;
+    self.filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleDone target:self action:@selector(filterButtonPressed)];
+    UIBarButtonItem * flexibleWidthButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+    self.toolbarItems = @[flexibleWidthButton, self.filterButton, flexibleWidthButton];
     
-    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
-    fetchRequest.entity = [NSEntityDescription entityForName:SSUNewsEntityArticle inManagedObjectContext:self.context];
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"published" ascending:NO]];
-    // Don't fetch articles older than 6 months
-    NSDate * oldestToFetch = [[NSDate date] dateByAddingTimeInterval:-1*ABS(SSUNewsArticleFetchDateLimit)];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"published > %@",oldestToFetch];
-    
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.context sectionNameKeyPath:@"published" cacheName:nil];
-    self.fetchedResultsController = aFetchedResultsController;
-    self.fetchedResultsController.delegate = self;
-    
-    self.tableView.separatorInset = UIEdgeInsetsZero;
-    
+    self.fetchedResultsController = [self makeFetchedResultsController];
+    self.searchFetchedResultsController = [self makeFetchedResultsController];
     self.searchKey = @"title";
     
-    [self.tableView registerClass:[SSUNewsArticleTableViewCell class] forCellReuseIdentifier:SSUNewsEntityArticle];
+    [self.tableView registerClass:[SSUNewsArticleTableViewCell class]
+           forCellReuseIdentifier:SSUNewsEntityArticle];
+    self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.rowHeight = (int)([UIScreen mainScreen].applicationFrame.size.height / 4);
     [self.tableView reloadData];
 }
@@ -62,6 +55,12 @@
     if (lastUpdate <= timeInterval) {
         [self refresh];
     }
+    self.navigationController.toolbarHidden = NO;
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void)refresh {
@@ -92,15 +91,12 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    SSUArticle *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    SSUArticle *article = (SSUArticle *)[self objectAtIndex:indexPath];
     if ([cell.reuseIdentifier isEqualToString:SSUNewsEntityArticle]) {
         SSUNewsArticleTableViewCell* articleCell = (SSUNewsArticleTableViewCell*)cell;
         articleCell.article = article;
         articleCell.separatorInset = UIEdgeInsetsZero;
-        // TODO: iOS 8
-        if ([articleCell respondsToSelector:@selector(setLayoutMargins:)]) {
-            articleCell.layoutMargins = UIEdgeInsetsZero;
-        }
+        articleCell.layoutMargins = UIEdgeInsetsZero;
     }
 }
 
@@ -115,7 +111,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SSUArticle* article = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    SSUArticle* article = [self.currentFetchedResultsController objectAtIndexPath:indexPath];
     NSURL * url = [NSURL URLWithString:article.link];
     SSULogDebug(@"%@",article);
     if (NSStringFromClass([SFSafariViewController class])) {
@@ -127,6 +123,16 @@
         SSUWebViewController* controller = [SSUWebViewController webViewController];
         controller.urlToLoad = [NSURL URLWithString:article.link];
         [self.navigationController pushViewController:controller animated:YES];
+    }
+}
+
+- (NSPredicate *) searchPredicateForText:(NSString *)searchText {
+    NSPredicate * base = [self basePredicate];
+    NSPredicate * search = [super searchPredicateForText:searchText];
+    if (self.predicate != nil) {
+        return [NSCompoundPredicate andPredicateWithSubpredicates:@[base, search, self.predicate]];
+    } else {
+        return [NSCompoundPredicate andPredicateWithSubpredicates:@[base, search]];
     }
 }
 
@@ -150,9 +156,11 @@
 - (void) userDidSelectItem:(id)item atIndexPath:(NSIndexPath *)indexPath fromController:(SSUSelectionController *)controller {
     if ([item isEqualToString:@"All Categories"]) {
         self.predicate = nil;
+        self.filterButton.title = @"Filter";
     }
     else {
         NSString * categoryName = item;
+        self.filterButton.title = categoryName;
         self.predicate = [NSPredicate predicateWithFormat:@"category = %@", categoryName];
     }
     
@@ -164,6 +172,25 @@
 }
 
 #pragma mark - private
+
+- (NSPredicate *) basePredicate {
+    // Don't fetch articles older than 6 months
+    NSDate * oldestToFetch = [[NSDate date] dateByAddingTimeInterval:-1*ABS(SSUNewsArticleFetchDateLimit)];
+    return [NSPredicate predicateWithFormat:@"published > %@",oldestToFetch];
+}
+
+- (NSFetchedResultsController *) makeFetchedResultsController {
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = [NSEntityDescription entityForName:SSUNewsEntityArticle inManagedObjectContext:self.context];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"published" ascending:NO]];
+    fetchRequest.predicate = [self basePredicate];
+    
+    NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                 managedObjectContext:self.context
+                                                                                   sectionNameKeyPath:@"published"
+                                                                                            cacheName:nil];
+    return controller;
+}
 
 - (NSArray *) allCategories {
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUNewsEntityArticle];

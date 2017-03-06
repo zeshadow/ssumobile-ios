@@ -87,6 +87,13 @@
     SSULogWarn(@"Subclass of %@ did not implement filterContentForSearchText", NSStringFromClass([self class]));
 }
 
+- (NSPredicate *) searchPredicateForText:(NSString *)searchText {
+    if ([searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0) {
+        return [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", self.searchKey, searchText];
+    }
+    return [NSPredicate predicateWithValue:YES];
+}
+
 - (void) searchButtonAction:(UIBarButtonItem *)button {
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.rightBarButtonItem = nil;
