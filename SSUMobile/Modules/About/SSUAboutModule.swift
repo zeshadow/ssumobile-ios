@@ -12,26 +12,14 @@ class SSUAboutModule: SSUModuleBase, SSUModuleUI {
     
     static let instance = SSUAboutModule()
     
-    private struct Settings {
-        static let lastFeedbackDate = "LastFeedbackSubmissionDate"
-    }
-    
     private let feedbackSubmissionInterval: TimeInterval = 60
-    
-    var lastFeedbackDate: Date {
-        get {
-            return SSUConfiguration.sharedInstance().date(forKey: Settings.lastFeedbackDate)
-        } set {
-            SSUConfiguration.sharedInstance().setDate(newValue, forKey: Settings.lastFeedbackDate)
-        }
-    }
     
     /**
      True if the required amount of time between feedback submissions has passed
      */
     var canSubmitFeedback: Bool {
         get {
-            let lastSubmission = lastFeedbackDate
+            let lastSubmission = SSUConfiguration.sharedInstance().lastFeedbackDate
             let timeSinceLast = abs(lastSubmission.timeIntervalSinceNow)
             return timeSinceLast >= feedbackSubmissionInterval
         }
@@ -53,9 +41,6 @@ class SSUAboutModule: SSUModuleBase, SSUModuleUI {
     
     override func setup() {
         super.setup()
-        SSUConfiguration.sharedInstance().registerDefaults([
-            Settings.lastFeedbackDate: Date.distantPast
-        ])
     }
     
     // MARK: SSUModuleUI

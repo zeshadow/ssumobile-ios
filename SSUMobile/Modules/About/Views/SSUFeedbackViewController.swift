@@ -90,7 +90,7 @@ class SSUFeedbackViewController: UITableViewController, UITextViewDelegate {
             } else {
                 DispatchQueue.main.async {
                     hud.hide(animated: true)
-                    SSUAboutModule.sharedInstance().lastFeedbackDate = Date()
+                    SSUConfiguration.sharedInstance().lastFeedbackDate = Date()
                     self.alert(title: "Success", message: "Thank you for your feeedback!")
                     self.emailTextField.text = nil
                     self.textView.text = self.placeholderText ?? self.textView.text

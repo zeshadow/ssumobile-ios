@@ -8,6 +8,8 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString * const kSSUConfigLastLoadDateKey;
 
 @interface SSUConfiguration : NSObject
@@ -17,28 +19,28 @@ extern NSString * const kSSUConfigLastLoadDateKey;
 #pragma mark - Getters
 
 - (id) objectForKey:(NSString *)key;
-- (NSString *) stringForKey:(NSString *)key;
-- (NSDate *) dateForKey:(NSString *)key;
-- (NSArray <NSString *> *) stringArrayForKey:(NSString *)key;
+- (NSString * _Nullable) stringForKey:(NSString *)key;
+- (NSDate * _Nullable) dateForKey:(NSString *)key;
+- (NSArray <NSString *> *  _Nullable) stringArrayForKey:(NSString *)key;
 - (NSInteger) integerForKey:(NSString *)key;
 - (float) floatForKey:(NSString *)key;
 - (double) doubleForKey:(NSString *)key;
 - (BOOL) boolForKey:(NSString *)key;
-- (NSURL *) URLForKey:(NSString *)key;
+- (NSURL * _Nullable) URLForKey:(NSString *)key;
 - (NSDictionary *) dictionaryRepresentation;
 
 #pragma mark - Setters
 
 - (void) setObject:(id)value forKey:(NSString *)key;
-- (void) setArray:(NSArray *)array forKey:(NSString *)key;
-- (void) setDate:(NSDate *)date forKey:(NSString *)key;
-- (void) setString:(NSString *)string forKey:(NSString *)key;
-- (void) setStringArray:(NSArray <NSString *> *)stringArray forKey:(NSString *)key;
+- (void) setArray:(NSArray * _Nullable)array forKey:(NSString *)key;
+- (void) setDate:(NSDate * _Nullable)date forKey:(NSString *)key;
+- (void) setString:(NSString * _Nullable)string forKey:(NSString *)key;
+- (void) setStringArray:(NSArray <NSString *> * _Nullable)stringArray forKey:(NSString *)key;
 - (void) setInteger:(NSInteger)value forKey:(NSString *)key;
 - (void) setFloat:(float)value forKey:(NSString *)key;
 - (void) setDouble:(double)value forKey:(NSString *)key;
 - (void) setBool:(BOOL)value forKey:(NSString *)key;
-- (void) setURL:(NSURL *)value forKey:(NSString *)key;
+- (void) setURL:(NSURL * _Nullable)value forKey:(NSString *)key;
 - (void) removeObjectForKey:(NSString *)key;
 
 #pragma mark - Helper
@@ -50,3 +52,5 @@ extern NSString * const kSSUConfigLastLoadDateKey;
 - (void) save;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -100,27 +100,27 @@ NSString * const kSSUConfigLastLoadDateKey = @"edu.sonoma.configuration.last_loa
     return [self.userDefaults objectForKey:key];
 }
 
-- (NSString *) stringForKey:(NSString *)key {
+- (NSString * _Nullable) stringForKey:(NSString *)key {
     return [self.userDefaults stringForKey:key];
 }
 
-- (NSDate *) dateForKey:(NSString *)key {
+- (NSDate * _Nullable) dateForKey:(NSString *)key {
     return [self.userDefaults objectForKey:key];
 }
 
-- (NSArray *) arrayForKey:(NSString *)key {
+- (NSArray * _Nullable) arrayForKey:(NSString *)key {
     return [self.userDefaults arrayForKey:key];
 }
 
-- (NSDictionary *) dictionaryForKey:(NSString *)key {
+- (NSDictionary * _Nullable) dictionaryForKey:(NSString *)key {
     return [self.userDefaults dictionaryForKey:key];
 }
 
-- (NSData *) dataForKey:(NSString *)key  {
+- (NSData * _Nullable) dataForKey:(NSString *)key  {
     return [self.userDefaults dataForKey:key];
 }
 
-- (NSArray <NSString *> *) stringArrayForKey:(NSString *)key {
+- (NSArray <NSString *> * _Nullable) stringArrayForKey:(NSString *)key {
     return [self.userDefaults stringArrayForKey:key];
 }
 
@@ -140,7 +140,7 @@ NSString * const kSSUConfigLastLoadDateKey = @"edu.sonoma.configuration.last_loa
     return [self.userDefaults boolForKey:key];
 }
 
-- (NSURL *) URLForKey:(NSString *)key {
+- (NSURL * _Nullable) URLForKey:(NSString *)key {
     return [self.userDefaults URLForKey:key];
 }
 
@@ -161,19 +161,19 @@ NSString * const kSSUConfigLastLoadDateKey = @"edu.sonoma.configuration.last_loa
     [self.userDefaults setObject:value forKey:key];
 }
 
-- (void) setArray:(NSArray *)array forKey:(NSString *)key {
+- (void) setArray:(NSArray * _Nullable)array forKey:(NSString *)key {
     [self.userDefaults setObject:array forKey:key];
 }
 
-- (void) setDate:(NSDate *)date forKey:(NSString *)key {
+- (void) setDate:(NSDate * _Nullable)date forKey:(NSString *)key {
     [self.userDefaults setObject:date forKey:key];
 }
 
-- (void) setStringArray:(NSArray<NSString *> *)stringArray forKey:(NSString *)key {
+- (void) setStringArray:(NSArray<NSString *> * _Nullable)stringArray forKey:(NSString *)key {
     [self.userDefaults setObject:stringArray forKey:key];
 }
 
-- (void) setString:(NSString *)string forKey:(NSString *)key {
+- (void) setString:(NSString * _Nullable)string forKey:(NSString *)key {
     [self setObject:string forKey:key];
 }
 
@@ -193,7 +193,7 @@ NSString * const kSSUConfigLastLoadDateKey = @"edu.sonoma.configuration.last_loa
     [self.userDefaults setBool:value forKey:key];
 }
 
-- (void) setURL:(NSURL *)value forKey:(NSString *)key {
+- (void) setURL:(NSURL * _Nullable)value forKey:(NSString *)key {
     [self.userDefaults setURL:value forKey:key];
 }
 
