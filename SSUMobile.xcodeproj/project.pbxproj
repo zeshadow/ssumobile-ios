@@ -16,6 +16,7 @@
 		0711E7FC1E87691100F9ACDE /* SSUFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7FA1E87691100F9ACDE /* SSUFeedbackViewController.swift */; };
 		0711E7FF1E87771100F9ACDE /* SSULogging+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7FE1E87771100F9ACDE /* SSULogging+Swift.swift */; };
 		0711E8001E87771100F9ACDE /* SSULogging+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7FE1E87771100F9ACDE /* SSULogging+Swift.swift */; };
+		0711E8021E878C1F00F9ACDE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0711E8011E878C1F00F9ACDE /* Launch Screen.storyboard */; };
 		07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07155A2F18BE06B300226502 /* SSUSchoolViewController.m */; };
 		071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E237719E2380B00483138 /* SSUResourcesViewController.m */; };
 		071E237A19E2398500483138 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
@@ -332,6 +333,7 @@
 		0711E7FA1E87691100F9ACDE /* SSUFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUFeedbackViewController.swift; sourceTree = "<group>"; };
 		0711E7FD1E87747D00F9ACDE /* SSUEmail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUEmail.h; sourceTree = "<group>"; };
 		0711E7FE1E87771100F9ACDE /* SSULogging+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSULogging+Swift.swift"; sourceTree = "<group>"; };
+		0711E8011E878C1F00F9ACDE /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		07155A2E18BE06B300226502 /* SSUSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSchoolViewController.h; sourceTree = "<group>"; };
 		07155A2F18BE06B300226502 /* SSUSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSchoolViewController.m; sourceTree = "<group>"; };
 		071E237619E2380B00483138 /* SSUResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesViewController.h; sourceTree = "<group>"; };
@@ -1379,6 +1381,7 @@
 				C4995AF016B1274200168521 /* SSUAppDelegate.h */,
 				C4995AF116B1274200168521 /* SSUAppDelegate.m */,
 				0711E7ED1E8746AD00F9ACDE /* SSUMobile-Bridging-Header.h */,
+				0711E8011E878C1F00F9ACDE /* Launch Screen.storyboard */,
 				785DD35E16E68977009188CC /* App Picker */,
 				C4FBF74E16BB8FFD00BE95E3 /* Modules */,
 				C4995AE816B1274200168521 /* Supporting Files */,
@@ -1745,6 +1748,7 @@
 				784315F516D1DF2900B8552F /* Map_iPhone.storyboard in Resources */,
 				07FD09081BA08448005C38DD /* Radio.xcassets in Resources */,
 				07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */,
+				0711E8021E878C1F00F9ACDE /* Launch Screen.storyboard in Resources */,
 				07FD090B1BA084B0005C38DD /* News.xcassets in Resources */,
 				0733E1091E57F99300C85A53 /* SSUWebViewController.storyboard in Resources */,
 				07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */,
@@ -2296,7 +2300,6 @@
 			baseConfigurationReference = 0C1A439034C8F57F972715D9 /* Pods-SSUMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2331,7 +2334,6 @@
 			baseConfigurationReference = 3A2E91994D68F474CA7233FC /* Pods-SSUMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
