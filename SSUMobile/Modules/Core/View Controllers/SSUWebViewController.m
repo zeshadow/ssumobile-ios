@@ -122,31 +122,31 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
 #pragma mark - UIWebView
 
 - (void) webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
-    [self.progressHUD show:YES];
+    [self.progressHUD showAnimated:YES];
     [self.view bringSubviewToFront:self.progressHUD];
     
     [self updateNavigationButtons];
 }
 
 - (void) webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    [self.progressHUD hide:YES afterDelay:1.0];
+    [self.progressHUD hideAnimated:YES afterDelay:1.0];
     [self updateNavigationButtons];
 }
 
 - (void) webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     if (error.code == NSURLErrorNotConnectedToInternet) {
-        self.progressHUD.labelText = @"No Internet access";
+        self.progressHUD.label.text = @"No Internet access";
         self.progressHUD.mode = MBProgressHUDModeText;
-        [self.progressHUD hide:YES afterDelay:1.0];
+        [self.progressHUD hideAnimated:YES afterDelay:1.0];
     }
     else if ([error.userInfo[NSURLErrorFailingURLStringErrorKey] isEqualToString:self.urlToLoad.path]){
-        self.progressHUD.labelText = @"Failed to load webpage";
+        self.progressHUD.label.text = @"Failed to load webpage";
         self.progressHUD.mode = MBProgressHUDModeText;
-        [self.progressHUD hide:YES afterDelay:1.0];
+        [self.progressHUD hideAnimated:YES afterDelay:1.0];
     }
     else if (!self.webview.loading) {
         // The url that failed is some sort of image or embedded video, so ignore it
-        [self.progressHUD hide:YES];
+        [self.progressHUD hideAnimated:YES];
     }
 }
 
@@ -173,7 +173,7 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
     }
     
     _progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    _progressHUD.labelText = @"Loading";
+    _progressHUD.label.text = @"Loading";
     
     return _progressHUD;
 }

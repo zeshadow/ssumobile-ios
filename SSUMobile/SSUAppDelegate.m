@@ -19,6 +19,7 @@
 #import "SSUSpotlightServices.h"
 
 #import <SDWebImage/SDImageCache.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface SSUAppDelegate()
 
@@ -81,7 +82,8 @@
     [[UISegmentedControl appearanceWhenContainedIn:[UIToolbar class], nil] setTintColor:[UIColor whiteColor]];
     [[UISegmentedControl appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil] setTintColor:[UIColor whiteColor]];
-
+    
+    [[MBProgressHUD appearance] setContentColor:SSU_BLUE_COLOR];
 }
 
 - (void) setupConfiguration {

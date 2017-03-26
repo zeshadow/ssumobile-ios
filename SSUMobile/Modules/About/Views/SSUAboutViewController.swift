@@ -69,18 +69,18 @@ class SSUAboutViewController: UITableViewController {
                 SSULDAPCredentials.sharedInstance().clear()
                 updateLDAPDisplay()
                 let hud = MBProgressHUD.showAdded(to: tableView, animated: true)
-                hud?.labelText = "Logged Out"
-                hud?.mode = .text
-                hud?.hide(true, afterDelay: 1.0)
+                hud.label.text = "Logged Out"
+                hud.mode = .text
+                hud.hide(animated: true, afterDelay: 1.0)
             }
         case ReuseIdentifier.cache:
             let hud = MBProgressHUD.showAdded(to: tableView, animated: true)
-            hud?.labelText = "Clearing cache..."
-            hud?.mode = .annularDeterminate
+            hud.label.text = "Clearing cache..."
+            hud.mode = .annularDeterminate
             SDImageCache.shared().clearDisk(onCompletion: {
-                hud?.labelText = "Cache cleared"
-                hud?.mode = .text
-                hud?.hide(true, afterDelay: 1.0)
+                hud.label.text = "Cache cleared"
+                hud.mode = .text
+                hud.hide(animated: true, afterDelay: 1.0)
                 self.updateCacheDisplay()
             })
         case ReuseIdentifier.feedback:

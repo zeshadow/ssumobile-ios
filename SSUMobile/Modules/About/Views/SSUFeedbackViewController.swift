@@ -83,13 +83,13 @@ class SSUFeedbackViewController: UITableViewController, UITextViewDelegate {
             "app_version": appVersion ?? "Unknown",
             "os_version": osVersion
         ]
-        MBProgressHUD.showAdded(to: tableView, animated: true)
+        let hud = MBProgressHUD.showAdded(to: tableView, animated: true)
         SSUMoonlightCommunicator.postPath("ssumobile/feedback/", parameters: params) { (response, data, error) in
             if error != nil {
                 self.alert(title: "Error", message: "There was an error when submitting your feedback. Please try again or come back later")
             } else {
                 DispatchQueue.main.async {
-                    MBProgressHUD.hideAllHUDs(for: self.tableView, animated: true)
+                    hud.hide(animated: true)
                     SSUAboutModule.sharedInstance().lastFeedbackDate = Date()
                     self.alert(title: "Success", message: "Thank you for your feeedback!")
                     self.emailTextField.text = nil

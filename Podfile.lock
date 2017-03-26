@@ -3,7 +3,7 @@ PODS:
   - CocoaLumberjack/Swift (3.1.0):
     - CocoaLumberjack/Default
   - Masonry (0.6.2)
-  - MBProgressHUD (0.9.1)
+  - MBProgressHUD (1.0.0)
   - MJDijkstra (1.0.0)
   - PDTSimpleCalendar (0.9.1)
   - RBStoryboardLink (0.1.0)
@@ -15,7 +15,7 @@ PODS:
 DEPENDENCIES:
   - CocoaLumberjack/Swift (~> 3.1)
   - Masonry
-  - MBProgressHUD (~> 0.9.1)
+  - MBProgressHUD (~> 1.0)
   - MJDijkstra (~> 1.0.0)
   - PDTSimpleCalendar (~> 0.9.0)
   - RBStoryboardLink (~> 0.1.0)
@@ -25,13 +25,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CocoaLumberjack: 8311463ddf9ee86a06ef92a071dd656c89244500
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJDijkstra: ecc733843aae475a22ddcf3ac236245a7000ffdd
   PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
   RBStoryboardLink: 438a56a29ef5a433d33d2f045533d6ca8d1f7755
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
 
-PODFILE CHECKSUM: bdb1de8071d051afdf1892569a40986e5dd09d9e
+PODFILE CHECKSUM: eea3329fb346b6a3c1625a296842404528beabac
 
 COCOAPODS: 1.2.0
