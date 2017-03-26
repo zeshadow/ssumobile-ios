@@ -35,7 +35,7 @@ NSString * const SSUModulesDidLoadNotification = @"edu.sonoma.modules.loaded.not
 - (void) loadModules {
     NSMutableArray * moduleObjects = (id)[NSMutableArray new];
     for (NSString * className in [self moduleClasses]) {
-        Class<SSUModule> cls = NSClassFromString(className);
+        Class cls = NSClassFromString(className);
         SSUModuleBase<SSUModule> * module = [cls sharedInstance];
         NSAssert([module conformsToProtocol:@protocol(SSUModule)], @"Module with name %@ does not conform to the %@ protocol", className, NSStringFromProtocol(@protocol(SSUModule)));
         [moduleObjects addObject:module];
@@ -68,7 +68,7 @@ NSString * const SSUModulesDidLoadNotification = @"edu.sonoma.modules.loaded.not
     
     NSMutableArray * moduleObjects = (id)[NSMutableArray new];
     for (NSString * className in [self moduleClasses]) {
-        Class<SSUModule> cls = NSClassFromString(className);
+        Class cls = NSClassFromString(className);
         SSUModuleBase<SSUModule> * module = [cls sharedInstance];
         NSAssert([module conformsToProtocol:@protocol(SSUModule)], @"Module with name %@ does not conform to the %@ protocol", className, NSStringFromProtocol(@protocol(SSUModule)));
         [moduleObjects addObject:module];

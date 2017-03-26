@@ -16,10 +16,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 static const DDLogLevel ddLogLevel = DDLogLevelError;
 #endif
 
-@interface SSULogging : NSObject
-
-+ (void) setupLogging;
-
 // http://stackoverflow.com/a/26364055
 #ifdef DEBUG
 #define SSULogError(fmt, ...)       DDLogError((@"%s [%d] \t" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
@@ -35,5 +31,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 #define SSULogVerbose(frmt, ...)    DDLogVerbose(frmt, ##__VA_ARGS__)
 #endif
 
+@interface SSULogging : NSObject
+
++ (void) setupLogging;
++ (void) logError:(NSString *)format, ...;
++ (void) logWarn:(NSString *)format, ...;
++ (void) logInfo:(NSString *)format, ...;
++ (void) logDebug:(NSString *)format, ...;
++ (void) logVerbose:(NSString *)format, ...;
 
 @end

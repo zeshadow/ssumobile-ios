@@ -11,8 +11,6 @@
 
 @protocol SSUModule <NSObject>
 
-+ (nonnull instancetype) sharedInstance;
-
 /** A user-facing title for this module. Should be localized */
 - (nonnull NSString *) title;
 /** A non-user-facing identifier for this module. */
@@ -43,14 +41,17 @@
 /** If YES, this module's `viewForHomeScreen` view will be set as the navigation item's rightBarButtonItem */
 - (BOOL) showModuleInNavigationBar;
 /** The view that shows up on the homescreen and navigates to this module */
-- (nonnull UIView *) viewForHomeScreen;
+- (nullable UIView *) viewForHomeScreen;
 
 @end
 
-@interface SSUModuleBase : NSObject <SSUModule>
+@interface SSUModuleBase : NSObject
 
 + (nonnull instancetype) sharedInstance;
 
 - (BOOL) setExcludeFromBackupAttributeOnResourceAtURL:(nullable NSURL *)url toValue:(BOOL)excluded;
+- (void) setup;
+- (void) updateData:(void  (^ _Nullable )())completion;
+- (void) clearCachedData;
 
 @end

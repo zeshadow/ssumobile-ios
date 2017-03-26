@@ -34,6 +34,10 @@ static NSString * const kStoryboardName = @"SSUWebViewController";
     return viewController;
 }
 
+- (instancetype) init {
+    return [SSUWebViewController webViewController];
+}
+
 - (WKWebView *) webview {
     if (_webview) return _webview;
     

@@ -60,7 +60,8 @@
 - (void) applicationDidBecomeActive:(UIApplication *)application {
     // Load settings from moonlight
     if (![self isFirstLaunchForCurrentVersion]) {
-        [self loadRemoteConfiguration];
+        // TODO: reenable when we've added a new config to moonlight
+//        [self loadRemoteConfiguration];
         [[SSUModuleServices sharedInstance] updateAll];
     }
 }

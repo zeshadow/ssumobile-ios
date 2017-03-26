@@ -8,8 +8,10 @@
 
 @import Foundation;
 
-typedef void(^SSUCommunicatorCompletion)(NSURLResponse * response, NSData * data, NSError * error);
-typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json, NSError * error);
+NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^SSUCommunicatorCompletion)(NSURLResponse * response, NSData * data,  NSError * _Nullable  error);
+typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json,  NSError * _Nullable  error);
 
 @interface SSUCommunicator : NSObject
 
@@ -22,27 +24,27 @@ typedef void(^SSUCommunicatorJSONCompletion)(NSURLResponse * response, id json, 
 /**
 Creates a GET request with the given parameters encoded as a GET query string
  */
-+ (NSMutableURLRequest *) getRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
++ (NSMutableURLRequest *) getRequestWithURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params;
 
 /**
  Create a POST request with form-encoded POST parameters
  */
-+ (NSMutableURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
++ (NSMutableURLRequest *) postRequestWithURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params;
 
 /**
  Create a PUT request with form-encoded POST parameters
  */
-+ (NSMutableURLRequest *) putRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
++ (NSMutableURLRequest *) putRequestWithURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params;
 
 /**
  Create a UPDATE request with form-encoded POST parameters
  */
-+ (NSMutableURLRequest *) updateRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
++ (NSMutableURLRequest *) updateRequestWithURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params;
 
 /**
  Create a DELETE request with form-encoded POST parameters
  */
-+ (NSMutableURLRequest *) deleteRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params;
++ (NSMutableURLRequest *) deleteRequestWithURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params;
 
 #pragma mark - Convenience
 
@@ -59,31 +61,31 @@ Creates a GET request with the given parameters encoded as a GET query string
 /**
  Retrieve the data from url and serialize it as JSON, retrieving only the records having changed since date
  */
-+ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate *)date completion:(SSUCommunicatorJSONCompletion)completion;
++ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate * _Nullable)date completion:(SSUCommunicatorJSONCompletion)completion;
 
 /**
  Retrieve the data from url and serialize it as JSON, retrieving only the records having changed since date
  */
-+ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate *)date params:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
++ (void) getJSONFromURL:(NSURL *)url sinceDate:(NSDate * _Nullable)date params:(NSDictionary * _Nullable)params completion:(SSUCommunicatorJSONCompletion)completion;
 
 /**
  Posts the given parameters to the provided URL as form-encoded data
  */
-+ (void) postURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
++ (void) postURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorCompletion)completion;
 
 /**
  Posts the given parameters to the provided URL as form-encoded data and parses the response as JSON
  */
-+ (void) postJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
++ (void) postJSONURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorJSONCompletion)completion;
 
-+ (void) putURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
-+ (void) putJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
++ (void) putURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorCompletion)completion;
++ (void) putJSONURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorJSONCompletion)completion;
 
-+ (void) updateURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
-+ (void) updateJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
++ (void) updateURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorCompletion)completion;
++ (void) updateJSONURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorJSONCompletion)completion;
 
-+ (void) deleteURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion;
-+ (void) deleteJSONURL:(NSURL *)url parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion;
++ (void) deleteURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorCompletion)completion;
++ (void) deleteJSONURL:(NSURL *)url parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorJSONCompletion)completion;
 
 #pragma mark - Perform Request
 
@@ -101,3 +103,5 @@ Creates a GET request with the given parameters encoded as a GET query string
 + (id) serializeJSON:(NSData *)data;
 
 @end
+
+NS_ASSUME_NONNULL_END

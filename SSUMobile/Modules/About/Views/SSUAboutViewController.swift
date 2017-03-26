@@ -1,0 +1,87 @@
+//
+//  SSUAboutViewController.swift
+//  SSUMobile
+//
+//  Created by Eric Amorde on 3/25/17.
+//  Copyright © 2017 Sonoma State University Department of Computer Science. All rights reserved.
+//
+
+import Foundation
+
+class SSUAboutViewController: UITableViewController {
+    
+    struct ReuseIdentifier {
+        static let legal = "Legal"
+        static let ldap = "LDAP"
+        static let cache = "Cache"
+        static let feedback = "Feedback"
+    }
+    
+    @IBOutlet var versionLabel: UILabel!
+    @IBOutlet var imageCacheLabel: UILabel!
+    @IBOutlet var ldapLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        
+        versionLabel.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        updateCacheDisplay()
+        updateLDAPDisplay()
+    }
+    
+    private func updateCacheDisplay() {
+        SDImageCache.shared().calculateSize { (fileCount, totalSize) in
+            let mb = Double(totalSize) / 1024.0 / 1024.0
+            // TODO: should use the system formatting library for formatting bytes
+            self.imageCacheLabel.text = String(format: "%0.2fMB / %lu images\nCache is limited to 100MB", mb, fileCount) as String
+        }
+    }
+    
+    private func updateLDAPDisplay() {
+        ldapLabel.isEnabled = SSULDAPCredentials.sharedInstance().hasCredentials
+    }
+    
+    // MARK: UITableView
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let cell = tableView.cellForRow(at: indexPath), let identifier = cell.reuseIdentifier else {
+            print("Unable to retrieve selected cell in AboutViewController")
+            return
+        }
+        switch identifier {
+        case ReuseIdentifier.legal:
+            if let fileURL = Bundle.main.url(forResource: "licenses", withExtension: "txt") {
+                let webVc = SSUWebViewController()
+                webVc.urlToLoad = fileURL
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }
+        case ReuseIdentifier.ldap:
+            if SSULDAPCredentials.sharedInstance().hasCredentials {
+                SSULDAPCredentials.sharedInstance().clear()
+                updateLDAPDisplay()
+                let hud = MBProgressHUD.showAdded(to: tableView, animated: true)
+                hud?.labelText = "Logged Out"
+                hud?.mode = .text
+                hud?.hide(true, afterDelay: 1.0)
+            }
+        case ReuseIdentifier.cache:
+            let hud = MBProgressHUD.showAdded(to: tableView, animated: true)
+            hud?.labelText = "Clearing cache..."
+            hud?.mode = .annularDeterminate
+            SDImageCache.shared().clearDisk(onCompletion: {
+                hud?.labelText = "Cache cleared"
+                hud?.mode = .text
+                hud?.hide(true, afterDelay: 1.0)
+                self.updateCacheDisplay()
+            })
+        case ReuseIdentifier.feedback:
+            // Handled by storyboard
+            break
+        default:
+            print("Unrecognized cell identifier \(identifier)")
+        }
+    }
+    
+}

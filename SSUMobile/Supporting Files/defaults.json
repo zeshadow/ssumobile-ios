@@ -1,6 +1,6 @@
 {
     "edu.sonoma.modules.enabled" : [
-        "SSUAboutModule",
+        "SSUMobile.SSUAboutModule",
         "SSUDirectoryModule",
         "SSUCalendarModule",
         "SSUNewsModule",

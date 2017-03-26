@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
+		0711E7F41E87527E00F9ACDE /* SSUModuleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E1111E57FA0100C85A53 /* SSUModuleBase.m */; };
+		0711E7F61E8752A900F9ACDE /* SSUAboutModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7F51E8752A900F9ACDE /* SSUAboutModule.swift */; };
+		0711E7F81E875B4800F9ACDE /* SSUAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7F71E875B4800F9ACDE /* SSUAboutViewController.swift */; };
+		0711E7F91E87690200F9ACDE /* SSUAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7F71E875B4800F9ACDE /* SSUAboutViewController.swift */; };
+		0711E7FB1E87691100F9ACDE /* SSUFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7FA1E87691100F9ACDE /* SSUFeedbackViewController.swift */; };
+		0711E7FC1E87691100F9ACDE /* SSUFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7FA1E87691100F9ACDE /* SSUFeedbackViewController.swift */; };
 		07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07155A2F18BE06B300226502 /* SSUSchoolViewController.m */; };
 		071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E237719E2380B00483138 /* SSUResourcesViewController.m */; };
 		071E237A19E2398500483138 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
@@ -24,7 +30,6 @@
 		0730A65E1C85515200FC9370 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AED16B1274200168521 /* main.m */; };
 		0730A65F1C85515200FC9370 /* SSUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995AF116B1274200168521 /* SSUAppDelegate.m */; };
 		0730A6601C85515200FC9370 /* SSUEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C5A4E31A87159B004DC819 /* SSUEmailViewController.m */; };
-		0730A6611C85515200FC9370 /* SSUAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F84D8319F589A30046D148 /* SSUAboutViewController.m */; };
 		0730A6621C85515200FC9370 /* SSUResourcesBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3AB1A1D97570088193E /* SSUResourcesBuilder.m */; };
 		0730A6631C85515200FC9370 /* SSUResourcesEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0785A3BA1A1D988C0088193E /* SSUResourcesEntry.m */; };
 		0730A6651C85515200FC9370 /* SSUCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6C1B9EF63000FFB2FE /* SSUCalendarModule.m */; };
@@ -33,7 +38,6 @@
 		0730A6691C85515200FC9370 /* SSUDebugCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */; };
 		0730A66A1C85515200FC9370 /* SSUPersonContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40035AE16B9DFAF00B27F93 /* SSUPersonContainerViewController.m */; };
 		0730A66B1C85515200FC9370 /* SSUEmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */; };
-		0730A66D1C85515200FC9370 /* SSUFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */; };
 		0730A66E1C85515200FC9370 /* SSUSchool.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36018E2D52600B98565 /* SSUSchool.m */; };
 		0730A66F1C85515200FC9370 /* SSUDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE5C16B9F19600B919F0 /* SSUDepartmentViewController.m */; };
 		0730A6701C85515200FC9370 /* SSUCalendarEventDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0780FFEC19CF950A00FD1E2A /* SSUCalendarEventDetail.m */; };
@@ -86,7 +90,6 @@
 		0730A6A61C85515200FC9370 /* Location+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE616E6E4B70078FBB0 /* Location+properties.m */; };
 		0730A6A71C85515200FC9370 /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
 		0730A6A81C85515200FC9370 /* SSUMapModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */; };
-		0730A6A91C85515200FC9370 /* SSUAboutModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */; };
 		0730A6AB1C85515200FC9370 /* SSUDirectoryDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760DC321A5FD060001D04F9 /* SSUDirectoryDetailController.m */; };
 		0730A6AC1C85515200FC9370 /* BuildingPerimeter+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5EDE916E6E5D20078FBB0 /* BuildingPerimeter+properties.m */; };
 		0730A6AD1C85515200FC9370 /* SSUEmailModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */; };
@@ -175,7 +178,6 @@
 		0733E10B1E57F99300C85A53 /* SSUSegmentedTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E0F41E57F99300C85A53 /* SSUSegmentedTableHeaderView.m */; };
 		0733E10C1E57F99300C85A53 /* SSUTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E0F61E57F99300C85A53 /* SSUTableHeaderView.m */; };
 		0733E1141E57FA0100C85A53 /* SSUCoreDataModuleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E10F1E57FA0100C85A53 /* SSUCoreDataModuleBase.m */; };
-		0733E1151E57FA0100C85A53 /* SSUModuleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E1111E57FA0100C85A53 /* SSUModuleBase.m */; };
 		0733E1161E57FA0100C85A53 /* SSUModuleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733E1131E57FA0100C85A53 /* SSUModuleServices.m */; };
 		0741C9521A871D73000B7BC6 /* SSUEmailConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */; };
 		0741C9551A8727BA000B7BC6 /* SSUEmailLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9541A8727BA000B7BC6 /* SSUEmailLoginViewController.m */; };
@@ -191,7 +193,6 @@
 		076CBF541B6F350C00364B36 /* SSUPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF531B6F350C00364B36 /* SSUPersonTableViewCell.m */; };
 		076CBF571B6F375000364B36 /* SSUDepartmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF561B6F375000364B36 /* SSUDepartmentTableViewCell.m */; };
 		077475701A6CA5ED0094EB15 /* SSUMapPopoverContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0774756F1A6CA5ED0094EB15 /* SSUMapPopoverContentController.m */; };
-		0778E5D81A28272800BA13B0 /* SSUFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */; };
 		077B458618F54AEA00899344 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077B458518F54AEA00899344 /* AddressBook.framework */; };
 		077B458818F54AF000899344 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077B458718F54AF000899344 /* AddressBookUI.framework */; };
 		078000F819CFAA0D00FD1E2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078000F719CFAA0D00FD1E2A /* Images.xcassets */; };
@@ -220,7 +221,6 @@
 		07B78B761B9F2DB100FFB2FE /* SSUResourcesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B751B9F2DB100FFB2FE /* SSUResourcesModule.m */; };
 		07B78B791B9F2F6900FFB2FE /* SSUMapModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */; };
 		07B78B7C1B9F320300FFB2FE /* SSUEmailModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */; };
-		07B78B7F1B9F326900FFB2FE /* SSUAboutModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */; };
 		07C13CE41B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C13CE31B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m */; };
 		07C2FE0E19C6C5120016349C /* SSURadioConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE0D19C6C5120016349C /* SSURadioConstants.m */; };
 		07C2FE1219C6C5AF0016349C /* SSURadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE1019C6C5AF0016349C /* SSURadioViewController.m */; };
@@ -243,7 +243,6 @@
 		07ED58BD1D77B31A0025843B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ED58BC1D77B31A0025843B /* WebKit.framework */; };
 		07ED58BE1D77B3250025843B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ED58BC1D77B31A0025843B /* WebKit.framework */; };
 		07F84D8119F5885B0046D148 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F84D8019F5885B0046D148 /* About.storyboard */; };
-		07F84D8419F589A30046D148 /* SSUAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F84D8319F589A30046D148 /* SSUAboutViewController.m */; };
 		07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FC1BA02EBE005C38DD /* Directory.xcassets */; };
 		07FD09001BA08132005C38DD /* Email.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FF1BA08132005C38DD /* Email.xcassets */; };
 		07FD09031BA082AE005C38DD /* Calendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09021BA082AE005C38DD /* Calendar.xcassets */; };
@@ -323,6 +322,13 @@
 		070A3A691BAA969100B0E67C /* Debug.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Debug.xcassets; sourceTree = "<group>"; };
 		070A3A6C1BAA992D00B0E67C /* SSUAppPickerModuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAppPickerModuleCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAppPickerModuleCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0711E7ED1E8746AD00F9ACDE /* SSUMobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSUMobile-Bridging-Header.h"; sourceTree = "<group>"; };
+		0711E7F01E87471000F9ACDE /* SSUDirectory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUDirectory.h; sourceTree = "<group>"; };
+		0711E7F31E874A3000F9ACDE /* SSUCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUCore.h; sourceTree = "<group>"; };
+		0711E7F51E8752A900F9ACDE /* SSUAboutModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUAboutModule.swift; sourceTree = "<group>"; };
+		0711E7F71E875B4800F9ACDE /* SSUAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUAboutViewController.swift; sourceTree = "<group>"; };
+		0711E7FA1E87691100F9ACDE /* SSUFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUFeedbackViewController.swift; sourceTree = "<group>"; };
+		0711E7FD1E87747D00F9ACDE /* SSUEmail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUEmail.h; sourceTree = "<group>"; };
 		07155A2E18BE06B300226502 /* SSUSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSchoolViewController.h; sourceTree = "<group>"; };
 		07155A2F18BE06B300226502 /* SSUSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSchoolViewController.m; sourceTree = "<group>"; };
 		071E237619E2380B00483138 /* SSUResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesViewController.h; sourceTree = "<group>"; };
@@ -414,8 +420,6 @@
 		076CBF561B6F375000364B36 /* SSUDepartmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUDepartmentTableViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0774756E1A6CA5ED0094EB15 /* SSUMapPopoverContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapPopoverContentController.h; sourceTree = "<group>"; };
 		0774756F1A6CA5ED0094EB15 /* SSUMapPopoverContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapPopoverContentController.m; sourceTree = "<group>"; };
-		0778E5D61A28272800BA13B0 /* SSUFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUFeedbackViewController.h; sourceTree = "<group>"; };
-		0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUFeedbackViewController.m; sourceTree = "<group>"; };
 		077B458518F54AEA00899344 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		077B458718F54AF000899344 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		077C6A2F19F6765200CE99A9 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
@@ -462,8 +466,6 @@
 		07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapModule.m; sourceTree = "<group>"; };
 		07B78B7A1B9F320300FFB2FE /* SSUEmailModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUEmailModule.h; sourceTree = "<group>"; };
 		07B78B7B1B9F320300FFB2FE /* SSUEmailModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUEmailModule.m; sourceTree = "<group>"; };
-		07B78B7D1B9F326900FFB2FE /* SSUAboutModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAboutModule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAboutModule.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07B98B421C6880BD00973AD7 /* SSUDebugCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUDebugCredentials.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07B98B431C6880BD00973AD7 /* SSUDebugCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUDebugCredentials.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07BFB3051B44E840002BF411 /* Debug.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Debug.storyboard; sourceTree = "<group>"; };
@@ -500,8 +502,6 @@
 		07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapBuildingDetailViewController.m; sourceTree = "<group>"; };
 		07ED58BC1D77B31A0025843B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		07F84D8019F5885B0046D148 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
-		07F84D8219F589A30046D148 /* SSUAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAboutViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		07F84D8319F589A30046D148 /* SSUAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAboutViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		07FD08FC1BA02EBE005C38DD /* Directory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Directory.xcassets; sourceTree = "<group>"; };
 		07FD08FF1BA08132005C38DD /* Email.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Email.xcassets; sourceTree = "<group>"; };
 		07FD09021BA082AE005C38DD /* Calendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Calendar.xcassets; sourceTree = "<group>"; };
@@ -731,6 +731,7 @@
 			children = (
 				0733E10D1E57FA0100C85A53 /* Module */,
 				0733E0C71E57F99300C85A53 /* Moonlight */,
+				0711E7F31E874A3000F9ACDE /* SSUCore.h */,
 				0733E0D01E57F99300C85A53 /* NSString+html.h */,
 				0733E0D11E57F99300C85A53 /* NSString+html.m */,
 				0733E0D21E57F99300C85A53 /* SSUConfiguration.h */,
@@ -930,6 +931,7 @@
 		07C997CB1A87114300534A1C /* Email */ = {
 			isa = PBXGroup;
 			children = (
+				0711E7FD1E87747D00F9ACDE /* SSUEmail.h */,
 				0741C9501A871D73000B7BC6 /* SSUEmailConstants.h */,
 				0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */,
 				07B78B7A1B9F320300FFB2FE /* SSUEmailModule.h */,
@@ -959,8 +961,7 @@
 		07F84D7E19F5883E0046D148 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				07B78B7D1B9F326900FFB2FE /* SSUAboutModule.h */,
-				07B78B7E1B9F326900FFB2FE /* SSUAboutModule.m */,
+				0711E7F51E8752A900F9ACDE /* SSUAboutModule.swift */,
 				07F84D7F19F588430046D148 /* Views */,
 			);
 			path = About;
@@ -970,10 +971,8 @@
 			isa = PBXGroup;
 			children = (
 				07F84D8019F5885B0046D148 /* About.storyboard */,
-				07F84D8219F589A30046D148 /* SSUAboutViewController.h */,
-				07F84D8319F589A30046D148 /* SSUAboutViewController.m */,
-				0778E5D61A28272800BA13B0 /* SSUFeedbackViewController.h */,
-				0778E5D71A28272800BA13B0 /* SSUFeedbackViewController.m */,
+				0711E7F71E875B4800F9ACDE /* SSUAboutViewController.swift */,
+				0711E7FA1E87691100F9ACDE /* SSUFeedbackViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1369,6 +1368,7 @@
 			children = (
 				C4995AF016B1274200168521 /* SSUAppDelegate.h */,
 				C4995AF116B1274200168521 /* SSUAppDelegate.m */,
+				0711E7ED1E8746AD00F9ACDE /* SSUMobile-Bridging-Header.h */,
 				785DD35E16E68977009188CC /* App Picker */,
 				C4FBF74E16BB8FFD00BE95E3 /* Modules */,
 				C4995AE816B1274200168521 /* Supporting Files */,
@@ -1465,6 +1465,7 @@
 		C4DE941216B1CE7700EEF142 /* Directory */ = {
 			isa = PBXGroup;
 			children = (
+				0711E7F01E87471000F9ACDE /* SSUDirectory.h */,
 				C4A7BE6116BA139000B919F0 /* SSUDirectoryConstants.h */,
 				C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */,
 				07B78B621B9EA4EA00FFB2FE /* SSUDirectoryModule.h */,
@@ -1642,6 +1643,7 @@
 				ORGANIZATIONNAME = "Sonoma State University Department of Computer Science";
 				TargetAttributes = {
 					C4995ADA16B1274200168521 = {
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1870,7 +1872,6 @@
 				0730A65E1C85515200FC9370 /* main.m in Sources */,
 				0730A65F1C85515200FC9370 /* SSUAppDelegate.m in Sources */,
 				0730A6601C85515200FC9370 /* SSUEmailViewController.m in Sources */,
-				0730A6611C85515200FC9370 /* SSUAboutViewController.m in Sources */,
 				0730A6621C85515200FC9370 /* SSUResourcesBuilder.m in Sources */,
 				0730A6631C85515200FC9370 /* SSUResourcesEntry.m in Sources */,
 				0730A6651C85515200FC9370 /* SSUCalendarModule.m in Sources */,
@@ -1879,7 +1880,6 @@
 				0730A6691C85515200FC9370 /* SSUDebugCredentials.m in Sources */,
 				0730A66A1C85515200FC9370 /* SSUPersonContainerViewController.m in Sources */,
 				0730A66B1C85515200FC9370 /* SSUEmailLoginViewController.m in Sources */,
-				0730A66D1C85515200FC9370 /* SSUFeedbackViewController.m in Sources */,
 				0730A66E1C85515200FC9370 /* SSUSchool.m in Sources */,
 				0730A66F1C85515200FC9370 /* SSUDepartmentViewController.m in Sources */,
 				0730A6701C85515200FC9370 /* SSUCalendarEventDetail.m in Sources */,
@@ -1932,13 +1932,13 @@
 				0730A6A61C85515200FC9370 /* Location+properties.m in Sources */,
 				0730A6A71C85515200FC9370 /* SSUAppPickerModuleCell.m in Sources */,
 				0730A6A81C85515200FC9370 /* SSUMapModule.m in Sources */,
-				0730A6A91C85515200FC9370 /* SSUAboutModule.m in Sources */,
 				0730A6AB1C85515200FC9370 /* SSUDirectoryDetailController.m in Sources */,
 				0730A6AC1C85515200FC9370 /* BuildingPerimeter+properties.m in Sources */,
 				0730A6AD1C85515200FC9370 /* SSUEmailModule.m in Sources */,
 				0730A6AE1C85515200FC9370 /* Polygon+properties.m in Sources */,
 				07E8A2201D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */,
 				0730A6AF1C85515200FC9370 /* SSUMapBuildingDetailViewController.m in Sources */,
+				0711E7F91E87690200F9ACDE /* SSUAboutViewController.swift in Sources */,
 				0730A6B01C85515200FC9370 /* SSUMapBuildingPerimeter.m in Sources */,
 				0730A6B11C85515200FC9370 /* SSUMapLocation.m in Sources */,
 				0730A6B21C85515200FC9370 /* SSUOutdoorDirectionToolViewController.m in Sources */,
@@ -1951,6 +1951,7 @@
 				0730A6BB1C85515200FC9370 /* SSUPointsBuilder.m in Sources */,
 				0730A6BC1C85515200FC9370 /* SSUDirectoryToolsViewController.m in Sources */,
 				0730A6BE1C85515200FC9370 /* SSUConnectionsBuilder.m in Sources */,
+				0711E7FC1E87691100F9ACDE /* SSUFeedbackViewController.swift in Sources */,
 				0730A6BF1C85515200FC9370 /* SSUBuildingPerimetersBuilder.m in Sources */,
 				0730A6C01C85515200FC9370 /* SSUSchoolViewController.m in Sources */,
 				0730A6C11C85515200FC9370 /* SSURadioStreamer.m in Sources */,
@@ -1979,7 +1980,6 @@
 				C4995AF216B1274200168521 /* SSUAppDelegate.m in Sources */,
 				0733E10A1E57F99300C85A53 /* SSUNavigationController.m in Sources */,
 				07C5A4E41A87159B004DC819 /* SSUEmailViewController.m in Sources */,
-				07F84D8419F589A30046D148 /* SSUAboutViewController.m in Sources */,
 				0785A3AC1A1D97570088193E /* SSUResourcesBuilder.m in Sources */,
 				0785A3BB1A1D988C0088193E /* SSUResourcesEntry.m in Sources */,
 				07B78B6D1B9EF63000FFB2FE /* SSUCalendarModule.m in Sources */,
@@ -1987,7 +1987,6 @@
 				C40035A116B9C6BC00B27F93 /* SSUPersonViewController.m in Sources */,
 				C40035AF16B9DFAF00B27F93 /* SSUPersonContainerViewController.m in Sources */,
 				0741C9551A8727BA000B7BC6 /* SSUEmailLoginViewController.m in Sources */,
-				0778E5D81A28272800BA13B0 /* SSUFeedbackViewController.m in Sources */,
 				07D1A36118E2D52600B98565 /* SSUSchool.m in Sources */,
 				C4A7BE5D16B9F19600B919F0 /* SSUDepartmentViewController.m in Sources */,
 				0780FFF719CF950B00FD1E2A /* SSUCalendarEventDetail.m in Sources */,
@@ -2005,6 +2004,7 @@
 				0733E1041E57F99300C85A53 /* SSUDetailTableViewController.m in Sources */,
 				0733E1051E57F99300C85A53 /* SSUGlobalNavigationController.m in Sources */,
 				074F53101B70807B00F97BCA /* SSUSchoolTableViewCell.m in Sources */,
+				0711E7F61E8752A900F9ACDE /* SSUAboutModule.swift in Sources */,
 				07B78B761B9F2DB100FFB2FE /* SSUResourcesModule.m in Sources */,
 				074D135A1BA703B20002899F /* Directory.xcdatamodeld in Sources */,
 				07689530198A165600C233B3 /* SSUHomeViewController.m in Sources */,
@@ -2036,15 +2036,16 @@
 				07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */,
 				785DD35716E688D1009188CC /* SSUOutdoorMapConstants.m in Sources */,
 				7841E5FD16E6C589007A8F95 /* Map.xcdatamodeld in Sources */,
+				0711E7FB1E87691100F9ACDE /* SSUFeedbackViewController.swift in Sources */,
 				78A5EDD416E6E0B40078FBB0 /* MapPoint+properties.m in Sources */,
 				079489091B6606E600BD5E1E /* SSUEmailPickerViewController.m in Sources */,
 				78A5EDE716E6E4B70078FBB0 /* Location+properties.m in Sources */,
 				070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */,
 				07B78B791B9F2F6900FFB2FE /* SSUMapModule.m in Sources */,
 				0733E1031E57F99300C85A53 /* SSUCoreTableViewController.m in Sources */,
+				0711E7F81E875B4800F9ACDE /* SSUAboutViewController.swift in Sources */,
 				0733E1081E57F99300C85A53 /* SSUWebViewController.m in Sources */,
 				0733E0F71E57F99300C85A53 /* SSUMoonlightBuilder.m in Sources */,
-				07B78B7F1B9F326900FFB2FE /* SSUAboutModule.m in Sources */,
 				0760DC331A5FD060001D04F9 /* SSUDirectoryDetailController.m in Sources */,
 				0733E1161E57FA0100C85A53 /* SSUModuleServices.m in Sources */,
 				0733E0F91E57F99300C85A53 /* SSUMoonlightCommunicator.m in Sources */,
@@ -2064,7 +2065,7 @@
 				78A190B61717A0AA00D8768C /* SSUMapPoint.m in Sources */,
 				78A190B91718ADCD00D8768C /* SSUMapPolygon.m in Sources */,
 				78A190BD171B3D0600D8768C /* SSUPointsBuilder.m in Sources */,
-				0733E1151E57FA0100C85A53 /* SSUModuleBase.m in Sources */,
+				0711E7F41E87527E00F9ACDE /* SSUModuleBase.m in Sources */,
 				0733E1071E57F99300C85A53 /* SSUSelectionController.m in Sources */,
 				78A190C6171B3F9900D8768C /* SSUConnectionsBuilder.m in Sources */,
 				0733E0FD1E57F99300C85A53 /* SSULogging.m in Sources */,
@@ -2309,6 +2310,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobile/SSUMobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$SRCROOT/Pods/Headers/Public/**/**";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2350,6 +2352,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobile/SSUMobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$SRCROOT/Pods/Headers/Public/**/**";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2360,6 +2364,7 @@
 		C4995B2416B1274300168521 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSUMobile.app/SSUMobile";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -2377,6 +2382,7 @@
 		C4995B2516B1274300168521 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSUMobile.app/SSUMobile";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
