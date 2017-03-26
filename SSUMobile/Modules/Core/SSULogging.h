@@ -34,10 +34,5 @@ static const DDLogLevel ddLogLevel = DDLogLevelError;
 @interface SSULogging : NSObject
 
 + (void) setupLogging;
-+ (void) logError:(NSString *)format, ...;
-+ (void) logWarn:(NSString *)format, ...;
-+ (void) logInfo:(NSString *)format, ...;
-+ (void) logDebug:(NSString *)format, ...;
-+ (void) logVerbose:(NSString *)format, ...;
 
 @end

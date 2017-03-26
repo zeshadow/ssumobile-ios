@@ -8,5 +8,7 @@
 #import "SSUEmail.h"
 
 // Pods
-#import <SDWebImage/SDImageCache.h>
-#import <MBProgressHUD/MBProgressHUD.h>
+@import SDWebImage;
+@import MBProgressHUD;
+@import CocoaLumberjack;
+

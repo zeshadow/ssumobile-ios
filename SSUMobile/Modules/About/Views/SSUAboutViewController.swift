@@ -47,7 +47,7 @@ class SSUAboutViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath), let identifier = cell.reuseIdentifier else {
-            print("Unable to retrieve selected cell in AboutViewController")
+            SSULogging.logError("Unable to retrieve selected cell in AboutViewController")
             return
         }
         switch identifier {
@@ -80,7 +80,7 @@ class SSUAboutViewController: UITableViewController {
             // Handled by storyboard
             break
         default:
-            print("Unrecognized cell identifier \(identifier)")
+            SSULogging.logError("Unrecognized cell identifier \(identifier)")
         }
     }
     
