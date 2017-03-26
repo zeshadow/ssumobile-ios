@@ -52,8 +52,6 @@
         [[SSUModuleServices sharedInstance] setupAll];
     }
     
-    [[SDImageCache sharedImageCache] setMaxCacheSize:1024*1000*100]; // 100MB max cache size
-    
     return YES;
 }
 

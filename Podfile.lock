@@ -7,9 +7,9 @@ PODS:
   - MJDijkstra (1.0.0)
   - PDTSimpleCalendar (0.9.1)
   - RBStoryboardLink (0.1.0)
-  - SDWebImage (3.7.1):
-    - SDWebImage/Core (= 3.7.1)
-  - SDWebImage/Core (3.7.1)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SimpleKeychain (0.7.0)
 
 DEPENDENCIES:
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - MJDijkstra (~> 1.0.0)
   - PDTSimpleCalendar (~> 0.9.0)
   - RBStoryboardLink (~> 0.1.0)
-  - SDWebImage (~> 3.7.1)
+  - SDWebImage (~> 4.0)
   - SimpleKeychain (~> 0.6)
 
 SPEC CHECKSUMS:
@@ -29,9 +29,9 @@ SPEC CHECKSUMS:
   MJDijkstra: ecc733843aae475a22ddcf3ac236245a7000ffdd
   PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
   RBStoryboardLink: 438a56a29ef5a433d33d2f045533d6ca8d1f7755
-  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
 
-PODFILE CHECKSUM: 120747cd1b790efaa3c6b5ea99a25217a1d10309
+PODFILE CHECKSUM: bdb1de8071d051afdf1892569a40986e5dd09d9e
 
 COCOAPODS: 1.2.0

@@ -7,7 +7,7 @@ inhibit_all_warnings!
 use_frameworks!
 
 pod 'RBStoryboardLink', '~> 0.1.0'
-pod 'SDWebImage','~> 3.7.1'
+pod 'SDWebImage','~> 4.0'
 pod 'MBProgressHUD','~> 0.9.1'
 pod 'PDTSimpleCalendar', '~> 0.9.0'
 pod 'Masonry'

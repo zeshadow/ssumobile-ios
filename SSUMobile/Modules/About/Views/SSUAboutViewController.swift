@@ -17,6 +17,14 @@ class SSUAboutViewController: UITableViewController {
         static let feedback = "Feedback"
     }
     
+    private let cacheFormatter: ByteCountFormatter = {
+        let formatter = ByteCountFormatter()
+        formatter.allowedUnits = .useMB
+        formatter.countStyle = .file
+        formatter.allowsNonnumericFormatting = false
+        return formatter
+    }()
+    
     @IBOutlet var versionLabel: UILabel!
     @IBOutlet var imageCacheLabel: UILabel!
     @IBOutlet var ldapLabel: UILabel!
@@ -32,9 +40,8 @@ class SSUAboutViewController: UITableViewController {
     
     private func updateCacheDisplay() {
         SDImageCache.shared().calculateSize { (fileCount, totalSize) in
-            let mb = Double(totalSize) / 1024.0 / 1024.0
-            // TODO: should use the system formatting library for formatting bytes
-            self.imageCacheLabel.text = String(format: "%0.2fMB / %lu images\nCache is limited to 100MB", mb, fileCount) as String
+            let mb = self.cacheFormatter.string(fromByteCount: Int64(totalSize))
+            self.imageCacheLabel.text = "\(mb) / \(fileCount) images"
         }
     }
     
