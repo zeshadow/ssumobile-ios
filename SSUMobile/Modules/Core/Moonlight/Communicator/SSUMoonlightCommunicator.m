@@ -17,14 +17,14 @@
 
 @implementation SSUMoonlightCommunicator
 
-+ (NSURL *) baseURLStringForPath:(NSString *)path {
++ (NSURL * _Nullable) baseURLStringForPath:(NSString *)path {
     NSURL * baseURL = [NSURL URLWithString:SSUMoonlightBaseURL];
     return [baseURL URLByAppendingPathComponent:path];
 }
 
 #pragma mark - Downloads
 
-+ (void) getJSONFromPath:(NSString *)path completion:(SSUCommunicatorJSONCompletion)completion {
++ (void) getJSONFromPath:(NSString *)path completion:(SSUCommunicatorJSONCompletion _Nullable)completion {
     [self getJSONFromPath:path sinceDate:nil completion:completion];
 }
 
@@ -32,8 +32,8 @@
  Downloads JSON from the given path, relative to the base moonlight URL.
  */
 + (void) getJSONFromPath:(NSString *)path
-               sinceDate:(NSDate *)lastUpdate
-              completion:(SSUCommunicatorJSONCompletion)completion {
+               sinceDate:(NSDate * _Nullable)lastUpdate
+              completion:(SSUCommunicatorJSONCompletion _Nullable)completion {
     
     NSURL * urlBase = [self baseURLStringForPath:path];
     NSURL * fullURL = urlBase;
@@ -48,17 +48,17 @@
     [self getJSONFromURL:fullURL completion:completion];
 }
 
-+ (void) postPath:(NSString *)path parameters:(NSDictionary *)params completion:(SSUCommunicatorCompletion)completion {
++ (void) postPath:(NSString *)path parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorCompletion _Nullable)completion {
     NSURL * url = [self baseURLStringForPath:path];
     [self postURL:url parameters:params completion:completion];
 }
 
-+ (void) postJSONPath:(NSString *)path parameters:(NSDictionary *)params completion:(SSUCommunicatorJSONCompletion)completion {
++ (void) postJSONPath:(NSString *)path parameters:(NSDictionary * _Nullable)params completion:(SSUCommunicatorJSONCompletion _Nullable)completion {
     NSURL * url = [self baseURLStringForPath:path];
     [self postJSONURL:url parameters:params completion:completion];
 }
 
-+ (NSURL *)urlForPath:(NSString *)path {
++ (NSURL * _Nullable)urlForPath:(NSString *)path {
     return [self baseURLStringForPath:path];
 }
 

@@ -18,7 +18,6 @@
 #import "SSUModuleServices.h"
 #import "SSUSpotlightServices.h"
 
-#import <SDWebImage/SDImageCache.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface SSUAppDelegate()
@@ -152,7 +151,7 @@
 }
 
 - (void) applicationDidReceiveMemoryWarning:(UIApplication *)application {
-    [[SDImageCache sharedImageCache] clearMemory];
+    
 }
 
 #pragma mark - NSUserActivity / CoreSpotlight

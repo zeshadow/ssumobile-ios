@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+extension SSUConfiguration {
+    
+    private struct Keys {
+        static let lastUpdate = "NewsUpdatedDate"
+    }
+    
+    var newsLastUpdate: Date? {
+        get {
+            return date(forKey: Keys.lastUpdate)
+        } set {
+            setDate(newValue, forKey: Keys.lastUpdate)
+        }
+    }
+}

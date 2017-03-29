@@ -11,7 +11,6 @@
 #import "SSUMapBuilder.h"
 #import "SSUMapModule.h"
 #import "SSUDirectoryModule.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 enum {
     PageControlIndexMapView,

@@ -39,9 +39,9 @@ class SSUAboutViewController: UITableViewController {
     }
     
     private func updateCacheDisplay() {
-        SDImageCache.shared().calculateSize { (fileCount, totalSize) in
-            let mb = self.cacheFormatter.string(fromByteCount: Int64(totalSize))
-            self.imageCacheLabel.text = "\(mb) / \(fileCount) images"
+        ImageCache.default.calculateDiskCacheSize { (bytes) in
+            let mb = self.cacheFormatter.string(fromByteCount: Int64(bytes))
+            self.imageCacheLabel.text = "Cached images: \(mb)"
         }
     }
     
@@ -77,7 +77,7 @@ class SSUAboutViewController: UITableViewController {
             let hud = MBProgressHUD.showAdded(to: tableView, animated: true)
             hud.label.text = "Clearing cache..."
             hud.mode = .annularDeterminate
-            SDImageCache.shared().clearDisk(onCompletion: {
+            ImageCache.default.clearDiskCache(completion: { 
                 hud.label.text = "Cache cleared"
                 hud.mode = .text
                 hud.hide(animated: true, afterDelay: 1.0)

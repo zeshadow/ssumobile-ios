@@ -73,7 +73,7 @@ static NSString * kLoginSegue = @"login";
 
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.progressHUD hide:NO];
+    [self.progressHUD hideAnimated:NO];
     [self.progressHUD removeFromSuperview];
     [self.webView stopLoading];
 }
@@ -100,18 +100,18 @@ static NSString * kLoginSegue = @"login";
     }
     _progressHUD = [[MBProgressHUD alloc] initWithView:self.webView];
     [self.webView addSubview:_progressHUD];
-    _progressHUD.labelText = @"Loading";
+    _progressHUD.label.text = @"Loading";
     _progressHUD.removeFromSuperViewOnHide = YES;
     
     return _progressHUD;
 }
 
 - (void) setLoadingText:(NSString *)loadingText {
-    self.progressHUD.labelText = loadingText;
+    self.progressHUD.label.text = loadingText;
 }
 
 - (NSString *) loadingText {
-    return self.progressHUD.labelText;
+    return self.progressHUD.label.text;
 }
 
 - (void) showLoadingView {
@@ -119,13 +119,13 @@ static NSString * kLoginSegue = @"login";
         if (!self.progressHUD.superview) {
             [self.webView addSubview:self.progressHUD];
         }
-        [self.progressHUD show:YES];
+        [self.progressHUD showAnimated:YES];
     });
 }
 
 - (void) hideLoadingView {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressHUD hide:YES afterDelay:0.5];
+        [self.progressHUD hideAnimated:YES afterDelay:0.5];
     });
 }
 

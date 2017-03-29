@@ -17,8 +17,22 @@
 		0711E7FF1E87771100F9ACDE /* SSULogging+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7FE1E87771100F9ACDE /* SSULogging+Swift.swift */; };
 		0711E8001E87771100F9ACDE /* SSULogging+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7FE1E87771100F9ACDE /* SSULogging+Swift.swift */; };
 		0711E8021E878C1F00F9ACDE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0711E8011E878C1F00F9ACDE /* Launch Screen.storyboard */; };
+		0711E8041E884A0F00F9ACDE /* SSUNewsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8031E884A0F00F9ACDE /* SSUNewsModule.swift */; };
+		0711E8051E884A0F00F9ACDE /* SSUNewsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8031E884A0F00F9ACDE /* SSUNewsModule.swift */; };
+		0711E8071E884D2C00F9ACDE /* SSUConfiguration+News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8061E884D2C00F9ACDE /* SSUConfiguration+News.swift */; };
+		0711E8081E884D2C00F9ACDE /* SSUConfiguration+News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8061E884D2C00F9ACDE /* SSUConfiguration+News.swift */; };
 		0711E80A1E88520900F9ACDE /* SSUConfiguration+About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8091E88520900F9ACDE /* SSUConfiguration+About.swift */; };
 		0711E80B1E88520900F9ACDE /* SSUConfiguration+About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8091E88520900F9ACDE /* SSUConfiguration+About.swift */; };
+		0711E8101E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80C1E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift */; };
+		0711E8111E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80C1E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift */; };
+		0711E8121E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80D1E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift */; };
+		0711E8131E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80D1E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift */; };
+		0711E8141E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80E1E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift */; };
+		0711E8151E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80E1E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift */; };
+		0711E8161E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80F1E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift */; };
+		0711E8171E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E80F1E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift */; };
+		0711E8191E886D5500F9ACDE /* SSUNewsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8181E886D5500F9ACDE /* SSUNewsBuilder.swift */; };
+		0711E81A1E886D5500F9ACDE /* SSUNewsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E8181E886D5500F9ACDE /* SSUNewsBuilder.swift */; };
 		07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07155A2F18BE06B300226502 /* SSUSchoolViewController.m */; };
 		071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E237719E2380B00483138 /* SSUResourcesViewController.m */; };
 		071E237A19E2398500483138 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
@@ -50,24 +64,18 @@
 		0730A6721C85515200FC9370 /* SSUDirectoryModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */; };
 		0730A6741C85515200FC9370 /* SSUBuildingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F530C1B707DA700F97BCA /* SSUBuildingTableViewCell.m */; };
 		0730A6761C85515200FC9370 /* SSUDepartmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 076CBF561B6F375000364B36 /* SSUDepartmentTableViewCell.m */; };
-		0730A6771C85515200FC9370 /* SSUArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08DD52190F1E0B00141224 /* SSUArticle.m */; };
-		0730A6781C85515200FC9370 /* SSUNewsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */; };
 		0730A6791C85515200FC9370 /* SSUBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE6616BA241900B919F0 /* SSUBuildingViewController.m */; };
-		0730A67A1C85515200FC9370 /* SSUNewsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */; };
 		0730A67C1C85515200FC9370 /* SSUCalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0783A2131A1039760004982F /* SSUCalendarEventCell.m */; };
 		0730A67D1C85515200FC9370 /* SSUSchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F530F1B70807B00F97BCA /* SSUSchoolTableViewCell.m */; };
 		0730A67E1C85515200FC9370 /* SSUResourcesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B751B9F2DB100FFB2FE /* SSUResourcesModule.m */; };
 		0730A67F1C85515200FC9370 /* Directory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 074D13581BA703B20002899F /* Directory.xcdatamodeld */; };
 		0730A6801C85515200FC9370 /* SSUHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0768952F198A165600C233B3 /* SSUHomeViewController.m */; };
-		0730A6811C85515200FC9370 /* SSUNewsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */; };
 		0730A6821C85515200FC9370 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF74316BB8C5C00BE95E3 /* News.xcdatamodeld */; };
 		0730A6831C85515200FC9370 /* SSUCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75016BB903D00BE95E3 /* SSUCalendarConstants.m */; };
 		0730A6841C85515200FC9370 /* SSUCalendarBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75316BB90A600BE95E3 /* SSUCalendarBuilder.m */; };
 		0730A6851C85515200FC9370 /* SSURadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE1019C6C5AF0016349C /* SSURadioViewController.m */; };
 		0730A6881C85515200FC9370 /* SSURadioConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C2FE0D19C6C5120016349C /* SSURadioConstants.m */; };
-		0730A6891C85515200FC9370 /* SSUNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */; };
 		0730A68A1C85515200FC9370 /* SSUDepartment+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB6CA1B94511A00014CD0 /* SSUDepartment+properties.m */; };
-		0730A68B1C85515200FC9370 /* SSUNewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 78708BDF16C48B2000226EA9 /* SSUNewsObject.m */; };
 		0730A68C1C85515200FC9370 /* SSUDirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A8E14F16C74BDE00898596 /* SSUDirectoryViewController.m */; };
 		0730A68D1C85515200FC9370 /* SSUEmailConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0741C9511A871D73000B7BC6 /* SSUEmailConstants.m */; };
 		0730A68E1C85515200FC9370 /* SSUSettingsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */; };
@@ -117,7 +125,6 @@
 		0730A6C11C85515200FC9370 /* SSURadioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0780018719D00CA100FD1E2A /* SSURadioStreamer.m */; };
 		0730A6C21C85515200FC9370 /* SSUBoundaryBuildingSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190E0171BC59400D8768C /* SSUBoundaryBuildingSelectorViewController.m */; };
 		0730A6C31C85515200FC9370 /* SSUCollectionViewCellSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C13CE31B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m */; };
-		0730A6C41C85515200FC9370 /* SSUNewsArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */; };
 		0730A6C51C85515200FC9370 /* SSUDepartment.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D1A36918E2D52600B98565 /* SSUDepartment.m */; };
 		0730A6C61C85515200FC9370 /* SSUDebugModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A671BAA960100B0E67C /* SSUDebugModule.m */; };
 		0730A6C81C85515200FC9370 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AFDFD619D917550027D0F1 /* EventKitUI.framework */; };
@@ -145,7 +152,6 @@
 		0730A6E21C85515200FC9370 /* AppPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09041BA0833E005C38DD /* AppPicker.xcassets */; };
 		0730A6E31C85515200FC9370 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BFB3051B44E840002BF411 /* Debug.storyboard */; };
 		0730A6E51C85515200FC9370 /* Directory_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */; };
-		0730A6E61C85515200FC9370 /* News_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */; };
 		0730A6E71C85515200FC9370 /* Calendar_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */; };
 		0730A6E81C85515200FC9370 /* Email.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FF1BA08132005C38DD /* Email.xcassets */; };
 		0730A6E91C85515200FC9370 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071E237919E2398500483138 /* Resources.storyboard */; };
@@ -220,7 +226,6 @@
 		07B3C1171B92F1E300773169 /* SSUCalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3C1161B92F1E300773169 /* SSUCalendarEventCell.xib */; };
 		07B78B641B9EA4EA00FFB2FE /* SSUDirectoryModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */; };
 		07B78B6D1B9EF63000FFB2FE /* SSUCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6C1B9EF63000FFB2FE /* SSUCalendarModule.m */; };
-		07B78B701B9F2B0E00FFB2FE /* SSUNewsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */; };
 		07B78B731B9F2D1100FFB2FE /* SSURadioModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B721B9F2D1100FFB2FE /* SSURadioModule.m */; };
 		07B78B761B9F2DB100FFB2FE /* SSUResourcesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B751B9F2DB100FFB2FE /* SSUResourcesModule.m */; };
 		07B78B791B9F2F6900FFB2FE /* SSUMapModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B78B781B9F2F6900FFB2FE /* SSUMapModule.m */; };
@@ -246,6 +251,12 @@
 		07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */; };
 		07ED58BD1D77B31A0025843B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ED58BC1D77B31A0025843B /* WebKit.framework */; };
 		07ED58BE1D77B3250025843B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ED58BC1D77B31A0025843B /* WebKit.framework */; };
+		07F54F631E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F54F621E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift */; };
+		07F54F641E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F54F621E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift */; };
+		07F54F661E88847300D24EA7 /* SSUConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F54F651E88847300D24EA7 /* SSUConstants.swift */; };
+		07F54F671E88847300D24EA7 /* SSUConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F54F651E88847300D24EA7 /* SSUConstants.swift */; };
+		07F54F691E888F2300D24EA7 /* SSUNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F54F681E888F2300D24EA7 /* SSUNewsViewController.swift */; };
+		07F54F6A1E888F2300D24EA7 /* SSUNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F54F681E888F2300D24EA7 /* SSUNewsViewController.swift */; };
 		07F84D8119F5885B0046D148 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F84D8019F5885B0046D148 /* About.storyboard */; };
 		07FD08FD1BA02EBE005C38DD /* Directory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FC1BA02EBE005C38DD /* Directory.xcassets */; };
 		07FD09001BA08132005C38DD /* Email.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD08FF1BA08132005C38DD /* Email.xcassets */; };
@@ -265,8 +276,6 @@
 		784315FB16D1E44300B8552F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784315FA16D1E44300B8552F /* CoreLocation.framework */; };
 		7847DF6016E18165001B3CB7 /* SSUPerson+properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7847DF5F16E18164001B3CB7 /* SSUPerson+properties.m */; };
 		785DD35716E688D1009188CC /* SSUOutdoorMapConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 785DD35616E688D1009188CC /* SSUOutdoorMapConstants.m */; };
-		78708BE016C48B2000226EA9 /* SSUNewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 78708BDF16C48B2000226EA9 /* SSUNewsObject.m */; };
-		7893FFE417260B8A009251F4 /* SSUNewsArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */; };
 		78A190B61717A0AA00D8768C /* SSUMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B51717A0AA00D8768C /* SSUMapPoint.m */; };
 		78A190B91718ADCD00D8768C /* SSUMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190B81718ADCD00D8768C /* SSUMapPolygon.m */; };
 		78A190BD171B3D0600D8768C /* SSUPointsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A190BC171B3D0600D8768C /* SSUPointsBuilder.m */; };
@@ -280,12 +289,10 @@
 		78AD220C171731F600FB89F0 /* SSUDirectoryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4995B2616B127A400168521 /* SSUDirectoryBuilder.m */; };
 		78FE792816C9D04500626462 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 78FE792716C9D04500626462 /* Settings.bundle */; };
 		78FE792C16CAA30B00626462 /* SSUSettingsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */; };
-		AA08DD53190F1E0B00141224 /* SSUArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08DD52190F1E0B00141224 /* SSUArticle.m */; };
 		AAEF4F5B18FFAB6C0006276D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */; };
 		AAEF4FAB1900AC130006276D /* SSUOutdoorMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF4FAA1900AC130006276D /* SSUOutdoorMapViewController.m */; };
 		C40035A116B9C6BC00B27F93 /* SSUPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40035A016B9C6BC00B27F93 /* SSUPersonViewController.m */; };
 		C40035AF16B9DFAF00B27F93 /* SSUPersonContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40035AE16B9DFAF00B27F93 /* SSUPersonContainerViewController.m */; };
-		C42D1BD616BB5D19003AE10B /* News_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */; };
 		C42D1BD816BB5D7F003AE10B /* Calendar_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */; };
 		C46E1E5116BB55370040435C /* Directory_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */; };
 		C4995AE016B1274200168521 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4995ADF16B1274200168521 /* UIKit.framework */; };
@@ -302,12 +309,9 @@
 		C4A7BE5D16B9F19600B919F0 /* SSUDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE5C16B9F19600B919F0 /* SSUDepartmentViewController.m */; };
 		C4A7BE6316BA139100B919F0 /* SSUDirectoryConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */; };
 		C4A7BE6716BA241900B919F0 /* SSUBuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE6616BA241900B919F0 /* SSUBuildingViewController.m */; };
-		C4A7BE7B16BA336100B919F0 /* SSUNewsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */; };
-		C4FBF74016BB8C0400BE95E3 /* SSUNewsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */; };
 		C4FBF74516BB8C5C00BE95E3 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF74316BB8C5C00BE95E3 /* News.xcdatamodeld */; };
 		C4FBF75116BB903D00BE95E3 /* SSUCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75016BB903D00BE95E3 /* SSUCalendarConstants.m */; };
 		C4FBF75416BB90A600BE95E3 /* SSUCalendarBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF75316BB90A600BE95E3 /* SSUCalendarBuilder.m */; };
-		C4FBF77F16BC615300BE95E3 /* SSUNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */; };
 		FB0C64796E6A63FF0E4176E4 /* Pods_SSUMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFEFE76E20960FEACAD3748 /* Pods_SSUMobileTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -336,7 +340,14 @@
 		0711E7FD1E87747D00F9ACDE /* SSUEmail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSUEmail.h; sourceTree = "<group>"; };
 		0711E7FE1E87771100F9ACDE /* SSULogging+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSULogging+Swift.swift"; sourceTree = "<group>"; };
 		0711E8011E878C1F00F9ACDE /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0711E8031E884A0F00F9ACDE /* SSUNewsModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUNewsModule.swift; sourceTree = "<group>"; };
+		0711E8061E884D2C00F9ACDE /* SSUConfiguration+News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSUConfiguration+News.swift"; sourceTree = "<group>"; };
 		0711E8091E88520900F9ACDE /* SSUConfiguration+About.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSUConfiguration+About.swift"; sourceTree = "<group>"; };
+		0711E80C1E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSUArticle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0711E80D1E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSUArticle+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0711E80E1E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSUNewsObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0711E80F1E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SSUNewsObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0711E8181E886D5500F9ACDE /* SSUNewsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUNewsBuilder.swift; sourceTree = "<group>"; };
 		07155A2E18BE06B300226502 /* SSUSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSchoolViewController.h; sourceTree = "<group>"; };
 		07155A2F18BE06B300226502 /* SSUSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSchoolViewController.m; sourceTree = "<group>"; };
 		071E237619E2380B00483138 /* SSUResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesViewController.h; sourceTree = "<group>"; };
@@ -464,8 +475,6 @@
 		07B78B631B9EA4EA00FFB2FE /* SSUDirectoryModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryModule.m; sourceTree = "<group>"; };
 		07B78B6B1B9EF63000FFB2FE /* SSUCalendarModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUCalendarModule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		07B78B6C1B9EF63000FFB2FE /* SSUCalendarModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUCalendarModule.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		07B78B6E1B9F2B0E00FFB2FE /* SSUNewsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsModule.h; sourceTree = "<group>"; };
-		07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsModule.m; sourceTree = "<group>"; };
 		07B78B711B9F2D1100FFB2FE /* SSURadioModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSURadioModule.h; sourceTree = "<group>"; };
 		07B78B721B9F2D1100FFB2FE /* SSURadioModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSURadioModule.m; sourceTree = "<group>"; };
 		07B78B741B9F2DB100FFB2FE /* SSUResourcesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUResourcesModule.h; sourceTree = "<group>"; };
@@ -509,6 +518,9 @@
 		07EC53B71BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapBuildingDetailViewController.h; sourceTree = "<group>"; };
 		07EC53B81BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapBuildingDetailViewController.m; sourceTree = "<group>"; };
 		07ED58BC1D77B31A0025843B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		07F54F621E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUNewsArticleTableViewCell.swift; sourceTree = "<group>"; };
+		07F54F651E88847300D24EA7 /* SSUConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUConstants.swift; sourceTree = "<group>"; };
+		07F54F681E888F2300D24EA7 /* SSUNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUNewsViewController.swift; sourceTree = "<group>"; };
 		07F84D8019F5885B0046D148 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		07FD08FC1BA02EBE005C38DD /* Directory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Directory.xcassets; sourceTree = "<group>"; };
 		07FD08FF1BA08132005C38DD /* Email.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Email.xcassets; sourceTree = "<group>"; };
@@ -537,8 +549,6 @@
 		7847DF5F16E18164001B3CB7 /* SSUPerson+properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSUPerson+properties.m"; sourceTree = "<group>"; };
 		785DD35516E688D1009188CC /* SSUOutdoorMapConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorMapConstants.h; sourceTree = "<group>"; };
 		785DD35616E688D1009188CC /* SSUOutdoorMapConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorMapConstants.m; sourceTree = "<group>"; };
-		78708BDE16C48B2000226EA9 /* SSUNewsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsObject.h; sourceTree = "<group>"; };
-		78708BDF16C48B2000226EA9 /* SSUNewsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsObject.m; sourceTree = "<group>"; };
 		787AD41A16CDBD53001BB4A0 /* SSUAppPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAppPickerViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		787AD41B16CDBD53001BB4A0 /* SSUAppPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAppPickerViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7881D9CE16E1C19A001DC30F /* SSUOutdoorBoundaryToolMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorBoundaryToolMapViewController.h; sourceTree = "<group>"; };
@@ -550,8 +560,6 @@
 		7881D9DB16E28857001DC30F /* SSUOutdoorPathConnectToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorPathConnectToolViewController.m; sourceTree = "<group>"; };
 		7881D9DD16E28862001DC30F /* SSUOutdoorPathPointToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUOutdoorPathPointToolViewController.h; sourceTree = "<group>"; };
 		7881D9DE16E28862001DC30F /* SSUOutdoorPathPointToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUOutdoorPathPointToolViewController.m; sourceTree = "<group>"; };
-		7893FFE217260B8A009251F4 /* SSUNewsArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsArticleTableViewCell.h; sourceTree = "<group>"; };
-		7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsArticleTableViewCell.m; sourceTree = "<group>"; };
 		78A190B41717A0AA00D8768C /* SSUMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapPoint.h; sourceTree = "<group>"; };
 		78A190B51717A0AA00D8768C /* SSUMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapPoint.m; sourceTree = "<group>"; };
 		78A190B71718ADCD00D8768C /* SSUMapPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapPolygon.h; sourceTree = "<group>"; };
@@ -579,8 +587,6 @@
 		78FE792716C9D04500626462 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		78FE792A16CAA30B00626462 /* SSUSettingsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSettingsConstants.h; sourceTree = "<group>"; };
 		78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSettingsConstants.m; sourceTree = "<group>"; };
-		AA08DD51190F1E0B00141224 /* SSUArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUArticle.h; sourceTree = "<group>"; };
-		AA08DD52190F1E0B00141224 /* SSUArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUArticle.m; sourceTree = "<group>"; };
 		AA72986C1905D17500A63F99 /* Path_TuscanyToSalazar.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Path_TuscanyToSalazar.gpx; sourceTree = "<group>"; };
 		AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAEF4F6218FFAC830006276D /* Loc_GreenMusicCenter.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Loc_GreenMusicCenter.gpx; sourceTree = "<group>"; };
@@ -594,7 +600,6 @@
 		C40035A016B9C6BC00B27F93 /* SSUPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUPersonViewController.m; sourceTree = "<group>"; };
 		C40035AD16B9DFAF00B27F93 /* SSUPersonContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUPersonContainerViewController.h; sourceTree = "<group>"; };
 		C40035AE16B9DFAF00B27F93 /* SSUPersonContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUPersonContainerViewController.m; sourceTree = "<group>"; };
-		C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News_iPhone.storyboard; sourceTree = "<group>"; };
 		C42D1BD716BB5D7F003AE10B /* Calendar_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar_iPhone.storyboard; sourceTree = "<group>"; };
 		C46E1E5016BB55370040435C /* Directory_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Directory_iPhone.storyboard; sourceTree = "<group>"; };
 		C4995ADB16B1274200168521 /* SSUMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSUMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -619,17 +624,11 @@
 		C4A7BE6216BA139000B919F0 /* SSUDirectoryConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUDirectoryConstants.m; sourceTree = "<group>"; };
 		C4A7BE6516BA241800B919F0 /* SSUBuildingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUBuildingViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C4A7BE6616BA241900B919F0 /* SSUBuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUBuildingViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C4A7BE7916BA336100B919F0 /* SSUNewsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsBuilder.h; sourceTree = "<group>"; };
-		C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsBuilder.m; sourceTree = "<group>"; };
-		C4FBF73E16BB8C0400BE95E3 /* SSUNewsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsConstants.h; sourceTree = "<group>"; };
-		C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsConstants.m; sourceTree = "<group>"; };
 		C4FBF74416BB8C5C00BE95E3 /* News.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = News.xcdatamodel; sourceTree = "<group>"; };
 		C4FBF74F16BB903D00BE95E3 /* SSUCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUCalendarConstants.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C4FBF75016BB903D00BE95E3 /* SSUCalendarConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUCalendarConstants.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C4FBF75216BB90A600BE95E3 /* SSUCalendarBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUCalendarBuilder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C4FBF75316BB90A600BE95E3 /* SSUCalendarBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUCalendarBuilder.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C4FBF77D16BC615300BE95E3 /* SSUNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUNewsViewController.h; sourceTree = "<group>"; };
-		C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUNewsViewController.m; sourceTree = "<group>"; };
 		CFFEFE76E20960FEACAD3748 /* Pods_SSUMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSUMobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DC4BB874ADB0462526968D /* Pods-SSUMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUMobileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSUMobileTests/Pods-SSUMobileTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1304,10 +1303,8 @@
 		C42D1BDE16BB7869003AE10B /* News */ = {
 			isa = PBXGroup;
 			children = (
-				C4FBF73E16BB8C0400BE95E3 /* SSUNewsConstants.h */,
-				C4FBF73F16BB8C0400BE95E3 /* SSUNewsConstants.m */,
-				07B78B6E1B9F2B0E00FFB2FE /* SSUNewsModule.h */,
-				07B78B6F1B9F2B0E00FFB2FE /* SSUNewsModule.m */,
+				0711E8061E884D2C00F9ACDE /* SSUConfiguration+News.swift */,
+				0711E8031E884A0F00F9ACDE /* SSUNewsModule.swift */,
 				C4FBF74216BB8C2800BE95E3 /* Model */,
 				C4FBF74116BB8C1C00BE95E3 /* Views */,
 				07FD09091BA084A3005C38DD /* Resources */,
@@ -1386,6 +1383,7 @@
 				C4995AF116B1274200168521 /* SSUAppDelegate.m */,
 				0711E7ED1E8746AD00F9ACDE /* SSUMobile-Bridging-Header.h */,
 				0711E8011E878C1F00F9ACDE /* Launch Screen.storyboard */,
+				07F54F651E88847300D24EA7 /* SSUConstants.swift */,
 				785DD35E16E68977009188CC /* App Picker */,
 				C4FBF74E16BB8FFD00BE95E3 /* Modules */,
 				C4995AE816B1274200168521 /* Supporting Files */,
@@ -1512,11 +1510,8 @@
 		C4FBF74116BB8C1C00BE95E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C42D1BD516BB5D19003AE10B /* News_iPhone.storyboard */,
-				C4FBF77D16BC615300BE95E3 /* SSUNewsViewController.h */,
-				C4FBF77E16BC615300BE95E3 /* SSUNewsViewController.m */,
-				7893FFE217260B8A009251F4 /* SSUNewsArticleTableViewCell.h */,
-				7893FFE317260B8A009251F4 /* SSUNewsArticleTableViewCell.m */,
+				07F54F681E888F2300D24EA7 /* SSUNewsViewController.swift */,
+				07F54F621E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1524,8 +1519,7 @@
 		C4FBF74216BB8C2800BE95E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4A7BE7916BA336100B919F0 /* SSUNewsBuilder.h */,
-				C4A7BE7A16BA336100B919F0 /* SSUNewsBuilder.m */,
+				0711E8181E886D5500F9ACDE /* SSUNewsBuilder.swift */,
 				C4FBF74316BB8C5C00BE95E3 /* News.xcdatamodeld */,
 				C4FBF74616BB8C6300BE95E3 /* Classes */,
 			);
@@ -1535,10 +1529,10 @@
 		C4FBF74616BB8C6300BE95E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AA08DD51190F1E0B00141224 /* SSUArticle.h */,
-				AA08DD52190F1E0B00141224 /* SSUArticle.m */,
-				78708BDE16C48B2000226EA9 /* SSUNewsObject.h */,
-				78708BDF16C48B2000226EA9 /* SSUNewsObject.m */,
+				0711E80C1E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift */,
+				0711E80D1E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift */,
+				0711E80E1E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift */,
+				0711E80F1E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1706,7 +1700,6 @@
 				0730A6E21C85515200FC9370 /* AppPicker.xcassets in Resources */,
 				0730A6E31C85515200FC9370 /* Debug.storyboard in Resources */,
 				0730A6E51C85515200FC9370 /* Directory_iPhone.storyboard in Resources */,
-				0730A6E61C85515200FC9370 /* News_iPhone.storyboard in Resources */,
 				0730A6E71C85515200FC9370 /* Calendar_iPhone.storyboard in Resources */,
 				0730A6E81C85515200FC9370 /* Email.xcassets in Resources */,
 				0730A6E91C85515200FC9370 /* Resources.storyboard in Resources */,
@@ -1741,7 +1734,6 @@
 				079E2F0E1BB4BEAB00754A52 /* Map_Building.storyboard in Resources */,
 				07FD09051BA0833E005C38DD /* AppPicker.xcassets in Resources */,
 				C46E1E5116BB55370040435C /* Directory_iPhone.storyboard in Resources */,
-				C42D1BD616BB5D19003AE10B /* News_iPhone.storyboard in Resources */,
 				C42D1BD816BB5D7F003AE10B /* Calendar_iPhone.storyboard in Resources */,
 				07FD09001BA08132005C38DD /* Email.xcassets in Resources */,
 				073215421E6BC99600A18A13 /* Directory.sqlite in Resources */,
@@ -1894,9 +1886,12 @@
 				0730A6631C85515200FC9370 /* SSUResourcesEntry.m in Sources */,
 				0730A6651C85515200FC9370 /* SSUCalendarModule.m in Sources */,
 				0730A6661C85515200FC9370 /* SSUMapPopoverContentController.m in Sources */,
+				0711E8111E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift in Sources */,
 				0730A6671C85515200FC9370 /* SSUPersonViewController.m in Sources */,
+				0711E8131E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift in Sources */,
 				0730A6691C85515200FC9370 /* SSUDebugCredentials.m in Sources */,
 				0730A66A1C85515200FC9370 /* SSUPersonContainerViewController.m in Sources */,
+				07F54F671E88847300D24EA7 /* SSUConstants.swift in Sources */,
 				0730A66B1C85515200FC9370 /* SSUEmailLoginViewController.m in Sources */,
 				0730A66E1C85515200FC9370 /* SSUSchool.m in Sources */,
 				0730A66F1C85515200FC9370 /* SSUDepartmentViewController.m in Sources */,
@@ -1905,25 +1900,21 @@
 				0730A6721C85515200FC9370 /* SSUDirectoryModule.m in Sources */,
 				0730A6741C85515200FC9370 /* SSUBuildingTableViewCell.m in Sources */,
 				0730A6761C85515200FC9370 /* SSUDepartmentTableViewCell.m in Sources */,
-				0730A6771C85515200FC9370 /* SSUArticle.m in Sources */,
-				0730A6781C85515200FC9370 /* SSUNewsModule.m in Sources */,
 				0730A6791C85515200FC9370 /* SSUBuildingViewController.m in Sources */,
-				0730A67A1C85515200FC9370 /* SSUNewsBuilder.m in Sources */,
+				0711E8051E884A0F00F9ACDE /* SSUNewsModule.swift in Sources */,
 				0730A67C1C85515200FC9370 /* SSUCalendarEventCell.m in Sources */,
 				0711E8001E87771100F9ACDE /* SSULogging+Swift.swift in Sources */,
 				0730A67D1C85515200FC9370 /* SSUSchoolTableViewCell.m in Sources */,
 				0730A67E1C85515200FC9370 /* SSUResourcesModule.m in Sources */,
+				07F54F6A1E888F2300D24EA7 /* SSUNewsViewController.swift in Sources */,
 				0730A67F1C85515200FC9370 /* Directory.xcdatamodeld in Sources */,
 				0730A6801C85515200FC9370 /* SSUHomeViewController.m in Sources */,
-				0730A6811C85515200FC9370 /* SSUNewsConstants.m in Sources */,
 				0730A6821C85515200FC9370 /* News.xcdatamodeld in Sources */,
 				0730A6831C85515200FC9370 /* SSUCalendarConstants.m in Sources */,
 				0730A6841C85515200FC9370 /* SSUCalendarBuilder.m in Sources */,
 				0730A6851C85515200FC9370 /* SSURadioViewController.m in Sources */,
 				0730A6881C85515200FC9370 /* SSURadioConstants.m in Sources */,
-				0730A6891C85515200FC9370 /* SSUNewsViewController.m in Sources */,
 				0730A68A1C85515200FC9370 /* SSUDepartment+properties.m in Sources */,
-				0730A68B1C85515200FC9370 /* SSUNewsObject.m in Sources */,
 				0730A68C1C85515200FC9370 /* SSUDirectoryViewController.m in Sources */,
 				0730A68D1C85515200FC9370 /* SSUEmailConstants.m in Sources */,
 				0730A68E1C85515200FC9370 /* SSUSettingsConstants.m in Sources */,
@@ -1938,6 +1929,7 @@
 				0730A6981C85515200FC9370 /* SSUPerson.m in Sources */,
 				0730A6991C85515200FC9370 /* Resources.xcdatamodeld in Sources */,
 				0730A69A1C85515200FC9370 /* SSUEditDepartmentViewController.m in Sources */,
+				0711E8171E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift in Sources */,
 				0730A69B1C85515200FC9370 /* SSUOutdoorMapViewController+tools.m in Sources */,
 				0730A69C1C85515200FC9370 /* SSUBuildingMapViewCell.m in Sources */,
 				0730A69D1C85515200FC9370 /* SSUOutdoorPathConnectToolViewController.m in Sources */,
@@ -1958,6 +1950,7 @@
 				07E8A2201D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */,
 				0730A6AF1C85515200FC9370 /* SSUMapBuildingDetailViewController.m in Sources */,
 				0711E7F91E87690200F9ACDE /* SSUAboutViewController.swift in Sources */,
+				0711E81A1E886D5500F9ACDE /* SSUNewsBuilder.swift in Sources */,
 				0730A6B01C85515200FC9370 /* SSUMapBuildingPerimeter.m in Sources */,
 				0730A6B11C85515200FC9370 /* SSUMapLocation.m in Sources */,
 				0730A6B21C85515200FC9370 /* SSUOutdoorDirectionToolViewController.m in Sources */,
@@ -1965,9 +1958,11 @@
 				0730A6B41C85515200FC9370 /* SSUResourcesSection.m in Sources */,
 				0730A6B51C85515200FC9370 /* SSUOutdoorMapViewController.m in Sources */,
 				0730A6B61C85515200FC9370 /* Calendar.xcdatamodeld in Sources */,
+				0711E8081E884D2C00F9ACDE /* SSUConfiguration+News.swift in Sources */,
 				0711E80B1E88520900F9ACDE /* SSUConfiguration+About.swift in Sources */,
 				0730A6B91C85515200FC9370 /* SSUMapPoint.m in Sources */,
 				0730A6BA1C85515200FC9370 /* SSUMapPolygon.m in Sources */,
+				0711E8151E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift in Sources */,
 				0730A6BB1C85515200FC9370 /* SSUPointsBuilder.m in Sources */,
 				0730A6BC1C85515200FC9370 /* SSUDirectoryToolsViewController.m in Sources */,
 				0730A6BE1C85515200FC9370 /* SSUConnectionsBuilder.m in Sources */,
@@ -1977,9 +1972,9 @@
 				0730A6C11C85515200FC9370 /* SSURadioStreamer.m in Sources */,
 				0730A6C21C85515200FC9370 /* SSUBoundaryBuildingSelectorViewController.m in Sources */,
 				0730A6C31C85515200FC9370 /* SSUCollectionViewCellSeparatorView.m in Sources */,
-				0730A6C41C85515200FC9370 /* SSUNewsArticleTableViewCell.m in Sources */,
 				0730A6C51C85515200FC9370 /* SSUDepartment.m in Sources */,
 				0730A6C61C85515200FC9370 /* SSUDebugModule.m in Sources */,
+				07F54F641E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1989,6 +1984,7 @@
 			files = (
 				0766F1871B4BA404003BD52C /* SSUMapBuilder.m in Sources */,
 				071E237819E2380B00483138 /* SSUResourcesViewController.m in Sources */,
+				07F54F691E888F2300D24EA7 /* SSUNewsViewController.swift in Sources */,
 				07C5A4E71A87168D004DC819 /* SSULDAPCredentials.m in Sources */,
 				076CBF541B6F350C00364B36 /* SSUPersonTableViewCell.m in Sources */,
 				07B78B731B9F2D1100FFB2FE /* SSURadioModule.m in Sources */,
@@ -2015,11 +2011,9 @@
 				074F530D1B707DA700F97BCA /* SSUBuildingTableViewCell.m in Sources */,
 				0733E1061E57F99300C85A53 /* SSUSearchableTableViewController.m in Sources */,
 				076CBF571B6F375000364B36 /* SSUDepartmentTableViewCell.m in Sources */,
-				AA08DD53190F1E0B00141224 /* SSUArticle.m in Sources */,
-				07B78B701B9F2B0E00FFB2FE /* SSUNewsModule.m in Sources */,
 				C4A7BE6716BA241900B919F0 /* SSUBuildingViewController.m in Sources */,
-				C4A7BE7B16BA336100B919F0 /* SSUNewsBuilder.m in Sources */,
 				0783A2141A1039760004982F /* SSUCalendarEventCell.m in Sources */,
+				0711E8141E8855B400F9ACDE /* SSUNewsObject+CoreDataClass.swift in Sources */,
 				0733E0F81E57F99300C85A53 /* SSUCommunicator.m in Sources */,
 				0733E1041E57F99300C85A53 /* SSUDetailTableViewController.m in Sources */,
 				0733E1051E57F99300C85A53 /* SSUGlobalNavigationController.m in Sources */,
@@ -2028,18 +2022,17 @@
 				07B78B761B9F2DB100FFB2FE /* SSUResourcesModule.m in Sources */,
 				074D135A1BA703B20002899F /* Directory.xcdatamodeld in Sources */,
 				07689530198A165600C233B3 /* SSUHomeViewController.m in Sources */,
-				C4FBF74016BB8C0400BE95E3 /* SSUNewsConstants.m in Sources */,
 				C4FBF74516BB8C5C00BE95E3 /* News.xcdatamodeld in Sources */,
 				C4FBF75116BB903D00BE95E3 /* SSUCalendarConstants.m in Sources */,
 				C4FBF75416BB90A600BE95E3 /* SSUCalendarBuilder.m in Sources */,
+				0711E8161E8855B400F9ACDE /* SSUNewsObject+CoreDataProperties.swift in Sources */,
 				07C2FE1219C6C5AF0016349C /* SSURadioViewController.m in Sources */,
 				0711E7FF1E87771100F9ACDE /* SSULogging+Swift.swift in Sources */,
 				07C2FE0E19C6C5120016349C /* SSURadioConstants.m in Sources */,
-				C4FBF77F16BC615300BE95E3 /* SSUNewsViewController.m in Sources */,
 				0733E1141E57FA0100C85A53 /* SSUCoreDataModuleBase.m in Sources */,
 				07DFB6CB1B94511A00014CD0 /* SSUDepartment+properties.m in Sources */,
-				78708BE016C48B2000226EA9 /* SSUNewsObject.m in Sources */,
 				78A8E15016C74BDE00898596 /* SSUDirectoryViewController.m in Sources */,
+				07F54F631E887A0400D24EA7 /* SSUNewsArticleTableViewCell.swift in Sources */,
 				0733E1021E57F99300C85A53 /* SSUCoreDataTableViewController.m in Sources */,
 				0741C9521A871D73000B7BC6 /* SSUEmailConstants.m in Sources */,
 				0733E1001E57F99300C85A53 /* SSUSharedUtilities.m in Sources */,
@@ -2055,9 +2048,11 @@
 				074E853B1BCF76740016E8A6 /* SSUBuildingMapViewCell.m in Sources */,
 				0762BE1F1B6C778500525E04 /* SSUDirectoryTableViewCell.m in Sources */,
 				07AFDEA519D8E7DB0027D0F1 /* SSUCalendarViewController.m in Sources */,
+				0711E8191E886D5500F9ACDE /* SSUNewsBuilder.swift in Sources */,
 				785DD35716E688D1009188CC /* SSUOutdoorMapConstants.m in Sources */,
 				7841E5FD16E6C589007A8F95 /* Map.xcdatamodeld in Sources */,
 				0711E7FB1E87691100F9ACDE /* SSUFeedbackViewController.swift in Sources */,
+				07F54F661E88847300D24EA7 /* SSUConstants.swift in Sources */,
 				78A5EDD416E6E0B40078FBB0 /* MapPoint+properties.m in Sources */,
 				079489091B6606E600BD5E1E /* SSUEmailPickerViewController.m in Sources */,
 				78A5EDE716E6E4B70078FBB0 /* Location+properties.m in Sources */,
@@ -2073,9 +2068,12 @@
 				78A5EDEA16E6E5D30078FBB0 /* BuildingPerimeter+properties.m in Sources */,
 				07B78B7C1B9F320300FFB2FE /* SSUEmailModule.m in Sources */,
 				07E8A21F1D6428C3007246A8 /* SSUDirectorySpotlightUtilities.m in Sources */,
+				0711E8101E8855B400F9ACDE /* SSUArticle+CoreDataClass.swift in Sources */,
+				0711E8071E884D2C00F9ACDE /* SSUConfiguration+News.swift in Sources */,
 				0711E80A1E88520900F9ACDE /* SSUConfiguration+About.swift in Sources */,
 				78A5EE1816E6EB330078FBB0 /* Polygon+properties.m in Sources */,
 				07EC53B91BBBAE3600EC60A5 /* SSUMapBuildingDetailViewController.m in Sources */,
+				0711E8041E884A0F00F9ACDE /* SSUNewsModule.swift in Sources */,
 				0733E0FA1E57F99300C85A53 /* NSString+html.m in Sources */,
 				7801C3C116E6FE4600119B63 /* SSUMapBuildingPerimeter.m in Sources */,
 				0733E1011E57F99300C85A53 /* SSUSpotlightServices.m in Sources */,
@@ -2084,6 +2082,7 @@
 				0785A3B81A1D988B0088193E /* SSUResourcesSection.m in Sources */,
 				AAEF4FAB1900AC130006276D /* SSUOutdoorMapViewController.m in Sources */,
 				074D135E1BA703FB0002899F /* Calendar.xcdatamodeld in Sources */,
+				0711E8121E8855B400F9ACDE /* SSUArticle+CoreDataProperties.swift in Sources */,
 				78A190B61717A0AA00D8768C /* SSUMapPoint.m in Sources */,
 				78A190B91718ADCD00D8768C /* SSUMapPolygon.m in Sources */,
 				78A190BD171B3D0600D8768C /* SSUPointsBuilder.m in Sources */,
@@ -2095,7 +2094,6 @@
 				07155A3018BE06B300226502 /* SSUSchoolViewController.m in Sources */,
 				0780018819D00CA100FD1E2A /* SSURadioStreamer.m in Sources */,
 				07C13CE41B935741007AEE34 /* SSUCollectionViewCellSeparatorView.m in Sources */,
-				7893FFE417260B8A009251F4 /* SSUNewsArticleTableViewCell.m in Sources */,
 				07D1A36A18E2D52600B98565 /* SSUDepartment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2154,7 +2152,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Dev-Tools-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2195,7 +2193,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Dev-Tools-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2252,7 +2250,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -2292,7 +2290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -2318,7 +2316,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2358,7 +2356,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SSUMobile/Supporting Files/SSUMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",

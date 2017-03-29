@@ -3,7 +3,7 @@
         "SSUMobile.SSUAboutModule",
         "SSUDirectoryModule",
         "SSUCalendarModule",
-        "SSUNewsModule",
+        "SSUMobile.SSUNewsModule",
         "SSURadioModule",
         "SSUMapModule",
         "SSUResourcesModule",
