@@ -8,8 +8,4 @@
 
 import Foundation
 
-extension UIColor {
-    static var ssuBlue: UIColor {
-        return UIColor(red: 20/255.0, green: 59/255.0, blue: 135/255.0, alpha: 1.0)
-    }
-}
+// Nothing here for now..

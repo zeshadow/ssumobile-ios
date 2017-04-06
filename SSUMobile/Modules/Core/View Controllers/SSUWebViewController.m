@@ -8,7 +8,7 @@
 @import WebKit;
 
 #import "SSUWebViewController.h"
-#import "MBProgressHud.h"
+#import "MBProgressHUD.h"
 #import <Masonry/Masonry.h>
 
 static NSString * const kStoryboardName = @"SSUWebViewController";

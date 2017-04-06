@@ -2,11 +2,11 @@ PODS:
   - CocoaLumberjack/Default (3.1.0)
   - CocoaLumberjack/Swift (3.1.0):
     - CocoaLumberjack/Default
+  - FSCalendar (2.7.4)
   - Kingfisher (3.6.0)
   - Masonry (0.6.2)
   - MBProgressHUD (1.0.0)
   - MJDijkstra (1.0.0)
-  - PDTSimpleCalendar (0.9.1)
   - RBStoryboardLink (0.1.0)
   - SimpleKeychain (0.7.0)
   - SnapKit (3.2.0)
@@ -14,11 +14,11 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift (~> 3.1)
+  - FSCalendar (~> 2.7.4)
   - Kingfisher (~> 3.6)
   - Masonry
   - MBProgressHUD (~> 1.0)
   - MJDijkstra (~> 1.0.0)
-  - PDTSimpleCalendar (~> 0.9.0)
   - RBStoryboardLink (~> 0.1.0)
   - SimpleKeychain (~> 0.6)
   - SnapKit (~> 3.2)
@@ -26,16 +26,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 8311463ddf9ee86a06ef92a071dd656c89244500
+  FSCalendar: e95995a746acae531c4a7dd636b8393233125ec5
   Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJDijkstra: ecc733843aae475a22ddcf3ac236245a7000ffdd
-  PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
   RBStoryboardLink: 438a56a29ef5a433d33d2f045533d6ca8d1f7755
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 2f4338458bc63c5b7bd9539f86221dc87f7b842f
+PODFILE CHECKSUM: daa51fbc007a8dc62becd11c99b821292299a104
 
 COCOAPODS: 1.2.0

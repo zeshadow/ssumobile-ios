@@ -15,10 +15,6 @@
 @property (nonatomic) NSString * username;
 @property (nonatomic) NSString * password;
 @property (nonatomic) BOOL hasCredentials;
-
-/**
- Clear all stored credentials and set the 'remember' flag to false
- */
 @property (nonatomic) BOOL rememberLogin;
 
 /**

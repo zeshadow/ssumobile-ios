@@ -7,13 +7,9 @@
 //
 
 #import "SSUCalendarViewController.h"
-#import "SSUCalendarConstants.h"
-#import "SSUCalendarEventDetail.h"
-#import "SSUCalendarEventCell.h"
-#import "SSUCollectionViewCellSeparatorView.h"
 #import "SSUSelectionController.h"
-#import "SSUCalendarModule.h"
 #import "SSUConfiguration.h"
+#import "SSUMobile-Swift.h"
 
 #import <Masonry/Masonry.h>
 
@@ -45,7 +41,7 @@ static CGFloat CELL_ROW_HEIGHT = 50;
 
 - (void) loadEvents
 {
-    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:SSUCalendarEntityEvent];
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSUEvent"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES]];
     NSManagedObjectContext * context = [[SSUCalendarModule sharedInstance] backgroundContext];
     [context performBlock:^{
@@ -92,7 +88,7 @@ static CGFloat CELL_ROW_HEIGHT = 50;
         self.selectedDate = [NSDate date];
     }
     
-    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] dateForKey:SSUCalendarUpdatedDateKey] timeIntervalSinceNow];
+    const NSTimeInterval lastUpdate = [[[SSUConfiguration sharedInstance] calendarLastUpdate] timeIntervalSinceNow];
     const NSTimeInterval updateInterval = -1 * 60 * 5;
     if (lastUpdate <= updateInterval) {
         [[SSUCalendarModule sharedInstance] updateData:^{
@@ -234,13 +230,14 @@ static CGFloat CELL_ROW_HEIGHT = 50;
     // then we shouldn't show the event label
     label.hidden = [cell valueForKey:@"date"] == nil; // If only we actually had access to this..
     
-    SSUCollectionViewCellSeparatorView * separatorView = (id)[cell viewWithTag:separatorTag];
+    SSUCollectionCellSeparatorView * separatorView = (id)[cell viewWithTag:separatorTag];
     if (separatorView == nil) {
-        separatorView = [[SSUCollectionViewCellSeparatorView alloc] initWithFrame:cell.bounds];
+        separatorView = [[SSUCollectionCellSeparatorView alloc] initWithFrame:cell.bounds];
         [cell addSubview:separatorView];
         [cell sendSubviewToBack:separatorView];
         separatorView.separatorColor = [UIColor lightGrayColor];
     }
+    
     SSUCellSeparator separatorSides = SSUCellSeparatorTop;
     if ([self indexPathIsLastWeek:indexPath]) {
         separatorSides |= SSUCellSeparatorBottom;
@@ -293,7 +290,7 @@ static CGFloat CELL_ROW_HEIGHT = 50;
     //[self performSegueWithIdentifier:SSUEventDetailSegue sender:self];
     
     UIStoryboard * storyboard = self.storyboard;
-    SSUCalendarEventDetail * detailViewController = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([SSUCalendarEventDetail class])];
+    SSUCalendarEventDetailController * detailViewController = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([SSUCalendarEventDetailController class])];
     detailViewController.event = self.selectedEvent;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
@@ -325,7 +322,7 @@ static CGFloat CELL_ROW_HEIGHT = 50;
 #pragma mark - Buttons
 
 - (NSArray *) allCategories {
-    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUCalendarEntityEvent];
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"SSUEvent"];
     NSString * categoryKeyName = @"category";
     request.propertiesToFetch = @[categoryKeyName];
     request.returnsDistinctResults = YES;
@@ -362,7 +359,7 @@ static CGFloat CELL_ROW_HEIGHT = 50;
 {
     if ([segue.identifier isEqualToString:SSUEventDetailSegue])
     {
-        SSUCalendarEventDetail * detailController = segue.destinationViewController;
+        SSUCalendarEventDetailController * detailController = segue.destinationViewController;
         detailController.event = self.selectedEvent;
     }
 }
