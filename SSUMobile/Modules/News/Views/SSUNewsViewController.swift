@@ -32,7 +32,7 @@ class SSUNewsViewController: SSUCoreDataTableViewController, SSUSelectionDelegat
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         
-        context = SSUNewsModule.sharedInstance().context
+        context = SSUNewsModule.instance.context
         fetchedResultsController = self.makeFetchedResultsController()
         searchFetchedResultsController = self.makeFetchedResultsController()
         searchKey = "title"
@@ -117,7 +117,7 @@ class SSUNewsViewController: SSUCoreDataTableViewController, SSUSelectionDelegat
         if !(refreshControl?.isRefreshing ?? false) {
             refreshControl?.beginRefreshing()
         }
-        SSUNewsModule.sharedInstance().updateData {
+        SSUNewsModule.instance.updateData {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.refreshControl?.endRefreshing()
             }
@@ -168,7 +168,7 @@ class SSUNewsViewController: SSUCoreDataTableViewController, SSUSelectionDelegat
     // MARK: NSFetchedResultsController
     
     private func basePredicate() -> NSPredicate {
-        let fetchCutoff = Date(timeIntervalSinceNow: -1*abs(SSUNewsModule.sharedInstance().articleFetchDateLimit))
+        let fetchCutoff = Date(timeIntervalSinceNow: -1*abs(SSUNewsModule.instance.articleFetchDateLimit))
         return NSPredicate(format: "published >= %@", argumentArray: [fetchCutoff])
     }
     

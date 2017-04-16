@@ -12,41 +12,34 @@ public let SSUNewsArticleFetchDateLimit: TimeInterval = 60*60*24*180; // 6 month
 
 class SSUNewsModule: SSUCoreDataModuleBase, SSUModuleUI {
     
+    @objc(sharedInstance)
     static let instance = SSUNewsModule()
     
     let articleFetchDateLimit: TimeInterval = 60*60*24*180; // 6 months
     
     // MARK: SSUModule
     
-    override static func sharedInstance() -> SSUNewsModule {
-        return instance
-    }
-    
-    func title() -> String {
+    var title: String {
         return NSLocalizedString("News", comment: "The campus News provides upcoming information on upcoming events")
     }
     
-    func identifier() -> String {
+    var identifier: String {
         return "news"
     }
     
-    override func setup() {
-        super.setup()
-        let objectModel = model(withName: "News")
-        let coordinator = persistentStoreCoordinator(withName: "News", model: objectModel)
-        context = self.context(with: coordinator)
-        backgroundContext = self.backgroundContext(from: context)
+    func setup() {
+        setupCoreData(modelName: "News", storeName: "News")
         
         // TODO: this is currently impossible to do in the app delegate because it is inaccessible in objective c.
         // When app delegate is rewritten in Swift, this should be moved there
         ImageCache.default.maxDiskCacheSize = UInt(100 * 1024 * 1024)
     }
     
-    override func updateData(_ completion: (() -> Void)? = nil) {
+    func updateData(_ completion: (() -> Void)? = nil) {
         SSULogging.logDebug("Update News")
         let lastUpdate = SSUConfiguration.sharedInstance().newsLastUpdate
         SSUMoonlightCommunicator.getJSONFromPath("news/article", since: lastUpdate) { (response, json, error) in
-            if error != nil {
+            if let error = error {
                 SSULogging.logError("Error while updating News: \(error)")
                 completion?()
             } else {

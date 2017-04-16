@@ -7,7 +7,6 @@
 //
 
 #import "SSUBuildingViewController.h"
-#import "SSUMapModule.h"
 #import "SSUDirectoryConstants.h"
 #import "SSUDirectoryModels.h"
 #import "SSUDirectoryViewController.h"
@@ -16,6 +15,8 @@
 #import "RBStoryboardLink.h"
 #import "SSUOutdoorMapSuperViewController.h"
 #import "SSULogging.h"
+#import "SSUMobile-Swift.h"
+
 
 typedef NS_ENUM(NSInteger, TableViewSection) {
     TableViewSectionName = 0,

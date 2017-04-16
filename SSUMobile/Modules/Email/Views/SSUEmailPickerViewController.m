@@ -8,7 +8,7 @@
 
 #import "SSUEmailPickerViewController.h"
 #import "SSUEmailViewController.h"
-#import "SSUEmailConstants.h"
+#import "SSUMobile-Swift.h"
 
 static NSString * const kExchangeSegue = @"exchange";
 static NSString * const kGoogleDocsSegue = @"gdocs";

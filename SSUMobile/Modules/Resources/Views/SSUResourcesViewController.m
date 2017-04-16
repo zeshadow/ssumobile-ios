@@ -9,11 +9,11 @@
 @import CoreData;
 
 #import "SSUResourcesViewController.h"
-#import "SSUResourcesModule.h"
 #import "SSUResourcesCell.h"
 #import "SSUResourcesConstants.h"
 #import "SSUResourcesEntry.h"
 #import "SSUResourcesSection.h"
+#import "SSUMobile-Swift.h"
 
 @interface SSUResourcesViewController () <UIActionSheetDelegate,NSFetchedResultsControllerDelegate>
 
@@ -44,7 +44,7 @@
     [self.tableView reloadData];
 }
 
-- (void) refresh {
+- (void) refresh {    
     [[SSUResourcesModule sharedInstance] updateData:^{
         [self.refreshControl endRefreshing];
     }];

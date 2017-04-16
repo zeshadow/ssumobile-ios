@@ -8,4 +8,7 @@
 
 #import "SSUDirectoryConstants.h"
 #import "SSUDirectoryModels.h"
-#import "SSUDirectoryModule.h"
+#import "SSUDirectoryBuilder.h"
+#import "SSUDirectorySpotlightUtilities.h"
+
+#import "SSUDirectoryViewController.h"

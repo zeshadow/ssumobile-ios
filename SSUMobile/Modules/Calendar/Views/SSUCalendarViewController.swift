@@ -21,7 +21,7 @@ class SSUCalendarViewController: UIViewController, FSCalendarDataSource, FSCalen
     let calendarView = FSCalendar(frame: .zero)
     let selectEventLabel = UILabel()
     
-    var context: NSManagedObjectContext = SSUCalendarModule.sharedInstance().context
+    var context: NSManagedObjectContext = SSUCalendarModule.instance.context
     
     private var selectedEvent: SSUEvent?
     
@@ -126,7 +126,7 @@ class SSUCalendarViewController: UIViewController, FSCalendarDataSource, FSCalen
     }
     
     private func refresh() {
-        SSUCalendarModule.sharedInstance().updateData({
+        SSUCalendarModule.instance.updateData({
             self.loadEvents()
         })
     }

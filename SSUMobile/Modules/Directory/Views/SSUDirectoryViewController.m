@@ -8,8 +8,6 @@
 
 #import "SSUDirectoryViewController.h"
 #import "SSULogging.h"
-#import "SSUDirectoryModule.h"
-#import "SSUMapModule.h"
 #import "SSUPersonViewController.h"
 #import "SSUBuildingViewController.h"
 #import "SSUSchoolViewController.h"
@@ -25,6 +23,8 @@
 #import "SSUSegmentedTableHeaderView.h"
 
 #import <Masonry/Masonry.h>
+#import "SSUMobile-Swift.h"
+
 
 static const CGFloat CELL_HEIGHT = 44;
 static const CGFloat SEGMENT_FONT_SIZE = 11.0;

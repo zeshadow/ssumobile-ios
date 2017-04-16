@@ -7,6 +7,7 @@
 //
 
 #import "SSUAppPickerModuleCell.h"
+#import "SSUMobile-Swift.h"
 #import <Masonry/Masonry.h>
 
 @interface SSUAppPickerModuleCell()

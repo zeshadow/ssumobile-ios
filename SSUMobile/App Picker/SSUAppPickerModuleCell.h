@@ -7,7 +7,7 @@
 //
 
 @import UIKit;
-#import "SSUModuleBase.h"
+#import "SSUMobile-Swift.h"
 
 @class SSUAppPickerModuleCell;
 

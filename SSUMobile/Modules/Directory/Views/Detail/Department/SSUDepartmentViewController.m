@@ -11,8 +11,8 @@
 #import "SSUDirectoryViewController.h"
 #import "RBStoryboardLink.h"
 #import "SSUOutdoorMapSuperViewController.h"
-#import "SSUMapModule.h"
 #import "SSULogging.h"
+#import "SSUMobile-Swift.h"
 
 typedef NS_ENUM(NSInteger, KTableViewSection) {
     kTableViewSectionName = 0,

@@ -2,9 +2,8 @@
 #import "SSUOutdoorMapViewController.h"
 #import "SSUDirectoryBuilder.h"
 #import "SSUMapPopoverContentController.h"
-#import "SSUMapModule.h"
-#import "SSUDirectoryModule.h"
 #import "SSUMapBuildingDetailViewController.h"
+#import "SSUMobile-Swift.h"
 
 
 @interface SSUOutdoorMapViewController () <UIActionSheetDelegate,CLLocationManagerDelegate, SSUMapBuildingDetailDelegate>

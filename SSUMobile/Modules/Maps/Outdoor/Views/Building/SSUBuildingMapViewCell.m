@@ -9,8 +9,7 @@
 #import "SSUBuildingMapViewCell.h"
 #import "SSUMapModels.h"
 #import "SSUMapBuilder.h"
-#import "SSUMapModule.h"
-#import "SSUDirectoryModule.h"
+#import "SSUMobile-Swift.h"
 
 enum {
     PageControlIndexMapView,

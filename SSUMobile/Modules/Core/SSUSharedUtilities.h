@@ -8,6 +8,8 @@
 
 @import Foundation;
 
+#define AppDelegate ((SSUAppDelegate*)[[UIApplication sharedApplication] delegate])
+
 /** Colors */
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define SSU_BLUE_COLOR RGBA(20, 59, 135, 1.0)

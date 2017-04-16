@@ -17,11 +17,6 @@
 #import "SSUCommunicator.h"
 #import "SSUMoonlightCommunicator.h"
 
-// Module
-#import "SSUModuleBase.h"
-#import "SSUModuleServices.h"
-#import "SSUCoreDataModuleBase.h"
-
 // View Controllers
 #import "SSUCoreDataTableViewController.h"
 #import "SSUCoreTableViewController.h"
@@ -33,5 +28,6 @@
 #import "SSUWebViewController.h"
 
 // Views
+#import "SSUSeparator.h"
 #import "SSUSegmentedTableHeaderView.h"
 #import "SSUTableHeaderView.h"

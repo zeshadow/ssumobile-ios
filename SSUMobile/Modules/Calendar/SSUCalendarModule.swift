@@ -8,38 +8,31 @@
 
 import Foundation
 
-class SSUCalendarModule: SSUCoreDataModuleBase, SSUModuleUI {
+final class SSUCalendarModule: SSUCoreDataModuleBase, SSUModuleUI {
     
+    @objc(sharedInstance)
     static let instance = SSUCalendarModule()
     
     // MARK: SSUModule
     
-    override static func sharedInstance() -> SSUCalendarModule {
-        return instance
-    }
-    
-    func title() -> String {
+    var title: String {
         return NSLocalizedString("Calendar", comment: "The campus calendar of upcoming events")
     }
     
-    func identifier() -> String {
+    var identifier: String {
         return "calendar"
     }
     
-    override func setup() {
-        super.setup()
-        let objectModel = model(withName: "Calendar")
-        let coordinator = persistentStoreCoordinator(withName: "Calendar", model: objectModel)
-        context = self.context(with: coordinator)
-        backgroundContext = self.backgroundContext(from: context)
+    func setup() {
+        setupCoreData(modelName: "Calendar", storeName: "Calendar")
     }
     
-    override func updateData(_ completion: (() -> Void)? = nil) {
+    func updateData(_ completion: (() -> Void)? = nil) {
         SSULogging.logDebug("Update Calendar")
         let lastUpdate = SSUConfiguration.sharedInstance().calendarLastUpdate
         SSUMoonlightCommunicator.getJSONFromPath("events/event", since: lastUpdate) { (response, json, error) in
-            if error != nil {
-                SSULogging.logError("Error while updating \(self.identifier()): \(error)")
+            if let error = error {
+                SSULogging.logError("Error while updating \(self.identifier): \(error)")
                 completion?()
             } else {
                 SSUConfiguration.sharedInstance().calendarLastUpdate = Date()

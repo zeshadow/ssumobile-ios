@@ -1,13 +1,13 @@
 {
     "edu.sonoma.modules.enabled" : [
-        "SSUMobile.SSUAboutModule",
-        "SSUDirectoryModule",
-        "SSUMobile.SSUCalendarModule",
-        "SSUMobile.SSUNewsModule",
-        "SSURadioModule",
-        "SSUMapModule",
-        "SSUResourcesModule",
-        "SSUEmailModule",
+        "about",
+        "directory",
+        "calendar",
+        "news",
+        "radio",
+        "campusmap",
+        "resources",
+        "email",
     ],
     
     "edu.sonoma.radio.stream.enabled" : true,

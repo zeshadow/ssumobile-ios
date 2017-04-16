@@ -10,6 +10,7 @@ import Foundation
 
 class SSUAboutModule: SSUModuleBase, SSUModuleUI {
     
+    @objc(sharedInstance)
     static let instance = SSUAboutModule()
     
     private let feedbackSubmissionInterval: TimeInterval = 60
@@ -27,20 +28,16 @@ class SSUAboutModule: SSUModuleBase, SSUModuleUI {
     
     // MARK: SSUModule
     
-    override static func sharedInstance() -> SSUAboutModule {
-        return instance
-    }
-    
-    func title() -> String {
+    var title: String {
         return NSLocalizedString("About", comment: "General information about the app.")
     }
     
-    func identifier() -> String {
+    var identifier: String {
         return "about"
     }
     
-    override func setup() {
-        super.setup()
+    func setup() {
+        
     }
     
     // MARK: SSUModuleUI

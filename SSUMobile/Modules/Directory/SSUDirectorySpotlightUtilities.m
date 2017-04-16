@@ -8,8 +8,8 @@
 
 #import "SSUDirectorySpotlightUtilities.h"
 #import "SSUDirectoryBuilder.h"
-#import "SSUDirectoryModule.h"
 #import "SSULogging.h"
+#import "SSUMobile-Swift.h"
 
 @implementation SSUDirectorySpotlightUtilities
 

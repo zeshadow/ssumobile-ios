@@ -9,9 +9,7 @@
 #import "SSUOutdoorMapSuperViewController.h"
 #import "SSULogging.h"
 #import "SSUOutdoorMapConstants.h"
-#import "SSUMapModule.h"
 
-#import "SSUDirectoryModule.h"
 #import "SSUDirectoryModels.h"
 
 #import "SSUMapModels.h"
@@ -26,6 +24,8 @@
 #import "SSUOutdoorMapSuperViewController_tools.h"
 
 #import <MJDijkstra/MJDijkstra.h>
+#import "SSUMobile-Swift.h"
+
 
 const CGFloat kNavigationUpdateTime = 10;
 const CFTimeInterval kMinimumTimeElapsedBetweenNavigationUpdates = 2;

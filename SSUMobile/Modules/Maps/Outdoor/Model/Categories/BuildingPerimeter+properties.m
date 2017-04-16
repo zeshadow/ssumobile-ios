@@ -8,7 +8,7 @@
 
 #import "BuildingPerimeter+properties.h"
 #import "SSUDirectoryBuilder.h"
-#import "SSUDirectoryModule.h"
+#import "SSUMobile-Swift.h"
 
 @implementation SSUMapBuildingPerimeter (properties)
 

@@ -69,7 +69,7 @@ class SSUFeedbackViewController: UITableViewController, UITextViewDelegate {
      - parameter email The email of the user, or an empty string
      */
     private func sendFeedbackSubmission(content: String, email: String?) {
-        if !SSUAboutModule.sharedInstance().canSubmitFeedback {
+        if !SSUAboutModule.instance.canSubmitFeedback {
             alert(title: "Unable to submit feedback", message: "You recently submitted some feedback to us. Please wait a few minutes before sending another submission")
             return
         }

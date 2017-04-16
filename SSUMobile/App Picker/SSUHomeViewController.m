@@ -9,8 +9,9 @@
 #import "SSUHomeViewController.h"
 #import "SSUGlobalNavigationController.h"
 #import "SSUAppPickerModuleCell.h"
-#import "SSUModuleServices.h"
 #import "SSUSpotlightServices.h"
+#import "SSUMobile-Swift.h"
+
 #import <Masonry/Masonry.h>
 
 static NSInteger COLS = 3;
@@ -20,7 +21,7 @@ static NSInteger BLANK_CELL_INDEX = 7;
 @interface SSUHomeViewController () <UICollectionViewDelegate,UICollectionViewDataSource, SSUModuleCellDelegate>
 
 @property (nonatomic, strong) NSArray * modules;
-@property (nonatomic, strong) id<SSUModuleUI> navBarModule;
+@property (nonatomic, strong) id navBarModule;
 @property (nonatomic, strong) NSIndexPath * blankCellIndexPath;
 @property (nonatomic) CGSize cellSize;
 
@@ -47,7 +48,7 @@ static NSInteger BLANK_CELL_INDEX = 7;
     
     [self loadModules];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:SSUModulesDidLoadNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"edu.sonoma.modules.loaded.notification" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self loadModules];
         [self.collectionView reloadData];
     }];

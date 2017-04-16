@@ -15,14 +15,13 @@
 #import "SSUBuildingViewController.h"
 
 #import "SSUMapModels.h"
-#import "SSUMapModule.h"
 #import "SSUMapBuilder.h"
 #import "SSUBuildingMapViewCell.h"
-
-#import "SSUDirectoryModule.h"
 #import "SSUDepartmentTableViewCell.h"
 
 #import "SSUTableHeaderView.h"
+
+#import "SSUMobile-Swift.h"
 
 @import MapKit;
 

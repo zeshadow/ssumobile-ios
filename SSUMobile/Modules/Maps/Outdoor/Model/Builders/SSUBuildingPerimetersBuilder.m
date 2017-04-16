@@ -8,8 +8,9 @@
 
 #import "SSUBuildingPerimetersBuilder.h"
 #import "SSUDirectoryBuilder.h"
-#import "SSUDirectoryModule.h"
 #import "SSULogging.h"
+#import "SSUMobile-Swift.h"
+
 
 NSString * const SSUPerimeterPointIdKey = @"point";
 NSString * const SSUPerimeterBuildingIdKey = @"building";

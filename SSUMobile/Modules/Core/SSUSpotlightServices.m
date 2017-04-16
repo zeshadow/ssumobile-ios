@@ -7,7 +7,7 @@
 //
 
 #import "SSUSpotlightServices.h"
-#import "SSUModuleServices.h"
+#import "SSUMobile-Swift.h"
 
 NSString * const SSUSpotlightActivityRequestingDisplayNotification = @"edu.sonoma.ssumobile.spotlight.activity.display";
 
