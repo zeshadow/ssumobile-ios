@@ -16,7 +16,7 @@ class SSUModuleServices: NSObject {
     @objc(sharedInstance)
     static let instance = SSUModuleServices()
     
-    private override init() {}
+    override init() {}
     
     var modules: [SSUModule] = []
     var modulesUI: [SSUModuleUI] {

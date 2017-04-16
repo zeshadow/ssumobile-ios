@@ -7,6 +7,8 @@ PODS:
   - Masonry (0.6.2)
   - MBProgressHUD (1.0.0)
   - MJDijkstra (1.0.0)
+  - Nimble (6.1.0)
+  - Quick (1.1.0)
   - RBStoryboardLink (0.1.0)
   - SimpleKeychain (0.7.0)
   - SnapKit (3.2.0)
@@ -19,6 +21,8 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD (~> 1.0)
   - MJDijkstra (~> 1.0.0)
+  - Nimble (~> 6.1)
+  - Quick (~> 1.1)
   - RBStoryboardLink (~> 0.1.0)
   - SimpleKeychain (~> 0.6)
   - SnapKit (~> 3.2)
@@ -31,11 +35,13 @@ SPEC CHECKSUMS:
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJDijkstra: ecc733843aae475a22ddcf3ac236245a7000ffdd
+  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   RBStoryboardLink: 438a56a29ef5a433d33d2f045533d6ca8d1f7755
   SimpleKeychain: b50cef3b87939d480ea1143425c00f5b4b70fe21
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: daa51fbc007a8dc62becd11c99b821292299a104
+PODFILE CHECKSUM: 2165668e6062f12832ca5a5d2a3947826cb2ebd5
 
 COCOAPODS: 1.2.0

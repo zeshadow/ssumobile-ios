@@ -10,6 +10,7 @@
 		0708BA6A1EA09B1D00D67C85 /* SSUDebugModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708BA671EA0947800D67C85 /* SSUDebugModule.swift */; };
 		0708BA6B1EA0A04700D67C85 /* Debug.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070A3A691BAA969100B0E67C /* Debug.xcassets */; };
 		0708BA6C1EA0A0CD00D67C85 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BFB3051B44E840002BF411 /* Debug.storyboard */; };
+		0708BA701EA33D0100D67C85 /* SSUModuleLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708BA6F1EA33D0100D67C85 /* SSUModuleLoadingTests.swift */; };
 		070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
 		0711E7F61E8752A900F9ACDE /* SSUAboutModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7F51E8752A900F9ACDE /* SSUAboutModule.swift */; };
 		0711E7F81E875B4800F9ACDE /* SSUAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7F71E875B4800F9ACDE /* SSUAboutViewController.swift */; };
@@ -130,6 +131,7 @@
 		07FD090B1BA084B0005C38DD /* News.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090A1BA084B0005C38DD /* News.xcassets */; };
 		07FD090E1BA084E1005C38DD /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD090D1BA084E1005C38DD /* Resources.xcassets */; };
 		07FD09111BA08548005C38DD /* Map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FD09101BA08548005C38DD /* Map.xcassets */; };
+		32597B97B76EBBC89FACB276 /* Pods_SSUMobile_SSUMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ABF172766A61AEA3D7C928 /* Pods_SSUMobile_SSUMobileTests.framework */; };
 		414E70C1B66B29136704BB07 /* Pods_SSUMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15D260ED7782DBBDDB90284 /* Pods_SSUMobile.framework */; };
 		7801C3C116E6FE4600119B63 /* SSUMapBuildingPerimeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C3C016E6FE4600119B63 /* SSUMapBuildingPerimeter.m */; };
 		7801C3D316E8233900119B63 /* SSUMapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C3D216E8233700119B63 /* SSUMapLocation.m */; };
@@ -187,6 +189,8 @@
 
 /* Begin PBXFileReference section */
 		0708BA671EA0947800D67C85 /* SSUDebugModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUDebugModule.swift; sourceTree = "<group>"; };
+		0708BA6E1EA33D0100D67C85 /* SSUMobileTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSUMobileTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		0708BA6F1EA33D0100D67C85 /* SSUModuleLoadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUModuleLoadingTests.swift; sourceTree = "<group>"; };
 		070A3A691BAA969100B0E67C /* Debug.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Debug.xcassets; sourceTree = "<group>"; };
 		070A3A6C1BAA992D00B0E67C /* SSUAppPickerModuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAppPickerModuleCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAppPickerModuleCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -384,8 +388,10 @@
 		07FD090D1BA084E1005C38DD /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		07FD09101BA08548005C38DD /* Map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Map.xcassets; sourceTree = "<group>"; };
 		0C1A439034C8F57F972715D9 /* Pods-SSUMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSUMobile/Pods-SSUMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		32ABF172766A61AEA3D7C928 /* Pods_SSUMobile_SSUMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSUMobile_SSUMobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2E91994D68F474CA7233FC /* Pods-SSUMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSUMobile/Pods-SSUMobile.release.xcconfig"; sourceTree = "<group>"; };
 		6ECD0CF536E5226CF9571B5A /* Pods-SSUMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUMobileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSUMobileTests/Pods-SSUMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72DE5E72536C13B00B1420E0 /* Pods-SSUMobile-SSUMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUMobile-SSUMobileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSUMobile-SSUMobileTests/Pods-SSUMobile-SSUMobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		7801C3BF16E6FE4600119B63 /* SSUMapBuildingPerimeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapBuildingPerimeter.h; sourceTree = "<group>"; };
 		7801C3C016E6FE4600119B63 /* SSUMapBuildingPerimeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUMapBuildingPerimeter.m; sourceTree = "<group>"; };
 		7801C3D116E8233600119B63 /* SSUMapLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUMapLocation.h; sourceTree = "<group>"; };
@@ -440,6 +446,7 @@
 		78FE792716C9D04500626462 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		78FE792A16CAA30B00626462 /* SSUSettingsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUSettingsConstants.h; sourceTree = "<group>"; };
 		78FE792B16CAA30B00626462 /* SSUSettingsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUSettingsConstants.m; sourceTree = "<group>"; };
+		85EEDAB3A3C7CAAD14070BF5 /* Pods-SSUMobile-SSUMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUMobile-SSUMobileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSUMobile-SSUMobileTests/Pods-SSUMobile-SSUMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA72986C1905D17500A63F99 /* Path_TuscanyToSalazar.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Path_TuscanyToSalazar.gpx; sourceTree = "<group>"; };
 		AAEF4F5A18FFAB6C0006276D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAEF4F6218FFAC830006276D /* Loc_GreenMusicCenter.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Loc_GreenMusicCenter.gpx; sourceTree = "<group>"; };
@@ -510,12 +517,21 @@
 				C4995B1116B1274300168521 /* Foundation.framework in Frameworks */,
 				C4995B1216B1274300168521 /* CoreData.framework in Frameworks */,
 				FB0C64796E6A63FF0E4176E4 /* Pods_SSUMobileTests.framework in Frameworks */,
+				32597B97B76EBBC89FACB276 /* Pods_SSUMobile_SSUMobileTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0708BA6D1EA33C6D00D67C85 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				0708BA6F1EA33D0100D67C85 /* SSUModuleLoadingTests.swift */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
 		070A3A6B1BAA969B00B0E67C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,6 +900,8 @@
 				3A2E91994D68F474CA7233FC /* Pods-SSUMobile.release.xcconfig */,
 				6ECD0CF536E5226CF9571B5A /* Pods-SSUMobileTests.debug.xcconfig */,
 				D0DC4BB874ADB0462526968D /* Pods-SSUMobileTests.release.xcconfig */,
+				85EEDAB3A3C7CAAD14070BF5 /* Pods-SSUMobile-SSUMobileTests.debug.xcconfig */,
+				72DE5E72536C13B00B1420E0 /* Pods-SSUMobile-SSUMobileTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1196,6 +1214,7 @@
 				784315F816D1E06400B8552F /* MapKit.framework */,
 				B15D260ED7782DBBDDB90284 /* Pods_SSUMobile.framework */,
 				CFFEFE76E20960FEACAD3748 /* Pods_SSUMobileTests.framework */,
+				32ABF172766A61AEA3D7C928 /* Pods_SSUMobile_SSUMobileTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1233,6 +1252,8 @@
 		C4995B1516B1274300168521 /* SSUMobileTests */ = {
 			isa = PBXGroup;
 			children = (
+				0708BA6E1EA33D0100D67C85 /* SSUMobileTests-Bridging-Header.h */,
+				0708BA6D1EA33C6D00D67C85 /* Integration */,
 				C4995B1616B1274300168521 /* Supporting Files */,
 			);
 			path = SSUMobileTests;
@@ -1428,7 +1449,6 @@
 				C4995B0816B1274300168521 /* Sources */,
 				C4995B0916B1274300168521 /* Frameworks */,
 				C4995B0A16B1274300168521 /* Resources */,
-				C4995B0B16B1274300168521 /* ShellScript */,
 				0F26BE315D80A0C87A180CEF /* [CP] Embed Pods Frameworks */,
 				1C931578CB50634544F6F360 /* [CP] Copy Pods Resources */,
 			);
@@ -1460,6 +1480,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					C4995B0C16B1274300168521 = {
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -1603,19 +1626,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SSUMobile/Pods-SSUMobile-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		C4995B0B16B1274300168521 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 		F3C816E736C86FEDEDDB36F1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1763,6 +1773,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0708BA701EA33D0100D67C85 /* SSUModuleLoadingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1968,6 +1979,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSUMobile.app/SSUMobile";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -1976,7 +1988,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSUMobile/SSUMobile-Prefix.pch";
 				INFOPLIST_FILE = "SSUMobileTests/SSUMobileTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobileTests/SSUMobileTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -1987,6 +2003,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSUMobile.app/SSUMobile";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -1995,7 +2012,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSUMobile/SSUMobile-Prefix.pch";
 				INFOPLIST_FILE = "SSUMobileTests/SSUMobileTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SSUMobileTests/SSUMobileTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

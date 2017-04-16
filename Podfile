@@ -17,9 +17,11 @@ target "SSUMobile" do
     pod 'SimpleKeychain', '~> 0.6'
     pod 'SnapKit', '~> 3.2'
     pod 'SwiftyJSON', '~> 3.1'
-end
-
-target "SSUMobileTests" do
-# pods specific to test target
+    
+    target "SSUMobileTests" do
+        inherit! :search_paths
+        pod 'Quick', '~> 1.1'
+        pod 'Nimble', '~> 6.1'
+    end
 end
 
