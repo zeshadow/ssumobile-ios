@@ -59,22 +59,7 @@ class SSUNewsBuilder: SSUMoonlightBuilder {
                 continue
             }
             
-            article.author = entry[Keys.author].string
-            article.category = entry[Keys.category].string
-            article.title = entry[Keys.title].string
-            article.imageURL = entry[Keys.imageURL].string
-            article.summary = entry[Keys.summary].string
-            article.content = entry[Keys.content].string
-            article.link = entry[Keys.link].string
-            if article.link?.isEmpty ?? false {
-                article.link = nil
-            }
-            
-            if let date = dateFormatter.date(from: entry[Keys.publishDate].stringValue) {
-                article.published = date as NSDate
-            } else {
-                SSULogging.logError("Unable to parse published date: \(entry[Keys.publishDate].stringValue)")
-            }
+            article.initializeWith(json: entry)
         }
         
         removeOldArticles()

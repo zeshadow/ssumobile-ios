@@ -13,7 +13,7 @@ import CoreData
 extension SSUArticle {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SSUArticle> {
-        return NSFetchRequest<SSUArticle>(entityName: "SSUArticle");
+        return NSFetchRequest<SSUArticle>(entityName: "SSUArticle")
     }
 
     @NSManaged public var author: String?
@@ -22,7 +22,7 @@ extension SSUArticle {
     @NSManaged public var id: String?
     @NSManaged public var imageURL: String?
     @NSManaged public var link: String?
-    @NSManaged public var published: NSDate?
+    @NSManaged public var published: Date?
     @NSManaged public var summary: String?
     @NSManaged public var title: String?
 
