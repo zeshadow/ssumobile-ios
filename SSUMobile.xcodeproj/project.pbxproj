@@ -11,6 +11,7 @@
 		0708BA6B1EA0A04700D67C85 /* Debug.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070A3A691BAA969100B0E67C /* Debug.xcassets */; };
 		0708BA6C1EA0A0CD00D67C85 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BFB3051B44E840002BF411 /* Debug.storyboard */; };
 		0708BA701EA33D0100D67C85 /* SSUModuleLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708BA6F1EA33D0100D67C85 /* SSUModuleLoadingTests.swift */; };
+		0708BA731EA34C0200D67C85 /* SSUModuleServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708BA721EA34C0200D67C85 /* SSUModuleServicesTests.swift */; };
 		070A3A6E1BAA992D00B0E67C /* SSUAppPickerModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */; };
 		0711E7F61E8752A900F9ACDE /* SSUAboutModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7F51E8752A900F9ACDE /* SSUAboutModule.swift */; };
 		0711E7F81E875B4800F9ACDE /* SSUAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711E7F71E875B4800F9ACDE /* SSUAboutViewController.swift */; };
@@ -191,6 +192,7 @@
 		0708BA671EA0947800D67C85 /* SSUDebugModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUDebugModule.swift; sourceTree = "<group>"; };
 		0708BA6E1EA33D0100D67C85 /* SSUMobileTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSUMobileTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		0708BA6F1EA33D0100D67C85 /* SSUModuleLoadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUModuleLoadingTests.swift; sourceTree = "<group>"; };
+		0708BA721EA34C0200D67C85 /* SSUModuleServicesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSUModuleServicesTests.swift; sourceTree = "<group>"; };
 		070A3A691BAA969100B0E67C /* Debug.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Debug.xcassets; sourceTree = "<group>"; };
 		070A3A6C1BAA992D00B0E67C /* SSUAppPickerModuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SSUAppPickerModuleCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		070A3A6D1BAA992D00B0E67C /* SSUAppPickerModuleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SSUAppPickerModuleCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -530,6 +532,14 @@
 				0708BA6F1EA33D0100D67C85 /* SSUModuleLoadingTests.swift */,
 			);
 			path = Integration;
+			sourceTree = "<group>";
+		};
+		0708BA711EA34BDB00D67C85 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				0708BA721EA34C0200D67C85 /* SSUModuleServicesTests.swift */,
+			);
+			path = Unit;
 			sourceTree = "<group>";
 		};
 		070A3A6B1BAA969B00B0E67C /* Resources */ = {
@@ -1254,6 +1264,7 @@
 			children = (
 				0708BA6E1EA33D0100D67C85 /* SSUMobileTests-Bridging-Header.h */,
 				0708BA6D1EA33C6D00D67C85 /* Integration */,
+				0708BA711EA34BDB00D67C85 /* Unit */,
 				C4995B1616B1274300168521 /* Supporting Files */,
 			);
 			path = SSUMobileTests;
@@ -1774,6 +1785,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0708BA701EA33D0100D67C85 /* SSUModuleLoadingTests.swift in Sources */,
+				0708BA731EA34C0200D67C85 /* SSUModuleServicesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

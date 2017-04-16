@@ -56,6 +56,7 @@ class SSUModuleServices: NSObject {
     }
     
     func loadModules() {
+        modules = []
         for name in identifiers {
             if let module = supportedModules.first(where: { $0.identifier == name }) {
                 addModule(module)
