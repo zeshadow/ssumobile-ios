@@ -13,6 +13,7 @@ target "SSUMobile" do
     pod 'FSCalendar', '~> 2.7.4'
     pod 'Masonry'
     pod 'MJDijkstra', '~> 1.0.0'
+    pod 'Mockingjay/Core', '~> 2.0'
     pod 'CocoaLumberjack/Swift', '~> 3.1'
     pod 'SimpleKeychain', '~> 0.6'
     pod 'SnapKit', '~> 3.2'
@@ -22,6 +23,7 @@ target "SSUMobile" do
         inherit! :search_paths
         pod 'Quick', '~> 1.1'
         pod 'Nimble', '~> 6.1'
+        pod 'Mockingjay/XCTest', '~> 2.0'
     end
 end
 

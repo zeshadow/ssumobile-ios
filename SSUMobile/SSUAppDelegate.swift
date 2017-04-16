@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import Mockingjay
 
 @UIApplicationMain
 class SSUAppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,8 +49,7 @@ class SSUAppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Load settings from moonlight
         if !isFirstLaunchForCurrentVersion() {
-            // TODO: reenable when we've added a new config to moonlight
-            //        loadRemoteConfiguration()
+            loadRemoteConfiguration()
             SSUModuleServices.instance.updateAll()
         }
     }
@@ -103,8 +103,17 @@ class SSUAppDelegate: UIResponder, UIApplicationDelegate {
             SSULogging.logError("Unable to create url for remote config")
             return
         }
+        if SSUDebugUtils.shouldMockConfig {
+            let fileURL = Bundle.main.url(forResource: "defaults.json", withExtension: nil)!
+            let data = try! Data(contentsOf: fileURL)
+            MockingjayProtocol.addStub(matcher: uri(configURL.absoluteString), builder: jsonData(data))
+        }
         SSUConfiguration.sharedInstance().load(from: configURL) { (error) in
-            // TODO: implement
+            if let error = error {
+                SSULogging.logError("Error loading config: \(error)")
+            } else {
+                SSUModuleServices.instance.loadModules()
+            }
         }
     }
     

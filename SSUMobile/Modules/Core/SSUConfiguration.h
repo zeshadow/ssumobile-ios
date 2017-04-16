@@ -47,7 +47,7 @@ extern NSString * const kSSUConfigLastLoadDateKey;
 
 - (void) registerDefaults:(NSDictionary *)defaults;
 - (void) loadDictionary:(NSDictionary *)data;
-- (void) loadFromURL:(NSURL *)url completion:(void(^)(NSError * error))completion;
+- (void) loadFromURL:(NSURL *)url completion:(void(^)(NSError * _Nullable error))completion;
 - (void) loadDefaultsFromFilePath:(NSString *)filePath;
 - (void) save;
 
