@@ -67,6 +67,7 @@
 }
 
 - (void) performSearchFetch {
+    //Zeyad something is broken for Directory
     NSError * error = nil;
     if (![self.searchFetchedResultsController performFetch:&error]){
         SSULogError(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -78,6 +79,12 @@
 - (void) filterContentForSearchText:(NSString*)searchText {
     NSFetchRequest *fetchRequest = self.searchFetchedResultsController.fetchRequest;
     fetchRequest.predicate = [self searchPredicateForText:searchText];
+    SSULogDebug(@"Search text: %@", searchText);     //Zeyad search field debug
+    SSULogDebug(@"Fetch Request: %@", fetchRequest);     //Zeyad For Resources Fetch request will always return empty since the resources is not a Person, buildeing, department
+    //check moonlight communicator
+    //need to set a flag to know what it needs to fetch from Resources or Directory. currently it can only search through the directory data.
+    // need to find the source of resources data.
+
     [self performSearchFetch];
     [self.tableView reloadData];
 }

@@ -80,6 +80,7 @@
 
 - (void) updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSString * searchText = searchController.searchBar.text;
+    SSULogDebug(@"Search text: %@", searchText);     //Zeyad search field debug
     [self filterContentForSearchText:searchText];
 }
 
