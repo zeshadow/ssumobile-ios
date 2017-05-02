@@ -134,7 +134,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 - (void) setupFetchedResultsControllers {
     self.sortDescriptors = @[
                              [NSSortDescriptor sortDescriptorWithKey:@"sectionName" ascending:YES],
-                             [NSSortDescriptor sortDescriptorWithKey:@"term" ascending:YES]
+                             [NSSortDescriptor sortDescriptorWithKey:@"term" ascending:YES] //Zeyad
                              ];
     self.fetchedResultsController = [self makeFetchedResultsController];
     self.searchFetchedResultsController = [self makeSearchFetchedResultsController];
@@ -355,15 +355,25 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 #pragma mark - Core Data
 
 - (NSFetchedResultsController *) makeFetchedResultsController {
-    
+    //Zeyad
+    //on startup of FetchREquest
+    /*
+     
+     <NSFetchRequest: 0x6080002c4c20> (entity: SSUPerson; predicate: ((null)); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+
+     
+     
+     */
     NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName:self.entityName];
+    
     fetchRequest.predicate = self.predicate;
     fetchRequest.sortDescriptors = self.sortDescriptors;
     
     fetchRequest.includesPendingChanges = NO;
     
     NSFetchedResultsController * c = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                         managedObjectContext:self.context
+                                                                         managedObjectContext:self.context //zeyad
                                                                            sectionNameKeyPath:@"sectionName"
                                                                                     cacheName:nil];
     c.delegate = self;

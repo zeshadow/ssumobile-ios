@@ -51,12 +51,24 @@
 }
 
 - (void) setupCoreData {
+    //Zeyad
+    //on startup contents of FetchRequest
+    /*
+     <NSFetchRequest: 0x6180002c3410> (entity: SSUResourcesEntry; predicate: ((null)); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+     
+     when you search, there is no fetch request,  it needs to be of entity SSUReasourcesEntry
+     might need to build a new fetch request to pass to the search. I need to find out where it happens in directory and do it for Resources    
+     
+     
+     
+     */
     NSArray * sortDescriptors = @[
                                   [NSSortDescriptor sortDescriptorWithKey:@"section.position" ascending:YES],
                                   [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES],
                                   ];
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntityResource];
-    fetchRequest.sortDescriptors = sortDescriptors;
+    fetchRequest.sortDescriptors = sortDescriptors; //Zeyad
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"section.position"

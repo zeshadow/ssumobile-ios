@@ -13,6 +13,12 @@
 
 @end
 
+/*
+ Zeyad: On Startup, it searches through Person, fetches all the data and returns it
+ 
+ 
+ */
+
 @implementation SSUCoreDataTableViewController
 
 - (void)viewDidLoad {
@@ -29,6 +35,12 @@
     _searchFetchedResultsController = searchFetchedResultsController;
     _searchFetchedResultsController.delegate = self;
     [self performSearchFetch];
+    
+    //build a search controller
+    //Zeyad
+    
+    
+    
 }
 
 - (NSFetchedResultsController *) currentFetchedResultsController {
@@ -78,7 +90,11 @@
 
 - (void) filterContentForSearchText:(NSString*)searchText {
     NSFetchRequest *fetchRequest = self.searchFetchedResultsController.fetchRequest;
+    
+    
     fetchRequest.predicate = [self searchPredicateForText:searchText];
+    
+    
     SSULogDebug(@"Search text: %@", searchText);     //Zeyad search field debug
     SSULogDebug(@"Fetch Request: %@", fetchRequest);     //Zeyad For Resources Fetch request will always return empty since the resources is not a Person, buildeing, department
     //check moonlight communicator
