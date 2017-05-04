@@ -70,7 +70,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
     
     [self setupEntities];
     [self setupSegmentedControl];
-    [self setupFetchedResultsControllers];
+    [self setupFetchedResultsControllers]; //zeyad found below
     
     self.showsSectionTitles = NO;
     self.showsSectionIndexTitles = NO;

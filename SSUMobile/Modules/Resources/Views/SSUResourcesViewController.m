@@ -29,7 +29,8 @@
     [super viewDidLoad];
     
     self.context = [[SSUResourcesModule sharedInstance] context];
-    [self setupCoreData];
+    [self setupCoreData]; // see below
+    //[self makeSearchFetchedResultsController];// Zeyad added
     
     self.tableView.separatorColor = SSU_BLUE_COLOR;
     self.tableView.estimatedRowHeight = 100;
@@ -73,6 +74,44 @@
                                                                         managedObjectContext:self.context
                                                                           sectionNameKeyPath:@"section.position"
                                                                                    cacheName:nil];
+ 
+    NSLog(@"Fetch Results Controller: %@",  self.fetchedResultsController);
+
+    
+}
+
+
+
+
+-(void) makeSearchFetchedResultsController{
+    //Made By Zeyad
+    //currently commented out in viewDidLoad()
+    
+    NSArray * sortDescriptors = @[
+                                  [NSSortDescriptor sortDescriptorWithKey:@"section.position" ascending:YES],
+                                  [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES],
+                                  ];
+    
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntitySection];
+    request.sortDescriptors = sortDescriptors;
+    request.includesPendingChanges = NO;
+    
+    //there is an uncaught exeption found here
+    /*
+     *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'keypath section.position not found in entity <NSSQLEntity SSUResourcesSection id=2>'
+     *** First throw call stack:
+     
+     */
+    
+    NSLog(@"Search Fetch Results Controller: %@",  self.searchFetchedResultsController);
+
+    self.searchFetchedResultsController =[[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                             managedObjectContext:self.context
+                                                                               sectionNameKeyPath:@"section.position" //uncaught expection
+                                                                                        cacheName:nil];
+    self.searchFetchedResultsController.delegate =self;
+    [self.searchFetchedResultsController performFetch:nil];
+    
 }
 
 #pragma mark - Table view data source
