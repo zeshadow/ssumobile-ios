@@ -30,7 +30,7 @@
     
     self.context = [[SSUResourcesModule sharedInstance] context];
     [self setupCoreData]; // see below
-    //[self makeSearchFetchedResultsController];// Zeyad added
+    [self makeSearchFetchedResultsController];// Zeyad added
     
     self.tableView.separatorColor = SSU_BLUE_COLOR;
     self.tableView.estimatedRowHeight = 100;
@@ -65,8 +65,9 @@
      
      */
     NSArray * sortDescriptors = @[
-                                  [NSSortDescriptor sortDescriptorWithKey:@"section.position" ascending:YES],
-                                  [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES],
+                                  [NSSortDescriptor sortDescriptorWithKey:@"section.id" ascending:YES],
+                                  [NSSortDescriptor sortDescriptorWithKey:@"section.name" ascending:YES],
+                                  [NSSortDescriptor sortDescriptorWithKey:@"section.position" ascending:YES]
                                   ];
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntityResource];
     fetchRequest.sortDescriptors = sortDescriptors; //Zeyad
@@ -75,7 +76,7 @@
                                                                           sectionNameKeyPath:@"section.position"
                                                                                    cacheName:nil];
  
-    NSLog(@"Fetch Results Controller: %@",  self.fetchedResultsController);
+    SSULogDebug(@"Fetch Results Controller: %@",  self.fetchedResultsController.sectionNameKeyPath);
 
     
 }
@@ -88,11 +89,13 @@
     //currently commented out in viewDidLoad()
     
     NSArray * sortDescriptors = @[
-                                  [NSSortDescriptor sortDescriptorWithKey:@"section.position" ascending:YES],
-                                  [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES],
-                                  ];
+                                  [NSSortDescriptor sortDescriptorWithKey:@"section.id" ascending:YES],
+                                  [NSSortDescriptor sortDescriptorWithKey:@"section.name" ascending:YES],
+                                  [NSSortDescriptor sortDescriptorWithKey:@"section.position" ascending:YES]                                  ];
     
-    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntitySection];
+   // NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntitySection];
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntityResource];
+
     request.sortDescriptors = sortDescriptors;
     request.includesPendingChanges = NO;
     
@@ -103,15 +106,20 @@
      
      */
     
-    NSLog(@"Search Fetch Results Controller: %@",  self.searchFetchedResultsController);
+    SSULogDebug(@"Search Fetch Results Controller: %@",  self.searchFetchedResultsController);
+    
+    SSULogDebug(@"SSUResourcesEntitySection: %@",SSUResourcesEntitySection);
 
+    //*
     self.searchFetchedResultsController =[[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                              managedObjectContext:self.context
                                                                                sectionNameKeyPath:@"section.position" //uncaught expection
                                                                                         cacheName:nil];
     self.searchFetchedResultsController.delegate =self;
     [self.searchFetchedResultsController performFetch:nil];
-    
+
+     // */
+     
 }
 
 #pragma mark - Table view data source
