@@ -36,6 +36,8 @@
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    self.searchKey = @"name";//zeyad added
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
 }
@@ -54,16 +56,7 @@
 - (void) setupCoreData {
     //Zeyad
     //on startup contents of FetchRequest
-    /*
-     <NSFetchRequest: 0x6180002c3410> (entity: SSUResourcesEntry; predicate: ((null)); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
 
-     
-     when you search, there is no fetch request,  it needs to be of entity SSUReasourcesEntry
-     might need to build a new fetch request to pass to the search. I need to find out where it happens in directory and do it for Resources    
-     
-     
-     
-     */
     NSArray * sortDescriptors = @[
                                   [NSSortDescriptor sortDescriptorWithKey:@"section.id" ascending:YES],
                                   [NSSortDescriptor sortDescriptorWithKey:@"section.name" ascending:YES],
@@ -86,25 +79,18 @@
 
 -(void) makeSearchFetchedResultsController{
     //Made By Zeyad
-    //currently commented out in viewDidLoad()
     
     NSArray * sortDescriptors = @[
                                   [NSSortDescriptor sortDescriptorWithKey:@"section.id" ascending:YES],
                                   [NSSortDescriptor sortDescriptorWithKey:@"section.name" ascending:YES],
                                   [NSSortDescriptor sortDescriptorWithKey:@"section.position" ascending:YES]                                  ];
     
-   // NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntitySection];
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:SSUResourcesEntityResource];
 
     request.sortDescriptors = sortDescriptors;
     request.includesPendingChanges = NO;
     
-    //there is an uncaught exeption found here
-    /*
-     *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'keypath section.position not found in entity <NSSQLEntity SSUResourcesSection id=2>'
-     *** First throw call stack:
-     
-     */
+
     
     SSULogDebug(@"Search Fetch Results Controller: %@",  self.searchFetchedResultsController);
     
@@ -113,7 +99,7 @@
     //*
     self.searchFetchedResultsController =[[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                              managedObjectContext:self.context
-                                                                               sectionNameKeyPath:@"section.position" //uncaught expection
+                                                                               sectionNameKeyPath:@"section.position" 
                                                                                         cacheName:nil];
     self.searchFetchedResultsController.delegate =self;
     [self.searchFetchedResultsController performFetch:nil];
@@ -135,13 +121,45 @@
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     id<NSFetchedResultsSectionInfo> info = self.fetchedResultsController.sections[section];
     SSUResourcesEntry * firstResource = [[info objects] objectAtIndex:0];
+    //SSULogDebug(@"*******************\nResource: %@ \n\n\n", firstResource);//zeyad
     return [firstResource.section name];
 }
 
+
+
+- (SSUResourcesEntry *) objectAtIndex:(NSIndexPath *)indexPath {
+    //Zeyad added
+    //on second call, this errors after a search
+    //at this index, there is no value.
+    if(self.isSearching) {
+        return [self.searchFetchedResultsController objectAtIndexPath:indexPath];
+    } else {
+        return [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
+    
+}
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /* zeyad
+ 
+     
+     
+     */
+    
+    //zeyad added, might not need
+   // SSUResourcesEntry *object = [self objectAtIndex:indexPath];
+   // NSString *cellIndentifier = object.entity.name;
+
+    
+    
+    
     SSUResourcesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    SSUResourcesEntry * resource = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //this will be replaced by object at index above
+    //SSUResourcesEntry * resource = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    SSUResourcesEntry * resource = [self objectAtIndex:indexPath];
     cell.titleLabel.text = resource.name;
     
     
@@ -156,6 +174,9 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //zeyad this function is in booth resources and directory
+    
+    
     SSUResourcesEntry * resource = [self.fetchedResultsController objectAtIndexPath:indexPath];
     self.selectedIndexPath = indexPath;
     UIActionSheet * actionSheet = nil;

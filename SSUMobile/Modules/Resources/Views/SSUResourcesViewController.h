@@ -11,4 +11,8 @@
 
 @interface SSUResourcesViewController : SSUCoreDataTableViewController
 
+@property (nonatomic, nullable, strong) NSString * searchKey;
+
+
+
 @end

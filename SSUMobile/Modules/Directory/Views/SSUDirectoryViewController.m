@@ -309,6 +309,8 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 }
 
 - (SSUDirectoryObject *) objectAtIndex:(NSIndexPath *)indexPath {
+    //Zeyad and i need this
+    // this is what tells the view to switch between the search data and the original data 
     if(self.isSearching) {
         return [self.searchFetchedResultsController objectAtIndexPath:indexPath];
     } else {
@@ -317,17 +319,22 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Zeyad I think i need this
+    //need the object
     SSUDirectoryObject* object = [self objectAtIndex:indexPath];
     NSString *cellIdentifier = object.entity.name;
+    // this part above
+    
     SSUDirectoryTableViewCell *cell = (id)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [self configureCell:cell forObject:object];
     return cell;
 }
 
+//Zeyad might not need this
 - (UITableViewCell *) tableView:(UITableView *)tableView searchCellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SSUDirectoryObject * obj = [self.searchFetchedResultsController objectAtIndexPath:indexPath];
     NSString * identifier = obj.entity.name;
-    
+    //zeyad
     // Even though this is the search results table view, use our table view to construct the cell
     SSUDirectoryTableViewCell *cell = (id)[self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -342,6 +349,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //zeyad this is in booth
     SSUDirectoryObject* object = (self.isSearching) ? [self.searchFetchedResultsController objectAtIndexPath:indexPath] : [self objectAtIndex:indexPath];
     self.selectedObject = object;
     
@@ -357,14 +365,7 @@ static NSString * const HEADER_IDENTIFIER = @"Header";
 - (NSFetchedResultsController *) makeFetchedResultsController {
     //Zeyad
     //on startup of FetchREquest
-    /*
-     
-     <NSFetchRequest: 0x6080002c4c20> (entity: SSUPerson; predicate: ((null)); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
 
-
-     
-     
-     */
     NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName:self.entityName];
     
     fetchRequest.predicate = self.predicate;

@@ -49,8 +49,8 @@
 
 - (NSString *) searchKey {
     if (_searchKey) return _searchKey;
-    
-    _searchKey = @"term";
+    //this used to be "term"
+    _searchKey = @"name";
     return _searchKey;
 }
 
@@ -80,7 +80,7 @@
 
 - (void) updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSString * searchText = searchController.searchBar.text;
-    SSULogDebug(@"Search text: %@", searchText);     //Zeyad search field debug
+    //SSULogDebug(@"Search text: %@", searchText);     //Zeyad search field debug
     [self filterContentForSearchText:searchText];
 }
 
