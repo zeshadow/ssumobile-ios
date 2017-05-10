@@ -111,17 +111,45 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedResultsController sections] count];
+    //zeyad modified
+    if(self.isSearching){
+        return [[self.searchFetchedResultsController sections] count];
+        
+    }else{
+        return [[self.fetchedResultsController sections] count];
+        
+    }
+    
+    
+    //return [[self.fetchedResultsController sections] count];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fetchedResultsController.sections[section] numberOfObjects];
+    
+    //zeyad modified
+    if(self.isSearching){
+        return [self.searchFetchedResultsController.sections[section] numberOfObjects];
+
+    }else{
+        return [self.fetchedResultsController.sections[section] numberOfObjects];
+
+    }
+        
+    
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    id<NSFetchedResultsSectionInfo> info = self.fetchedResultsController.sections[section];
+    //zeyad modified
+    id<NSFetchedResultsSectionInfo> info;
+    if(self.isSearching){
+        info = self.searchFetchedResultsController.sections[section];
+    }else{
+        info = self.fetchedResultsController.sections[section];
+    
+    }
+    //id<NSFetchedResultsSectionInfo> info= self.fetchedResultsController.sections[section];
     SSUResourcesEntry * firstResource = [[info objects] objectAtIndex:0];
-    //SSULogDebug(@"*******************\nResource: %@ \n\n\n", firstResource);//zeyad
     return [firstResource.section name];
 }
 
@@ -153,13 +181,8 @@
    // NSString *cellIndentifier = object.entity.name;
 
     
-    
-    
-    SSUResourcesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    //this will be replaced by object at index above
-    //SSUResourcesEntry * resource = [self.fetchedResultsController objectAtIndexPath:indexPath];
     SSUResourcesEntry * resource = [self objectAtIndex:indexPath];
+    SSUResourcesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.titleLabel.text = resource.name;
     
     
